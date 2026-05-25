@@ -14,7 +14,8 @@
 
 - `metadata/` — рабочие JSON-метаданные для импорта в BaSYS.
 - `docs/` — документация проекта: ТЗ, журнал решений (ADR), словарь.
-- `../.opencode/skills/` — workspace-скиллы OpenCode для ролей и BaSYS-метаданных.
+- `../.opencode/agent/` — workspace-агенты OpenCode для Аналитика и Инженера.
+- `../.opencode/skills/` — workspace-скиллы OpenCode для BaSYS-метаданных и тематических workflows.
 - `../AGENTS.md` — короткая постоянная инструкция для AI-ассистента.
 
 ## Сопутствующие ресурсы (вне репозитория, в корне workspace)
@@ -22,9 +23,9 @@
 - `../basys-docs/` — клон официальной документации BaSYS (read-only). Первоисточник правды о платформе.
 - `../basys-docs-index.md` — карта по `basys-docs/ru/`.
 - `../reference/` — экспорт действующей системы как референсный корпус (read-only).
-- `../AGENTS.md` и `../.opencode/skills/` — методические правила работы.
+- `../AGENTS.md`, `../.opencode/agent/` и `../.opencode/skills/` — методические правила работы.
 - `../OPEN_QUESTIONS.md`, `../Claude_Context.md` — рабочие файлы для AI-ассистента.
 
 ## Подробнее
 
-Ключевые принципы и соглашения — в `../AGENTS.md`, `docs/decisions.md` и workspace-скиллах OpenCode.
+Ключевые принципы и соглашения — в `../AGENTS.md`, `docs/decisions.md`, workspace-агентах и workspace-скиллах OpenCode.

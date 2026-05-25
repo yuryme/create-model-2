@@ -7,13 +7,13 @@ Read these files at the beginning of every project session:
 
 Without these two files, recommendations about the project are likely to be stale.
 
-## Roles
+## Agents
 
-The workspace uses three assistant roles in separate chats:
+The workspace uses specialized OpenCode agents in separate chats:
 
-- `/analyst` - Analyst: designs specifications in `project/docs/specs/`.
-- `/engineer` - Engineer: implements approved specifications and maintains infrastructure.
-- PM assistant - this chat: helps the human PM coordinate roles, review artifacts, and maintain workspace documentation.
+- `analyst` - designs solution methodologies and specifications in `project/docs/specs/`.
+- `engineer` - implements approved specifications and maintains project infrastructure.
+- PM assistant - the coordinating chat: helps the human PM coordinate agents, review artifacts, and maintain workspace documentation.
 
 The human PM approves designs, specifications, implementation plans, and final implementations.
 
@@ -30,11 +30,11 @@ Exception: `$schema` paths inside BaSYS metadata JSON files are relative to the 
 - `basys-docs-index.md` - local map of `basys-docs/ru/`.
 - `reference/` - read-only reference export from another BaSYS installation; use for patterns, not UID values.
 - `inbox/` - incoming materials for analysis.
-- `Claude_Context.md`, `OPEN_QUESTIONS.md`, `RETROSPECTIVE.md` - workspace-level working documents.
+- `Claude_Context.md`, `OPEN_QUESTIONS.md` - workspace-level working documents.
 
 ## Safety Rules
 
 - Do not edit `reference/` unless explicitly asked.
 - Do not edit `basys-docs/` except explicit documentation update operations.
 - Before creating, editing, or deleting files, provide a concise action plan and wait for explicit PM approval.
-- Legacy Claude Code project files have been removed; use `.opencode/skills/` and `opencode.json` for project instructions.
+- Legacy Claude Code project files have been removed; use `.opencode/agent/`, `.opencode/skills/`, and `opencode.json` for project instructions.

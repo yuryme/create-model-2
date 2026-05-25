@@ -4,7 +4,7 @@
 > **Не дублировать:** обсуждения и очередь вопросов → `OPEN_QUESTIONS.md`; формальные архитектурные решения → `project/docs/decisions.md`.
 > **Поддерживает AI-ассистент** — обновляет в конце смысловой главы работы.
 
-**Последнее обновление:** 2026-05-25 — workspace перенесён на OpenCode и очищен от legacy Claude Code infrastructure и старых тестовых результатов.
+**Последнее обновление:** 2026-05-25 — Аналитик и Инженер переведены из role-skills в OpenCode agents; workspace очищен от legacy Claude Code infrastructure и старых тестовых результатов.
 
 ---
 
@@ -14,18 +14,19 @@
 
 Workspace работает в OpenCode из корня `create-model-2/`. Все пути в инструкциях относительны этому корню. Исключение: `$schema` внутри JSON-метаданных относителен самому JSON-файлу.
 
-## Роли
+## Агенты
 
-- **Аналитик** (`/analyst`): проектирует методики и ТЗ в `project/docs/specs/`; не правит `project/metadata/`.
-- **Инженер** (`/engineer`): реализует approved-ТЗ, пишет план реализации, меняет `project/metadata/`, готовит инструкцию импорта.
+- **analyst**: OpenCode agent для проектирования методик и ТЗ в `project/docs/specs/`; не правит `project/metadata/`.
+- **engineer**: OpenCode agent для реализации approved-ТЗ, планов реализации, изменений `project/metadata/` и инструкций импорта.
 - **Ассистент PM**: текущий координационный чат; ведёт контекст, ревьюит артефакты, помогает PM принимать этапы.
 - **PM**: пользователь; утверждает методики, ТЗ, планы и реализации.
 
 ## Что построено
 
-- `opencode.json` — проектная конфигурация OpenCode, подключает `AGENTS.md`, `.opencode/skills/` и slash-команды `/analyst`, `/engineer`.
+- `opencode.json` — проектная конфигурация OpenCode, подключает `AGENTS.md` и `.opencode/skills/`.
 - `AGENTS.md` — постоянная инструкция workspace для OpenCode.
-- `.opencode/skills/` — OpenCode-скиллы: `analyst`, `engineer`, `basys-metadata`, `basys-docs`, `client-interview`, `excel-import-to-detail`.
+- `.opencode/agent/` — OpenCode agents: `analyst`, `engineer`.
+- `.opencode/skills/` — OpenCode skills: `basys-metadata`, `basys-docs`, `client-interview`, `excel-import-to-detail`.
 - `project/metadata/` — чистая стартовая BaSYS-модель: `system/`, `catalog/product_group`, `menu/main`.
 - `project/docs/` — ADR, словарь, шаблоны, будущие ТЗ, методики, планы и материалы интервью.
 - `basys-docs-index.md` — карта локальной документации BaSYS.
@@ -53,5 +54,5 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 
 1. Проверить diff после очистки.
 2. По одобрению PM сделать commit и push cleanup-изменений.
-3. После перезапуска OpenCode проверить `/analyst` и `/engineer`.
+3. После перезапуска OpenCode проверить agents `analyst` и `engineer`.
 4. Определить боевую предметную область проекта.

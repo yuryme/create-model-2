@@ -3,15 +3,5 @@
   "instructions": ["AGENTS.md"],
   "skills": {
     "paths": [".opencode/skills"]
-  },
-  "command": {
-    "analyst": {
-      "description": "Load the BaSYS Analyst role",
-      "prompt": "Load and follow the project skill `analyst` from `.opencode/skills/analyst/SKILL.md`. Act as the Analyst for this session."
-    },
-    "engineer": {
-      "description": "Load the BaSYS Engineer role",
-      "prompt": "Load and follow the project skill `engineer` from `.opencode/skills/engineer/SKILL.md`. Act as the Engineer for this session."
-    }
   }
 }
