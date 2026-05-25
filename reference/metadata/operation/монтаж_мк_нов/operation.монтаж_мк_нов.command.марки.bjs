@@ -1,0 +1,56 @@
+/*
+catalog.марки | SELECT (id as марки, наименование_марки, проект_заказ, вес_всех_кг);
+catalog.шифр_км | SELECT (id, очередь ) | GetTitle ();
+монтаж | проект_заказ ($h.проект_заказ) | GroupBy (марки, проект_заказ, 
+шифр_км, колво_тн as колво_осталось_тн, колво_тн as колво_монтаж  ) | GetTitle () | LeftJoinAuto ($result_1, марки = result_1.марки ) | LeftJoinAuto ($result_2, шифр_км = result_2.id ) | Compute ( колво_чертежи_тн, вес_всех_кг / 1000) | DeleteColumn ( вес_всех_кг, id) | AddColumn (дата, $h.date )*/
+
+var regMont = await from('records.монтаж')
+  .where('regr_монтаж.проект_заказ = @project')
+  .parameter('project', $h.проект_заказ, 11)
+  .getDisplays()
+  .query();
+
+var uniqueMarks = Array.from(
+  new Set(
+    (regMont.rows ?? [])
+      .map(r => r.марки)
+      .filter(v => v != null)
+  )
+);
+
+var result1 = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'наименование_марки',
+    'вес_всех_кг'
+  ])
+  .where('id in @uniqueMarks')
+  .parameter('uniqueMarks', uniqueMarks)
+  .query();
+
+var result2 = await from('catalog.шифр_км')
+  .select(['id', 'очередь'])
+  .getDisplays()
+  .query();
+var operationDate = $h.date;
+result = regMont
+  .groupBy(
+    ['марки', 'марки_display','проект_заказ', 'проект_заказ_display', 'шифр_км', 'шифр_км_display'],
+    [
+      { name: 'колво_тн', alias: 'колво_осталось_тн', aggregate: 'sum' },
+      { name: 'колво_тн', alias: 'колво_монтаж', aggregate: 'sum' }
+    ]
+  )
+  .leftJoin(result1, (pr, jn) => pr.марки === jn.марки)
+  .leftJoin(result2, (pr, jn) => pr.шифр_км === jn.id)
+  .addColumn('колво_чертежи_тн', 'number')
+  .process(r => {
+    r.колво_чертежи_тн = r.вес_всех_кг / 1000
+  })
+  .deleteColumns(['вес_всех_кг', 'id'])
+  .addColumn('дата', 'datetime')
+  .process(r => {
+    r.дата = operationDate;
+  });
+
+openPickUp(result, 'table_1');

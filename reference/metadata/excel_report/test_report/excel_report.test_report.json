@@ -1,0 +1,18 @@
+{
+  "$schema": "../../system/schemas/excelReportSettings.schema.json",
+  "Uid": "073436ac-f7f5-4f23-98b5-1f45bad9abbd",
+  "Name": "test_report",
+  "Title": "Все задачи",
+  "Memo": "",
+  "IsActive": false,
+  "Version": 5,
+  "DataSources": [
+    {
+      "Uid": "57b11abe-57ed-1013-a6fe-1d0159621bf0",
+      "Name": "tasks",
+      "Expression": "excel_report.test_report.data_source.tasks.bjs",
+      "Memo": null
+    }
+  ],
+  "Filters": []
+}

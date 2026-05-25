@@ -1,0 +1,99 @@
+{
+  "$schema": "../../system/schemas/menuSettings.schema.json",
+  "Uid": "714ea6c8-057a-dfdf-30de-0f458d2d78e4",
+  "Name": "мтс",
+  "Title": "МТС",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 1,
+  "Items": [
+    {
+      "Uid": "30462ffd-396f-1837-88c5-45f30cdb1077",
+      "Kind": 3,
+      "Title": "МТС",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": "",
+      "Items": [
+        {
+          "Uid": "7cdbd215-f8aa-28af-5232-47a23fcbe1d5",
+          "Items": [
+            {
+              "Uid": "66c07d0a-7fef-8d55-7061-b44dc15dbf1a",
+              "Title": "Справочники",
+              "IsVisible": true,
+              "Items": [
+                {
+                  "Uid": "fc1ad68c-0fcf-7718-f563-470ab17e5b1b",
+                  "Kind": 1,
+                  "Title": "Номенклатура РД",
+                  "IconClass": "",
+                  "Url": "/app#/data-objects/catalog/справочник_расценок",
+                  "IsVisible": true
+                }
+              ]
+            },
+            {
+              "Uid": "e68d2612-716c-c039-3444-29fd7b956f2f",
+              "Title": "Операции",
+              "IsVisible": true,
+              "Items": [
+                {
+                  "Uid": "a84baf9e-6a62-dcc7-e7c2-026bd35abd62",
+                  "Kind": 1,
+                  "Title": "Спецификация РД",
+                  "IconClass": "",
+                  "Url": "/app#/data-objects/operation/заявка_мтс_2",
+                  "IsVisible": true
+                },
+                {
+                  "Uid": "0d54b9c0-cd9f-2e40-c3de-7d91f7dd9148",
+                  "Kind": 1,
+                  "Title": "Заявка площадки",
+                  "IconClass": "",
+                  "Url": "/app#/data-objects/operation/заявка_площадки_с",
+                  "IsVisible": true
+                },
+                {
+                  "Uid": "9b9708c6-ff40-75b2-d86b-7f8c14358dae",
+                  "Kind": 1,
+                  "Title": "Заказ поставщику",
+                  "IconClass": "",
+                  "Url": "/app#/data-objects/operation/заказ_поставщик_мтс",
+                  "IsVisible": true
+                },
+                {
+                  "Uid": "2175a048-30ab-e9fb-30b9-6107c33002ca",
+                  "Kind": 1,
+                  "Title": "Поставка",
+                  "IconClass": "",
+                  "Url": "/app#/data-objects/operation/поставка_мтс",
+                  "IsVisible": true
+                }
+              ]
+            },
+            {
+              "Uid": "84625f5a-39c7-d45a-c3ec-7d9129d74f2f",
+              "Title": "Отчеты",
+              "IsVisible": true,
+              "Items": [
+                {
+                  "Uid": "8b5e03fc-395a-3fd4-9045-f2a0a3525ff7",
+                  "Kind": 1,
+                  "Title": "01. Спецификация - Заявка площадки",
+                  "IconClass": "",
+                  "Url": "/app#/view-objects/customreport/mts_specification",
+                  "IsVisible": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}

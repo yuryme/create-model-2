@@ -1,0 +1,48 @@
+var table = createTable([
+  {name: 'id', dataType: 'number'},
+  {name: 'uid'},
+  {name: 'name'},
+  {name: 'code'},
+  {name: 'title'},
+  {name: 'memo'},
+  {name: 'isdeleted'},
+  {name: 'isfiles'},
+  {name: 'externalcode'},
+  {name: 'externaluid'},
+  {name: 'город'},
+  {name: 'площадь'},
+  {name: 'кодокато'},
+  {name: 'население_2'},
+  {name: 'население_1'},
+  {name: 'мун_образования'},
+  {name: 'тип_субъекта'},
+  {name: 'расстояние_москва'},
+  {name: 'presentation'}  
+]);
+
+_data.request.data.forEach(row => {
+  table.addRow({
+    id: row.id,
+    uid: row.uid,
+    name: row.name,
+    code: row.code,
+    title: row.title,
+    memo: row.memo,
+    isdeleted: row.isdeleted,
+    isfiles: row.isfiles,
+    externalcode: row.externalcode,
+    externaluid: row.externaluid,
+    город: row.город,
+    площадь: row.площадь,
+    кодокато: row.кодокато,
+    население_2: row.население_2,
+    население_1: row.население_1,
+    мун_образования: row.мун_образования,
+    тип_субъекта: row.тип_субъекта,
+    расстояние_москва: row.расстояние_москва,
+    presentation: row.presentation
+    
+  });
+});
+
+return table;

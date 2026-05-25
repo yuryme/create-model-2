@@ -1,0 +1,10 @@
+var result = $t.table_1;
+if ($t.table_1.rows.length > 0) {
+  result = $t.table_1
+  .select(['дата', 'колво_монтаж'])
+  .filter(r => r.дата != null)
+  .groupBy(['дата'], ['колво_монтаж']);
+}
+
+return result;
+

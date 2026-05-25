@@ -1,0 +1,5 @@
+await from("operation.штатное_расписание")
+  .select(['number', 'date', 'create_records'])
+  .where('create_records = @flag')
+  .parameter('flag', false, 3)
+  .query();

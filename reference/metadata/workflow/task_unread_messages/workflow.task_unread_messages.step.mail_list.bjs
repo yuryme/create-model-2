@@ -1,0 +1,6 @@
+var tableMailList = _data.unread_messages.groupBy(['person_to'], ['task'])
+  .deleteColumn('task').leftJoin(_data.persons, (pr, jr) => pr.person_to == jr.person);
+
+tableMailList = tableMailList.filter(row => row.person_to == 1); // Деев.
+
+return tableMailList;

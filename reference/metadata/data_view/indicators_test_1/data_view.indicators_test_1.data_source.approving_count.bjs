@@ -1,0 +1,1 @@
+return _data.contracts.filter(row=>row.status == 'на_согласовании').count();

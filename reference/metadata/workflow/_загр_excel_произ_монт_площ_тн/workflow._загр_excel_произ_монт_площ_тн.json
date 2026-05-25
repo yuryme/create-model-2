@@ -1,0 +1,80 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "ca417e42-cebd-275c-d086-a3002e241b02",
+  "Name": "_загр_excel_произ_монт_площ_тн",
+  "Title": "02.028 Загрузка Excel. Производство. 18-3. Загрузка в Монтаж-площадка (тн)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 4,
+  "Steps": [
+    {
+      "Expression": "workflow._загр_excel_произ_монт_площ_тн.step.operation_data.bjs",
+      "Uid": "ce0080a7-5072-0750-29b8-c34de40ae093",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Operation data",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загр_excel_произ_монт_площ_тн.step.find_file.bjs",
+      "Uid": "4e44ebb1-ad21-ca5c-65a1-bc2c04b20edd",
+      "PreviousStepUid": "ce0080a7-5072-0750-29b8-c34de40ae093",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "cb5b30ad-3a00-78e9-ce04-cc9a45db1ad0",
+      "PreviousStepUid": "4e44ebb1-ad21-ca5c-65a1-bc2c04b20edd",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "b75940a5-3fd5-d46f-d3a2-efbd855870f8",
+          "SourceFieldName": "Марка",
+          "DestinationFieldName": "марка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "7e3cac48-0146-b65d-e8a9-8ff24c6d571e",
+          "SourceFieldName": "Кол-во, шт",
+          "DestinationFieldName": "колво_шт_монтаж",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "46aff2fe-416c-2b72-51dd-bcc5efc2aa15",
+          "SourceFieldName": "Дата",
+          "DestinationFieldName": "дата",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12"
+        }
+      ],
+      "Uid": "d74ed0fd-3e97-b489-36bd-fec11416530e",
+      "PreviousStepUid": "cb5b30ad-3a00-78e9-ce04-cc9a45db1ad0",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

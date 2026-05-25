@@ -1,0 +1,12 @@
+//TempTable.table_2 | Unpivot( time_str, д_01, д_02, д_03, д_04, д_05, д_06, д_07, д_08, д_09, д_10, д_11, д_12, д_13, д_14, д_15, д_16, д_17, д_18, д_19, д_20, д_21, д_22, д_23, д_24, д_25, д_26, д_27, д_28, д_29, д_30, д_31)  
+//| Having( time_str = 'Д' or time_str = 'д' )
+
+const days = [];
+for (let i = 1; i <= 31; i++) {
+  days.push(`д_${String(i).padStart(2, '0')}`);
+}
+
+var resultTable = $t.table_2.unpivot('time_str', days)
+  .filter(row => row.time_str === 'Д' || row.time_str === 'д');
+
+return resultTable;

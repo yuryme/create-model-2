@@ -1,0 +1,110 @@
+/*TempTable.дан_опер;
+TempTable.меппинг;
+
+CreateTable(проект_заказ integer) | UnionAll($result_1) | LIST(проект_заказ);
+Catalog.шифр_км | проект_заказ  ($result_3) | Select (id, title as шифр_км_title, проект_заказ );
+CreateTable | FullJoinAuto ($result_4, ) | GroupBy (id) | List ( id);
+Catalog.марки | актуальность (1) | шифр_км ($result_5) | Select (id as марки, title, наименование_марки as наименование, шифр_км as проект, уникальное_поле, колво as колво_в_кмд, вес_одной_кг as вес_одной_шт_кг, вес_всех_кг) | GetTitle ();
+
+CreateTable | FullJoinAuto ($result_2, ) | LeftJoinAuto ( $result_4, 1=1) | Concatenate (уникальное_поле, шифр_км_title,_,марка) | LeftJoinAuto ( $result_6, уникальное_поле = result_6.уникальное_поле ) | Having ( title is not Null ) | Compute ( общий_вес_врем, вес_одной_шт_кг * колво_шт / 1000) | ComputeFunction( "общий_вес", "Math.Round(общий_вес_врем, 3, MidpointRounding.AwayFromZero)") | OrderBy (уникальное_поле);
+
+CreateTable | FullJoinAuto ($result_7, ) | GroupBy ( марки ) | LIST (марки);
+
+монтаж | template (8) | марки ($result_8) | GroupBy ( марки, колво as колво_ранее );
+
+CreateTable | FullJoinAuto ($result_7, ) | LeftJoinAuto ( $result_9, марки=result_9.марки)*/
+
+var result1 = _data.operation_data;
+var result2 = _data.mapping;
+
+var projectList = (result1.rows ?? [])
+  .map(r => r.проект_заказ)
+  .filter(v => v != null);
+
+projectList = Array.from(new Set(projectList));
+
+var kmTable = await from('catalog.шифр_км')
+  .select(['id', 'title as шифр_км_display', 'проект_заказ'])
+  .where('проект_заказ in @projectList')
+  .parameter('projectList', projectList)
+  .query();
+
+var kmIds = Array.from(
+  new Set(
+    (kmTable.rows ?? [])
+      .map(r => r.id)
+      .filter(v => v != null)
+  )
+);
+
+var markiCatalog = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'title as марки_display',
+    'наименование_марки as наименование',
+    'шифр_км as проект',
+    'уникальное_поле',
+    'колво as колво_в_кмд',
+    'вес_одной_кг as вес_одной_шт_кг',
+    'вес_всех_кг'
+  ])
+  .where('cat_марки.актуальность = 1 AND cat_марки.шифр_км in @kmIds')
+  .parameter('kmIds', kmIds)
+  .getDisplays()
+  .query();
+
+var table7 = result2
+  .leftJoin(kmTable, () => true)
+  .addColumn('уникальное_поле', 'string')
+  .process(r => {
+    r.уникальное_поле = r.шифр_км_display + '_' + r.марка;
+  })
+  .leftJoin(markiCatalog, (pr, jn) => pr.уникальное_поле === jn.уникальное_поле)
+  .filter(r => isNotEmpty(r.марки_display))
+  .addColumn('общий_вес_врем', 'number')
+  .addColumn('общий_вес', 'number')
+  .process(r => {
+    r.общий_вес_врем =
+      r.вес_одной_шт_кг * r.колво_шт / 1000;
+    r.общий_вес =
+      Math.round(r.общий_вес_врем * 1000) / 1000;
+  })
+  .orderBy((a, b) =>
+    String(a.уникальное_поле).localeCompare(String(b.уникальное_поле))
+  );
+
+var markiList = Array.from(
+  new Set(
+    (table7.rows ?? [])
+      .map(r => r.марки)
+      .filter(v => v != null)
+  )
+);
+
+var meta_object ='4d797083-d364-40c5-acf3-3b8051200676'
+var montage = await from('records.монтаж')
+  .select(['марки', 'колво'])
+  .where('meta_object = @mtobj AND марки in @markiList')
+  .parameter('mtobj', meta_object, 9) // Guid
+  .parameter('markiList', markiList)
+  .query();
+
+if (montage.rows.length == 0) {
+  var result = table7
+  .addColumn('колво_ранее', 'number')
+  .process(r=> r.колво_ранее =0)
+  return result;
+}
+
+montage = montage
+  .groupBy(
+    ['марки'],
+    [{ name: 'колво', alias: 'колво_ранее', aggregate: 'sum' }]
+  );
+
+var result = table7.leftJoin(
+  montage,
+  (pr, jn) => pr.марки === jn.марки
+);
+
+return result;

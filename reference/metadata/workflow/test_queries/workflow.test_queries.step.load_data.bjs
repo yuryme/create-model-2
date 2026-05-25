@@ -1,0 +1,5 @@
+var tableOperations = await from('operation.заявка_мтс_2')
+  .select(['number', 'date'])
+  .top(10).query();
+
+return tableOperations;

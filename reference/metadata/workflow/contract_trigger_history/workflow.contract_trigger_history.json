@@ -1,0 +1,89 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "74b3af74-da8b-456d-e5ed-a38ca77daa79",
+  "Name": "contract_trigger_history",
+  "Title": "03.003.05 Проект договора: триггер история статусов",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 2,
+  "Steps": [
+    {
+      "Expression": "workflow.contract_trigger_history.step.history.bjs",
+      "Uid": "0d40088c-e579-75c0-efc1-9e330f4adcd6",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "History",
+      "Name": "history",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.contract_trigger_history.step.data.bjs",
+      "Uid": "12ef697c-8aef-f22f-962a-e090b7e74007",
+      "PreviousStepUid": "0d40088c-e579-75c0-efc1-9e330f4adcd6",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "6c570482-78a7-483a-bd46-79844b6da6cf",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "9491188b-4574-9bc5-cedc-2b8f7253e270",
+          "SourceFieldName": "period",
+          "DestinationFieldName": "period",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "74881e78-8ec1-2ea1-9717-e2af240b4351",
+          "SourceFieldName": "document",
+          "DestinationFieldName": "document",
+          "DefaultValue": "",
+          "SearchBy": "number",
+          "DataTypeUid": "eded8edc-8d6b-4e2f-a068-52d401d1caaa",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "1e0bc5bb-c316-3465-09cc-1b40eb252840",
+          "SourceFieldName": "status",
+          "DestinationFieldName": "status",
+          "DefaultValue": "",
+          "SearchBy": "name",
+          "DataTypeUid": "8c8c5ab2-3dba-4673-9451-9704402d7593",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "b10badc7-a6b7-0f19-854c-b66fa1319857",
+          "SourceFieldName": "person",
+          "DestinationFieldName": "person",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "c5e2c05b-026d-1c7c-4521-9c7108242f30",
+      "PreviousStepUid": "12ef697c-8aef-f22f-962a-e090b7e74007",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Save history",
+      "Name": "save_history",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

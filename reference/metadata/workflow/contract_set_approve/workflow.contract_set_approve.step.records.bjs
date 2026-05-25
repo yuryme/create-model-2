@@ -1,0 +1,17 @@
+var records = await from('register.согласование_договоров')
+  .where('проект_договора = @number and person = @person and на_согласовании = true')
+  .parameter('number', _parameters.number)
+   .parameter('person', _parameters.person)
+  .query();
+
+var today = (new Date());
+today.setHours(today.getHours()+3);
+var today = today.toLocalISO();
+records.process(row=>{
+  row.решение = _parameters.decision;
+  row.комментарий = _parameters.comment;
+  row.дата_согласования = today;
+  row.person_fact = _parameters.person_fact;
+});
+
+return records;

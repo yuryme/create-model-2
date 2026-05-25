@@ -1,0 +1,7 @@
+var result = await from('register.порядок_визирования_договоров')
+  .select(['person', 'approve_role', 'fill_order', 'department', 'project', 'contract_kind'])
+  .orderBy('fill_order, approve_role')
+  .query();
+
+
+return result;

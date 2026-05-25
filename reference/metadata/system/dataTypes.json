@@ -1,0 +1,1412 @@
+[
+  {
+    "Uid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+    "Kind": "",
+    "Name": "",
+    "Title": "Строка",
+    "IsPrimitive": true,
+    "DbType": 16,
+    "ObjectKindUid": null,
+    "TypeName": "System.String"
+  },
+  {
+    "Uid": "b327f82a-ea96-416f-9836-785db28eccac",
+    "Kind": "",
+    "Name": "",
+    "Title": "Целое число (int)",
+    "IsPrimitive": true,
+    "DbType": 11,
+    "ObjectKindUid": null,
+    "TypeName": "System.Int32"
+  },
+  {
+    "Uid": "daa57cb0-32eb-4709-b61f-4ea023ae31c3",
+    "Kind": "",
+    "Name": "",
+    "Title": "Целое число (long)",
+    "IsPrimitive": true,
+    "DbType": 12,
+    "ObjectKindUid": null,
+    "TypeName": "System.Int64"
+  },
+  {
+    "Uid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+    "Kind": "",
+    "Name": "",
+    "Title": "Булево",
+    "IsPrimitive": true,
+    "DbType": 3,
+    "ObjectKindUid": null,
+    "TypeName": "System.Boolean"
+  },
+  {
+    "Uid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+    "Kind": "",
+    "Name": "",
+    "Title": "Десятичное число",
+    "IsPrimitive": true,
+    "DbType": 7,
+    "ObjectKindUid": null,
+    "TypeName": "System.Decimal"
+  },
+  {
+    "Uid": "9001eafb-efb1-442f-b288-723bb8002b12",
+    "Kind": "",
+    "Name": "",
+    "Title": "Дата&Время",
+    "IsPrimitive": true,
+    "DbType": 6,
+    "ObjectKindUid": null,
+    "TypeName": "System.DateTime"
+  },
+  {
+    "Uid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+    "Kind": "",
+    "Name": "",
+    "Title": "Guid",
+    "IsPrimitive": true,
+    "DbType": 9,
+    "ObjectKindUid": null,
+    "TypeName": "System.Guid"
+  },
+  {
+    "Uid": "689d1aac-66d8-478f-852e-0e3881b427bf",
+    "Kind": "",
+    "Name": "",
+    "Title": "Вид метаданных",
+    "IsPrimitive": false,
+    "DbType": 9,
+    "ObjectKindUid": null,
+    "TypeName": "System.Guid"
+  },
+  {
+    "Uid": "a4d064c6-465f-42a5-bbc0-48f743148c36",
+    "Kind": "",
+    "Name": "",
+    "Title": "Объект метаданных",
+    "IsPrimitive": false,
+    "DbType": 9,
+    "ObjectKindUid": null,
+    "TypeName": "System.Guid"
+  },
+  {
+    "Uid": "7868daee-1d94-4c7c-be5f-863546c6278a",
+    "Kind": "operation",
+    "Name": "марки_статусы",
+    "Title": "Операция.01. Производство 02. Марки по КМД",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "a00d0c1d-cf89-4346-a23e-5fa38a095214",
+    "Kind": "operation",
+    "Name": "производство",
+    "Title": "Операция.01. Производство. 06. производство",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "4d797083-d364-40c5-acf3-3b8051200676",
+    "Kind": "operation",
+    "Name": "отгрузка",
+    "Title": "Операция.01. Производство. 07. отгрузка МК (машина) (П)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "e04c15f2-819e-4c31-8ea8-48282686d7a5",
+    "Kind": "operation",
+    "Name": "монтаж_мк_нов",
+    "Title": "Операция.01. Производство. 08-2. монтаж-площадка (тн/м²/м³) (П)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "6bd9de8f-2c96-4a41-8265-8c886832f67e",
+    "Kind": "operation",
+    "Name": "акт_монтаж_ме",
+    "Title": "Операция.01. Производство. 09. Акты СМР",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "d9e1173b-6b37-45ec-ac8c-67a12380e1eb",
+    "Kind": "operation",
+    "Name": "загрузка_ведомостей",
+    "Title": "Операция.01. Производство. Excel-загрузка Ведомости деталей",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "51060b87-734a-49f5-b035-ce2b530d1892",
+    "Kind": "operation",
+    "Name": "загрузка_марки_новые",
+    "Title": "Операция.01. Производство. Excel-загрузка \"Марок\" (новые)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "b2b0e629-1395-4a84-ac13-f5d7a4c29c29",
+    "Kind": "operation",
+    "Name": "обновление_марок",
+    "Title": "Операция.01. Производство. Excel-обновление \"Марок\"",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "c3d94088-ca3c-4955-b941-307ab53c4e97",
+    "Kind": "operation",
+    "Name": "цеха_марка",
+    "Title": "Операция.01. Производство. Назначение цеха \"Марке\" ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "53fe0605-c46a-40b3-a088-fbbe79d955ed",
+    "Kind": "operation",
+    "Name": "пто_ид",
+    "Title": "Операция.01. Производство. ПТО: Исполнительная",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "02a05dcf-f349-4e41-9000-bc785cc4fb89",
+    "Kind": "operation",
+    "Name": "начисление_зп",
+    "Title": "Операция.14. начисление ЗП",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "a30177b3-bf29-4e3d-9215-9a1a5e2fcfdb",
+    "Kind": "operation",
+    "Name": "task",
+    "Title": "Операция.Задача",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "f66da92e-17bc-423e-811b-8ec74c88bcfe",
+    "Kind": "operation",
+    "Name": "заказ_поставщик_мтс",
+    "Title": "Операция.Заказ поставщику (С)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "5e502779-3a7f-44bb-bfa5-ff8577914f33",
+    "Kind": "operation",
+    "Name": "заявка_площадки_с",
+    "Title": "Операция.Заявка площадки (С)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "83438b09-3ad7-4eee-9f3f-e7e1a8b09d87",
+    "Kind": "operation",
+    "Name": "карточка_договора",
+    "Title": "Операция.Карточка договора",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "de856eca-ab47-4d58-8b04-56835296b64d",
+    "Kind": "operation",
+    "Name": "поставка_мтс",
+    "Title": "Операция.Поставка (С)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "6559ca86-53d5-4602-a73e-c5fe5d7edc40",
+    "Kind": "operation",
+    "Name": "почасовые_ставки_зп",
+    "Title": "Операция.Почасовые ставки ЗП",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "7ef3b164-7756-446f-899e-4ad62f7d0203",
+    "Kind": "operation",
+    "Name": "проверка_зп",
+    "Title": "Операция.Проверка выплаты ЗП",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "1d9a4176-5e75-4a4f-839c-e41cea739276",
+    "Kind": "operation",
+    "Name": "учет_рабврем_с_кту_ц",
+    "Title": "Операция.Проверка раб.врем.(ЦЕХ) (II)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "eded8edc-8d6b-4e2f-a068-52d401d1caaa",
+    "Kind": "operation",
+    "Name": "проект_договора",
+    "Title": "Операция.Проект договора",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "2d759337-880b-4ef2-95b0-3103f84d6011",
+    "Kind": "operation",
+    "Name": "раб_время_внештат_со",
+    "Title": "Операция.Раб.время внештат. сотруд-ов",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "8cc855a7-6d09-4189-afd9-9a79490dbb36",
+    "Kind": "operation",
+    "Name": "расчет_в1с",
+    "Title": "Операция.Расчет Δ к ЗП  в → 1С",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "fd213371-6c98-4d38-b3d3-11f365ee3d92",
+    "Kind": "operation",
+    "Name": "расчет_премий_2",
+    "Title": "Операция.Расчет премий (2)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "b45b76be-0114-4b28-8824-59ecbff48d86",
+    "Kind": "operation",
+    "Name": "заявка_мтс_2",
+    "Title": "Операция.Спецификация РД (С)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "5a8af282-f3a4-4311-9d8c-f679d2745284",
+    "Kind": "operation",
+    "Name": "монтаж_площадка",
+    "Title": "Операция.Табель учета рабочего времени",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "82ed45e1-d842-49f4-9e22-0f345836acf2",
+    "Kind": "operation",
+    "Name": "тарифы_дорожные",
+    "Title": "Операция.Тарифы Дорожные",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "4db7d2ff-ab71-4522-9765-84d3266fca45",
+    "Kind": "operation",
+    "Name": "учет_раб_врем_ауп",
+    "Title": "Операция.Учет раб. времени (АУП)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "7232780f-64c3-4aa3-a1dc-82704b5d4de6",
+    "Kind": "operation",
+    "Name": "учет_раб_времени_цех",
+    "Title": "Операция.Учет раб. времени (ЦЕХ)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "eaa37ae7-f841-4617-b74b-01137c1d8d85",
+    "Kind": "operation",
+    "Name": "штатное_расписание",
+    "Title": "Операция.Штатное расписание",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+    "TypeName": null
+  },
+  {
+    "Uid": "49d2bbcc-0698-4e48-9bc3-99ad5b213e12",
+    "Kind": "enum",
+    "Name": "аванс_постоплата",
+    "Title": "Перечисление.Аванс/постоплата",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "4466771b-e114-46ec-93ed-5e8f36c03aa1",
+    "Kind": "enum",
+    "Name": "вид_договора",
+    "Title": "Перечисление.Вид договора",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "b12958f5-1c6c-4c02-a2ea-8c4db9d69dac",
+    "Kind": "enum",
+    "Name": "договор_допсоглашение",
+    "Title": "Перечисление.Договор/доп.соглашение",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "fa085cf9-0475-4efc-97cf-744fe1086982",
+    "Kind": "enum",
+    "Name": "пени_неустойка",
+    "Title": "Перечисление.Пени/неустойка",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "5cae86b9-1111-4c8f-8f27-5ff4dd18af64",
+    "Kind": "enum",
+    "Name": "role_in_programm",
+    "Title": "Перечисление.Роль в программе",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "618959b9-c006-44e0-b3d2-ce63599aaf03",
+    "Kind": "enum",
+    "Name": "approve_role",
+    "Title": "Перечисление.Роль согласования",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "8c8c5ab2-3dba-4673-9451-9704402d7593",
+    "Kind": "enum",
+    "Name": "статус_договора",
+    "Title": "Перечисление.Статус договора",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "049e5e0f-eb73-4a21-ae91-91505d1ee048",
+    "Kind": "enum",
+    "Name": "task_status",
+    "Title": "Перечисление.Статус задачи",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "4107ece5-96da-4f3a-9101-1b49e7094f48",
+    "Kind": "enum",
+    "Name": "work_day_time_type",
+    "Title": "Перечисление.Тип времени рабочего дня",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "c8cc693d-d5ef-440c-9c44-74beb1b8e431",
+    "Kind": "enum",
+    "Name": "day_kind",
+    "Title": "Перечисление.Тип дня",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "7ed413ed-72eb-4a04-b73f-23d927235618",
+    "Kind": "enum",
+    "Name": "тип_договора",
+    "Title": "Перечисление.Тип договора",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "b99bb6a6-1cad-4e46-adfb-3d109836aedd",
+    "Kind": "enum",
+    "Name": "severity",
+    "Title": "Перечисление.Цвет (PrimeVue)",
+    "IsPrimitive": false,
+    "DbType": 16,
+    "ObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+    "TypeName": null
+  },
+  {
+    "Uid": "01ece513-8808-4a27-aa5e-654034128e41",
+    "Kind": "catalog",
+    "Name": "заказ_поставщик",
+    "Title": "Справочник.№ заказа (поставщ.)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "9f24db6f-69ce-45cd-b23b-599a56a7c5fc",
+    "Kind": "catalog",
+    "Name": "заявка_площадки_с",
+    "Title": "Справочник.№Заявка площадки (С)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "d8a9b780-6978-4819-b0b2-311b0f7c6bed",
+    "Kind": "catalog",
+    "Name": "очередь",
+    "Title": "Справочник.№ очереди",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "bb4f9ed7-359e-4bf9-a0b0-55a1a39a6c4f",
+    "Kind": "catalog",
+    "Name": "согласование_номер",
+    "Title": "Справочник.№ согласования",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "6e17487f-ed63-45ed-a501-06dcd03fbd6d",
+    "Kind": "catalog",
+    "Name": "номер_табеля_цех",
+    "Title": "Справочник.№ табеля (цех)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "952a54a4-122b-4f26-8c36-4dc58d055d90",
+    "Kind": "catalog",
+    "Name": "аванс_вторая_часть",
+    "Title": "Справочник.Аванс/Вторая часть",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "41bfa4e8-8330-42d5-afa3-e31d47c472b8",
+    "Kind": "catalog",
+    "Name": "актуально_отказ",
+    "Title": "Справочник.АКТУАЛЬНО/ОТКАЗ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "015c001e-04ef-4ce9-8871-22ad25cb9d19",
+    "Kind": "catalog",
+    "Name": "бригады",
+    "Title": "Справочник.Бригады",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "b99d483f-a47b-4a03-ba13-0b413691ac3b",
+    "Kind": "catalog",
+    "Name": "currency",
+    "Title": "Справочник.Валюты",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "de78247c-127b-4e03-9588-bc4a1b251c75",
+    "Kind": "catalog",
+    "Name": "версия_рд",
+    "Title": "Справочник.Версия РД",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "9c8a44c3-c3f5-4af0-998e-c30203a5b0c5",
+    "Kind": "catalog",
+    "Name": "водители",
+    "Title": "Справочник.Водители",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "e58eb0f5-20b9-47b7-80d1-7683ce4a2872",
+    "Kind": "catalog",
+    "Name": "задание_на_заказ",
+    "Title": "Справочник.ВЫДАЧА (№) (знз)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "886bc180-024b-44c7-9d1d-d01db4afa407",
+    "Kind": "catalog",
+    "Name": "галочка_зп",
+    "Title": "Справочник.Галочка в зп",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "0c951bf0-9652-40bc-937c-c92a2d95242d",
+    "Kind": "catalog",
+    "Name": "город",
+    "Title": "Справочник.Город",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "85b5eecd-1ccd-43e4-a68d-ccc90d1688af",
+    "Kind": "catalog",
+    "Name": "графики_вахт",
+    "Title": "Справочник.Графики вахт",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "5a4b98b4-5872-40b1-879d-41ebbc72a503",
+    "Kind": "catalog",
+    "Name": "грунтовка",
+    "Title": "Справочник.Грунтовка",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "3a38fc2b-692a-4950-b332-c1e0985b2cf3",
+    "Kind": "catalog",
+    "Name": "группа_документов_ид",
+    "Title": "Справочник.Группа документов ИД",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "0792a5f4-34d6-44cb-aea0-d51ad4592171",
+    "Kind": "catalog",
+    "Name": "группа_материалов_1",
+    "Title": "Справочник.Группа материалов 1",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "679dc13a-e7c3-4147-9a55-251f04429855",
+    "Kind": "catalog",
+    "Name": "группа_материалов_2",
+    "Title": "Справочник.Группа материалов 2",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "cdd5f144-ce3f-4b27-ad9a-095e8958bb2e",
+    "Kind": "catalog",
+    "Name": "группа_профиля",
+    "Title": "Справочник.Группа профиля",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "6551ffd4-96fc-4596-adf7-b53841ba0b95",
+    "Kind": "catalog",
+    "Name": "группа_сотрудников",
+    "Title": "Справочник.Группа сотрудников",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "04d1195e-ae7d-4920-9941-e142fdb5500c",
+    "Kind": "catalog",
+    "Name": "день_месяца",
+    "Title": "Справочник.День месяца",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "eb3538fd-25b9-4e6a-9be2-03f463d297e1",
+    "Kind": "catalog",
+    "Name": "д_наименование_работ",
+    "Title": "Справочник.Д: Наименование работ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "faa302f1-0bc9-4aa2-8fbf-fb8dabf15bdb",
+    "Kind": "catalog",
+    "Name": "договор",
+    "Title": "Справочник.Договор(!)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "a5f880b1-c755-4939-8197-22f8e3ef15ef",
+    "Kind": "catalog",
+    "Name": "должность",
+    "Title": "Справочник.Должность",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "af9b49e8-5041-4318-9645-ca642551c510",
+    "Kind": "catalog",
+    "Name": "должность_группа",
+    "Title": "Справочник.Должность (группа)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "de229623-1d23-46e0-a3c5-d9c16104a5ad",
+    "Kind": "catalog",
+    "Name": "ед_изм_2",
+    "Title": "Справочник.Ед. изм. (2)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "34303a3e-8fa1-42b0-b8a8-da717ff04e90",
+    "Kind": "catalog",
+    "Name": "measure_unit",
+    "Title": "Справочник.Единица измерения",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "2598f825-db68-4c9f-aab6-283291e565ba",
+    "Kind": "catalog",
+    "Name": "актированно",
+    "Title": "Справочник.Есть акты/Нет актов",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "ac324904-2506-4bd2-b784-2c1d759bc056",
+    "Kind": "catalog",
+    "Name": "заявка_мтс",
+    "Title": "Справочник.Заявка МТС (№)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "0605b400-a449-4168-a41f-70f1dc968e4a",
+    "Kind": "catalog",
+    "Name": "partner",
+    "Title": "Справочник.Контрагент",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "49e418d0-320d-4ed7-9a61-f43869274d63",
+    "Kind": "catalog",
+    "Name": "лист_нелист",
+    "Title": "Справочник.ЛИСТ/НЕ ЛИСТ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "b93469bb-804a-45bb-ab08-637805cb6093",
+    "Kind": "catalog",
+    "Name": "марка_стали",
+    "Title": "Справочник.Марка стали",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "297e3f2e-6cf1-4cfc-93f8-40c1d9b153cd",
+    "Kind": "catalog",
+    "Name": "марки",
+    "Title": "Справочник.Марки",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "05469185-69c8-4b93-a78c-3827ea40482a",
+    "Kind": "catalog",
+    "Name": "месяц",
+    "Title": "Справочник.Месяц",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "d014a171-1999-463a-8806-b443fb0dbec8",
+    "Kind": "catalog",
+    "Name": "монолит_конструкция",
+    "Title": "Справочник.Монолитная конструкция (КЖ)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "ed7135c8-574c-401c-b81c-3792e4d1a5a9",
+    "Kind": "catalog",
+    "Name": "начисление_зп",
+    "Title": "Справочник.Начисление ЗП",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "c2248640-6262-4558-86ff-9fb6ca98f8c8",
+    "Kind": "catalog",
+    "Name": "справочник_расценок",
+    "Title": "Справочник.Номенклатура РД",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "3fb32715-f055-4400-b968-2244e7e26d4e",
+    "Kind": "catalog",
+    "Name": "номер_ид",
+    "Title": "Справочник.Номер ИД (№)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "17f6b0a1-f06f-4a7e-b194-5d6798b29203",
+    "Kind": "catalog",
+    "Name": "обезжиривание",
+    "Title": "Справочник.Обезжиривание",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "21c08020-b7be-4f87-b48e-3bd526d5a589",
+    "Kind": "catalog",
+    "Name": "обеспыливание",
+    "Title": "Справочник.Обеспыливание",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "01ef2eff-8bd1-498a-9aeb-52aa9598fc35",
+    "Kind": "catalog",
+    "Name": "company",
+    "Title": "Справочник.Организация",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "0b8cbd83-d8ff-458a-8dda-0fcebedc93e7",
+    "Kind": "catalog",
+    "Name": "ось_панели",
+    "Title": "Справочник.Ось (панели)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "ba80d590-2802-4d83-bffa-205ddbf3731d",
+    "Kind": "catalog",
+    "Name": "ответственный_по_ид",
+    "Title": "Справочник.Ответственный по ИД",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "19322fd4-51d3-4aea-ac12-39109c9f38d3",
+    "Kind": "catalog",
+    "Name": "оценка_мк",
+    "Title": "Справочник.Оценка МК",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "64c55e19-6da2-465a-ac59-f2a5846af0df",
+    "Kind": "catalog",
+    "Name": "площадка_час",
+    "Title": "Справочник.Площадка, час (№)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "2144cd2c-dc0b-4ce2-a25c-8659dd01b0dd",
+    "Kind": "catalog",
+    "Name": "подписанты",
+    "Title": "Справочник.Подписанты",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "3bed6ed7-b413-4556-a9c1-793938fb7f89",
+    "Kind": "catalog",
+    "Name": "department",
+    "Title": "Справочник.Подразделения",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "b6c0c2f3-fffb-4802-9400-76658d16d046",
+    "Kind": "catalog",
+    "Name": "полкистенка",
+    "Title": "Справочник.Полки/Стенка",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "4237ebf1-3de4-4658-96ea-8c338b50d42a",
+    "Kind": "catalog",
+    "Name": "поставка_номер",
+    "Title": "Справочник.Поставка (№)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "8e5919f2-9292-416b-95a4-6310c9fdc699",
+    "Kind": "catalog",
+    "Name": "приоритет",
+    "Title": "Справочник.Приоритет",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "5d73dd27-64bd-4eec-9b70-d882d830d3fb",
+    "Kind": "catalog",
+    "Name": "приоритет_договора",
+    "Title": "Справочник.Приоритет договора",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "9263375f-591f-470f-ae4b-08494aad591e",
+    "Kind": "catalog",
+    "Name": "приоритет_мтс",
+    "Title": "Справочник.Приоритет МТС",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "a9c75bdf-d854-4f05-9a6a-1db90d2ae59b",
+    "Kind": "catalog",
+    "Name": "проект_заказ",
+    "Title": "Справочник.Проект/Заказ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "e48f726f-26bb-42da-919e-1eb1cd3d2860",
+    "Kind": "catalog",
+    "Name": "профиль",
+    "Title": "Справочник.Профиль (металлопроката)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "c4848a7c-e537-4647-abf6-4a43fd7a1733",
+    "Kind": "catalog",
+    "Name": "распределено_км",
+    "Title": "Справочник.Распределено КМ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "45efa484-9c5c-42e2-ab3e-3b7a309ed7e6",
+    "Kind": "catalog",
+    "Name": "растворитель",
+    "Title": "Справочник.Растворитель",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "eb087ab5-d22b-4323-b0b0-d79b4acdd800",
+    "Kind": "catalog",
+    "Name": "регион",
+    "Title": "Справочник.Регион",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "fdfce2bf-fced-484a-b6a1-719b9412408e",
+    "Kind": "catalog",
+    "Name": "решение_согласования",
+    "Title": "Справочник.Решение согласования",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "2eb29aad-402b-4e00-a6b6-d90d87ff759a",
+    "Kind": "catalog",
+    "Name": "роль",
+    "Title": "Справочник.Роль (в операции)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "23e277ef-e9da-492e-a396-c3037e71d153",
+    "Kind": "catalog",
+    "Name": "сертификаты",
+    "Title": "Справочник.СЕРТИФИКАТЫ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "4f178234-55cb-438d-a510-1808fec07bbb",
+    "Kind": "catalog",
+    "Name": "система_в_рд",
+    "Title": "Справочник.Система ( в РД)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "af1f5bae-a1f4-499d-83bb-9c9043648456",
+    "Kind": "catalog",
+    "Name": "системы_без_систем",
+    "Title": "Справочник.Системы /Без систем",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "aa8ba6c3-0efc-4d61-a575-6748edea274e",
+    "Kind": "catalog",
+    "Name": "смены",
+    "Title": "Справочник.Смены",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "adbd7210-e5bf-457f-954b-d911887b1978",
+    "Kind": "catalog",
+    "Name": "укороченный",
+    "Title": "Справочник.Сокращ.",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "c47d3835-48d8-427f-be89-e84c082575ef",
+    "Kind": "catalog",
+    "Name": "сотрудники",
+    "Title": "Справочник.Сотрудники",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "8b15ff57-24c9-4b36-825f-45bc33164630",
+    "Kind": "catalog",
+    "Name": "сотрудники_за_штатом",
+    "Title": "Справочник.Сотрудники (за штатом)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "4fb22340-4de2-43b6-8247-114cd139e279",
+    "Kind": "catalog",
+    "Name": "список_для_ид",
+    "Title": "Справочник.Список документов (д/ ИД)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "0d821b00-febd-4799-938c-8638fbf50966",
+    "Kind": "catalog",
+    "Name": "статус",
+    "Title": "Справочник.Статус",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "030d6f7c-85a8-4068-b8e6-88410713652b",
+    "Kind": "catalog",
+    "Name": "статус_без_договора",
+    "Title": "Справочник.Статус: без договора",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "1ed621f5-4e29-4fbc-aba8-b706363a096b",
+    "Kind": "catalog",
+    "Name": "статус_мтс",
+    "Title": "Справочник.Статус МТС",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "f20e0bd9-ccbd-446c-8f5a-e7c712a844dc",
+    "Kind": "catalog",
+    "Name": "статусы_ид",
+    "Title": "Справочник.Статусы ИД",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "9bba926e-a266-4093-80d7-263794f33c32",
+    "Kind": "catalog",
+    "Name": "budget_item",
+    "Title": "Справочник.Статья бюджета",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "8e2933f8-aacd-4b50-b2e5-6966c5c55b96",
+    "Kind": "catalog",
+    "Name": "строение",
+    "Title": "Справочник.СТРОЕНИЕ",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "59bb47e4-cf28-416b-bed9-c0c2cb0c398b",
+    "Kind": "catalog",
+    "Name": "partner_account",
+    "Title": "Справочник.Счет контрагента",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "b293e077-06fd-475b-bc95-197c123140ce",
+    "Kind": "catalog",
+    "Name": "тип_занятости",
+    "Title": "Справочник.Тип занятости",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "1a2f1a7a-a5f9-48c3-9ae9-3bfc1eda5a14",
+    "Kind": "catalog",
+    "Name": "тип_ид",
+    "Title": "Справочник.Тип ИД",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "c0a27f77-5134-4f08-b55b-5588212e717e",
+    "Kind": "catalog",
+    "Name": "тип_начисления_зп",
+    "Title": "Справочник.Тип начисления ЗП",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "f3a13385-462b-4650-adfb-1c1ff18afd63",
+    "Kind": "catalog",
+    "Name": "тип_обработки_поверх",
+    "Title": "Справочник.Тип обработки поверхности",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "e72d8bdb-fbad-4afc-8a03-2a1086ebbd5d",
+    "Kind": "catalog",
+    "Name": "тип_покраски",
+    "Title": "Справочник.Тип покраски",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "5de5e980-64ab-4278-abce-7a53b270526b",
+    "Kind": "catalog",
+    "Name": "тип_рд",
+    "Title": "Справочник.Тип РД (рабочей документации)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "42d63ee0-6fb3-42eb-84fa-569cf229576c",
+    "Kind": "catalog",
+    "Name": "типы_заявок_мтс",
+    "Title": "Справочник.Типы заявок МТС",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "04f46aac-5974-4e20-930e-e5814b99c793",
+    "Kind": "catalog",
+    "Name": "типы_операций",
+    "Title": "Справочник.Типы операций",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "86dd92fa-be56-4b9b-94d3-21e5baed98dd",
+    "Kind": "catalog",
+    "Name": "типы_операций_мтс",
+    "Title": "Справочник.Типы операций (МТС)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "11cbd5ad-0f02-4c33-b629-8e7bc009fb68",
+    "Kind": "catalog",
+    "Name": "укрупненные_работы",
+    "Title": "Справочник.Укрупненные работы",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "1a241d9a-b540-4245-9705-de0fc86031db",
+    "Kind": "catalog",
+    "Name": "упр_подразделение",
+    "Title": "Справочник.Упр. подразделение",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "dce2dbac-2a86-4caf-8242-cb403306bb5c",
+    "Kind": "catalog",
+    "Name": "файлы_ид",
+    "Title": "Справочник.Файлы ИД (испол.докум.)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+    "Kind": "catalog",
+    "Name": "person",
+    "Title": "Справочник.Физлицо",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "6136d57d-9d55-4510-9fce-09c147072852",
+    "Kind": "catalog",
+    "Name": "цеха",
+    "Title": "Справочник.Цеха",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "337da357-3c72-4d60-b717-abc071219f81",
+    "Kind": "catalog",
+    "Name": "шифр_км",
+    "Title": "Справочник.Шифр КМ (Проект/КМ)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  },
+  {
+    "Uid": "9838686b-9186-452e-b98c-3dfc4568d5b9",
+    "Kind": "catalog",
+    "Name": "шифр_кж",
+    "Title": "Справочник.Шифр РД (КЖ, АР, АС, ..)",
+    "IsPrimitive": false,
+    "DbType": 11,
+    "ObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+    "TypeName": null
+  }
+]

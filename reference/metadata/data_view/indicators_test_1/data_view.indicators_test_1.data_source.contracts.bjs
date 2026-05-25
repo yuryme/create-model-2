@@ -1,0 +1,4 @@
+var resultTable = await from('operation.проект_договора')
+  .select(['number', 'date', 'статус as status', 'представление as presentation'])
+  .getDisplays().query();
+return resultTable;

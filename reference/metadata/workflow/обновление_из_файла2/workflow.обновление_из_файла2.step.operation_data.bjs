@@ -1,0 +1,8 @@
+var result = await from('operation.обновление_марок')
+  .select(['number', 'date', 'шифр_км', 'проект as проект_заказ'])
+  .where('opr_обновление_марок.number = @numb')
+  .parameter('numb', _parameters.number, 11)
+  .getDisplays()
+  .query();
+
+return result;

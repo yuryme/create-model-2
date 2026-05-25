@@ -1,0 +1,51 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "cd4a1ba5-a166-2e4e-a8dc-11c4c22d71c3",
+  "Name": "_перепровести_штатное_расписан",
+  "Title": "99.003 Перепровести штатное расписанике",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 3,
+  "Steps": [
+    {
+      "Expression": "workflow._перепровести_штатное_расписан.step.data.bjs",
+      "Uid": "2024109b-2b81-4470-f6ba-795136d367d4",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "eaa37ae7-f841-4617-b74b-01137c1d8d85",
+      "SaveRegime": 2,
+      "SearchBy": "number",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": true,
+      "HeaderMapping": [
+        {
+          "Uid": "499047fd-c2ac-6ef2-003c-d6b82aad49d8",
+          "SourceFieldName": "",
+          "DestinationFieldName": "create_records",
+          "DefaultValue": "true",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "6bdeae27-f7d2-ec2a-95a3-c8f3ebbf35c9",
+      "PreviousStepUid": "2024109b-2b81-4470-f6ba-795136d367d4",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Create records",
+      "Name": "create_records",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

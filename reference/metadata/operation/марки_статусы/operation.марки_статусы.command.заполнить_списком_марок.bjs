@@ -1,0 +1,9 @@
+setIsWaiting(true);
+var result = await from("catalog.марки")
+  .select(['id as позиция_марок', 'наименование_марки', 'колво', 'вес_одной_кг', 'вес_всех_кг', 'шифр_км'])
+  .top(10)
+  .query();
+
+setIsWaiting(false);
+$t.table_1.load(result);
+setIsModified(true);

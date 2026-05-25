@@ -1,0 +1,8 @@
+var source = $t.таблица
+    //.select(['общий_вес', 'колво_шт'])
+    .addColumn({ name: 'кг', dataType: 'number'})
+    .process(r=> {r.колво_шт = r.колво_шт * -1;
+                  r.кг = r.общий_вес * -1000}
+     );
+
+return source;

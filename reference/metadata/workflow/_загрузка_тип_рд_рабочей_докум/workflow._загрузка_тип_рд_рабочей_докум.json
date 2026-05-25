@@ -1,0 +1,120 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "9fd99458-05aa-b0a9-5620-f06357898e87",
+  "Name": "_загрузка_тип_рд_рабочей_докум",
+  "Title": "0.031 Загрузка Тип РД (рабочей документации)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 10,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"M2QwMDFkM2QtOGY2Zi00ODYyLWE2NDUtMDYyYjBlNzZjMGU4fGNmYjA2N2I2LTU4NGQtNGRjNS1hNjEwLWNiZTdhZGVmMmVlNHw2MTcwM2MzMS04NzI5LTQzN2MtYWZiOS02NWM4YmZiMWI3MDl8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "30732a13-57f2-4726-e583-18c36ee14a34",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_тип_рд_рабочей_докум.step.data.bjs",
+      "Uid": "8f97ee6f-2615-c35c-c4f9-b11f5cb3190e",
+      "PreviousStepUid": "30732a13-57f2-4726-e583-18c36ee14a34",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "5de5e980-64ab-4278-abce-7a53b270526b",
+      "SaveRegime": 2,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "a12d4590-90fe-0cdd-ae0c-e4920634a2bc",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "899d7703-0e1a-86e4-6ef9-46109b07e4e9",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "870dc855-0d00-4cd0-f5b5-c1e07895d6e2",
+          "SourceFieldName": "title",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "9ba0c15b-1219-8d1c-f21d-623cde8048c0",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "340addb8-eaa8-dd30-38c8-8267f2d3a238",
+          "SourceFieldName": "name",
+          "DestinationFieldName": "name",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d17f9bf7-d82f-d267-42b6-a7e2a0898196",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id_тип_рд",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "8a4de42d-1a71-c4ef-4f57-3fb08990c4ad",
+      "PreviousStepUid": "8f97ee6f-2615-c35c-c4f9-b11f5cb3190e",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

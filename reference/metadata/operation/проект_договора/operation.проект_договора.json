@@ -1,0 +1,1593 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "eded8edc-8d6b-4e2f-a068-52d401d1caaa",
+  "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+  "Title": "Проект договора",
+  "Name": "проект_договора",
+  "Memo": "",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "представление",
+  "ListFormUid": "5ebe8320-bac2-4e55-ab81-a2ed407d0441",
+  "ItemFormUid": "785f4b64-7928-49b3-bcb8-53291f756b19",
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "7acf8f24-5df5-7cce-2076-b61f0d56a27d",
+        "Kind": 0,
+        "StandardColumnUid": "a39e7b83-e94d-4646-b620-04434fef2f4c",
+        "Title": "Номер",
+        "Name": "number",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "b155780a-3ccd-3802-5260-748addcccb71",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          },
+          {
+            "Kind": 0,
+            "FieldUid": "fac68341-5c1c-6b09-7c5a-43094b4eb320",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          },
+          {
+            "Kind": 0,
+            "FieldUid": "d9a8405e-6e33-d0a2-bdcb-d2ca926d9902",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          },
+          {
+            "Kind": 0,
+            "FieldUid": "3b84deff-db24-2534-71fb-5842ceeac7fd",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "c28d0f09-b201-06fa-cb72-01d23e39c454",
+        "Kind": 0,
+        "StandardColumnUid": "fee422db-18dc-442a-a8dd-01df76c20a98",
+        "Title": "Записи",
+        "Name": "create_records",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": "true"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a52716ac-b4a5-b798-62e1-f65ac135086c",
+        "Kind": 0,
+        "StandardColumnUid": "95d36e42-5d4d-4c26-adc1-1319e860b45e",
+        "Title": "Удалено",
+        "Name": "is_deleted",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "7e819989-0ab8-2c00-d766-fadf0a9c5f2d",
+        "Kind": 0,
+        "StandardColumnUid": "f244de36-53c9-4e93-a5a2-94abbed91e02",
+        "Title": "Дата",
+        "Name": "date",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": "now"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "c732e97a-f462-2571-6268-df81a1b9fc5b",
+        "Kind": 0,
+        "StandardColumnUid": "9cac33f4-6758-4aab-be4a-b00790bdf452",
+        "Title": "Файлы",
+        "Name": "is_files",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a9d15f5d-e5ea-52c2-c3b6-b81fbe0732a2",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Статус",
+        "Name": "статус",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 3,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "8c8c5ab2-3dba-4673-9451-9704402d7593",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": "черновик"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "d77b7f5d-efb0-3084-1f89-286ef5749b1a",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          },
+          {
+            "Kind": 0,
+            "FieldUid": "5e901790-3be7-3029-ace9-3263675e251e",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "1fda6362-e1de-21da-80ff-d6efe3f4380b",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Срочность",
+        "Name": "срочность",
+        "Formula": "",
+        "ItemsSource": "await from ('catalog.приоритет_договора' ) \n  .select(['id as value', 'title as text' ]) .query()",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "5d73dd27-64bd-4eec-9b70-d882d830d3fb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": "2"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3b1d66af-3f0a-d656-34dc-69545271f9cf",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Договор/доп.соглашение",
+        "Name": "договор_допсоглашение",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 3,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "b12958f5-1c6c-4c02-a2ea-8c4db9d69dac",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": "$h.категория_по_умолчанию"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "523d6000-6839-7e1b-84c6-eb33b1eccb64",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Основной договор (для доп.соглашений)",
+        "Name": "основной_договор",
+        "Formula": "",
+        "ItemsSource": "await from('operation.проект_договора')\n  .select(['number as value', 'представление as text' ])\n  .where('контрагент = @partner')\n  .parameter('partner', $h.контрагент)\n  .query()",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "eded8edc-8d6b-4e2f-a068-52d401d1caaa",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "92b7ba43-69b2-2ff5-fa49-56d3c635f0d7",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "bb909905-2e3d-eee0-8c70-fe74b106d3c8",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Юр. лицо (организация)",
+        "Name": "юр_лицо",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "01ef2eff-8bd1-498a-9aeb-52aa9598fc35",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "7f21ec80-595d-47de-aa7c-50f4b105a9e4",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Контрагент",
+        "Name": "контрагент",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0605b400-a449-4168-a41f-70f1dc968e4a",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "6c27d012-a7c3-deb9-4789-ff143dbaf701",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "6c27d012-a7c3-deb9-4789-ff143dbaf701",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Контрагент (наименование)",
+        "Name": "контрагент_наименование",
+        "Formula": "(await from('catalog.partner')\n .select(['title'])\n .where('id = @id')\n .parameter(\"id\", $h.контрагент)\n .query()).rows[0]?.title",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "f62b72e0-d502-cf3f-8a37-c9c25cc4c3ca",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "fd8bd3d0-3510-3024-68a0-a27dacd3f150",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Инициатор",
+        "Name": "инициатор",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": "$h.текущее_физлицо"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "85b8c6ff-bfdc-7eab-99c4-0c75f36413d8",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Ответственный (юрист)",
+        "Name": "ответственный_юрист",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "ef7d7199-d820-8a74-7fc0-cd61206343c6",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Подразделение",
+        "Name": "подразделение",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "1a241d9a-b540-4245-9705-de0fc86031db",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3e9eec3c-7435-8f9b-d60d-c412d1784853",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Номер договора",
+        "Name": "номер_договора",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 3,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "980985dd-60ac-43b7-a5da-2af54d6fd1ce",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "f62b72e0-d502-cf3f-8a37-c9c25cc4c3ca",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "e831c899-cb2c-44a6-62c3-b5dd90bb6824",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Дата договора",
+        "Name": "дата_договора",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 3,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "f62b72e0-d502-cf3f-8a37-c9c25cc4c3ca",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "f62b72e0-d502-cf3f-8a37-c9c25cc4c3ca",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Представление",
+        "Name": "представление",
+        "Formula": "function formatDate(date) {\n  if (!date) return '';\n  \n  const d = new Date(date);\n  \n  // Проверка на валидность даты\n  if (isNaN(d.getTime())) return date;\n  \n  const day = String(d.getDate()).padStart(2, '0');\n  const month = String(d.getMonth() + 1).padStart(2, '0');\n  const year = d.getFullYear();\n  \n  return `${day}.${month}.${year}`;\n}\n\nvar result = `Договор #${$h.номер_договора} от ${formatDate($h.дата_договора)} с ${$h.контрагент_наименование}`;\n\nreturn result;",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 200,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "b9fcbc35-4b55-5bc0-1b92-1dc9ec163e03",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Проект",
+        "Name": "проект",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "a9c75bdf-d854-4f05-9a6a-1db90d2ae59b",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "6fbd6feb-1290-74f2-e403-fb91c42bd26f",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Тип договора",
+        "Name": "тип_договора",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "7ed413ed-72eb-4a04-b73f-23d927235618",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "e528f214-6069-318b-44ea-d482cc1c5e79",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Вид договора",
+        "Name": "вид_договора",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4466771b-e114-46ec-93ed-5e8f36c03aa1",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "7faa69f2-c243-4d0b-3795-9da6c5f412aa",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "ЭДО",
+        "Name": "эдо",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "8beae6e6-a9fc-57c1-ffc5-809494ecefa3",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Срок действия с",
+        "Name": "действие_с",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a84040c9-7e30-9b87-fca7-0fabc8e4bf5d",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Срок действия по",
+        "Name": "действие_по",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "42d321a5-ad45-7f19-4998-2a782ca6cffb",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Сумма договора",
+        "Name": "сумма_договора",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "ddf689e2-2e05-e930-e988-50a510f2cb62",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Предмет договора",
+        "Name": "предмет_договора",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "980985dd-60ac-43b7-a5da-2af54d6fd1ce",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3562263d-9877-fe31-3d90-e1615b125d2c",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Аванс/предоплата",
+        "Name": "аванспредоплата",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "49d2bbcc-0698-4e48-9bc3-99ad5b213e12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "1a42b28c-e3bf-188d-9540-5d6a8b44468d",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Описание механизма пени",
+        "Name": "описание_механизма_пени",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3f9f52ac-2528-124d-5472-54778e80b6c5",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Пеня/неустойка",
+        "Name": "пенянеустойка",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "fa085cf9-0475-4efc-97cf-744fe1086982",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "8418e55b-02d8-0e00-3db9-b529dee99d5e",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Порядок расчета",
+        "Name": "порядок_расчета",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "e932999e-9be6-5db9-a2fc-ac9275f41595",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "На согласовании у поставщика",
+        "Name": "на_согласовании_у_поставщика",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "84579b4c-0532-7956-c167-1083a0efda8f",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Комментарий",
+        "Name": "комментарий",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "980985dd-60ac-43b7-a5da-2af54d6fd1ce",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "92b7ba43-69b2-2ff5-fa49-56d3c635f0d7",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Категория по умолчанию",
+        "Name": "категория_по_умолчанию",
+        "Formula": "isNotEmpty($h.основной_договор) ? \"доп_соглашение\":\"основной\"",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "b12958f5-1c6c-4c02-a2ea-8c4db9d69dac",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "7aeb8158-9eaa-946d-c05a-8fd5a6ecb3ac",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Текущее физлицо",
+        "Name": "текущее_физлицо",
+        "Formula": " (await from(\"catalog.person\")\n  .where(\"user_name = @userName\")\n  .parameter(\"userName\", context.userName, 16)\n  .query())\n   .rows[0].id",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "76e0b69f-85c6-5e4d-4efa-35de273ec0ed",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          },
+          {
+            "Kind": 0,
+            "FieldUid": "78df6c69-c97b-b205-0bc1-c0ddbbc80353",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "dc89aec1-33db-fd12-e239-ef2791e14254",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Текущее физлицо (неизм.)",
+        "Name": "current_person_const",
+        "Formula": " (await from(\"catalog.person\")\n  .where(\"user_name = @userName\")\n  .parameter(\"userName\", context.userName, 16)\n  .query())\n   .rows[0].id",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "d8141352-a39f-ef40-a25c-e5d063276eb1",
+            "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9"
+          }
+        ]
+      },
+      {
+        "Uid": "76e0b69f-85c6-5e4d-4efa-35de273ec0ed",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Текущий email",
+        "Name": "current_email",
+        "Formula": " (await from(\"catalog.person\")\n  .where('id = @current_user')\n  .parameter(\"current_user\", $h.текущее_физлицо)\n  .query()).rows[0].user_name",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "695bbedf-3b9b-f0a2-b02b-bf9516a12b1f",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Комментарий согласующего",
+        "Name": "approve_comment",
+        "Formula": "''",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "d77b7f5d-efb0-3084-1f89-286ef5749b1a",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Запрещено редактирование",
+        "Name": "edit_disabled",
+        "Formula": "$h.статус != 'черновик'",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "b155780a-3ccd-3802-5260-748addcccb71",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Это новый",
+        "Name": "is_new",
+        "Formula": "$h.number == 0",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "d8141352-a39f-ef40-a25c-e5d063276eb1",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Это администратор",
+        "Name": "is_admin",
+        "Formula": "var tableResult = await from('register.programm_roles_assign')\n  .where('role_in_programm = @role and person = @person')\n  .parameter('role', 'contract_admin', 16)\n  .parameter('person', $h.current_person_const)\n  .top(1)\n  .query();\n\nreturn tableResult.count() > 0;",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "78df6c69-c97b-b205-0bc1-c0ddbbc80353",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Это юрист",
+        "Name": "is_lawyer",
+        "Formula": "var tableResult = await from('register.programm_roles_assign')\n  .where('role_in_programm = @role and person = @person')\n  .parameter('role', 'lawyer', 16)\n  .parameter('person', $h.текущее_физлицо)\n  .top(1)\n  .query();\n\nreturn tableResult.count() > 0;",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "fac68341-5c1c-6b09-7c5a-43094b4eb320",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Есть записи согласования замечаний",
+        "Name": "has_comments_approve",
+        "Formula": "var recordsActive = await from('register.согласование_замечаний')\n  .where('проект_договора = @number')\n  .parameter('number', $h.number)\n  .orderBy('порядок')\n  .query();\n\nreturn recordsActive.count() > 0;",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "d9a8405e-6e33-d0a2-bdcb-d2ca926d9902",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Все замечания согласованы",
+        "Name": "all_comments_approved",
+        "Formula": "var records = await from('register.согласование_замечаний')\n .where('проект_договора = @number')\n .parameter('number', $h.number)\n .query();\n\nvar count = records.count();\nvar countApproved = records.filter(row=>row.согласовано == true).count();\n\nreturn count > 0 && count == countApproved;",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "24fe3517-789a-ef97-9bd1-3f89433861dc",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Виза вручную",
+        "Name": "visa_manual",
+        "Formula": "null",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "104ce46f-b4fa-5bcc-49d4-e9f2bc089fd1",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Виза вручную (порядок)",
+        "Name": "visa_manual_order",
+        "Formula": "1",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "5e901790-3be7-3029-ace9-3263675e251e",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Это статус согласование замечаний",
+        "Name": "status_approve_remarks",
+        "Formula": "$h.статус == 'доработка'",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3b84deff-db24-2534-71fb-5842ceeac7fd",
+        "Kind": 1,
+        "StandardColumnUid": null,
+        "Title": "Есть согласовано с замечаниями",
+        "Name": "has_approve_with_comments",
+        "Formula": "var records = await from('register.согласование_договоров')\n  .where('проект_договора = @number and решение = 2')\n  .parameter('number', $h.number)\n  .orderBy('порядок')\n  .query();\n\nreturn records.count() > 0;",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": [
+      {
+        "Uid": "aaa0fcf6-2478-c683-b2d5-8f4468f9af0e",
+        "Columns": [
+          {
+            "ColumnUid": "a52716ac-b4a5-b798-62e1-f65ac135086c",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "92901267-acbb-abae-973b-28bcc1c99e96",
+        "Columns": [
+          {
+            "ColumnUid": "7e819989-0ab8-2c00-d766-fadf0a9c5f2d",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "8ae58201-e12f-2b5b-abf6-cacaf0fe0894",
+        "Columns": [
+          {
+            "ColumnUid": "c732e97a-f462-2571-6268-df81a1b9fc5b",
+            "Direction": 0
+          }
+        ]
+      }
+    ]
+  },
+  "DetailTables": [],
+  "Commands": [
+    {
+      "Uid": "51b1b139-3615-126b-2be0-0f12d1b3c506",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Обновить согласование",
+      "Name": "approve_refresh",
+      "Expression": "operation.проект_договора.command.approve_refresh.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "fbfaa055-cb5b-e9e1-2233-37ac799da47b",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Старт согласования",
+      "Name": "approve_start",
+      "Expression": "operation.проект_договора.command.approve_start.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "2a941b3e-a03b-87fe-533b-d5cb7dee6ee3",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Старт согласования замечаний",
+      "Name": "start_remarks",
+      "Expression": "operation.проект_договора.command.start_remarks.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "93087f20-721f-07aa-bc57-5317517f15f8",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Старт согласования замечаний (2)",
+      "Name": "start_remarks_2",
+      "Expression": "operation.проект_договора.command.start_remarks_2.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "8f90feb5-d9f9-e5ee-8410-e6094b20050f",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Установить согласовано",
+      "Name": "set_approve",
+      "Expression": "operation.проект_договора.command.set_approve.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "29bb0ef4-661d-05af-6f61-6e9913163b3f",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Установить согласовано с замечаниями",
+      "Name": "set_approve_remarks",
+      "Expression": "operation.проект_договора.command.set_approve_remarks.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "2f24da7a-924a-92d0-2844-7d0c329724a0",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Установить отклонено",
+      "Name": "set_declined",
+      "Expression": "operation.проект_договора.command.set_declined.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "262c670a-6b1f-3800-25c0-9753385242bd",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Согласовать замечания",
+      "Name": "approve_remarks",
+      "Expression": "operation.проект_договора.command.approve_remarks.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "22e0aede-290b-0e8f-346d-09054221cda9",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Отказать в согласовании замечаний",
+      "Name": "declined_remarks",
+      "Expression": "operation.проект_договора.command.declined_remarks.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "49b3b676-2965-bee2-5619-7518a5b89d9d",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Обновить согласование замечаний",
+      "Name": "refresh_remarks",
+      "Expression": "operation.проект_договора.command.refresh_remarks.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "46b3b72e-06c4-9ac1-8475-15f3bb2b9ac3",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Обновить задачи",
+      "Name": "refresh_tasks",
+      "Expression": "operation.проект_договора.command.refresh_tasks.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "607882c3-1dc3-0ed0-2ff8-459671c313b9",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Создать задачу",
+      "Name": "create_task",
+      "Expression": "operation.проект_договора.command.create_task.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "e26a2f8a-8b6d-a85f-3ad1-22c835bd0967",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Сохранить",
+      "Name": "custom_save",
+      "Expression": "operation.проект_договора.command.custom_save.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "a49fbe58-a763-14a9-90bc-35a7f5906811",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Установить статус У контрагента",
+      "Name": "set_status_partner",
+      "Expression": "operation.проект_договора.command.set_status_partner.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "e24653c7-441e-fddf-27a7-cb60dcd0c0e8",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Установить статус Сбор документов",
+      "Name": "set_status_collect_docs",
+      "Expression": "operation.проект_договора.command.set_status_collect_docs.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "268e6e48-8c9f-1b54-c4cb-9657ea04910f",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Установить статус Процесс закончен",
+      "Name": "set_status_finished",
+      "Expression": "operation.проект_договора.command.set_status_finished.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "37c24fa0-97a5-2dfd-9ff1-a6c77d35ccdf",
+      "TableUid": "2b960984-41e7-0e8d-bf3e-9355afb387a9",
+      "Kind": 0,
+      "Title": "Виза вручную",
+      "Name": "visa_manual",
+      "Expression": "operation.проект_договора.command.visa_manual.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    }
+  ],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

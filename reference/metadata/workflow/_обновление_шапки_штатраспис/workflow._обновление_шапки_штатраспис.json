@@ -1,0 +1,132 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "7933a9dd-ec4a-ee21-18f6-c67ac26eacfb",
+  "Name": "_обновление_шапки_штатраспис",
+  "Title": "01.101 Обновление Шапки Штат.распис.",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 10,
+  "Steps": [
+    {
+      "Expression": "workflow._обновление_шапки_штатраспис.step.operation_data.bjs",
+      "Uid": "7d1da28f-ae4f-a11f-26da-3ddbb54555a2",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Operation Data",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "eaa37ae7-f841-4617-b74b-01137c1d8d85",
+      "SaveRegime": 2,
+      "SearchBy": "number",
+      "SourcePath": "operation_data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "d1aba70d-c15d-58aa-d0e5-68b96b79e9df",
+          "SourceFieldName": "должность",
+          "DestinationFieldName": "должность",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "a5f880b1-c755-4939-8197-22f8e3ef15ef",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "9dad7b22-6a3d-5347-1dad-ac9aad47107b",
+          "SourceFieldName": "подразделение",
+          "DestinationFieldName": "подразделение",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "3bed6ed7-b413-4556-a9c1-793938fb7f89",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "a8dcd786-8341-0057-404d-581c174e9820",
+          "SourceFieldName": "проект_заказ",
+          "DestinationFieldName": "проект_заказ",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "a9c75bdf-d854-4f05-9a6a-1db90d2ae59b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "a2a708ab-82cf-6876-2025-d352fb72cfb2",
+          "SourceFieldName": "тип_начисления_зп",
+          "DestinationFieldName": "тип_начисления_зп",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "c0a27f77-5134-4f08-b55b-5588212e717e",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "5a6a302d-70f9-48fa-ea96-7b276aefe9ef",
+          "SourceFieldName": "статья",
+          "DestinationFieldName": "статья",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "9bba926e-a266-4093-80d7-263794f33c32",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d02b942b-4b5e-e8d9-4dd7-39d445acfb36",
+          "SourceFieldName": "ставка_час",
+          "DestinationFieldName": "ставка_час",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "15a78c94-3860-7ad0-91ef-5840e8fae617",
+          "SourceFieldName": "ставка_смена",
+          "DestinationFieldName": "ставка_смена",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "dd20c66c-11ea-f9ff-879c-a277ad0469cd",
+          "SourceFieldName": "уволен",
+          "DestinationFieldName": "уволен",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "16941cd2-f50d-375f-f2a0-361d34fafe3f",
+          "SourceFieldName": "организация",
+          "DestinationFieldName": "организация",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "01ef2eff-8bd1-498a-9aeb-52aa9598fc35",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "e8866561-7e96-b970-670d-6be031d5ba8e",
+          "SourceFieldName": "оклад",
+          "DestinationFieldName": "оклад",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "7256f6ec-7963-bd9c-a03e-9fc45ec26249",
+      "PreviousStepUid": "7d1da28f-ae4f-a11f-26da-3ddbb54555a2",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+var tableResult = createTable(
+  ['id number', 'город number', 'действует_с', 'актуальные boolean', 'комментарий'])
+  .addRow([1, 72, '2026-01-01', true, 'Тест загрузки'])
+  .addRow([2, 43, '2026-02-01', true, 'Тест загрузки']);
+
+return tableResult;

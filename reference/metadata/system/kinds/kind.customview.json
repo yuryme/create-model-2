@@ -1,0 +1,25 @@
+{
+  "Uid": "647ce14a-bd04-42e2-be69-da13cfaaa9a3",
+  "Title": "Произвольная форма",
+  "Name": "customview",
+  "Prefix": "ctw",
+  "StoreData": false,
+  "IsReference": false,
+  "AllowAttachedFiles": false,
+  "IsFilesColumnUid": null,
+  "IsDeletedColumnUid": null,
+  "CanCreateRecords": false,
+  "UseDetailsTables": false,
+  "UseForms": true,
+  "UsePrintForms": false,
+  "IsStandard": false,
+  "Memo": "",
+  "IconClass": "pi pi-desktop",
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "RecordsSettings": null,
+  "StandardColumns": [],
+  "AvailableRights": [
+    "245f3c21-a190-498b-a515-caa9bfa5ca8e"
+  ]
+}

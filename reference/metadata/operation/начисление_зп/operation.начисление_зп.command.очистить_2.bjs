@@ -1,0 +1,2 @@
+$t.table_2.clear();
+isModified(true);

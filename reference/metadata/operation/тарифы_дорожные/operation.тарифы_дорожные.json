@@ -1,0 +1,551 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "82ed45e1-d842-49f4-9e22-0f345836acf2",
+  "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+  "Title": "Тарифы Дорожные",
+  "Name": "тарифы_дорожные",
+  "Memo": "В работе",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "a94f2947-3e05-018b-b3d1-e45146b57667",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "078af6a6-61ce-787a-4696-144fccd152c8",
+        "Kind": 0,
+        "StandardColumnUid": "a39e7b83-e94d-4646-b620-04434fef2f4c",
+        "Title": "Номер",
+        "Name": "number",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "769e8462-3a22-59c5-785c-0c50a847b109",
+        "Kind": 0,
+        "StandardColumnUid": "95d36e42-5d4d-4c26-adc1-1319e860b45e",
+        "Title": "Удалено",
+        "Name": "is_deleted",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "468ce98f-c65f-a851-361f-5cc8aef2a283",
+        "Kind": 0,
+        "StandardColumnUid": "f244de36-53c9-4e93-a5a2-94abbed91e02",
+        "Title": "Дата",
+        "Name": "date",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": "now"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "4300202f-47a5-252a-fd6a-e199d1614e54",
+        "Kind": 0,
+        "StandardColumnUid": "9cac33f4-6758-4aab-be4a-b00790bdf452",
+        "Title": "Файлы",
+        "Name": "is_files",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "c070b97d-4d1d-f5b8-cd96-18c1a3656d5e",
+        "Kind": 0,
+        "StandardColumnUid": "fee422db-18dc-442a-a8dd-01df76c20a98",
+        "Title": "Записи",
+        "Name": "create_records",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": "true"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "69ea613c-939d-de39-d9af-da2e04242cbb",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Город (расположение объекта строительства)",
+        "Name": "город",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0c951bf0-9652-40bc-937c-c92a2d95242d",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "41509111-ea8d-a0f0-4f7c-95e756efb92e",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Действует с ...",
+        "Name": "действует_с",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": "150px"
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "7398dd4f-2b13-40e7-d6a6-38d4f94a7aa5",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Актуальные",
+        "Name": "актуальные",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a495af2d-6724-0753-e335-e2f8290a6127",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Комментарий",
+        "Name": "комментарий",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": [
+      {
+        "Uid": "1467529a-dcef-7e2a-5dc7-15a5e2498422",
+        "Columns": [
+          {
+            "ColumnUid": "769e8462-3a22-59c5-785c-0c50a847b109",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "b6cddb81-8735-b900-19e0-ecd32c5fa5d8",
+        "Columns": [
+          {
+            "ColumnUid": "468ce98f-c65f-a851-361f-5cc8aef2a283",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "46b8fbed-8f38-97df-4745-c803fdf36794",
+        "Columns": [
+          {
+            "ColumnUid": "4300202f-47a5-252a-fd6a-e199d1614e54",
+            "Direction": 0
+          }
+        ]
+      }
+    ]
+  },
+  "DetailTables": [
+    {
+      "Uid": "dc29dbd1-2a91-c867-3e20-4b9354d33c29",
+      "Title": "Тарифы",
+      "Name": "table_1",
+      "Memo": "",
+      "AutoClearMethod": 0,
+      "Columns": [
+        {
+          "Uid": "2701b1e6-1455-835b-be6f-d204cc8e917d",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Id",
+          "Name": "id",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": true,
+          "DataSettings": {
+            "DataTypeUid": "daa57cb0-32eb-4709-b61f-4ea023ae31c3",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": true,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "dedcf916-a40c-3575-ef09-ba04c01fce56",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Object UID",
+          "Name": "object_uid",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": true,
+          "DataSettings": {
+            "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "e9662dca-2ebc-c54d-b1aa-c981bc79c9e2",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Row number",
+          "Name": "row_number",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": true,
+          "DataSettings": {
+            "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "108c909c-8da1-ee51-1f14-b4467851132f",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Город (м/жительства)",
+          "Name": "город",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "0c951bf0-9652-40bc-937c-c92a2d95242d",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "7e40388d-11ea-5a24-d644-512aad701737",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Тариф (ж/д, плацкарт), руб",
+          "Name": "тариф",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "c7304fce-6469-83be-92ea-f2c176346a10",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Расстояние, км",
+          "Name": "расстояние",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        }
+      ],
+      "Indexes": [
+        {
+          "Uid": "a74f3c94-90fa-4f06-8736-eecaeac9634c",
+          "Columns": [
+            {
+              "ColumnUid": "dedcf916-a40c-3575-ef09-ba04c01fce56",
+              "Direction": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Commands": [
+    {
+      "Uid": "14b3bd55-9908-aafa-6a20-efba3e879480",
+      "TableUid": "dc29dbd1-2a91-c867-3e20-4b9354d33c29",
+      "Kind": 0,
+      "Title": "Заполнить из файла",
+      "Name": "load_from_file",
+      "Expression": "operation.тарифы_дорожные.command.load_from_file.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": [
+        {
+          "Name": "data_source",
+          "Value": "",
+          "DbType": 16
+        },
+        {
+          "Name": "clear",
+          "Value": "false",
+          "DbType": 3
+        }
+      ]
+    },
+    {
+      "Uid": "e1eccc78-0475-03de-f282-7f7773d3bb0f",
+      "TableUid": "dc29dbd1-2a91-c867-3e20-4b9354d33c29",
+      "Kind": 0,
+      "Title": "Очистить",
+      "Name": "clear",
+      "Expression": "operation.тарифы_дорожные.command.clear.bjs",
+      "Memo": "",
+      "IsActive": true,
+      "Parameters": []
+    }
+  ],
+  "RecordsSources": [],
+  "RecordsSettings": [
+    {
+      "DestinationMetaObjectUid": "8ec3057c-a23c-4d90-8d62-c6d56738d322",
+      "Rows": [
+        {
+          "Uid": "a0fce91b-b82f-dc65-26d7-ea9fe7721b4e",
+          "SourceUid": "dc29dbd1-2a91-c867-3e20-4b9354d33c29",
+          "Direction": 0,
+          "Condition": "isNotEmpty( $h.актуальные )",
+          "Columns": [
+            {
+              "DestinationColumnUid": "64081490-f642-049d-2d5d-76ddfc737539",
+              "Expression": "$h.date"
+            },
+            {
+              "DestinationColumnUid": "c9c2e1ff-b376-6a92-b556-80f6498791d4",
+              "Expression": "$h.город"
+            },
+            {
+              "DestinationColumnUid": "f05ae4a6-cfd6-c038-3113-6abe358f987a",
+              "Expression": "$r.город"
+            },
+            {
+              "DestinationColumnUid": "85720fb5-42ee-5c40-502e-4851ee7eb4cb",
+              "Expression": "$r.тариф"
+            },
+            {
+              "DestinationColumnUid": "d2ae5683-132e-eaab-8cb3-f6c016653351",
+              "Expression": "$r.расстояние"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

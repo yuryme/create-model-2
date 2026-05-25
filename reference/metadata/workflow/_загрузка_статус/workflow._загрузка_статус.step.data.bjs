@@ -1,0 +1,17 @@
+var table = createTable([
+  {name: 'id', dataType: 'number'},
+  {name: 'uid'},
+  {name: 'name'},
+  {name: 'title'}
+ ]);
+
+_data.request.data.forEach(row => {
+  table.addRow({
+    id: row.id,
+    uid: row.uid,
+    name: row.name,
+    title: row.title,
+     });
+});
+
+return table;

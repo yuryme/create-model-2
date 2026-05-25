@@ -1,0 +1,13 @@
+var today = (new Date()).toLocalISO();
+var tableData = createTable(['period',
+                             'status',
+                             'number number', 
+                             'person number',
+                             'hours_fact number'])
+  .addRow([today,
+           _parameters.status,
+           _parameters.task,
+           _parameters.person, 
+           _parameters.hours_fact]);
+
+return tableData;

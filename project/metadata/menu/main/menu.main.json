@@ -1,0 +1,97 @@
+{
+  "$schema": "../../system/schemas/menuSettings.schema.json",
+  "Uid": "199fd023-fc52-a928-ed69-833f243a8ca8",
+  "Name": "main",
+  "Title": "Основное",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 8,
+  "Items": [
+    {
+      "Uid": "4725e703-7ecc-10c4-658f-f4820cb5278e",
+      "Kind": 3,
+      "Title": "Справочники",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "Items": [
+        {
+          "Uid": "31b6e889-b984-4606-7e78-08c241a71f3d",
+          "Items": [
+            {
+              "Uid": "4e131143-9c8a-e8db-3882-d7b556d2039a",
+              "Title": "Подгруппа 1",
+              "IsVisible": true,
+              "Items": [
+                {
+                  "Uid": "e9cfcd8a-25e6-af2f-8710-b465a810b884",
+                  "Kind": 1,
+                  "Title": "Элемент 1",
+                  "IconClass": "",
+                  "Url": "",
+                  "IsVisible": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "MetaObjectKindUidParsed": "032d8377-500f-4631-b435-1f7f69046674"
+    },
+    {
+      "Uid": "e8f770ea-d608-464d-9408-ca0207c93da1",
+      "Kind": 1,
+      "Title": "Книги",
+      "IconClass": "pi pi-book",
+      "Url": "/app#/data-objects/catalog/book",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": null,
+      "Items": [],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "Uid": "2232bc5d-189e-482d-ab27-7fa0329cec8d",
+      "Kind": 1,
+      "Title": "Авторы",
+      "IconClass": "pi pi-user",
+      "Url": "/app#/data-objects/catalog/author",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": null,
+      "Items": [],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "Uid": "7a61cc73-e86f-4a3d-aea4-d454d00d0e71",
+      "Kind": 1,
+      "Title": "Жанры",
+      "IconClass": "pi pi-tag",
+      "Url": "/app#/data-objects/enum/genre",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": null,
+      "Items": [],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "Uid": "31177386-ed25-4f58-b317-1cb248140059",
+      "Kind": 1,
+      "Title": "Выдачи",
+      "IconClass": "pi pi-send",
+      "Url": "/app#/data-objects/operation/loan",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": null,
+      "Items": [],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}

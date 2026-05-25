@@ -1,0 +1,192 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "7564fb57-86a0-d675-68a3-7d42b2050136",
+  "Name": "загрузка_сотрудники",
+  "Title": "0.003 Загрузка Сотрудники",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 23,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{\n\"token\": \"ZjI1MzA3N2EtYjIzZi00NWZiLWIxN2QtYzVjZDA4YWZhOTBkfDJiYmJkOTUzLTEwNTQtNDIzNi1iYzNiLTg1NGUxM2ExNDhkN3xjNDhiNmY5MC02NDBhLTQxMjQtOTgxYi04YmUyZTBkNzNiMmF8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "7fd4fa39-9dce-98c0-83a5-48f93160c802",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загрузка_сотрудники.step.data.bjs",
+      "Uid": "2af7b2f6-0afc-63ab-f42b-57c5f625c3e3",
+      "PreviousStepUid": "7fd4fa39-9dce-98c0-83a5-48f93160c802",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "c47d3835-48d8-427f-be89-e84c082575ef",
+      "SaveRegime": 0,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "7a450ad8-9897-fb4c-9c5e-400336cbe3e6",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "2d76743a-60b8-3714-8255-a0925733a9f0",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "2c6771a3-1ae8-02a8-fe88-1bbb6e7af160",
+          "SourceFieldName": "title",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "fd37b8cb-a5bb-6e16-42e5-a79d12e8406a",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "0655132e-b724-b189-602f-92758c43216a",
+          "SourceFieldName": "полное_имя",
+          "DestinationFieldName": "полное_имя",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "64b2f8d9-9d79-63a2-1d49-b6e211a08351",
+          "SourceFieldName": "размер_одежды",
+          "DestinationFieldName": "размер_одежды",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "e7ff0a7e-97cc-cdd1-248c-427833acfecc",
+          "SourceFieldName": "размер_обуви",
+          "DestinationFieldName": "размер_обуви",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "35235142-b94c-1bad-4c21-78dc1cacd14f",
+          "SourceFieldName": "email",
+          "DestinationFieldName": "email",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "90cc28f4-6a17-179e-398c-dbcb5b899575",
+          "SourceFieldName": "группа",
+          "DestinationFieldName": "группа",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "6551ffd4-96fc-4596-adf7-b53841ba0b95",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "9d663346-39cc-2f4b-3c88-f64ca015c8f5",
+          "SourceFieldName": "вахта",
+          "DestinationFieldName": "вахта",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "85b5eecd-1ccd-43e4-a68d-ccc90d1688af",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "cda0e158-8787-5712-3c35-85a7b94c35df",
+          "SourceFieldName": "телефон",
+          "DestinationFieldName": "телефон",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "58661821-6ef8-a102-f6f8-c692b2f4809b",
+          "SourceFieldName": "табельный_номер_1с",
+          "DestinationFieldName": "табельный_номер_1с",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "991356c3-3857-5995-3669-22212b89c11f",
+          "SourceFieldName": "memo",
+          "DestinationFieldName": "memo",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "93ca9d67-5783-c8bf-698f-5805f036c59f",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id_hubcloud",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "a71acdd5-dcb3-bda8-1da0-be06fa513d5c",
+      "PreviousStepUid": "2af7b2f6-0afc-63ab-f42b-57c5f625c3e3",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

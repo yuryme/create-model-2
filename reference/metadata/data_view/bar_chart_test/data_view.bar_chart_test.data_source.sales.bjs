@@ -1,0 +1,36 @@
+var sales = createTable([
+  { name: 'month', dataType: 'number' },
+  { name: 'amount_t', dataType: 'number' },
+  { name: 'amount_m', dataType: 'number' }
+]);
+
+function seededRandom(seed) {
+  var x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+for (var m = 1; m <= 12; m++) {
+  var rawSeason = Math.sin((m - 4) / 12 * Math.PI * 2);
+
+  // делаем сезонность более контрастной
+  var season = Math.pow((rawSeason + 1) / 2, 1.6); // [0;1]
+
+  var maxT = 1200;
+  var maxM = 1800;
+
+  var minT = 250;
+  var minM = 400;
+
+  var noiseT = (seededRandom(m * 17 + 1) - 0.5) * 120;
+  var noiseM = (seededRandom(m * 31 + 7) - 0.5) * 180;
+
+  var amountT = Math.round(minT + season * (maxT - minT) + noiseT);
+  var amountM = Math.round(minM + season * (maxM - minM) + noiseM);
+
+  amountT = Math.max(0, Math.min(maxT, amountT));
+  amountM = Math.max(0, Math.min(maxM, amountM));
+
+  sales.addRow([m, amountT, amountM]);
+}
+
+return sales;

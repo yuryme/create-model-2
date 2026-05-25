@@ -1,0 +1,87 @@
+var tableData =_data.data;
+var currentRow = tableData.rows[0];
+var employee = currentRow.сотрудники;
+var tableHistory = await from('register.штатное_расписание_история')
+  .select(['date', 'number', 'сотрудники', 'должность', 'оклад', 'организация','проект_заказ','тип_начисления_зп','регион', 'город','упр_подразделение','подразделение','премия', 'комментарий','ставка_час','ставка_смена','дорожные_ставка','счетчик','подрядчик', 'графики_вахт', 'статья'])
+  .where('сотрудники = @employee')
+  .parameter('employee', employee)
+  .orderBy('date desc')
+  .top(1)
+  .query();
+
+var comparisonList = ['сотрудники', 'должность', 'оклад', 'организация','проект_заказ','тип_начисления_зп','регион','город','упр_подразделение','подразделение','премия', 'комментарий','ставка_час','ставка_смена','дорожные_ставка','счетчик', 'уволен', 'подрядчик', 'графики_вахт', 'статья'];
+
+function isEmptyValue(v) {
+  return v === null || v === undefined || v === '' || v === 0;
+}
+
+function detectDataType(column, v1, v2) {
+  if (column && column.dataType) {
+    return column.dataType;
+  }
+  if (v1 instanceof Date || v2 instanceof Date) return 'date';
+  if (typeof v1 === 'number' || typeof v2 === 'number') return 'number';
+  if (typeof v1 === 'boolean' || typeof v2 === 'boolean') return 'boolean';
+  return 'string';
+}
+
+function valuesEqual(v1, v2, dataType) {
+  var e1 = isEmptyValue(v1);
+  var e2 = isEmptyValue(v2);
+
+  // оба пустые — совпадение
+  if (e1 && e2) {
+    return true;
+  }
+
+  // один пустой, другой нет — не совпадает
+  if (e1 !== e2) {
+    return false;
+  }
+
+  switch (dataType) {
+    case 'number':
+    case 'integer':
+      return parseNumber(v1) === parseNumber(v2);
+    case 'date': {
+      var d1 = v1 instanceof Date ? v1 : new Date(v1);
+      var d2 = v2 instanceof Date ? v2 : new Date(v2);
+      if (isNaN(d1.getTime()) || isNaN(d2.getTime())) {
+        return String(v1) === String(v2);
+      }
+      return d1.getTime() === d2.getTime();
+    }
+    case 'boolean':
+      return Boolean(v1) === Boolean(v2);
+    default:
+      return String(v1) === String(v2);
+  }
+}
+
+var historyRow;
+if (tableHistory && Array.isArray(tableHistory.rows) && tableHistory.rows.length > 0) {
+  historyRow = tableHistory.rows[0];
+} else {
+  historyRow = {};
+  for (var i = 0; i < comparisonList.length; i++) {
+    historyRow[comparisonList[i]] = null;
+  }
+}
+
+var isEqual = true;
+
+for (var i = 0; i < comparisonList.length; i++) {
+  var field = comparisonList[i];
+  var v1 = currentRow[field];
+  var v2 = historyRow[field];
+
+  var columnInfo = tableData.getColumn(field);
+  var dataType = detectDataType(columnInfo, v1, v2);
+
+  if (!valuesEqual(v1, v2, dataType)) {
+    isEqual = false;
+    break;
+  }
+}
+
+return isEqual ? 1 : 0;

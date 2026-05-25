@@ -1,0 +1,34 @@
+isWaiting(true);
+
+var dateStart = $h.дата_нмес;
+var dateEnd = $h.дата_кмес;
+
+//1. ШТАТНОЕ РАСПИСАНИЕ
+var tableStaff = await from("records.штатное_расписание")
+  .where('period <= @dateEnd')
+  .parameter('dateEnd', dateEnd )
+  .select(["period","организация","должность","статья","тип_начисления_зп","сотрудники","оклад as ставка_оклад"])
+  .getDisplays().query();
+
+// 2. ВЕДОМОСТЬ РАБОЧЕГО ВРЕМЕНИ
+var tableWorkTime =  await from("records.ведомость_раб_врем")
+  .where('period <= @dateEnd AND period >= @dateStart')
+  .parameter('dateStart', dateStart )
+  .parameter('dateEnd', dateEnd )
+  .select(['period','сотрудники', 'раб_час as колво_рабчас'])
+  .getDisplays().query();
+
+var tableWorkRaw = tableWorkTime
+  .groupBy(["сотрудники","сотрудники_display"],	["колво_рабчас"])
+  .leftJoin(tableStaff, (pr,jn) => pr.сотрудники == jn.сотрудники)
+  .filter(row => row.тип_начисления_зп == 5)
+  .addColumn('сумма_начисления number')
+  .process(r => r["сумма_начисления"] = r["ставка_оклад"])
+  .filter(row => {const hOrg = $h.организация; if (hOrg == null || hOrg === 0) return true; return row["организация"] === hOrg;})
+  .filter(row => row["сумма_начисления"] > 0 )
+  .orderBy((a,b) => a.сотрудники_display.localeCompare(b.сотрудники_display));
+
+isWaiting(false);
+$t.table_5.clear();
+$t.table_5.load(tableWorkRaw);
+isModified(true);

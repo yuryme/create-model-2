@@ -1,0 +1,45 @@
+var project = $h.проект;
+
+var tab11 = await from('operation.заявка_площадки_с')
+  .select(['number', 'number as заявка','шифр_рд', 'заявка_номер as заявка_display', 'ответственный'])
+  .where('opr_заявка_площадки_с.проект = @проект')
+  .parameter('проект', project, 11)
+  .getDisplays()
+  .query();
+
+var result_2 = Array.from(
+  new Set((tab11.rows ?? []).map(r => r.number).filter(v => v != null))
+);
+
+var t12 = await from('operation.заявка_площадки_с.table_1')
+  .select(['object_uid', 'система_в_рд', 'передать_другому', 'номенклатура'])
+  .getDisplays()
+  .query();
+t12 = t12.filter(r => result_2.includes(r.object_uid))
+        .leftJoin(tab11, (pr, jn) => pr.number == jn.object_uid)
+        .addColumn({ name: 'исполнитель_display' })
+        .process(r => {r.исполнитель_display = r.ответственный_display ?? r.передать_другому_display ??  null;})
+        .deleteColumns(['шифр_рд', 'передать_другому', 'ответственный','object_uid', 'система_в_рд'])
+        .groupBy(['номенклатура', 'номенклатура_display', 'заявка', 'заявка_display'], 
+                 [{name:'шифр_рд_display', aggregate: 'concat'},
+                  {name:'исполнитель_display', aggregate: 'concat'},
+                  {name:'система_в_рд_display', aggregate: 'concat'}] );
+
+
+
+var tableSaldo = await from('records.мтс_остатки_от_заяв3')
+  .select(['заявка', 'справочник_расценок as номенклатура', 'едизм', 'колво as остаток_по_заявке'])
+  .where("regr_мтс_остатки_от_заяв3.проект = @project")
+  .parameter('project', project, 11)
+  .getDisplays()
+  .query();
+
+tableSaldo = tableSaldo
+  .groupBy(['заявка', 'заявка_display','номенклатура', 'номенклатура_display','едизм', 'едизм_display' ], ['остаток_по_заявке'])
+  .addColumn({ name: 'колво_поставка', dataType: 'number' })
+  .process(row =>  row.колво_поставка = (row.остаток_по_заявке ?? 0))
+  .addColumn({ name: 'сч', dataType: 'number' })
+  .process(row => row.сч = 1)
+  .leftJoin(t12, (pr, jn) => pr.заявка == jn.заявка && pr.номенклатура == jn.номенклатура);
+
+openPickUp(tableSaldo, 'table_1');

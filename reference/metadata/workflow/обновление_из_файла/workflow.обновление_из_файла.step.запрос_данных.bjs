@@ -1,0 +1,123 @@
+var op = _data.operation_data;
+var mp = _data.mapping;
+
+function toStr(v) { return String(v ?? '').replace(/\u00A0/g, ' ').trim(); }
+
+// 1) Excel (NEW)
+var excel = createTable(
+  'марка string,' +
+  'наименование_марки string,' +
+  'количество number,' +
+  'вес_одной_кг number,' +
+  'вес_всех_кг number,' +
+  'чертеж string,' +
+  'шифр_км number,' +
+  'шифр_км_display string'
+).unionAll(mp);
+
+// 2) Operation row
+var opRow = (op?.rows ?? [])[0] ?? {};
+var project = opRow.проект_заказ ?? opRow.project ?? opRow.проект ?? null;
+var codeKm = opRow.шифр_км ?? null;
+var codeKm_display = opRow.шифр_км_display ?? null;
+
+if (codeKm == null) throw new Error('В операции не заполнен шифр_км');
+if (project == null) throw new Error('В операции не определён проект');
+
+// 3) Key in Excel: уникальный_номер = шифр_км_display + "_" + марка
+excel = excel
+  .addColumn('уникальный_номер', 'string')
+  .process(r => {
+    r.шифр_км = codeKm;
+    r.шифр_км_display = codeKm_display; // <-- без пробела!
+    r.уникальный_номер = toStr(r.шифр_км_display) + '_' + toStr(r.марка);
+  });
+
+// 4) Catalog марки (OLD)
+var cat = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'уникальное_поле',
+    'шифр_км',
+    'колво as колво_old',
+    'вес_одной_кг as вес_одной_кг_old',
+    'вес_всех_кг as вес_всех_кг_old',
+    'проект_заказ',
+    'наименование_марки as наименование_марки_old',
+    'title as марки_display'
+  ])
+  .where('cat_марки.проект_заказ = @prj AND cat_марки.шифр_км = @cdKm')
+  .parameter('prj', project, 11)        // если это list/int — тип не нужен; если будут ошибки, уточним
+  .parameter('cdKm', codeKm, 11)            // idem
+  .getDisplays()
+  .query();
+
+cat = cat ?? createTable(
+  'марки number,' +
+  'уникальное_поле string,' +
+  'шифр_км number,' +
+  'колво_old number,' +
+  'вес_одной_кг_old number,' +
+  'вес_всех_кг_old number,' +
+  'проект_заказ number,' +
+  'наименование_марки_old string,' +
+  'марки_display string'
+);
+
+// 5) LEFT JOIN Excel -> Catalog (создать/обновить)
+var result = createTable(
+  'марка string,' +
+  'наименование_марки string,' +
+  'количество number,' +
+  'вес_одной_кг number,' +
+  'вес_всех_кг number,' +
+  'шифр_км number,' +
+  'шифр_км_display string,' +
+  'уникальный_номер string'
+)
+  .unionAll(excel)
+  .fullJoin(
+    cat,
+    (pr, jn) =>
+      toStr(jn.уникальное_поле) === toStr(pr.уникальный_номер) &&
+      jn.шифр_км === pr.шифр_км
+  )
+  .addColumn('марка_new', 'string')
+  .addColumn('наименование_марки_new', 'string')
+  .addColumn('колво_new', 'number')
+  .addColumn('колво', 'number')
+  .addColumn('вес_одной_кг_new', 'number')
+  .addColumn('вес_всех_кг_new', 'number')
+  .addColumn('обновить', 'boolean')
+  .addColumn('создать', 'boolean')
+  .addColumn('удалить', 'boolean')
+  .process(r => {
+  // признаки наличия строк
+  var hasOld = isNotEmpty(r.уникальное_поле);   // есть запись в справочнике
+  var hasNew = isNotEmpty(r.уникальный_номер);
+
+  // NEW (из Excel)
+  r.марка_new = hasNew ? r.марка : null;
+  r.наименование_марки_new = hasNew ? r.наименование_марки : null;
+
+  r.колво_new = hasNew ? parseNumber(r.количество) : null;
+  r.вес_одной_кг_new = hasNew ? parseNumber(r.вес_одной_кг) : null;
+  r.вес_всех_кг_new = hasNew ? parseNumber(r.вес_всех_кг) : null;
+
+  // OLD (в detailTable это поля БЕЗ _old)
+  r.колво = hasOld ? parseNumber(r.колво_old) : null;
+  r.вес_одной_кг = hasOld ? parseNumber(r.вес_одной_кг_old) : null;
+  r.вес_всех_кг = hasOld ? parseNumber(r.вес_всех_кг_old) : null;
+
+  // flags
+  r.создать = hasNew && !hasOld;
+  r.удалить = hasOld && !hasNew;
+
+  r.обновить =
+    hasOld && hasNew &&
+    (
+     (r.колво + r.вес_всех_кг - r.колво_new - r.вес_всех_кг_new) !== 0
+    );
+});
+
+return result;

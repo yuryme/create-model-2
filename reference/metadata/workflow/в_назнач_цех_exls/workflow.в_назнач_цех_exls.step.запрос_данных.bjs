@@ -1,0 +1,89 @@
+/* TempTable.дан_опер;
+TempTable.меппинг;
+
+CreateTable(проект_заказ integer) | UnionAll($result_1) | LIST(проект_заказ);
+
+Catalog.шифр_км | проект_заказ  ($result_3) | Select (id, title as шифр_км_title, проект_заказ );
+
+CreateTable | FullJoinAuto ($result_4, ) | GroupBy (id) | List ( id);
+Catalog.марки | актуальность (1) | шифр_км ($result_5) | Select (id as марки, title, 
+наименование_марки, шифр_км, уникальное_поле, колво, вес_одной_кг, вес_всех_кг) | GetTitle ();
+
+CreateTable | FullJoinAuto ($result_2, ) | LeftJoinAuto ( $result_4, 1=1) 
+| Concatenate (уникальное_поле, шифр_км_title,_,марка) 
+| LeftJoinAuto ( $result_6, уникальное_поле = result_6.уникальное_поле ) 
+| Having ( title is not Null ) | Compute ( общий_вес_врем, вес_одной_кг * колво / 1000) 
+| ComputeFunction( "общий_вес", "Math.Round(общий_вес_врем, 3, MidpointRounding.AwayFromZero)") 
+| AddColumn (счетчик, number, 1 ) | OrderBy (уникальное_поле)*/
+
+var oper = _data.operation_data;
+var mapping = _data.mapping;
+
+var projectList = Array.from(
+  new Set(
+    (oper.rows ?? [])
+      .map(r => r.проект_заказ)
+      .filter(v => v != null)
+  )
+);
+
+var kmTable = await from('catalog.шифр_км')
+  .select(['id', 'title as шифр_км_display', 'проект_заказ'])
+  .where('проект_заказ in @prlst')
+  .parameter('prlst', projectList, 11 )
+  .query();
+
+var kmIds = Array.from(
+  new Set(
+    (kmTable.rows ?? [])
+      .map(r => r.id)
+      .filter(v => v != null)
+  )
+);
+
+var markiCatalog = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'title as марки_display',
+    'наименование_марки',
+    'шифр_км',
+    'уникальное_поле',
+    'колво',
+    'вес_одной_кг',
+    'вес_всех_кг'
+  ])
+  .where('cat_марки.шифр_км in @kmIds_')
+  .parameter('kmIds_', kmIds, 11)
+  .getDisplays()
+  .query();
+
+var result = mapping
+  .leftJoin(kmTable, () => true)
+  .addColumn('уникальное_поле', 'string')
+  .process(r => {
+    r.уникальное_поле = String(r.шифр_км_display ?? '') + '_' + String(r.марка ?? '');
+  })
+  .leftJoin(
+    markiCatalog, (pr, jn) => pr.уникальное_поле === jn.уникальное_поле
+  )
+  .filter(r => r.марки != 0)
+  .addColumn('общий_вес_врем', 'number')
+  .addColumn('общий_вес', 'number')
+  .addColumn('счетчик', 'number')
+  .process(r => {
+    r.общий_вес_врем =
+      parseNumber(r.вес_одной_кг) *
+      parseNumber(r.колво) /
+      1000;
+
+    r.общий_вес =
+      Math.round(r.общий_вес_врем * 1000) / 1000;
+
+    r.счетчик = 1;
+  })
+  .orderBy((a, b) =>
+    String(a.уникальное_поле).localeCompare(String(b.уникальное_поле))
+  );
+
+return result;
+

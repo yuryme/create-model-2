@@ -1,0 +1,54 @@
+isWaiting(true);
+
+const dateStart = $h.дата_нмес;
+const dateEnd = $h.дата_кмес;
+
+// 1) Штатное расписание
+let staff = await from("records.штатное_расписание")
+  .where('period <= @dateEnd')
+  .parameter('dateEnd', dateEnd )
+  .select([
+    "организация",
+    "должность",
+    "статья",
+    "сотрудники",
+    "тип_начисления_зп",
+    "оклад as ставка_оклад"
+  ])
+  .getDisplays()
+  .query();
+
+// 2) Ведомость рабочих часов:
+let work = await from("records.ведомость_раб_врем")
+  .where('аванс_вторая_часть = 1 AND period <= @dateEnd AND period >= @dateStart')
+  .parameter('dateStart', dateStart )
+  .parameter('dateEnd', dateEnd )
+  .select(['period', 'сотрудники', 'раб_час'])
+  .getDisplays()
+  .query();
+
+work = work
+  .groupBy(
+    ["сотрудники", "сотрудники_display"],
+    [{ name: "раб_час", alias: "колво_рабчас", aggregate: "sum" }] )
+  .leftJoin(staff, (l, s) => l["сотрудники"] === s["сотрудники"])
+  .filter(r => r["тип_начисления_зп"] === 2)
+  .addColumn({ name: "сумма_за_дни", dataType: "number" })
+  .addColumn({ name: "сумма_начисления", dataType: "number" })
+  .process(r => {
+    const hours = r["колво_рабчас"] || 0;
+    const rate =  r["ставка_оклад"];
+    const norm = $h.колво_часов_мес;
+    const sum = norm ? (rate * hours) / norm : 0; 
+    r["сумма_за_дни"] = sum;
+    r["сумма_начисления"] = r["сумма_за_дни"];
+     })
+  .filter(r => {
+    const org = $h.организация;
+    return org == null || org === 0 || r["организация"] === org;
+  });
+
+isWaiting(false);
+$t.table_3.clear();
+$t.table_3.load(work);
+isModified(true);

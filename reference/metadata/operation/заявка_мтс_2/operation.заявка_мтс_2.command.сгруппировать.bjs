@@ -1,0 +1,42 @@
+setIsWaiting(true);
+
+const columns = ['лист_рд', 'поз', 'номенклатура', 'едизм', 'колво_поставка as колво']
+var result_1 = await from ('operation.заявка_мтс_2.table_1')
+  .where('object_uid = @object_uid')
+  .parameter('object_uid', $h.number, 11)
+  .select(columns)
+   .getDisplays()
+  .query();
+
+var result_2 = result_1.addColumn('лист_позиция')
+  .process(row => row.лист_позиция = row.лист_рд + ' [' + row.поз + ']' )
+  .groupBy(['номенклатура'], [{name:'лист_позиция', aggregate: 'concat'}]);
+
+const prodList = []
+var result_3 = result_2.select(['номенклатура']);
+// ✅ Получение списка всех значений колонки "номенклатура"
+result_3 =[...new Set(result_3.rows.map(r => r.номенклатура))];
+
+var result_4 = await from ('catalog.справочник_расценок')
+   .select(['id as номенклатура', 'title as номенклатура_display', 'тип_марка_и_пр as тип', 'код_изделия', 'завод'])
+   .query();
+// ✅ Фильтруем строки result_4 по полю "номенклатура"
+result_4.filter(row => result_3.includes(row.номенклатура));
+
+const measureUnit = await from ('catalog.ед_изм_2')
+    .select (['id as едизм', 'title as едизм_display'])
+    .query();
+
+result = result_1.select (['номенклатура as n1', 'едизм', 'колво'])
+  .groupBy(['n1', 'едизм'], [{name:'колво', aggegate: 'sum'}])
+  .leftJoin(result_2,(prRow, jRow)=> prRow.n1 == jRow.номенклатура)
+  .leftJoin(result_4,(prRow, jRow)=> prRow.n1 == jRow.номенклатура)
+  .leftJoin(measureUnit,(prRow, jRow)=> prRow.едизм == jRow.едизм)
+  .orderBy((a, b) =>
+    String(a.номенклатура_display ?? '').localeCompare(String(b.номенклатура_display ?? ''), 'ru')
+  );
+
+setIsWaiting(false);
+$t.table_2.clear();
+$t.table_2.load(result);
+setIsModified(true);

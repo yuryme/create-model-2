@@ -1,0 +1,33 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "447e2c7b-2929-6695-f9e9-6d112990785c",
+  "Name": "test_load_file",
+  "Title": "TEST LOAD FILE",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 68,
+  "Steps": [
+    {
+      "Expression": "workflow.test_load_file.step.getParameter.bjs",
+      "Uid": "779b9205-d2ac-698a-02d8-69306f263916",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Get Parameter",
+      "Name": "getParameter",
+      "Memo": "operation.заявка_мтс_2 | uid({{parameters.Uid}}) \n| select ( id, uid, date, площадка as проект_заказ, шифр_рд ) \n| GetTitle() ",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.test_load_file.step.result_3.bjs",
+      "Uid": "987f11e1-8bb7-3fb4-bc2f-1a917147171e",
+      "PreviousStepUid": "779b9205-d2ac-698a-02d8-69306f263916",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "result_3",
+      "Name": "result_3",
+      "Memo": "Catalog.справочник_расценок | проект ($result_3) | Select (id as номенклатура, title as номенклатура_title, код_изделия, завод, описание_для_составных_нр as описание, тип_марка_и_пр as тип);\n\ncatalog.ед_изм_2 | Select (id as едизм, title as едизм_title);\n\ncatalog.система_в_рд | проект ($result_3) | шифр_рд ($result_4 ) | Select (id as система_в_рд, title as система_в_рд_title  );\n",
+      "IsActive": true
+    }
+  ]
+}

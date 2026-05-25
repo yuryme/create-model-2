@@ -1,0 +1,18 @@
+var table = createTable([{name: 'id', dataType: 'number'}
+                         ,{name: 'uid'}
+                         ,{name: 'name'}
+                         ,{name: 'title'}
+                         ,{name: 'вахта_дн', dataType: 'number'}
+                         ,{name: 'отдых_дн', dataType: 'number'}
+                        ]);
+
+_data.request.data.forEach( row => {
+  table.addRow([row.id, 
+                row.uid, 
+                row.name, 
+                row.title, 
+                row.вахта_дн, 
+                row.отдых_дн]);
+});
+
+return table;

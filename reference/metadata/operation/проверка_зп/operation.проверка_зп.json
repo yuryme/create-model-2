@@ -1,0 +1,629 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "7ef3b164-7756-446f-899e-4ad62f7d0203",
+  "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+  "Title": "Проверка выплаты ЗП",
+  "Name": "проверка_зп",
+  "Memo": "В работе, Записи не нужны, одна загрузка ЗП",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "c4314b9e-5e34-edaf-cd9f-005c78c15be2",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "6186ff48-c9c2-4d22-ed15-6a7742d980ad",
+        "Kind": 0,
+        "StandardColumnUid": "a39e7b83-e94d-4646-b620-04434fef2f4c",
+        "Title": "Номер",
+        "Name": "number",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a885d1e2-a909-40cb-ce00-ed6d3870dee4",
+        "Kind": 0,
+        "StandardColumnUid": "95d36e42-5d4d-4c26-adc1-1319e860b45e",
+        "Title": "Удалено",
+        "Name": "is_deleted",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "7f3da0dc-20eb-0ea8-21fe-57a41adf10c8",
+        "Kind": 0,
+        "StandardColumnUid": "f244de36-53c9-4e93-a5a2-94abbed91e02",
+        "Title": "Дата",
+        "Name": "date",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": "now"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": [
+          {
+            "Kind": 0,
+            "FieldUid": "f1af9704-a254-fe23-1764-c894b71537d6",
+            "TableUid": "c4314b9e-5e34-edaf-cd9f-005c78c15be2"
+          },
+          {
+            "Kind": 0,
+            "FieldUid": "02b59c3b-16a6-a427-ebb4-a7ce214e4302",
+            "TableUid": "c4314b9e-5e34-edaf-cd9f-005c78c15be2"
+          }
+        ]
+      },
+      {
+        "Uid": "b0d88dcc-58dc-0925-9c92-1f99a86347c5",
+        "Kind": 0,
+        "StandardColumnUid": "9cac33f4-6758-4aab-be4a-b00790bdf452",
+        "Title": "Файлы",
+        "Name": "is_files",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "62e21828-b511-9a43-b0fe-e696975b0d04",
+        "Kind": 0,
+        "StandardColumnUid": "fee422db-18dc-442a-a8dd-01df76c20a98",
+        "Title": "Создать записи",
+        "Name": "create_records",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": "true"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "ce2d9ab7-3aeb-4cf9-39c8-2669b41bac6d",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Месяц",
+        "Name": "месяц",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "05469185-69c8-4b93-a78c-3827ea40482a",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "f1af9704-a254-fe23-1764-c894b71537d6",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Дата н.мес.",
+        "Name": "дата_нмес",
+        "Formula": "$h.date.beginMonth()",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "02b59c3b-16a6-a427-ebb4-a7ce214e4302",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Дата к.мес.",
+        "Name": "дата_кмес",
+        "Formula": "$h.date.endMonth()",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a2718d75-e3ee-eac0-5ade-45fce67114f0",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Комментарий",
+        "Name": "комментарий",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "0fe404fd-3966-8333-d585-17bad16d857d",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Дата остатков",
+        "Name": "дата_остатков",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": [
+      {
+        "Uid": "7cba4825-2b8f-101f-1ec0-7aa9f245f18a",
+        "Columns": [
+          {
+            "ColumnUid": "a885d1e2-a909-40cb-ce00-ed6d3870dee4",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "f49b5181-112a-7471-be3e-e5c1ebc854f8",
+        "Columns": [
+          {
+            "ColumnUid": "7f3da0dc-20eb-0ea8-21fe-57a41adf10c8",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "fd12b9cf-a773-90ac-f9d0-263ce47cc6f2",
+        "Columns": [
+          {
+            "ColumnUid": "b0d88dcc-58dc-0925-9c92-1f99a86347c5",
+            "Direction": 0
+          }
+        ]
+      }
+    ]
+  },
+  "DetailTables": [
+    {
+      "Uid": "bf36da0c-528d-f801-93d7-674b6e12374a",
+      "Title": "Таблица 1",
+      "Name": "table_1",
+      "Memo": "",
+      "AutoClearMethod": 0,
+      "Columns": [
+        {
+          "Uid": "6f98a974-45f8-1979-a580-0192f82fc6f2",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Id",
+          "Name": "id",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": true,
+          "DataSettings": {
+            "DataTypeUid": "daa57cb0-32eb-4709-b61f-4ea023ae31c3",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": true,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "f6261243-c8cc-54ad-3b11-d5fbcf848a7b",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Object UID",
+          "Name": "object_uid",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": true,
+          "DataSettings": {
+            "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "f7715536-3d01-9434-7915-1c80f9333af4",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Row number",
+          "Name": "row_number",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": true,
+          "DataSettings": {
+            "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "cb5ccf06-70b7-67d5-2c85-7db33683b4f2",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Сотрудники",
+          "Name": "сотрудники",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "c47d3835-48d8-427f-be89-e84c082575ef",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "88e45d8e-b144-4a3f-e289-68d2e1c934a9",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Сумма ЗП в Hb",
+          "Name": "сумма_hb",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "09d5a504-0bef-641e-e636-02be73fce101",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Сумма ЗП в 1С",
+          "Name": "сумма_из_excel",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "9565e485-0016-5ae3-0f62-151da2e0cc22",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Δ, откл (+/-)",
+          "Name": "отклонение",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "2e1a0564-3651-67b9-f838-f526570423ad",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Разовое начисление",
+          "Name": "разовое_начисление",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "6bfc6b25-ee5a-ed57-ec88-dd7f67426536",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Сотрудники (из 1С)",
+          "Name": "сотрудники_из_excel",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "d6708107-2430-782b-a1b8-0ff9edaa344c",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Остатки по ЗП",
+          "Name": "остатки_по_зп",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 100,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        }
+      ],
+      "Indexes": [
+        {
+          "Uid": "c08ab4dc-518f-376e-601f-80d01cae5a82",
+          "Columns": [
+            {
+              "ColumnUid": "f6261243-c8cc-54ad-3b11-d5fbcf848a7b",
+              "Direction": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

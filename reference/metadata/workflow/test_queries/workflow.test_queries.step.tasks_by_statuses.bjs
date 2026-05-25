@@ -1,0 +1,8 @@
+var tableResult = await from('operation.task')
+  .select(['status', 'Count(*) as count'])
+  .groupBy('status, status_display')
+  .having('Count(*) > 10')
+  .getDisplays()
+  .query();
+
+return tableResult;

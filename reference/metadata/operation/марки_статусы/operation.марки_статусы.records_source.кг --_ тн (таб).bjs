@@ -1,0 +1,11 @@
+var columns = ['цех_id', 'колво', 'вес_одной_кг', 'вес_всех_кг'];
+var initTable =  createTable(columns);
+
+var source = $t.table_1
+    .select(['цех_id', 'колво', 'вес_одной_кг', 'вес_всех_кг']);
+    
+var result = initTable.unionAll(source)
+     .addColumn({ name: 'вес_всех_кг_2', dataType: 'number'})
+     .process(r=> r.вес_всех_кг_2 = r.вес_всех_кг/1000);
+
+return result;

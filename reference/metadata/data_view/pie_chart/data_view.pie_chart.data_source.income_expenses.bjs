@@ -1,0 +1,37 @@
+var departments = ['Альфа', 'Бетта', 'Гамма', 'Дельта'];
+
+var data = createTable([
+  { name: 'department', dataType: 'string' },
+  { name: 'income', dataType: 'number' },
+  { name: 'expense', dataType: 'number' }
+]);
+
+function seededRandom(seed) {
+  var x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+var baseSeed = 12345;
+
+for (var i = 0; i < departments.length; i++) {
+  var dep = departments[i];
+
+  // базовый масштаб подразделения (разные размеры)
+  var scale = 800 + seededRandom(baseSeed + i) * 1200;
+
+  // доход
+  var incomeNoise = (seededRandom(baseSeed + i * 11) - 0.5) * 0.3;
+  var income = Math.round(scale * (1 + incomeNoise));
+
+  // коэффициент затрат (например 60%–90% от дохода)
+  var expenseRatio = 0.6 + seededRandom(baseSeed + i * 17) * 0.3;
+
+  // небольшой дополнительный шум
+  var expenseNoise = (seededRandom(baseSeed + i * 23) - 0.5) * 0.1;
+
+  var expense = Math.round(income * (expenseRatio + expenseNoise));
+
+  data.addRow([dep, income, expense]);
+}
+
+return data;

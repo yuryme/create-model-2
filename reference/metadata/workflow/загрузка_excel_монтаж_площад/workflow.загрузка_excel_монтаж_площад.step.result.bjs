@@ -1,0 +1,22 @@
+var operationData = await from('operation.монтаж_площадка')
+  .select(['number','проект_заказ as project'])
+  .where('number = @number')
+  .parameter('number', _parameters.number, 11)
+  .query();
+
+var idTable = await from('catalog.сотрудники')
+  .select(['id as сотрудник', 'id_hubcloud']).query();
+
+var emplTable = await from("operation.штатное_расписание")
+  .select(['сотрудники as сотрудник', 'проект_заказ'])
+  .getDisplays()
+  //.where('проект_заказ = @project')
+  //.parameter('project', operationData.rows[0].project, 11)
+  .query();
+emplTable = emplTable
+  .leftJoin(idTable, (pr, jr) => pr.сотрудник == jr.сотрудник);
+
+var resultTable = _data.mapping
+  .leftJoin(emplTable, (pr, jr) => pr.id_hubcloud == jr.id_hubcloud);
+
+return resultTable;

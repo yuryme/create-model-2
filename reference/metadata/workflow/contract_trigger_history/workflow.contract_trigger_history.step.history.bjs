@@ -1,0 +1,8 @@
+var history = await from('register.contract_status_history')
+  .where('document = @document')
+  .parameter('document', _parameters.number)
+  .top(1)
+  .orderBy('id desc')
+  .query();
+
+return history;

@@ -1,0 +1,183 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "4e5360ee-a47b-c625-0b20-7270a650d2f1",
+  "Name": "_загр_опер_почасовые_ставки_зп",
+  "Title": "01.003 Загрузка Операция Почасовые ставки ЗП",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 3,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"YjcyZjM5OTEtNjQ4NC00Y2Q2LTgwZmEtNTZiNDVlNjg3MzQxfDJmNWYxMDYzLTU5MmItNDdjMC05YjExLTg4ZWNhMGY4Yzg4Y3w5YzE5NWQ4NS1iYWVhLTQzNmItYWRmNS0xZGZlYzlhNzNlOTJ8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "07253082-2dfb-ab35-b2cb-be0797dde989",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загр_опер_почасовые_ставки_зп.step.data.bjs",
+      "Uid": "987e65a8-c486-14ac-a1b9-ace72dc50ee4",
+      "PreviousStepUid": "07253082-2dfb-ab35-b2cb-be0797dde989",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "6559ca86-53d5-4602-a73e-c5fe5d7edc40",
+      "SaveRegime": 1,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": true,
+      "HeaderMapping": [
+        {
+          "Uid": "bdd68ee6-c62b-66d0-e585-041f978de63f",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "7ac64694-92cc-48ae-5451-4009a1cbdf25",
+          "SourceFieldName": "date",
+          "DestinationFieldName": "date",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "26ca145c-023f-ef5c-6341-5c412c37d8f8",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "5e35dd90-0179-d7f6-3b40-e9f1e65b9856",
+          "SourceFieldName": "create_records",
+          "DestinationFieldName": "create_records",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "fb32ccb9-17c8-a464-7614-b1039482e3fc",
+          "SourceFieldName": "тип_начисления_зп",
+          "DestinationFieldName": "тип_начисления_зп",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "c0a27f77-5134-4f08-b55b-5588212e717e",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "bdd05c79-8b52-763a-ca24-61fc99fa2403",
+          "SourceFieldName": "должность",
+          "DestinationFieldName": "должность",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "a5f880b1-c755-4939-8197-22f8e3ef15ef",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4b2fb7c7-831e-f1b0-1243-78dd5d0fd2b6",
+          "SourceFieldName": "ставка_час",
+          "DestinationFieldName": "ставка_час",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "fd45b5f9-2628-f408-c301-c743e8d4e33d",
+          "SourceFieldName": "комментарий",
+          "DestinationFieldName": "комментарий",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "956a1d31-48ee-4736-409b-8c4fa2df88e8",
+          "SourceFieldName": "действует_с",
+          "DestinationFieldName": "действует_с",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "67adcfb9-88f6-4952-3174-608c1edaaeec",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c914f6d3-212f-5a8e-13d8-ed10e8ed9139",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "0f70cff2-34ca-d7c3-a9c7-0a6921efd369",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id_hubcloud",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "04c02f88-eed2-7330-596a-c49968f133df",
+          "SourceFieldName": "number",
+          "DestinationFieldName": "number_hubcloud",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "fea95b73-f25e-8be3-cda5-b0f640b62d69",
+      "PreviousStepUid": "987e65a8-c486-14ac-a1b9-ace72dc50ee4",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

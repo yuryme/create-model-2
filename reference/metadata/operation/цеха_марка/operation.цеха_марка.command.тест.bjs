@@ -1,0 +1,62 @@
+/*catalog.марки | Select ( id, наименование_марки, колво, вес_одной_кг, 
+вес_всех_кг, проект_заказ, шифр_км, актуальность) | GetTitle ();
+статусы_марок | проект_заказ ($h.проект_заказ) | SELECT (марки, проект_заказ, 
+статус, цеха ) | GetTitle ()  | LeftJoinAuto ($result_1, марки = result_1.id ) 
+| AddColumn (счетчик, number, 1 ) 
+| Having (актуальность = 1 OR актуальность is Null ) 
+| DeleteColumn ( проект_заказ, проект_заказ_title, цеха, цеха_title ) 
+| OrderBy ( марки )*/
+
+var statuses = await from('records.статусы_марок')
+  .select(['марки', 'проект_заказ', 'статус', 'цеха'])
+  .where('regr_статусы_марок.проект_заказ = @project')
+  .parameter('project', $h.проект_заказ, 11)
+  .getDisplays()
+  .query();
+
+var uniqueMarks = Array.from(
+  new Set(
+    (statuses.rows ?? [])
+      .map(r => r.марки)
+      .filter(v => v != null)
+  )
+);
+
+var marki = await from('catalog.марки')
+  .select([
+    'id',
+    'наименование_марки',
+    'колво',
+    'вес_одной_кг',
+    'вес_всех_кг',
+    'проект_заказ',
+    'шифр_км',
+    'актуальность'
+  ])
+  .where('cat_марки.id in @uniqueMarks')
+  .parameter('uniqueMarks', uniqueMarks, 11)
+  .getDisplays()
+  .query();
+
+var result = statuses
+  .leftJoin(marki, (pr, jn) => pr.марки === jn.id)
+  .filter(r =>
+    r.актуальность === 1 ||
+    r.актуальность == null
+  )
+  .addColumn('счетчик', 'number')
+  .process(r => {
+    r.счетчик = 1;
+  })
+  .deleteColumns([
+    'проект_заказ',
+    'проект_заказ_title',
+    'цеха',
+    'цеха_title'
+  ])
+  .orderBy((a, b) => a.марки - b.марки); 
+
+openPickUp(result, 'table_1');
+
+
+

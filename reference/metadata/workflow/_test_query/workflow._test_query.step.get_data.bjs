@@ -1,0 +1,20 @@
+var operationHeader = await from("operation.заявка_мтс_2").getDisplays()
+  .select(['number', 'date', 'площадка as проект_заказ', 'шифр_рд'])
+  .query();
+
+var tableSaldo = await from('records.мтс_остатки_от_заяв2')
+  .select([
+    'шифр_рд',
+    'система_в_рд',
+    'справочник_расценок as номенклатура',
+    'едизм',
+    'колво as остаток_по_заявке',
+    'лист_рд',
+    'позиция_в_рд as поз_в_рд'
+  ])
+   .query();
+
+var a = {name1: operationHeader,
+         name2: tableSaldo}
+
+return a;

@@ -1,0 +1,28 @@
+var item = _data.item;
+var userMessages = _data.unread_messages.clone().filter(row=>row.person_to == item.person_to);
+var tasks = userMessages.clone().groupBy(
+  ['task_display', 'task', 'task_author', 'task_author_display'], ['counter']
+);
+
+var message = 'Здравствуйте!\n';
+message += 'У Вас есть непрочитанные сообщения:\n\n';
+
+tasks.process(row=> {
+  message +=`${row.task_display}. Автор: ${row.task_author_display}\n`;
+  var taskMessages = userMessages.clone().filter(r=>r.task == row.task);
+  taskMessages.process(taskRow=>{
+     message +=`${taskRow.message}\n`;
+  });
+  message +='\n';
+});
+
+ message += "\nВаши задачи в BaSYS доступны по ссылке: https://elevatorsc.thebasys.com/app#/data-objects/operation/task"
+
+
+var mailObject = {
+  email: item.email,
+  topic: 'Сообщения по задачам в BaSYS',
+  message: message,
+};
+
+return mailObject;

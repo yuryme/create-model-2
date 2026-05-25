@@ -1,0 +1,205 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "2e221d96-3a1c-7b78-fd96-375f2e453b0e",
+  "Name": "contract_approve_remarks",
+  "Title": "03.003.04-(1) Проект договора: согласовать замечания (решение=1)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 28,
+  "Steps": [
+    {
+      "Expression": "workflow.contract_approve_remarks.step.records.bjs",
+      "Uid": "0a580ed3-ee9f-618e-ed3d-4a5952506ad1",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Records",
+      "Name": "records",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "fe222c53-3140-4524-acd3-abce9cc01e8a",
+      "SaveRegime": 2,
+      "SearchBy": "id",
+      "SourcePath": "records",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "b44a79bb-ce53-bb79-9898-ba07e9c8a93c",
+          "SourceFieldName": "согласовано",
+          "DestinationFieldName": "согласовано",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "68a61be3-2125-42b5-f603-1a64b99e4a3d",
+          "SourceFieldName": "дата_согласования",
+          "DestinationFieldName": "дата_согласования",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "2b8c1c7a-a021-706a-7155-979f1825a79b",
+          "SourceFieldName": "комментарий",
+          "DestinationFieldName": "комментарий",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "af00963e-a132-7501-dc46-4746bfbb9d1f",
+          "SourceFieldName": "person_fact",
+          "DestinationFieldName": "person_fact",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4487a753-e911-c9dd-6e99-6613118f1f4e",
+          "SourceFieldName": "решение",
+          "DestinationFieldName": "решение",
+          "DefaultValue": "1",
+          "SearchBy": "id",
+          "DataTypeUid": "fdfce2bf-fced-484a-b6a1-719b9412408e",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "479b682d-364c-ef19-0d3d-9134bda9a37e",
+      "PreviousStepUid": "0a580ed3-ee9f-618e-ed3d-4a5952506ad1",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Set approve",
+      "Name": "set_approve",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.contract_approve_remarks.step.next_records.bjs",
+      "Uid": "9c3e65f0-29e9-c763-b940-a233d579b24c",
+      "PreviousStepUid": "479b682d-364c-ef19-0d3d-9134bda9a37e",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Next records",
+      "Name": "next_records",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "fe222c53-3140-4524-acd3-abce9cc01e8a",
+      "SaveRegime": 2,
+      "SearchBy": "id",
+      "SourcePath": "next_records",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "c5223f1f-aec8-afa2-940c-0da5163d6e0f",
+          "SourceFieldName": "на_согласовании",
+          "DestinationFieldName": "на_согласовании",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d8ae9b5e-a74f-f422-84e8-5f6b69aa8ede",
+          "SourceFieldName": "дата_отправки_на_согласование",
+          "DestinationFieldName": "дата_отправки_на_согласование",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "a63e275f-6c9f-936d-c16d-ade2b1e35945",
+      "PreviousStepUid": "9c3e65f0-29e9-c763-b940-a233d579b24c",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Set next approve",
+      "Name": "set_next_approve",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.contract_approve_remarks.step.messages.bjs",
+      "Uid": "d5c88766-a26e-1602-a66e-3c48b49f4f13",
+      "PreviousStepUid": "a63e275f-6c9f-936d-c16d-ade2b1e35945",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Messages",
+      "Name": "messages",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "messages",
+      "ItemName": "item",
+      "Uid": "20359320-cb0f-880e-b3fc-50c5f638c0d6",
+      "PreviousStepUid": "d5c88766-a26e-1602-a66e-3c48b49f4f13",
+      "KindUid": "07e698af-d11b-454b-a7f4-577a0439e92c",
+      "KindName": "iterator",
+      "Title": "Iterator",
+      "Name": "iterator",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Condition": "_data.messages != null",
+      "TrueStepUid": "243a75f0-fa31-699c-0f77-5ef406ba3fbe",
+      "FalseStepUid": "",
+      "Uid": "7f1418a4-9b98-b157-85c5-6d73bd4d25c8",
+      "PreviousStepUid": "20359320-cb0f-880e-b3fc-50c5f638c0d6",
+      "KindUid": "9a3a0dc1-b4ed-4679-9f72-0667b7dcfa53",
+      "KindName": "if",
+      "Title": "Check mail",
+      "Name": "check_mail",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Host": "smtp.mail.ru",
+      "User": "task@elevatorsc.ru",
+      "Password": "FRPNpDR7TxOI3uxLo61p",
+      "Port": "25",
+      "TimeoutSeconds": 30,
+      "EnableSsl": true,
+      "From": "task@elevatorsc.ru",
+      "To": "deev@elevatorsc.ru",
+      "CC": "",
+      "BCC": "mikhazyu@gmail.com",
+      "Subject": "Согласование замечаний {{item.проект_договора_display}}",
+      "Body": "Здравствуйте, {{item.full_name}}! \n\nВ процессе согласования замечаний по договору \"{{item.проект_договора_display}}\" Вам доступна установки визы \"{{item.approve_role_display}}\".\n\nДоговор доступен по ссылке:\nhttps://elevatorsc.thebasys.com/app#/data-objects/edit/operation/проект_договора/{{item.проект_договора}}",
+      "IsBodyHtml": false,
+      "Uid": "243a75f0-fa31-699c-0f77-5ef406ba3fbe",
+      "PreviousStepUid": "7f1418a4-9b98-b157-85c5-6d73bd4d25c8",
+      "KindUid": "df48f1ed-2bcf-4b1d-b45c-1305b55ce1f6",
+      "KindName": "smtp_send",
+      "Title": "Mail send",
+      "Name": "mail_send",
+      "Memo": "e.zolotareva@elevatorsc.ru",
+      "IsActive": true
+    },
+    {
+      "Uid": "7d6ce735-73d0-ee43-16d9-fa278b3b81b1",
+      "PreviousStepUid": "243a75f0-fa31-699c-0f77-5ef406ba3fbe",
+      "KindUid": "ac090927-e291-4421-b9aa-351b8fa51770",
+      "KindName": "iterator_stop",
+      "Title": "Iterator stop",
+      "Name": "iterator_stop",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

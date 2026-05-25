@@ -1,0 +1,85 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "4de0b48f-7c0f-1561-e7d4-7fc338e3711e",
+  "Name": "_загрузка_excel_произв_1",
+  "Title": "02.024 Загрузка Excel. Производство. 10. Загрузка в оп-ю Производство",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 133,
+  "Steps": [
+    {
+      "Expression": "workflow._загрузка_excel_произв_1.step.operation_data.bjs",
+      "Uid": "ca211165-7d6d-2550-f558-6916f9a1f690",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Operation data",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_произв_1.step.find_file.bjs",
+      "Uid": "d7b021b7-af4d-a597-bc12-18a135d9cee1",
+      "PreviousStepUid": "ca211165-7d6d-2550-f558-6916f9a1f690",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "0bb28d8e-2f75-5b32-7a77-940475b68c9d",
+      "PreviousStepUid": "d7b021b7-af4d-a597-bc12-18a135d9cee1",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "23d7af0c-ce8d-2eb5-db3c-0641266cb110",
+          "SourceFieldName": "Марка",
+          "DestinationFieldName": "марки",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "bb2a197b-e688-fae3-9710-b194489ff900",
+          "SourceFieldName": "Кол-во, шт",
+          "DestinationFieldName": "колво_шт",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        }
+      ],
+      "Uid": "769a400d-f53b-abdf-22c5-1520fccfb359",
+      "PreviousStepUid": "0bb28d8e-2f75-5b32-7a77-940475b68c9d",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_произв_1.step.запрос_данных.bjs",
+      "Uid": "a489bce3-3f6e-4b13-a46f-b2c200a82580",
+      "PreviousStepUid": "769a400d-f53b-abdf-22c5-1520fccfb359",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

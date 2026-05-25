@@ -1,0 +1,249 @@
+{
+  "$schema": "../../system/schemas/dataViewSettings.schema.json",
+  "Uid": "a68f0cab-cfeb-460b-aa31-5cca07c7a57c",
+  "Name": "indicators_test_1",
+  "Title": "Индикаторы (тест) 1",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 1,
+  "DataSources": [
+    {
+      "Uid": "f2b80416-a3f5-1f9f-7b33-e40a678c287b",
+      "Name": "contracts",
+      "Expression": "data_view.indicators_test_1.data_source.contracts.bjs",
+      "Memo": ""
+    },
+    {
+      "Uid": "27c4dd26-58e2-5397-46e2-c29d71216d07",
+      "Name": "approving_count",
+      "Expression": "data_view.indicators_test_1.data_source.approving_count.bjs",
+      "Memo": "!"
+    },
+    {
+      "Uid": "8a8fde38-e787-1422-e697-35595309de78",
+      "Name": "draft_count",
+      "Expression": "data_view.indicators_test_1.data_source.draft_count.bjs",
+      "Memo": ""
+    },
+    {
+      "Uid": "d7a7547e-8580-ef8b-9cc6-c4390f07d4f7",
+      "Name": "test",
+      "Expression": "data_view.indicators_test_1.data_source.test.bjs",
+      "Memo": ""
+    },
+    {
+      "Uid": "0d561579-21c0-0612-4826-fd3e79490225",
+      "Name": "expenses",
+      "Expression": "data_view.indicators_test_1.data_source.expenses.bjs",
+      "Memo": ""
+    },
+    {
+      "Uid": "68e9b619-6250-bfa6-01a6-d5b1d724c955",
+      "Name": "income",
+      "Expression": "data_view.indicators_test_1.data_source.income.bjs",
+      "Memo": ""
+    }
+  ],
+  "Filters": [
+    {
+      "Uid": "1bed585c-86c4-11e6-6bb1-3db1ba45a471",
+      "Name": "period",
+      "DataPath": "",
+      "Title": "Период",
+      "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+      "NumberDigits": 2,
+      "DefaultComparisonKind": 0,
+      "RenderPlace": 1,
+      "ControlKindUid": "97cb84b8-b357-4e14-8036-28ebc3be59b8",
+      "JoinOperator": 0,
+      "Required": true,
+      "AvailableComparisonKinds": []
+    },
+    {
+      "Uid": "9f7a4ddb-c93f-0d77-83d3-4cbfcbde7045",
+      "Name": "статус",
+      "DataPath": "",
+      "Title": "Статус",
+      "DataTypeUid": "8c8c5ab2-3dba-4673-9451-9704402d7593",
+      "NumberDigits": 2,
+      "DefaultComparisonKind": 0,
+      "RenderPlace": 0,
+      "ControlKindUid": "36a8d160-e7f6-41d3-9408-9c49a644720b",
+      "JoinOperator": 0,
+      "Required": false,
+      "AvailableComparisonKinds": []
+    }
+  ],
+  "Indicators": [
+    {
+      "DataPath": "",
+      "Format": "#,##0",
+      "ColorHint": 1,
+      "ColorHex": "000000",
+      "Uid": "4ca4020b-6e80-80e2-5d87-5116bf491e54",
+      "KindUid": "a876f44f-ebad-4e0c-8c75-a3b6df047367",
+      "KindName": "bs_value_indicator",
+      "DataSourceUid": "8a8fde38-e787-1422-e697-35595309de78",
+      "Title": "Черновик",
+      "Name": "draft",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "DataPath": "",
+      "Format": "#,##0.00",
+      "ColorHint": 0,
+      "ColorHex": "f5c4f5",
+      "Uid": "527270c9-31b3-c1bf-7fb9-e325b0aaa08f",
+      "KindUid": "a876f44f-ebad-4e0c-8c75-a3b6df047367",
+      "KindName": "bs_value_indicator",
+      "DataSourceUid": "27c4dd26-58e2-5397-46e2-c29d71216d07",
+      "Title": "Согласовано",
+      "Name": "approved",
+      "Memo": "!",
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "DataPath": "",
+      "Format": "#,##0.00",
+      "ColorHint": -1,
+      "ColorHex": "f76bf7",
+      "Uid": "f3c61440-0367-0c9d-cf44-ce63a4db1a0f",
+      "KindUid": "a876f44f-ebad-4e0c-8c75-a3b6df047367",
+      "KindName": "bs_value_indicator",
+      "DataSourceUid": "d7a7547e-8580-ef8b-9cc6-c4390f07d4f7",
+      "Title": "Тест (2)",
+      "Name": "тест",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "DataPath": "",
+      "Format": "#,##0.000",
+      "ColorHint": 5,
+      "ColorHex": "000000",
+      "Uid": "23e49e1f-3b4f-b119-378b-caedb7ae63e5",
+      "KindUid": "a876f44f-ebad-4e0c-8c75-a3b6df047367",
+      "KindName": "bs_value_indicator",
+      "DataSourceUid": "d7a7547e-8580-ef8b-9cc6-c4390f07d4f7",
+      "Title": "Тест (3)",
+      "Name": "тест_3",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 1,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "DataPath": null,
+      "Format": "#,##0.00",
+      "MinValue": 0,
+      "Levels": [
+        {
+          "Uid": "cc4963db-0b30-535b-33c4-c07955b8cbee",
+          "Title": "Допустимо",
+          "LevelValue": 1000,
+          "ColorHex": "34c266"
+        },
+        {
+          "Uid": "9a590655-da1d-3414-fc8e-e28c91678654",
+          "Title": "Внимание",
+          "LevelValue": 2000,
+          "ColorHex": "ccd60b"
+        },
+        {
+          "Uid": "4e494c98-5de6-0f0b-a8df-4d8f52240aa9",
+          "Title": "Превышение",
+          "LevelValue": 5000,
+          "ColorHex": "fa2828"
+        }
+      ],
+      "Uid": "7caa18f2-37eb-916d-23ca-d31494290648",
+      "KindUid": "3920c90c-91f2-4598-a5d8-f4931974e578",
+      "KindName": "bs_gauge_indicator",
+      "DataSourceUid": "0d561579-21c0-0612-4826-fd3e79490225",
+      "Title": "Расходы, тыс. руб.",
+      "Name": "gauge",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 3,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "DataPath": null,
+      "Format": "#,##0.00",
+      "MinValue": 0,
+      "Levels": [
+        {
+          "Uid": "cc4963db-0b30-535b-33c4-c07955b8cbee",
+          "Title": "Мало",
+          "LevelValue": 1000,
+          "ColorHex": "f50e0e"
+        },
+        {
+          "Uid": "9a590655-da1d-3414-fc8e-e28c91678654",
+          "Title": "Внимание",
+          "LevelValue": 2000,
+          "ColorHex": "ccd60b"
+        },
+        {
+          "Uid": "4e494c98-5de6-0f0b-a8df-4d8f52240aa9",
+          "Title": "Норма",
+          "LevelValue": 5000,
+          "ColorHex": "2ed408"
+        }
+      ],
+      "Uid": "363df04d-951b-db00-26a6-3a22923ae782",
+      "KindUid": "3920c90c-91f2-4598-a5d8-f4931974e578",
+      "KindName": "bs_gauge_indicator",
+      "DataSourceUid": "68e9b619-6250-bfa6-01a6-d5b1d724c955",
+      "Title": "Доходы, тыс. руб.",
+      "Name": "gauge",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 4
+      },
+      "IsActive": true
+    }
+  ]
+}

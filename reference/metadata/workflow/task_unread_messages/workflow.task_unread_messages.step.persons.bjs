@@ -1,0 +1,3 @@
+await from('catalog.person').select(
+  ['id as person', 'title as person_display', 'user_name as email']
+).query();

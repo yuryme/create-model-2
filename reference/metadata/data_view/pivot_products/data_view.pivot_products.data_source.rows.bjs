@@ -1,0 +1,83 @@
+var rowsCount = 300;
+
+var tableResult = createTable([
+  { name: 'product_group' },
+  { name: 'product' },
+  { name: 'store' },
+  { name: 'measure_unit' },
+  { name: 'quantity', dataType: 'number' },
+  { name: 'amount', dataType: 'number' }
+]);
+
+var stores = ['Основной', 'Дополнительный', 'Новый'];
+var units = ['шт', 'упак', 'ящ', 'кг', 'т'];
+var groups = ['Группа 1', 'Группа 2', 'Группа 3', 'Группа 4', 'Группа 5'];
+
+var productsByGroup = {
+  'Группа 1': ['Товар 1-1', 'Товар 1-2', 'Товар 1-3', 'Товар 1-4'],
+  'Группа 2': ['Товар 2-1', 'Товар 2-2', 'Товар 2-3', 'Товар 2-4'],
+  'Группа 3': ['Товар 3-1', 'Товар 3-2', 'Товар 3-3', 'Товар 3-4'],
+  'Группа 4': ['Товар 4-1', 'Товар 4-2', 'Товар 4-3', 'Товар 4-4'],
+  'Группа 5': ['Товар 5-1', 'Товар 5-2', 'Товар 5-3', 'Товар 5-4']
+};
+
+// детерминированный генератор случайных чисел
+var seed = 123456;
+
+function random() {
+  seed = (seed * 1664525 + 1013904223) % 4294967296;
+  return seed / 4294967296;
+}
+
+function randomInt(min, max) {
+  return Math.floor(random() * (max - min + 1)) + min;
+}
+
+function randomFrom(array) {
+  return array[randomInt(0, array.length - 1)];
+}
+
+function round2(value) {
+  return Math.round(value * 100) / 100;
+}
+
+for (var i = 0; i < rowsCount; i++) {
+  var group = randomFrom(groups);
+  var product = randomFrom(productsByGroup[group]);
+  var store = randomFrom(stores);
+  var unit = randomFrom(units);
+
+  var quantity;
+  var price;
+
+  // немного логики по единицам измерения
+  if (unit === 'шт') {
+    quantity = randomInt(1, 500);
+    price = 50 + random() * 5000;
+  } else if (unit === 'упак') {
+    quantity = randomInt(1, 200);
+    price = 100 + random() * 3000;
+  } else if (unit === 'ящ') {
+    quantity = randomInt(1, 100);
+    price = 500 + random() * 10000;
+  } else if (unit === 'кг') {
+    quantity = round2(1 + random() * 1000);
+    price = 20 + random() * 800;
+  } else if (unit === 'т') {
+    quantity = round2(0.1 + random() * 50);
+    price = 5000 + random() * 50000;
+  }
+
+  var amount = round2(quantity * price);
+
+  tableResult.rows.push({
+    product_group: group,
+    product: product,
+    store: store,
+    measure_unit: unit,
+    quantity: quantity,
+    amount: amount
+  });
+}
+
+return tableResult;

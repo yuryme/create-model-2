@@ -1,0 +1,85 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "8d1b6fa6-eae5-ff7f-a390-8a61f06d902a",
+  "Name": "загрузка_excel_тарифы_дорожные",
+  "Title": "02.001 Загрузка Excel Тарифы дорожные",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 22,
+  "Steps": [
+    {
+      "Expression": "workflow.загрузка_excel_тарифы_дорожные.step.cities.bjs",
+      "Uid": "cfe2a886-c217-c634-2938-f66a64e9d1de",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Cities",
+      "Name": "cities",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загрузка_excel_тарифы_дорожные.step.find_file.bjs",
+      "Uid": "116c3200-553c-fbb7-4713-c0af15d5575e",
+      "PreviousStepUid": "cfe2a886-c217-c634-2938-f66a64e9d1de",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "2ed4e47e-2764-e11e-8fde-ef23c219f01e",
+      "PreviousStepUid": "116c3200-553c-fbb7-4713-c0af15d5575e",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "c06a1a18-0893-7216-271f-96fe3044c19e",
+          "SourceFieldName": "Город района/области ",
+          "DestinationFieldName": "title",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "c13e244f-25bf-6497-18ae-e5af9c9bebc4",
+          "SourceFieldName": "сумма",
+          "DestinationFieldName": "тариф",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        }
+      ],
+      "Uid": "571471ec-f01a-7336-8790-7d11160edf05",
+      "PreviousStepUid": "2ed4e47e-2764-e11e-8fde-ef23c219f01e",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загрузка_excel_тарифы_дорожные.step.result.bjs",
+      "Uid": "4eae72f5-2758-af5f-f99a-1fc401db4830",
+      "PreviousStepUid": "571471ec-f01a-7336-8790-7d11160edf05",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Result",
+      "Name": "result",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

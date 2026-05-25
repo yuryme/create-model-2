@@ -1,0 +1,87 @@
+var result1 = _data.operation_data;
+var result2 = _data.mapping;
+
+var kmStrings = Array.from(
+  new Set(
+    (result2.rows ?? [])
+      .map(r => r.км_строка_из_google)
+      .filter(v => v != null)
+  )
+);
+
+var kmTable = await from('catalog.шифр_км')
+  .select(['id', 'title as шифр_км_display'])
+  .query();
+
+var kmIds = Array.from(
+  new Set(
+    kmTable
+      .leftJoin(
+        createTable(['км_строка_из_google string']).load(
+          kmStrings.map(v => ({ км_строка_из_google: v }))
+        ),
+        (pr, jn) => pr.шифр_км_display === jn.км_строка_из_google
+      )
+      .filter(r => r.км_строка_из_google != null)
+      .rows
+      .map(r => r.id)
+  )
+);
+
+var result5 = await from('catalog.марки')
+  .select([
+    'id as id_марки',
+    'проект_заказ',
+    'колво as колво_чертежи',
+    'вес_одной_кг',
+    'вес_всех_кг',
+    'уникальное_поле'
+  ])
+  .where('актуальность = 1 AND шифр_км in @kmIds')
+  .parameter('kmIds', kmIds)
+  .query();
+
+var result6 = result2
+  .addColumn('уникальное_поле', 'string')
+  .filter(r => r.изготовленошт > 0)
+  .process(r => {
+    r.уникальное_поле = `${r.км_строка_из_google}_${r.марка_title_из_google}`;
+  });
+
+var result = await from('records.выпуск_цеха')
+  .select([['шифр_км', 'марки', 'колво']])
+  .where('regr_выпуск_цеха.шифр_км in @kmIds')
+  .parameter('kmIds', kmIds)
+  .getDisplays()
+  .query();
+
+result = result
+  .groupBy(
+    ['шифр_км', 'шифр_км_display','марки', 'марки_display'],
+    [{ name: 'колво', alias: 'колво_ост_журн_выпуск', aggregate: 'sum' }]
+  )
+  .leftJoin(result5, (pr, jn) => pr.марки === jn.id_марки)
+  .leftJoin(result6, (pr, jn) => pr.уникальное_поле === jn.уникальное_поле)
+  .filter(r => r.марка_title_из_google != null)
+  /*.addColumn('флаг_ост_min', 'number')
+  .addColumn('флаг_произ_min', 'number')
+  .process(r => {
+    r.флаг_ост_min =
+      r.колво_ост_журн_выпуск <= r.изготовленошт ? 1 : 0;
+    r.флаг_произ_min =
+      r.изготовленошт < r.колво_ост_журн_выпуск ? 1 : 0;
+  })*/
+  .addColumn('осталось_произвести', 'number')
+  .addColumn('осталось_покрасить', 'number')
+  .addColumn('осталось_произвести_кг', 'number')
+  .addColumn('осталось_покрасить_кг', 'number')
+  .process(r => {
+    r.осталось_произвести = r.колво_ост_журн_выпуск <= r.изготовленошт ? 
+      (r.изготовленошт * r.флаг_ост_min) : (r.колво_ост_журн_выпуск * r.флаг_произ_min);
+    
+    r.осталось_покрасить = r.осталось_произвести;
+    r.осталось_произвести_кг = r.осталось_произвести * r.вес_одной_кг;
+    r.осталось_покрасить_кг =r.осталось_покрасить * r.вес_одной_кг;
+  });
+
+return result;

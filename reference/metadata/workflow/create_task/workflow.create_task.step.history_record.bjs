@@ -1,0 +1,13 @@
+var today = (new Date()).toLocalISO();
+var task = _data.operation_create[0].objectUid;
+
+var tableData = createTable(['period',
+                             'task number',
+                             'person number',
+                             'status'])
+  .addRow([today,
+           task,
+           _parameters.author,
+           _parameters.status]);
+
+return tableData;

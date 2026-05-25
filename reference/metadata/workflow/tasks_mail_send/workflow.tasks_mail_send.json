@@ -1,0 +1,67 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "235fba9d-1960-0d44-808f-5ccf8141447a",
+  "Name": "tasks_mail_send",
+  "Title": "04.001 Рассылка задач (отправлена)",
+  "Memo": "Рассылка задач в статусе \"Отправлена\"",
+  "IsActive": true,
+  "Version": 19,
+  "Steps": [
+    {
+      "Expression": "workflow.tasks_mail_send.step.tasks.bjs",
+      "Uid": "5baddb57-bd6e-4e9f-13ab-4fb33fd8e9ac",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Tasks",
+      "Name": "tasks",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "tasks",
+      "ItemName": "item",
+      "Uid": "5cabb5c3-4634-88dc-685f-6cb4b72528a4",
+      "PreviousStepUid": "5baddb57-bd6e-4e9f-13ab-4fb33fd8e9ac",
+      "KindUid": "07e698af-d11b-454b-a7f4-577a0439e92c",
+      "KindName": "iterator",
+      "Title": "Iterator",
+      "Name": "iterator",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Host": "smtp.mail.ru",
+      "User": "task@elevatorsc.ru",
+      "Password": "FRPNpDR7TxOI3uxLo61p",
+      "Port": "587",
+      "TimeoutSeconds": 30,
+      "EnableSsl": true,
+      "From": "task@elevatorsc.ru",
+      "To": "{{item.user_name}}",
+      "CC": "mikhazyu@gmail.com",
+      "BCC": "",
+      "Subject": "Задачи в BaSYS",
+      "Body": "{{item.messages}}",
+      "IsBodyHtml": false,
+      "Uid": "f7df8a20-84fe-2253-f08a-82842893a45d",
+      "PreviousStepUid": "5cabb5c3-4634-88dc-685f-6cb4b72528a4",
+      "KindUid": "df48f1ed-2bcf-4b1d-b45c-1305b55ce1f6",
+      "KindName": "smtp_send",
+      "Title": "Mail send",
+      "Name": "mail_send",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Uid": "49a22db1-cc01-c743-b02b-f88aad809b31",
+      "PreviousStepUid": "f7df8a20-84fe-2253-f08a-82842893a45d",
+      "KindUid": "ac090927-e291-4421-b9aa-351b8fa51770",
+      "KindName": "iterator_stop",
+      "Title": "Iterator stop",
+      "Name": "iterator_stop",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

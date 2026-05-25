@@ -1,0 +1,50 @@
+setIsWaiting(true);
+
+var tableFiles = await from('operation.проект_договора.attached_files')
+  .where('objectuid = @number')
+  .parameter('number', $h.number)
+  .query();
+
+var missing = [];
+
+var contractFileCount = tableFiles
+  .clone()
+  .filter(row => row.memo?.toLowerCase() === 'файл договора')
+  .count();
+
+var docsFileCount = tableFiles
+  .clone()
+  .filter(row => row.memo?.toLowerCase() === 'учредительные документы')
+  .count();
+
+if (!contractFileCount) {
+  missing.push('файл договора');
+}
+
+if (!docsFileCount) {
+  missing.push('учредительные документы');
+}
+
+if (missing.length) {
+  setIsWaiting(false);
+
+  var message = 'Необходимо прикрепить: ' + missing.join(', ');
+  alert(message);
+
+  return;
+}
+
+var result = await runWorkflow('contract_start_approve', 
+                               'create_approval_records', 
+                               [                              
+                                {name: 'number', dataType: 'integer', value: $h.number},
+                                {name: 'initiator', dataType: 'integer', value: $h.инициатор},
+                                {name: 'department', dataType: 'integer', value: $h.подразделение},  
+                                {name: 'project', dataType: 'integer', value: $h.проект}, 
+                                {name: 'contract_kind', dataType: 'string', value: $h.вид_договора},  
+                               ]);
+refresh('list');
+$h.статус = 'на_согласовании';
+recalculate();
+save();
+setIsWaiting(false);

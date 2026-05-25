@@ -1,0 +1,219 @@
+/*var mapping = _data.mapping;
+
+var steelTitles = Array.from(
+  new Set(
+    (mapping.rows ?? [])
+      .map(r => r.марка_стали)
+      .filter(v => v != null)
+  )
+);
+
+var steelCatalog = await from('catalog.марка_стали')
+  .select(['id', 'title as марка_стали_display'])
+  .where('title in @steelTitles')
+  .parameter('steelTitles', steelTitles)
+  .query();
+
+var profileTitles = Array.from(
+  new Set(
+    (mapping.rows ?? [])
+      .map(r => r.профиль)
+      .filter(v => v != null)
+  )
+);
+var profileCatalog = await from('catalog.профиль')
+  .select(['id', 'title as профиль_display'])
+  .where('title in @profileTitles')
+  .parameter('profileTitles', profileTitles)
+  .query();
+
+var markaTitles = Array.from(
+  new Set(
+    (mapping.rows ?? [])
+      .map(r => r.позиция_марки)
+      .filter(v => v != null)
+  )
+);
+
+var markiCatalog = await from('catalog.марки')
+  .select(['id', 'title_эталон as марки_display'])
+  .where('шифр_км = @km AND title_эталон in @markaTitles')
+  .parameter('markaTitles', markaTitles)
+  .parameter('km', _parameters.шифр_км)
+  .query();
+
+var result = mapping
+  .leftJoin(
+    steelCatalog,
+    (pr, jn) => pr.марка_стали === jn.марка_стали_display
+  )
+  .process(r => {
+    r.марка_стали_справочник = r.id;
+  })
+  .leftJoin(
+    profileCatalog,
+    (pr, jn) => pr.профиль === jn.профиль_display
+  )
+  .process(r => {
+    r.профиль_спр = r.id;
+  })
+  .leftJoin(
+    markiCatalog,
+    (pr, jn) => pr.позиция_марки === jn.марки_display
+  )
+  .process(r => {
+    r.марки_спр = r.id;
+  });
+
+return result;*/
+
+// delete_null_rows (версия без isdeleted)
+
+// ---------- Нормализация строк ----------
+function normalizeToLatin(s) {
+  if (!s) return '';
+  return String(s)
+    .replace(/\u00A0/g, ' ')   // неразрывные пробелы
+    .trim()
+    .toUpperCase()
+    // Кириллица → латиница (похожие символы)
+    .replace(/С/g, 'C')
+    .replace(/А/g, 'A')
+    .replace(/В/g, 'B')
+    .replace(/Е/g, 'E')
+    .replace(/К/g, 'K')
+    .replace(/М/g, 'M')
+    .replace(/Н/g, 'H')
+    .replace(/О/g, 'O')
+    .replace(/Р/g, 'P')
+    .replace(/Т/g, 'T')
+    .replace(/Х/g, 'X');
+}
+
+function isCyrillicC(s) {
+  // русская "С" = 1057
+  if (!s) return false;
+  return String(s).charCodeAt(0) === 1057;
+}
+
+var mapping = _data.mapping;
+
+// 1) Нормализуем вход
+mapping = mapping.process(r => {
+  r._steel_norm = normalizeToLatin(r.марка_стали);
+  r._profile_norm = normalizeToLatin(r.профиль);
+  r._mark_norm = normalizeToLatin(r.позиция_марки);
+});
+
+// 2) Уникальные норм-значения из Excel (для фильтрации в JS)
+var steelNorms = Array.from(new Set((mapping.rows ?? []).map(r => r._steel_norm).filter(v => v)));
+var profileNorms = Array.from(new Set((mapping.rows ?? []).map(r => r._profile_norm).filter(v => v)));
+var markNorms = Array.from(new Set((mapping.rows ?? []).map(r => r._mark_norm).filter(v => v)));
+
+// ---------- СТАЛЬ: строим “канонический” словарь ----------
+var steelAll = await from('catalog.марка_стали')
+  .select(['id', 'title'])
+  .query();
+
+steelAll = steelAll
+  .process(r => { r._steel_norm = normalizeToLatin(r.title); })
+  .filter(r => steelNorms.includes(r._steel_norm));
+
+// Выберем 1 запись на norm (предпочитаем кириллицу, если есть)
+var steelMap = {};
+for (var r of (steelAll.rows ?? [])) {
+  var key = r._steel_norm;
+  if (!key) continue;
+
+  var cur = steelMap[key];
+  if (!cur) {
+    steelMap[key] = { id: r.id, title: r.title, isCyr: isCyrillicC(r.title) };
+  } else {
+    var rIsCyr = isCyrillicC(r.title);
+    if (rIsCyr && !cur.isCyr) {
+      steelMap[key] = { id: r.id, title: r.title, isCyr: true };
+    }
+  }
+}
+
+var steelCatalog = createTable('марка_стали_id number, марка_стали_display string, _steel_norm string');
+for (var k in steelMap) {
+  steelCatalog.addRow({
+    марка_стали_id: steelMap[k].id,
+    марка_стали_display: steelMap[k].title,
+    _steel_norm: k
+  });
+}
+
+// ---------- ПРОФИЛЬ: словарь по норм-ключу ----------
+var profileAll = await from('catalog.профиль')
+  .select(['id', 'title'])
+  .query();
+
+profileAll = profileAll
+  .process(r => { r._profile_norm = normalizeToLatin(r.title); })
+  .filter(r => profileNorms.includes(r._profile_norm));
+
+var profileMap = {};
+for (var r of (profileAll.rows ?? [])) {
+  var key = r._profile_norm;
+  if (!key) continue;
+  if (!profileMap[key]) profileMap[key] = { id: r.id, title: r.title };
+}
+
+var profileCatalog = createTable('профиль_id number, профиль_display string, _profile_norm string');
+for (var k in profileMap) {
+  profileCatalog.addRow({
+    профиль_id: profileMap[k].id,
+    профиль_display: profileMap[k].title,
+    _profile_norm: k
+  });
+}
+
+// ---------- МАРКИ: фильтр по шифр_км + словарь по норм-ключу ----------
+var markiCatalog = createTable('марки_id number, марки_display string, _mark_norm string');
+
+if (_parameters.шифр_км != null) {
+  var markiAll = await from('catalog.марки')
+    .select(['id', 'title_эталон'])
+    .where('шифр_км = @km')
+    .parameter('km', _parameters.шифр_км, 11) // Int32
+    .query();
+
+  markiAll = markiAll
+    .process(r => { r._mark_norm = normalizeToLatin(r.title_эталон); })
+    .filter(r => markNorms.includes(r._mark_norm));
+
+  var markiMap = {};
+  for (var r of (markiAll.rows ?? [])) {
+    var key = r._mark_norm;
+    if (!key) continue;
+    if (!markiMap[key]) markiMap[key] = { id: r.id, title: r.title_эталон };
+  }
+
+  for (var k in markiMap) {
+    markiCatalog.addRow({
+      марки_id: markiMap[k].id,
+      марки_display: markiMap[k].title,
+      _mark_norm: k
+    });
+  }
+}
+
+// ---------- JOIN по норм-ключам ----------
+var result = mapping
+  .leftJoin(steelCatalog, (pr, jn) => pr._steel_norm === jn._steel_norm)
+  .process(r => { r.марка_стали_справочник = r.марка_стали_id ?? null; })
+  .leftJoin(profileCatalog, (pr, jn) => pr._profile_norm === jn._profile_norm)
+  .process(r => { r.профиль_спр = r.профиль_id ?? null; })
+  .leftJoin(markiCatalog, (pr, jn) => pr._mark_norm === jn._mark_norm)
+  .process(r => {
+    r.марки_спр = r.марки_id ?? null;
+    r.марки_спр_is_true = isNotEmpty(r.марки_спр);
+  });
+
+// подчистим временные поля, если метод доступен
+if (result.deleteColumns) {
+  result = result.deleteColumns(['_steel_norm', '_profile_norm', '_mark_norm']);
+}
+return result;

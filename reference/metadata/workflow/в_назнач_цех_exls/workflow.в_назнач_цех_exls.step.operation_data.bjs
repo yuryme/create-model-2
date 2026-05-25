@@ -1,0 +1,13 @@
+/* operation.цеха_марка| uid( {{Operation.Uid}} ) 
+| select(id,uid,date, проект_заказ ) 
+| GetTitle() */
+
+
+var result = await from('operation.цеха_марка')
+  .select(['number', 'date', 'проект_заказ'])
+  .where('opr_цеха_марка.number = @number')
+  .parameter('number', _parameters.number, 11)
+  .getDisplays()
+  .query();
+
+return result;

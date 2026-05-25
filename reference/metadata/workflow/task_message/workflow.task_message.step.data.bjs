@@ -1,0 +1,12 @@
+var tableData = createTable(['person_from number',
+                             'person_to number',
+                             'task_author number',
+                             'task number', 
+                             'message'])
+  .addRow([_parameters.person_from,
+           _parameters.person_to,
+           _parameters.author,
+           _parameters.task, 
+           _parameters.message]);
+
+return tableData;

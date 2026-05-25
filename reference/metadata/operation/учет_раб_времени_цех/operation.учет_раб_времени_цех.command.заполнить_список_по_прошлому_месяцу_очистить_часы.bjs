@@ -1,0 +1,27 @@
+const today = $h.date;
+const y = today.getFullYear();
+const d = today.getDate();
+const m = $h.месяц - 1 -12;
+
+let dt = new Date(y, m, d);
+dt = dt.addMonths(-1);
+
+const periodStart = dt.beginMonth();
+const periodEnd   = dt.endMonth();
+
+console.log("m, y, dt, periodStart, periodEnd  ", m, y, dt, periodStart, periodEnd);
+let tableWork = await from("records.ведомость_раб_врем")
+  .where("проект_заказ = @proj")
+  .where("period >= @periodStart AND period <= @periodEnd")
+  .parameter("proj", $h.проект_заказ, 11)
+  .parameter("periodStart", periodStart)
+  .parameter("periodEnd", periodEnd)
+  .select(["сотрудники"])
+  .getDisplays()
+  .query();
+
+console.log("records.ведомость_раб_врем", tableWork);
+tableWork.groupBy(["сотрудники"])
+ .orderBy((a,b) => a.сотрудники_display - b.сотрудники_display);
+
+openPickUp(tableWork, 'table_2');

@@ -1,0 +1,13 @@
+setIsWaiting(true);
+
+var result = await runWorkflow('task_mark_messages', 
+                               'load', 
+                               [{name: 'person', dataType: 'integer', value: $h.current_user},                  
+                                {name: 'task', dataType: 'integer', value: $h.number},
+                               ]);
+
+
+
+setIsWaiting(false);
+refresh('list');
+return result;

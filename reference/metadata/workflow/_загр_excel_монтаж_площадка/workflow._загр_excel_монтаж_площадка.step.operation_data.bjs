@@ -1,0 +1,8 @@
+var result = await from('operation.монтаж_мк_нов')
+  .select(['number', 'date', 'проект_заказ'])
+  .where('opr_монтаж_мк_нов.number = @uid')
+  .parameter('uid', _parameters.number, 11)
+  .getDisplays()
+  .query();
+
+return result;

@@ -1,0 +1,35 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "7514c323-5ff6-ca8f-e7f1-a5a1dd716517",
+  "Name": "_загрузка_монолитная_конструкц",
+  "Title": "0.051 Загрузка Монолитная конструкция (КЖ)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 2,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"MGUzZTQzYWQtZjIwYi00OGRjLWE3MTYtYjFhYTU0ZTE5MGVlfDU4Mzc2ZDkyLTVkZDItNGIyNi05M2ZkLTZjOTM4NDQ0YTc3NXxlZDdiNTlhZC00YTZhLTQwY2YtYTg0OS0yMjljNDY3YjdmOTd8YXRlY2hzX3dvcmtfMDEyfDE=\"}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "139574bd-bdd4-6779-220a-4fc65bfca619",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

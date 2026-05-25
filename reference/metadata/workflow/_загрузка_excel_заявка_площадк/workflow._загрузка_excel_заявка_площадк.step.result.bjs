@@ -1,0 +1,27 @@
+var tabItemRd = await from("catalog.справочник_расценок")
+  .select(['id as номенклатура', 'title as номенклатура_display'])
+  .where("проект = @project")
+  .parameter("project", _parameters.project, 11)
+  .query();
+
+var tabMeasureUnit = await from("catalog.ед_изм_2")
+  .select(['id as едизм', 'title as едизм_display'])
+  .query();
+
+var tabSystemRd = await from("catalog.система_в_рд")
+  .select(['id as система_в_рд', 'title as система_в_рд_display'])
+  .where("проект = @project")
+  .parameter("project", _parameters.project, 11)
+  .query();
+
+var mapp = _data.mapping;
+
+mapp = mapp
+   .filter (row => row.стр_excel > 0)
+   .leftJoin(tabItemRd, (pr,jn) => pr.номенклатура_рд == jn.номенклатура_display)
+   .leftJoin(tabMeasureUnit, (pr,jn) => pr.ед_изм == jn.едизм_display)
+   .addColumn({ name: 'сч', dataType: 'number' })
+   .process(row => row.сч = 1);
+   //.leftJoin(tabSystemRd, (pr,jn) => pr.сист_в_рд == jn.система_в_рд_display);
+ 
+return mapp;

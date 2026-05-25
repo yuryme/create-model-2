@@ -1,0 +1,70 @@
+var oper = _data.operation_data;
+var mapping = _data.mapping;
+
+/* базовая таблица: меппинг + данные операции */
+
+var base = mapping
+  .leftJoin(oper, () => true,
+    [{table: 'primary', name:'марка_new'},
+     {table: 'primary', name:'наименование_марки_new'},
+     {table: 'primary', name:'колво_new'},
+     {table: 'primary', name:'вес_одной_кг_new'},
+     {table: 'primary', name:'вес_всех_кг_new'},
+     {table: 'secondary', name:'шифр_км_display'},
+     {table: 'secondary', name:'шифр_км'}
+     ])
+
+  .addColumn('уникальный_номер', 'string')
+  .process(r => {
+    r.уникальный_номер = r.шифр_км_display + '_' + String(r.марка_new ?? '');
+  })
+
+var codeKm = oper.rows[0].шифр_км;
+var project = oper.rows[0].проект_заказ;
+
+//каталог марок 
+
+var catMarki = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'title as марки_display',
+    'уникальное_поле',
+    'вес_одной_кг',
+    'вес_всех_кг',
+   // 'проект_заказ',
+    'наименование_марки',
+    //'шифр_км',
+    'колво'
+  ])
+  .where('шифр_км = @cKm AND проект_заказ = @prj')
+  .parameter('cKm', codeKm, 11 )
+  .parameter('prj', project, 11 )
+  .query();
+
+// объединение и вычисления 
+
+var result = base
+  .fullJoin(
+    catMarki,
+    (pr, jn) =>
+      pr.уникальный_номер === jn.уникальное_поле
+  )  
+  .addColumn('обновить', 'boolean')
+  .addColumn('создать', 'boolean')
+  .addColumn('удалить', 'boolean')
+  .process(r => {
+    var colvoOld = parseNumber(r.колво);
+    var colvoNew = parseNumber(r.колво_new);
+    var weightOld = parseNumber(r.вес_всех_кг);
+    var weightNew = parseNumber(r.вес_всех_кг_new);
+
+   r.создать = isEmpty(r.уникальное_поле) && isNotEmpty(r.уникальный_номер);
+
+   r.удалить = isNotEmpty(r.уникальное_поле) && isEmpty(r.уникальный_номер);
+
+    r.обновить = (!r.создать) && (!r.удалить) && 
+      (colvoOld + weightOld - colvoNew - weightNew !== 0) ? true : false; 
+  });
+
+return result;
+

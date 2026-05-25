@@ -1,0 +1,19 @@
+var tab1 = _data.mapping;
+
+var kmStrings = (tab1.rows ?? [])
+  .map(r => r.км_строка_из_google)
+  .filter(v => v != null);
+
+kmStrings = Array.from(new Set(kmStrings));
+
+var kmCatalog = await from('catalog.шифр_км')
+  .select(['id as id_шифр_км', 'title as шифр_км_display', 'проект_заказ'])
+  .where('id in @kmStrings')
+  .parameter('kmStrings', kmStrings)
+  .query();
+
+var result = kmCatalog.filter(r =>
+  kmStrings.includes(r.шифр_км_display)
+);
+
+return result;

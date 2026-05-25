@@ -1,0 +1,6 @@
+var tableMarki = await from("catalog.марки")
+  .select(['id as позиция_марок', 'title as позиция_марок_title', 'наименование_марки', 'колво', 'вес_одной_кг', 'вес_всех_кг', 'шифр_км'])
+  .top(10)
+  .query();
+
+openPickUp(tableMarki, 'table_1');

@@ -1,0 +1,8 @@
+var result = await from('operation.загрузка_ведомостей')
+  .select(['number', 'date', 'шифр_км_проекткм as шифр_км'])
+  .where('number = @number')
+  .parameter('number', _parameters.number)
+  .getDisplays()
+  .query();
+
+return result;

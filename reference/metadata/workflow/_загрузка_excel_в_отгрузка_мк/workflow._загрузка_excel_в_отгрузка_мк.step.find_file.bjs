@@ -1,0 +1,7 @@
+var fileData = await from("operation.отгрузка.attached_files")
+  .select(['uid', 'filename'])
+  .where("objectuid = @obj")
+  .parameter("obj", _parameters.number, 11)
+  .query();
+
+return fileData;

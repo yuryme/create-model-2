@@ -1,0 +1,7 @@
+var result = await from('operation.пто_ид')
+  .select(['number', 'date', 'проект_заказ'])
+  .where('number = @number')
+  .parameter('number', _parameters.number, 11)
+  .query();
+
+return result;

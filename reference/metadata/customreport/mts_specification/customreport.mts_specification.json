@@ -1,0 +1,28 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "c74ad7f6-28bc-46c4-8ea8-5e5e7f5899f8",
+  "MetaObjectKindUid": "662dc02d-210e-49f3-8bee-8006a3d7b258",
+  "Title": "01. Спецификация - Заявки площадки",
+  "Name": "mts_specification",
+  "Memo": "",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "0be5b38c-b979-42a0-9574-38a38fed6dca",
+    "Title": null,
+    "Name": null,
+    "Memo": null,
+    "AutoClearMethod": 0,
+    "Columns": [],
+    "Indexes": []
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

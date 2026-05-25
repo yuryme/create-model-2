@@ -1,0 +1,28 @@
+// Загрузить в табличную часть «Просроченные книги» отчёт по текущей выдаче.
+// WF overdue_loans получает PK текущей выдачи как параметр loan_number
+// и возвращает DataTable из четырёх колонок (book_author, book_title,
+// due_date, days_overdue). Команда не вызывает setIsModified —
+// содержимое overdue_books это отчёт, а не правка документа.
+
+const loanNumber = $h.number;
+
+if (!loanNumber || loanNumber === 0) {
+  $t.overdue_books.clear();
+  openDialog({
+    title: 'Не сохранено',
+    message: 'Сохраните выдачу перед обновлением отчёта.'
+  });
+  return;
+}
+
+setIsWaiting(true);
+
+const overdue = await runWorkflow('overdue_loans', 'data', [
+  { name: 'loan_number', dataType: 'integer', value: loanNumber }
+]);
+
+$t.overdue_books.clear();
+$t.overdue_books.load(overdue);
+refresh('overdue_books');
+
+setIsWaiting(false);

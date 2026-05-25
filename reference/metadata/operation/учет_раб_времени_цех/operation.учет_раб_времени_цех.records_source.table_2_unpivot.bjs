@@ -1,0 +1,27 @@
+function safeParseNumber(value) {
+  if (value == null) return 0;        // null / undefined → 0
+
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  if (typeof value === "string") {
+    const s = value.trim().replace(',', '.');  // запятая → точка
+    const n = Number(s);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  return 0; // остальные типы
+}
+
+const days = [];
+for (let i = 1; i <= 31; i++) {
+  days.push(`д_${String(i).padStart(2, '0')}`);
+}
+
+var resultTable = $t.table_2.unpivot('time_str', days)
+  .addColumn({name: 'time', dataType: 'number'})
+  .process(row=>row.time = safeParseNumber(row.time_str))
+  .filter(row => row.time > 0);
+
+return resultTable;

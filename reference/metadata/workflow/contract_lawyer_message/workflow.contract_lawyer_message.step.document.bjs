@@ -1,0 +1,9 @@
+var resultTable = await from('operation.проект_договора')
+  .select(['number', 'date', 'представление as display', 'статус as status'])
+  .getDisplays()
+  .where('number = @number')
+  .parameter('number', _parameters.number)
+  .query();
+
+
+return resultTable;

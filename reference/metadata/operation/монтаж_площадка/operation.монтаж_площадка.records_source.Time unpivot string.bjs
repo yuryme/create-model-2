@@ -1,0 +1,10 @@
+const days = [];
+for (let i = 1; i <= 31; i++) {
+  days.push(`д_${String(i).padStart(2, '0')}`);
+}
+
+var resultTable = $t.время.unpivot('time_str', days, 'unpivot_number', 'unpivot_name')
+  .addColumn({name: 'time', dataType: 'number'})
+  .filter(row => isNotEmpty(row.time_str) );
+
+return resultTable;

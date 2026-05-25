@@ -1,0 +1,11 @@
+var result2 = await from('operation.производство.table_2')
+  .select(['id_шифр_км', 'км_строка_из_google'])
+  .where('opr_производство.table_2.object_uid = @number')
+  .parameter('number', _parameters.number, 11)
+  .getDisplays()
+  .query();
+
+result2 = result2
+   .filter(r => r.id_шифр_км != null && r.id_шифр_км !== 0);
+
+return result2;

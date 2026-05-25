@@ -1,0 +1,9 @@
+// Пересчитать плановую дату возврата как «дата выдачи + 14 дней».
+// Если дата выдачи не задана — берём текущую дату как базу.
+
+const LOAN_PERIOD_DAYS = 14;
+
+const base = $h.date ? new Date($h.date) : dateTimeNow();
+$h.due_date = base.addDays(LOAN_PERIOD_DAYS);
+
+setIsModified(true);

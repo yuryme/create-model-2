@@ -1,0 +1,69 @@
+var result1 = _data.operation_data;
+var result2 = _data.mapping;
+
+/*var projectList = (result1.rows ?? [])
+  .map(r => r.проект_заказ)
+  .filter(v => v != null);
+
+projectList = Array.from(new Set(projectList));*/
+var projectList = result1.toArray('проект_заказ');
+
+var kmTable = await from('catalog.шифр_км')
+  .select(['id', 'title as шифр_км_display', 'проект_заказ'])
+  .where('проект_заказ in @projectList')
+  .parameter('projectList', projectList)
+  .query();
+
+kmTable = kmTable.filter(r =>
+  projectList.includes(r.проект_заказ)
+);
+
+var kmIds = Array.from(
+  new Set(
+    (kmTable.rows ?? [])
+      .map(r => r.id)
+      .filter(v => v != null)
+  )
+);
+
+var markiCatalog = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'title as марки_display',
+    'наименование_марки as наименование',
+    'шифр_км',
+    'уникальное_поле',
+    'колво as колво_чертежи_шт',
+    'вес_одной_кг as вес_одной_шт_кг',
+    'вес_всех_кг'
+  ])
+  .where('актуальность = 1 AND шифр_км in @kmIds')
+  .parameter('kmIds', kmIds)
+  //.getDisplays()
+  .query();
+
+var result = result2
+  .leftJoin(kmTable, () => true)
+  .process(r => {
+    r.уникальное_поле = r.шифр_км_display + '_' + r.марка;
+  })
+  .leftJoin(
+    markiCatalog,
+    (pr, jn) => pr.уникальное_поле === jn.уникальное_поле
+  )
+  .filter(r => r.марки_display != null)
+  .addColumn('общий_вес_врем', 'number')
+  .addColumn('колво_чертежи_тн', 'number')
+  .addColumn('колво_монтаж', 'number')
+  .addColumn('счетчик', 'number')
+  .process(row=> row.счетчик = 1)
+  .process(r => {
+    r.общий_вес_врем = r.вес_одной_шт_кг * r.колво_шт_монтаж /1000;
+    r.колво_чертежи_тн = r.вес_всех_кг / 1000;
+    r.колво_монтаж = Math.round(r.общий_вес_врем * 1000) / 1000;
+  })
+  .orderBy((a, b) =>
+    String(a.уникальное_поле).localeCompare(String(b.уникальное_поле))
+  );
+
+return result;

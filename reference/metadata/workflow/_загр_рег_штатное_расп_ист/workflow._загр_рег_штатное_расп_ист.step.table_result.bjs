@@ -1,0 +1,41 @@
+// Задаем колонки один раз
+var columns = [
+  {name: 'number', dataType: 'number'},
+  {name: 'id'},
+  {name: 'дата'},
+  {name: 'должность'},
+  {name: 'подразделение'},
+  {name: 'проект_заказ'},
+  {name: 'комменатрий'},
+  {name: 'тип_начисления_зп'},
+  {name: 'оклад'},
+  {name: 'статья'},
+  {name: 'ставка_час'},
+  {name: 'ставка_смена'},
+  {name: 'уволен'},
+  {name: 'организация'},
+  {name: 'вахта'},
+  {name: 'key'}   ];
+  
+// Создаем таблицу
+var table = createTable(columns);
+
+// Функция для маппинга строки
+function mapRow(row, columns) {
+  let mapped = {};
+  columns.forEach(c => {
+    mapped[c.name] = row[c.name];
+  });
+  return mapped;
+}
+
+// Загружаем данные в таблицу
+_data.request.data.forEach(row => {
+  table.addRow(mapRow(row, columns));
+});
+
+
+table = table.leftJoin(_data.table_numbers, (p,j) => p.number == j.number_hubcloud); 
+let rowIndex = 0;
+table = table.filter(() => ++rowIndex <= 10);       
+return table;

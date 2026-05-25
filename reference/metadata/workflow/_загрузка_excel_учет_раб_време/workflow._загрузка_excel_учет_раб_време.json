@@ -1,0 +1,260 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "da96e795-dff9-c72f-540c-9868a77498a1",
+  "Name": "_загрузка_excel_учет_раб_време",
+  "Title": "02.004 Загрузка Excel. Учет раб. времени (АУП) ",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 28,
+  "Steps": [
+    {
+      "Expression": "workflow._загрузка_excel_учет_раб_време.step.find_file.bjs",
+      "Uid": "fbc10026-c44a-7860-fa2b-2bb55e35b41a",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "88fbd2d8-6502-0b68-2a02-47d02c798adc",
+      "PreviousStepUid": "fbc10026-c44a-7860-fa2b-2bb55e35b41a",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "ведомость",
+      "StartRow": 7,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "6da4f449-9c10-ea67-7d93-f7e8cf0e8771",
+          "SourceFieldName": "Фамилия И.О.",
+          "DestinationFieldName": "сотрудник_title",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "a6170193-6fb4-3962-5771-5d1be9d73d94",
+          "SourceFieldName": "Должность",
+          "DestinationFieldName": "должность",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "4d886425-242c-e003-8d83-0352ad5e46c3",
+          "SourceFieldName": "01",
+          "DestinationFieldName": "д_01",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "61e39a10-fca0-9166-8466-3bbc217d1742",
+          "SourceFieldName": "02",
+          "DestinationFieldName": "д_02",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "8fcdd678-79fb-b60a-d9fa-fc0e581c22ac",
+          "SourceFieldName": "03",
+          "DestinationFieldName": "д_03",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "c2d51429-bc3a-af0e-97b3-8dfd5132b662",
+          "SourceFieldName": "04",
+          "DestinationFieldName": "д_04",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "d77ddd75-5cd2-8bf6-694e-d96ab265d576",
+          "SourceFieldName": "05",
+          "DestinationFieldName": "д_05",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "cbce81d0-4bda-f930-d1b6-0bec64210d56",
+          "SourceFieldName": "06",
+          "DestinationFieldName": "д_06",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "67fa3efa-1d0d-22ef-424e-973d075ffc6e",
+          "SourceFieldName": "07",
+          "DestinationFieldName": "д_07",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "6755a933-6e2e-bf1f-29cf-d3746ad3c1db",
+          "SourceFieldName": "08",
+          "DestinationFieldName": "д_08",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "6a576ff6-d588-e0b8-edb4-db707484d14b",
+          "SourceFieldName": "09",
+          "DestinationFieldName": "д_09",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "7956be86-c2a7-b311-b609-03d63c41246d",
+          "SourceFieldName": "10",
+          "DestinationFieldName": "д_10",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "7e362cef-0cde-b04f-da58-0db9fa01f50b",
+          "SourceFieldName": "11",
+          "DestinationFieldName": "д_11",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "e70345a3-cd45-16c5-8d3c-8a05bf18741b",
+          "SourceFieldName": "12",
+          "DestinationFieldName": "д_12",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "1d5ee9d9-2363-397a-2f44-f38cee352191",
+          "SourceFieldName": "13",
+          "DestinationFieldName": "д_13",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "e64ebd16-e286-87e9-79fe-60674fd6efea",
+          "SourceFieldName": "14",
+          "DestinationFieldName": "д_14",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "d3d503cb-6513-d840-cfec-acc33b089faf",
+          "SourceFieldName": "15",
+          "DestinationFieldName": "д_15",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "243cb424-cc03-826a-7756-9d5b9972ce94",
+          "SourceFieldName": "16",
+          "DestinationFieldName": "д_16",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "62c43c80-dfb7-71c4-2e85-e72bee18a911",
+          "SourceFieldName": "17",
+          "DestinationFieldName": "д_17",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "8293b22a-520e-c698-89e6-b4293671caa0",
+          "SourceFieldName": "18",
+          "DestinationFieldName": "д_18",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "01ee7485-f6ee-bf8b-7ff7-f3976af8fc65",
+          "SourceFieldName": "19",
+          "DestinationFieldName": "д_19",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "51e88846-7abe-8910-d950-0c46d134f5e4",
+          "SourceFieldName": "20",
+          "DestinationFieldName": "д_20",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "cccca66f-4572-290c-2203-5dcb7a281900",
+          "SourceFieldName": "21",
+          "DestinationFieldName": "д_21",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "4ec7d6a9-ab4c-86f9-1ec3-d7b86877323d",
+          "SourceFieldName": "22",
+          "DestinationFieldName": "д_22",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "90e07482-2e8f-4bc0-aeb7-8ab5deace0ea",
+          "SourceFieldName": "23",
+          "DestinationFieldName": "д_23",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "a3dd1edf-498f-7351-e2c9-313dfd8c9bff",
+          "SourceFieldName": "24",
+          "DestinationFieldName": "д_24",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "f27566d4-6579-8437-f8e1-fd423c48bf8c",
+          "SourceFieldName": "25",
+          "DestinationFieldName": "д_25",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "d2d5e460-af81-7d22-4a28-7f9c42985afd",
+          "SourceFieldName": "26",
+          "DestinationFieldName": "д_26",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "1ccadf7f-7c99-97b6-5a4c-56e369f84677",
+          "SourceFieldName": "27",
+          "DestinationFieldName": "д_27",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "3158e027-b3a5-41e4-d1ec-78b1b9c55a29",
+          "SourceFieldName": "28",
+          "DestinationFieldName": "д_28",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "ad030849-f7f8-5c39-e5c1-c4f9fbae2544",
+          "SourceFieldName": "29",
+          "DestinationFieldName": "д_29",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "6f6cdcb6-7915-f376-fc4a-677f486488a4",
+          "SourceFieldName": "30",
+          "DestinationFieldName": "д_30",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "478898f6-08ed-72d6-402c-ef8782a58821",
+          "SourceFieldName": "31",
+          "DestinationFieldName": "д_31",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "7808e371-946c-58eb-928f-19971487ff6a",
+      "PreviousStepUid": "fbc10026-c44a-7860-fa2b-2bb55e35b41a",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_учет_раб_време.step.result.bjs",
+      "Uid": "7e59b415-52de-03a2-ac0d-17ef87fdd797",
+      "PreviousStepUid": "7808e371-946c-58eb-928f-19971487ff6a",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Result",
+      "Name": "result",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

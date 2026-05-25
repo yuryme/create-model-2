@@ -1,0 +1,210 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "9797447b-fbc1-e64c-3524-aa7a866d6b74",
+  "Name": "_загрузка_операция_заявка_площ",
+  "Title": "01.004 Загрузка Операция Заявка площадки",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 16,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"NjZlM2IxM2ItNjIyNC00NjhmLWIzZTItMGM3NGQ5Y2MwYjE2fDNhMzY4MmMyLTBlODgtNDExMy1iMjhlLTMzMzUyZjAyOWI0OHxkODg5MmFjOS1mZmNmLTQ5ZDEtOGUxMS00YWZmZTIzOTgxMWF8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "771becd8-2311-1178-6665-5416ebc6d7c9",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_операция_заявка_площ.step.data.bjs",
+      "Uid": "d8e90db2-9a12-4eda-ad5c-36bd656c89e6",
+      "PreviousStepUid": "771becd8-2311-1178-6665-5416ebc6d7c9",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "5e502779-3a7f-44bb-bfa5-ff8577914f33",
+      "SaveRegime": 0,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "46052f19-f94a-ba59-114e-42e13fef8e5a",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "8bb4297b-8b15-4543-5ea0-7a2937562001",
+          "SourceFieldName": "date",
+          "DestinationFieldName": "date",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4cc012bb-1a30-fce9-0d74-8c771b772305",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "7aa49172-fe51-9274-3f20-c72169669dc9",
+          "SourceFieldName": "",
+          "DestinationFieldName": "create_records",
+          "DefaultValue": "true",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "44bbc27e-d7c0-4c7b-e1d8-94d14e2d4d88",
+          "SourceFieldName": "комментарий",
+          "DestinationFieldName": "комментарий",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "1c8cb976-4924-248f-a220-fa2555a18d7b",
+          "SourceFieldName": "ответственный",
+          "DestinationFieldName": "ответственный",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "367196a5-f0de-34c9-4641-7e3acc862c16",
+          "SourceFieldName": "проект",
+          "DestinationFieldName": "проект",
+          "DefaultValue": "",
+          "SearchBy": "id_проект_заказ",
+          "DataTypeUid": "a9c75bdf-d854-4f05-9a6a-1db90d2ae59b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "3db823d7-2a92-369f-6976-fcb5814d8987",
+          "SourceFieldName": "исполнитель",
+          "DestinationFieldName": "исполнитель",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4378b243-8b4b-685a-e566-a917ac857c76",
+          "SourceFieldName": "колво_строк",
+          "DestinationFieldName": "колво_строк",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "21cd3aaa-8f96-5bbf-b5a9-eec7d8e3fbdd",
+          "SourceFieldName": "колво",
+          "DestinationFieldName": "колво",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c6def8c4-f80d-cd4c-801d-81d2e475ff89",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "ffc10d42-6961-cab3-483a-fb29a94a56b5",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id_hubcloud",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "0be6e40c-69e3-c9a6-e809-a31c0afe166b",
+          "SourceFieldName": "number",
+          "DestinationFieldName": "number_hubcloud",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "15b8d1cd-8890-4a45-80e4-2fb4f398fbad",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "e978116c-db0b-312e-d647-bc7c883452a6",
+          "SourceFieldName": "шифр_рд_title",
+          "DestinationFieldName": "шифр_рд",
+          "DefaultValue": "",
+          "SearchBy": "title",
+          "DataTypeUid": "9838686b-9186-452e-b98c-3dfc4568d5b9",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "29f72abc-4218-2c01-5619-421067f8e426",
+          "SourceFieldName": "система_в_рд_title",
+          "DestinationFieldName": "система_в_рд",
+          "DefaultValue": "",
+          "SearchBy": "title",
+          "DataTypeUid": "4f178234-55cb-438d-a510-1808fec07bbb",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "37c49b58-dc27-59ac-129e-e67151d499fd",
+      "PreviousStepUid": "d8e90db2-9a12-4eda-ad5c-36bd656c89e6",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

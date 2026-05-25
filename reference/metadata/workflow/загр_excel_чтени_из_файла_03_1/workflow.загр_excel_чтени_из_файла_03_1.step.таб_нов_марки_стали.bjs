@@ -1,0 +1,28 @@
+/*TempTable.убираем_нулевые_строки;
+
+CreateTable(марка_стали   string, марка_стали_справочник integer)
+| UnionAll($result_1)
+| Having(марка_стали_справочник is null)
+| GroupBY(марка_стали,марка_стали_справочник)*/
+
+/*var result = _data.убираем_нулевые_строки
+  .filter(r => r.марка_стали_справочник == null)
+  .groupBy(
+    ['марка_стали', 'марка_стали_справочник'],
+    []
+  );
+
+return result;*/
+
+var src = _data.delete_null_rows;
+
+var result = src
+  .filter(r =>
+    isNotEmpty(r.марка_стали) &&
+    ((r.марка_стали_id ?? 0) === 0)     // <-- ключевое: нет найденного id
+  )
+  .groupBy(['марка_стали'], [])
+  .addColumn('марка_стали_справочник number')
+  .process(r => { r.марка_стали_справочник = null; });
+
+return result;

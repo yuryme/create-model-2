@@ -1,0 +1,3 @@
+return _data.cities
+  .innerJoin(_data.mapping, (pr, jr) => pr.город_display == jr.title )
+  .deleteColumn('title');

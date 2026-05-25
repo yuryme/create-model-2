@@ -1,0 +1,43 @@
+function safeParseNumber(value) {
+  if (value == null) return 0;        // null / undefined → 0
+
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  if (typeof value === "string") {
+    const s = value.trim().replace(',', '.');  // запятая → точка
+    const n = Number(s);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  return 0; // остальные типы
+}
+
+const days = [];
+for (let i = 1; i <= 31; i++) {
+  days.push(`д_${String(i).padStart(2, '0')}`);
+};
+
+var tableResult = $t.table_2.unpivot('time_str', days, 'day_number', 'day_name')
+.filter(row => isNotEmpty(row.time_str))
+.addColumn({name: 'time', dataType: 'number'})
+  .addColumn({name: 'часы_аванс', dataType: 'number'})
+  .addColumn({name: 'часы_часть_2_я', dataType: 'number'})
+  .addColumn({name: 'смены_аванс', dataType: 'number'})
+  .addColumn({name: 'смены_часть_2_я', dataType: 'number'})
+.process(row => {
+    row.time = safeParseNumber(row.time_str);                       
+    row['часы_аванс'] = row.day_number <= 15 ? row.time : 0; 
+    row['часы_часть_2_я']  = row.day_number > 15 ? row.time : 0;
+    row['смены_аванс'] = row.day_number <= 15 && row.time > 0 ? 1 : 0; 
+    row['смены_часть_2_я'] = row.day_number > 15 && row.time > 0 ? 1 : 0;
+     
+  }).groupBy(['сотрудники'], ['часы_аванс', 'часы_часть_2_я', 'смены_аванс', 'смены_часть_2_я'])
+  .addColumn({name: 'аванс', dataType: 'number'})
+  .addColumn({name: 'часть_2_я', dataType: 'number'})
+  .process(row=>{
+    row['аванс'] = 1; 
+    row['часть_2_я'] = 2;
+  });
+return tableResult;

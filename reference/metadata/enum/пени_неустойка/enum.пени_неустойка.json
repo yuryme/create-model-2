@@ -1,0 +1,156 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "fa085cf9-0475-4efc-97cf-744fe1086982",
+  "MetaObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+  "Title": "Пени/неустойка",
+  "Name": "пени_неустойка",
+  "Memo": "",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": false,
+  "Header": {
+    "Uid": "f3897351-65c7-be8b-372c-0786a74da15a",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "042cafe6-86c4-5c94-e2d4-d2b6f4262a17",
+        "Kind": 0,
+        "StandardColumnUid": "3cceebad-7d5a-4943-a102-6267e22227a8",
+        "Title": "Имя",
+        "Name": "name",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 20,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "59d078c4-32a9-03a7-fdc5-761fb88a9e2e",
+        "Kind": 0,
+        "StandardColumnUid": "1e0063d0-288d-494a-8761-1185300d571d",
+        "Title": "Удалено",
+        "Name": "is_deleted",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "99f7c8dc-680b-fdca-2273-c9d3f5f548f8",
+        "Kind": 0,
+        "StandardColumnUid": "e647fb57-470e-4547-9a94-2be0f3d0985e",
+        "Title": "Код",
+        "Name": "code",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 3,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": true,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "47c92ddc-f658-6231-f236-9a882573b273",
+        "Kind": 0,
+        "StandardColumnUid": "91a26ae4-5723-4109-8322-7e4e59129239",
+        "Title": "Заголовок",
+        "Name": "title",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": [
+      {
+        "Uid": "df276134-26c9-064c-43d9-95cd0e51fc95",
+        "Columns": [
+          {
+            "ColumnUid": "59d078c4-32a9-03a7-fdc5-761fb88a9e2e",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "6a69562e-d229-2d2d-1880-d984ceacb22b",
+        "Columns": [
+          {
+            "ColumnUid": "99f7c8dc-680b-fdca-2273-c9d3f5f548f8",
+            "Direction": 0
+          }
+        ]
+      }
+    ]
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

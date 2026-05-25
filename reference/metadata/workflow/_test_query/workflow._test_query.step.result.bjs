@@ -1,0 +1,5 @@
+var t1 = _data.get_data.name1;
+t1 = t1.select(['number', 'проект_заказ']);
+
+
+return t1;

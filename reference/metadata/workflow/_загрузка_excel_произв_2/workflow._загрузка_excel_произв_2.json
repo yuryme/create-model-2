@@ -1,0 +1,142 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "1f803631-8e28-9e64-4944-c82498a2a3a6",
+  "Name": "_загрузка_excel_произв_2",
+  "Title": "02.025 Загрузка Excel. Производство. 28-1, 28-2, 28-3 Заг-ка в Прои-во из Google",
+  "Memo": "Используется в Операции 06. Производство для загрузки из Экселя отгружаемых Марок",
+  "IsActive": true,
+  "Version": 19,
+  "Steps": [
+    {
+      "Expression": "workflow._загрузка_excel_произв_2.step.operation_data.bjs",
+      "Uid": "6f1fa82e-9a9c-deb5-4bed-09a4424fbf89",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Operation data",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_произв_2.step.operation_data_3.bjs",
+      "Uid": "8e2a2d28-b7cc-fafd-477a-96b702c38bee",
+      "PreviousStepUid": "6f1fa82e-9a9c-deb5-4bed-09a4424fbf89",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Operation data 3",
+      "Name": "operation_data_3",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_произв_2.step.find_file.bjs",
+      "Uid": "a3fa8414-6881-26cd-0952-945635e74560",
+      "PreviousStepUid": "8e2a2d28-b7cc-fafd-477a-96b702c38bee",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "bc84d90f-200d-25e5-d2a5-1d3c45f024d4",
+      "PreviousStepUid": "a3fa8414-6881-26cd-0952-945635e74560",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Плоская",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "6a7921e6-d787-22c8-916d-c4c5e95a3011",
+          "SourceFieldName": "Позиция марки",
+          "DestinationFieldName": "марка_title_из_google",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "1ef6cff6-72cc-39d1-5a96-2ce93b22ba41",
+          "SourceFieldName": "Наименование марки",
+          "DestinationFieldName": "наименование_марки",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "7df89df3-68af-8109-d270-4cbc8478dd1d",
+          "SourceFieldName": "Количество шт",
+          "DestinationFieldName": "колво_шт_кмд_гугл",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "e90aa16e-6be7-434f-ac2a-228e341f6739",
+          "SourceFieldName": "Вес одной, кг",
+          "DestinationFieldName": "вес_одной_кг_гугл",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "9d7cb2da-4f58-d322-2252-2ada89e1ccdb",
+          "SourceFieldName": "Шифр КМД",
+          "DestinationFieldName": "км_строка_из_google",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "531cae0a-ff1d-6132-32d2-27bb5a563f85",
+          "SourceFieldName": "Изготовлено,шт",
+          "DestinationFieldName": "изготовленошт",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "733dc5fd-8f6f-1ec9-494f-5795c41a9c27",
+      "PreviousStepUid": "bc84d90f-200d-25e5-d2a5-1d3c45f024d4",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_произв_2.step.запрос_данных.bjs",
+      "Uid": "69bd3b1e-5209-c7c7-1e74-e55237f16529",
+      "PreviousStepUid": "733dc5fd-8f6f-1ec9-494f-5795c41a9c27",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_произв_2.step.запрос_данных_2.bjs",
+      "Uid": "c843b2d1-e532-4d6e-c80e-3fd67b476cff",
+      "PreviousStepUid": "69bd3b1e-5209-c7c7-1e74-e55237f16529",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Запрос данных 2",
+      "Name": "запрос_данных_2",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_произв_2.step.запрос_данных_3.bjs",
+      "Uid": "d06be053-f3de-3ee6-2004-56e557b9307c",
+      "PreviousStepUid": "c843b2d1-e532-4d6e-c80e-3fd67b476cff",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Запрос данных 3",
+      "Name": "запрос_данных_3",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

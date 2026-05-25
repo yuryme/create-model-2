@@ -1,0 +1,7 @@
+var fileData = await from("operation.монтаж_площадка.attached_files")
+  .select(['uid', 'filename'])
+  .where("objectuid = @id")
+  .parameter("id", _parameters.number, 11)
+  .query();
+
+return fileData;

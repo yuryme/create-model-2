@@ -1,0 +1,12 @@
+setIsWaiting(true);
+var source = await runWorkflow('_загрузка_excel_марки_из_файла', 'mapping', 
+                   [{name: 'number',dataType: 'integer', value: $h.number}],300);
+
+source = source
+  .addColumn({name: 'счетчик',dataType: 'number'})
+  .process(row=> row.счетчик = 1);
+
+setIsWaiting(false);
+$t.марки.clear();
+$t.марки.load(source);
+setIsModified(true);

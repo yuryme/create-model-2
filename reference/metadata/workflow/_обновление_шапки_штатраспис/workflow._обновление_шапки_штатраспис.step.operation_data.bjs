@@ -1,0 +1,11 @@
+var result = await from ('operation.штатное_расписание.table_1')
+    .select (['object_uid as number', 'id', 'дата', 'проектзаказ as проект_заказ', 'должность', 'статья', 'подразделение', 'тип_начисления_зп', 'оклад', 'ставка_час', 'ставка_смена', 'уволен', 'организация'])
+    //.getDisplays()
+    .where('number=@number')
+    .parameter('number', _parameters.number, 11)
+    .query();
+
+result.process(row => row.дата = new Date(row.дата))
+    .orderBy( (a, b)=> a.дата - b.дата).rows[0]
+    
+return result;

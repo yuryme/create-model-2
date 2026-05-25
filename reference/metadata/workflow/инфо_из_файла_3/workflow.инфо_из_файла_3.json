@@ -1,0 +1,127 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "10ef7762-6683-dc41-e72b-d5b2d5ccab21",
+  "Name": "инфо_из_файла_3",
+  "Title": "02.029 Загрузка Excel. Производство. 03-3. Чтение из файла (д/ведомости) (3)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 6,
+  "Steps": [
+    {
+      "Expression": "workflow.инфо_из_файла_3.step.данные_операции.bjs",
+      "Uid": "c9ef4a6e-b05f-477b-e4d0-20bb73173cfc",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Данные операции",
+      "Name": "данные_операции",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.инфо_из_файла_3.step.find_file.bjs",
+      "Uid": "b918af6e-11bd-5359-a9e9-f261ec8c6451",
+      "PreviousStepUid": "c9ef4a6e-b05f-477b-e4d0-20bb73173cfc",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "ab0a3304-59f5-8b94-618e-ecbaffdca937",
+      "PreviousStepUid": "b918af6e-11bd-5359-a9e9-f261ec8c6451",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "find_file",
+      "SheetName": "E_Сводная ведомость марок и дет",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "2f91180a-fca6-6992-cc61-4ec0d15942a7",
+          "SourceFieldName": "Вес, кг (загрузка)",
+          "DestinationFieldName": "вес_кг_загрузка",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "61524970-0745-7cd5-2da6-d24d464f5991",
+          "SourceFieldName": "Кол-во (загрузка)",
+          "DestinationFieldName": "Кол-во (загрузка)",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "55d3ace0-91f3-2149-3063-2bf1cd2895ca",
+          "SourceFieldName": "Длинна (загрузка), м",
+          "DestinationFieldName": "длинна_загрузка_м",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "0b297dc2-c480-c325-460f-4a0f09af32b4",
+          "SourceFieldName": "Профиль (загрузка)",
+          "DestinationFieldName": "профиль_загрузка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "de6f701b-2ddf-d8ec-4f5c-549731c1a40a",
+          "SourceFieldName": "Профиль-стенка",
+          "DestinationFieldName": "профильстенка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "329ced82-3fce-d88d-1455-9c86a88604c0",
+          "SourceFieldName": "Профиль-полки",
+          "DestinationFieldName": "профильполки",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "5837c900-75c5-8b42-c783-6d66ae22c8b4",
+          "SourceFieldName": "Кол-во (стенка)",
+          "DestinationFieldName": "колво_стенка",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "b42f05c6-8b02-b28e-4985-b018ab51932c",
+          "SourceFieldName": "Кол-во (полки)",
+          "DestinationFieldName": "колво_полки",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "576293cc-6006-24c6-8ce0-2adaf28c3183",
+          "SourceFieldName": "Марка стали",
+          "DestinationFieldName": "марка_стали",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "28704332-d58b-8cb5-db50-65f4d76028df",
+      "PreviousStepUid": "ab0a3304-59f5-8b94-618e-ecbaffdca937",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.инфо_из_файла_3.step.запрос_данных.bjs",
+      "Uid": "d570b175-400b-d354-a1c6-eee1babbd3de",
+      "PreviousStepUid": "ab0a3304-59f5-8b94-618e-ecbaffdca937",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "5. - Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

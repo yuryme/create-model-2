@@ -1,0 +1,91 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "6d54dab8-5b3c-fc73-4174-03f4ef6fa078",
+  "Name": "в_назнач_цех_exls_2",
+  "Title": "02.033 Загрузка Excel. Производство. 08-2. Загрузка в Назначение \"Марке\" (ЦЕХОВ)",
+  "Memo": "Используется в Операции Назначение цеха \"Марке\" для загрузки из Экселя Марок, которым нужно назначить цех. В отличии от 08-1 - в этом процессе Марке можно назначить более одного цеха.",
+  "IsActive": true,
+  "Version": 23,
+  "Steps": [
+    {
+      "Expression": "workflow.в_назнач_цех_exls_2.step.operation_data.bjs",
+      "Uid": "1a8b02ba-cfca-ef76-5690-95dec8e702bd",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "1. - Данные операции",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.в_назнач_цех_exls_2.step.find_file.bjs",
+      "Uid": "98e29b14-bcd0-6ffa-21cf-d3587e70a600",
+      "PreviousStepUid": "1a8b02ba-cfca-ef76-5690-95dec8e702bd",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "2. Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "63202e4a-2278-81ff-88bb-0c59c4765c98",
+      "PreviousStepUid": "98e29b14-bcd0-6ffa-21cf-d3587e70a600",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "3. Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "00cc34e0-fedf-cf49-a548-a4127882f68a",
+          "SourceFieldName": "Марки",
+          "DestinationFieldName": "марка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "1954aac7-717e-611a-e7a8-2ac0e1b34a0e",
+          "SourceFieldName": "Кол-во",
+          "DestinationFieldName": "колво_шт",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "9543034d-313b-2daa-d27c-6d9638e742a4",
+          "SourceFieldName": "Цех",
+          "DestinationFieldName": "цех",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "d9a8d9d9-dc6a-53c7-d174-5d6c2ef80de1",
+      "PreviousStepUid": "63202e4a-2278-81ff-88bb-0c59c4765c98",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "4. Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.в_назнач_цех_exls_2.step.запрос_данных.bjs",
+      "Uid": "bb210b8e-5689-5167-bb40-d47709e50c16",
+      "PreviousStepUid": "d9a8d9d9-dc6a-53c7-d174-5d6c2ef80de1",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "5. - Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

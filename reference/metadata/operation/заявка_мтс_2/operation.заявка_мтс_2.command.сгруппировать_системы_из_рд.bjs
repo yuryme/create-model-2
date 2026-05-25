@@ -1,0 +1,15 @@
+setIsWaiting(true);
+var opid = $h.number;
+
+var result_1 = await from('operation.заявка_мтс_2.table_1')
+  .select(['система_в_рд'])
+  .where('object_uid = @opid')
+  .parameter('opid', opid)
+  .getDisplays()
+  .query();
+
+var result = result_1.groupBy(['система_в_рд', 'система_в_рд_display'], []);
+
+setIsWaiting(false);
+$t.table_3.load(result);
+setIsModified(true);

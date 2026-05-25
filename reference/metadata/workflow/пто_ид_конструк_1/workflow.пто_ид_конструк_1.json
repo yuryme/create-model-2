@@ -1,0 +1,85 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "c023e687-a792-66d9-6bd0-6187930a172b",
+  "Name": "пто_ид_конструк_1",
+  "Title": "02.034 Загрузка Excel. Производство. 27-1. ПТО: ИД (конструкции, т)",
+  "Memo": "Используется в ПТО: ИД для загрузки из Экселя смонтированные марки",
+  "IsActive": true,
+  "Version": 47,
+  "Steps": [
+    {
+      "Expression": "workflow.пто_ид_конструк_1.step.operation_data.bjs",
+      "Uid": "b1c67b6e-3c31-4ae5-a004-e36c5b2d5b4a",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "1. - Данные операции",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.пто_ид_конструк_1.step.find_file.bjs",
+      "Uid": "274e9ef5-6be6-8e70-7c12-d6c4d03c1741",
+      "PreviousStepUid": "b1c67b6e-3c31-4ae5-a004-e36c5b2d5b4a",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "2. Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "a5319c35-7943-c1e2-ae83-8e7145c698f7",
+      "PreviousStepUid": "274e9ef5-6be6-8e70-7c12-d6c4d03c1741",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "3. Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "6eac9b22-ad92-f97a-4325-7a18f13a6ef5",
+          "SourceFieldName": "Марка",
+          "DestinationFieldName": "марка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "4f82413d-e738-c8eb-438d-7b46983102ba",
+          "SourceFieldName": "Кол-во, шт",
+          "DestinationFieldName": "колво_шт",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "568c97fa-5765-aaf5-9c79-2838b1655734",
+      "PreviousStepUid": "a5319c35-7943-c1e2-ae83-8e7145c698f7",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "4. - меппинг на таблицу",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.пто_ид_конструк_1.step.запрос_данных.bjs",
+      "Uid": "f6f4dbce-550e-6cd7-53f3-abc4cc4c9e59",
+      "PreviousStepUid": "568c97fa-5765-aaf5-9c79-2838b1655734",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "5. - Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "c035d268-024a-f788-0062-d0e2fe838bac",
+  "Name": "загрузка_группа_документов_ид",
+  "Title": "0.045 Загрузка Группа документов ИД",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 4,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"NTMyY2QxZjYtYzIyZi00NzAyLTg2ZDktNTQ3MTVhY2U0ZDBmfDQ5Nzg1YzE4LWEyMDgtNDkxZC1hOTEyLWU2NWExNmVhNTMyZHw1NTY3ODA0MS0zMmRhLTQ0OTQtYjc2Zi00OTE0YjgwNDkwZmN8YXRlY2hzX3dvcmtfMDEyfDE=\"}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "8a9ebbc7-aa17-d45d-5c6c-a5826b03a4fc",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загрузка_группа_документов_ид.step.data.bjs",
+      "Uid": "64aaa06c-b97c-b93a-d3a3-c20709c12e08",
+      "PreviousStepUid": "8a9ebbc7-aa17-d45d-5c6c-a5826b03a4fc",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "3a38fc2b-692a-4950-b332-c1e0985b2cf3",
+      "SaveRegime": 0,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "fb496129-6123-797a-3d8c-716963907982",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "1b38456b-af6a-258b-88cb-04e6c72f8e42",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c0f3de65-4db2-964a-5b7e-246ce988abd9",
+          "SourceFieldName": "title",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "bea2db15-e710-5ada-d469-3dc909c36f9f",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d1a8a3e2-d502-da19-9bb2-9af3965c1ac5",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id_hubcloud",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "87016507-73ac-f4bd-87ef-b5949fe14931",
+          "SourceFieldName": "name",
+          "DestinationFieldName": "name",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "f6118659-f963-644a-998d-0d6b5bda99a0",
+      "PreviousStepUid": "64aaa06c-b97c-b93a-d3a3-c20709c12e08",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+//--- Вызов процесса
+setIsWaiting(true);
+var source = await runWorkflow('______________', 'запрос_данных_2', 
+                   [{name: 'number',dataType: 'integer', value: $h.number}],300);
+
+setIsWaiting(false);
+$t.table_2.clear();
+$t.table_2.load(source);
+setIsModified(true);

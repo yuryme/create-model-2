@@ -1,0 +1,20 @@
+var records = createTable([
+  'проект_договора number',
+  'approve_role',
+  'person number',
+  'порядок number', 
+  'на_согласовании boolean', 
+  'дата_отправки_на_согласование']);
+
+if (_parameters.person && _parameters.order > 0 && _parameters.order < 10 ){
+  records.addRow([
+    _parameters.number,
+    'добавлена_вручную',
+    _parameters.person,
+    _parameters.order,
+    false,
+    ''
+  ]);
+}
+
+return records;

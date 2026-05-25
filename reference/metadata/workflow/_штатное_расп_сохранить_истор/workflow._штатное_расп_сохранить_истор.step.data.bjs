@@ -1,0 +1,33 @@
+var tableData = createTable([
+    { name: 'date', dataType: 'date' },
+    { name: 'number'},{ name: 'сотрудники'}, { name: 'должность'},
+    { name: 'организация'}, { name: 'проект_заказ'}, { name: 'тип_начисления_зп'},
+    { name: 'регион'}, { name: 'город'}, { name: 'графики_вахт'},
+    { name: 'упр_подразделение'}, { name: 'статья'}, { name: 'подразделение'},
+    
+  { name: 'оклад', dataType: 'number' }, { name: 'ставка_час', dataType: 'number' },
+  { name: 'ставка_смена', dataType: 'number' }, { name: 'дорожные_ставка', dataType: 'number' },
+  { name: 'премия', dataType: 'number' }, { name: 'счетчик', dataType: 'number' }, 
+
+  { name: 'уволен', dataType: 'boolean' },
+  
+  { name: 'комментарий', dataType: 'string' }, { name: 'подрядчик', dataType: 'string' },
+])
+  .addRow([
+    _parameters.текущая_дата,
+    _parameters.number, _parameters.сотрудники, _parameters.должность,
+    _parameters.организация, _parameters.проект_заказ, _parameters.тип_начисления_зп, 
+    _parameters.регион, _parameters.город, _parameters.графики_вахт,
+    _parameters.упр_подразделение, _parameters.статья, _parameters.подразделение,
+    
+    _parameters.оклад, _parameters.ставка_час, 
+    _parameters.ставка_смена, _parameters.дорожные_ставка, 
+    _parameters.премия, _parameters.счетчик,
+     
+    _parameters.уволен,
+
+    _parameters.комментарий, _parameters.подрядчик 
+    
+  ]);
+  
+return tableData;

@@ -1,0 +1,37 @@
+var records = createTable([
+  'проект_договора number',
+  'approve_role',
+  'person number',
+  'порядок number', 
+  'на_согласовании boolean', 
+  'дата_отправки_на_согласование',
+  'согласование_номер number']);
+
+_data.approve_settings.process(row=>{
+
+  records.addRow([
+    _parameters.number,
+    row.approve_role,
+    row.person,
+    row.порядок,
+    false,
+    '',
+    1
+  ])
+  
+});
+
+var today = (new Date());
+today.setHours(today.getHours()+3);
+var today = today.toLocalISO();
+
+var minOrder = records.clone().min('порядок');
+records.process(row => {
+  if (row.порядок == minOrder){
+     row.на_согласовании = true;
+     row.дата_отправки_на_согласование = today;
+  }
+});
+
+
+return records;

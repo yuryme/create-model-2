@@ -1,0 +1,111 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "9c053a77-bf43-5b47-b326-38ffb4711c87",
+  "Name": "_загрузка_грунтовка",
+  "Title": "0.022 Загрузка Грунтовка",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 4,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"NmZhY2M4ZDItMjE2OS00OGQ4LTk4NDctNDRmZTZlZTllNjczfGViMjc1ZDA2LWFjMDctNDhhNC1hNjlhLTNiNjE1MDE2Njg1Znw3NGRlM2E3ZS01M2MxLTQ4YTAtODRmOS01ZWFhZWQxYzIzZDN8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "4ea524ba-8f2d-1d61-79c6-d6296b58561f",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_грунтовка.step.data.bjs",
+      "Uid": "928eb3d4-f6b1-b9f3-568b-b9e8570b21a9",
+      "PreviousStepUid": "4ea524ba-8f2d-1d61-79c6-d6296b58561f",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "5a4b98b4-5872-40b1-879d-41ebbc72a503",
+      "SaveRegime": 1,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "ca19fa66-51bc-637f-8921-83638096f8bd",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "75720f49-3d76-9c0f-da96-06dc55f2be23",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "7117e268-20dd-5451-7c8c-6ad1ab8ab22f",
+          "SourceFieldName": "title",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "40babab3-b452-6b55-ebe9-d19c59df4ab9",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d9c0924a-35b9-f131-1fc8-179788735ee0",
+          "SourceFieldName": "name",
+          "DestinationFieldName": "name",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "f4139bcc-0313-adb4-bd80-7b1862554636",
+      "PreviousStepUid": "928eb3d4-f6b1-b9f3-568b-b9e8570b21a9",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

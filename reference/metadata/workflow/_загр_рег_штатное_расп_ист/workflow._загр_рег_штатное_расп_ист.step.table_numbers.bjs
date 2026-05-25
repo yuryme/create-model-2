@@ -1,0 +1,6 @@
+var tableNumbers = await from('operation.штатное_расписание')
+  .where('number_hubcloud > 0')
+  .select(['number as number_basys', 'number_hubcloud'])
+  .query();
+
+return tableNumbers;

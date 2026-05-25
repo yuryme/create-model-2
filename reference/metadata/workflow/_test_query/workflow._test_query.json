@@ -1,0 +1,33 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "f17954fa-4cb9-21de-49a5-5fd2752c43f5",
+  "Name": "_test_query",
+  "Title": "99.002Test query",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 19,
+  "Steps": [
+    {
+      "Expression": "workflow._test_query.step.get_data.bjs",
+      "Uid": "74fb8dec-8026-d481-9684-43372d539883",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Get data",
+      "Name": "get_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._test_query.step.result.bjs",
+      "Uid": "cebc20f4-7351-8cb9-800e-635a33994905",
+      "PreviousStepUid": "74fb8dec-8026-d481-9684-43372d539883",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "End",
+      "Name": "result",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

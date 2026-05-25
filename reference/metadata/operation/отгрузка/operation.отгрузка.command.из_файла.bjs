@@ -1,0 +1,8 @@
+setIsWaiting(true);
+var source = await runWorkflow('_загрузка_excel_в_отгрузка_мк', 'запрос_данных', 
+                   [{name: 'number',dataType: 'integer', value: $h.number}],300);
+
+setIsWaiting(false);
+$t.таблица.clear();
+$t.таблица.load(source);
+setIsModified(true);

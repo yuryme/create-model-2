@@ -1,0 +1,8 @@
+var result = await from('register.согласование_договоров')
+  .select(['approve_role', 'person', 'порядок'])
+  .where('проект_договора = @number')
+  .parameter('number', _parameters.number)
+  .query();
+
+
+return result;

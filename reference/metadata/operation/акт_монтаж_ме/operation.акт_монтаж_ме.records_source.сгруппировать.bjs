@@ -1,0 +1,9 @@
+// Table.table_1| GroupBy ( шифр_км, колво_тн, сумма_руб )
+
+var table1 = $t.table_1;
+  if (table1.rows.length > 0 ) {
+      table1 = table1.groupBy(['шифр_км'], ['колво_тн', 'сумма_руб']);
+    return table1; 
+  }
+var EmptyDataTable = createTable( [{name: 'product'}] );
+return EmptyDataTable;

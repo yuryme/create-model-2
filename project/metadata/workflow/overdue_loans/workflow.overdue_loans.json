@@ -1,0 +1,22 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "b34eea83-1228-4150-8b5a-64186f9d1b9c",
+  "Name": "overdue_loans",
+  "Title": "Просроченные выдачи",
+  "Memo": "Возвращает список просроченных невозвращённых книг конкретной выдачи, заданной входным параметром loan_number. Используется командой refresh_overdue_books на табличной части overdue_books документа operation/loan. Учебное тестовое задание №4 (переработка sandbox-03).",
+  "IsActive": true,
+  "Version": 3,
+  "Steps": [
+    {
+      "Expression": "workflow.overdue_loans.step.data.bjs",
+      "Uid": "c74d2814-875f-45ad-a57a-cf441779fdd8",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Данные",
+      "Name": "data",
+      "Memo": "Запрос просроченных книг выдачи по _parameters.loan_number (построчно). JOIN header + books + catalog/book + catalog/author; фильтры header.number=loan_number, не удалена, due_date<today, is_returned=false, book.is_deleted=false; SELECT: автор, название, due_date, days_overdue.",
+      "IsActive": true
+    }
+  ]
+}

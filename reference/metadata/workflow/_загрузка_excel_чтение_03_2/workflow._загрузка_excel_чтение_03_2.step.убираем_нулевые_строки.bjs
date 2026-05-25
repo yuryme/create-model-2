@@ -1,0 +1,76 @@
+var vt = _data.mapping;
+
+/* справочники */
+
+var steelTitles = Array.from(
+  new Set((vt.rows ?? []).map(r => r.марка_стали).filter(v => v != null))
+);
+
+var cSteel = await from('catalog.марка_стали')
+  .select(['id', 'title'])
+  .where('isdeleted = 0')
+  .query();
+
+cSteel = cSteel.filter(r => steelTitles.includes(r.title));
+
+var cProfile = await from('catalog.профиль')
+  .select(['id', 'title'])
+  .where('isdeleted = 0')
+  .query();
+
+var markaTitles = Array.from(
+  new Set((vt.rows ?? []).map(r => r.позиция_марки).filter(v => v != null))
+);
+
+var cMarki = await from('catalog.марки')
+  .select(['id', 'title_эталон'])
+  .where('isdeleted = 0')
+  .where('шифр_км = @km')
+  .parameter('km', _parameters.шифр_км_проекткм)
+  .query();
+
+cMarki = cMarki.filter(r => markaTitles.includes(r.title_эталон));
+
+/* стенка */
+
+var vtStenka = vt
+  .filter(r => r.профиль_стенка != null && r.профиль_стенка !== '')
+  .process(r => {
+    r.профиль = r.профиль_стенка;
+    r.вес_всех_кг = parseNumber(r.количество_стенка);
+  });
+
+/* полка */
+
+var vtPolka = vt
+  .filter(r => r.профиль_полки != null && r.профиль_полки !== '')
+  .process(r => {
+    r.профиль = r.профиль_полки;
+    r.вес_всех_кг = parseNumber(r.количество_полки);
+  });
+
+/* объединение */
+
+var base = vt
+  .unionAll(vtStenka)
+  .unionAll(vtPolka);
+
+/* join со справочниками */
+
+var result = base
+  .leftJoin(cSteel, (pr, jn) => pr.марка_стали === jn.title)
+  .process(r => {
+    r.марка_стали_справочник = r.id;
+  })
+  .leftJoin(cProfile, (pr, jn) => pr.профиль === jn.title)
+  .process(r => {
+    r.профиль_спр = r.id;
+  })
+  .leftJoin(cMarki, (pr, jn) => pr.позиция_марки === jn.title_эталон)
+  .process(r => {
+    r.марки_спр = r.id;
+  })
+  .filter(r => r.профиль != null && r.профиль !== '')
+  .filter(r => r.профиль_строка != null && r.профиль_строка !== '');
+
+return result;

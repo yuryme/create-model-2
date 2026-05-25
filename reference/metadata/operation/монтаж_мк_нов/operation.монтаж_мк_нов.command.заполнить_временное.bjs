@@ -1,0 +1,39 @@
+/* catalog.укрупненные_работы | id (2, 3, 9, 11, 13, 14, 15, 18) | Select  (id as укрупненные_работы, title as title_работы, едизм ) | GetTitle () as ТабРабот;
+catalog.монолит_конструкция | id ( 348, 349, 354, 350, 353, 351, 356 ) 
+| проект (36) | Select  (id as монолит_конструкция, title as title_элементы ) 
+| GetTitle () | LeftJoinAUTO (ТабРабот, 1=1 )*/
+
+setIsWaiting(true);
+
+var workIds = [2, 3, 9, 11, 13, 14, 15, 18];
+
+var tabWorks = await from('catalog.укрупненные_работы')
+   .select([
+    'id as укрупненные_работы',
+    'title as укрупненные_работы_display',
+    'едизм'
+  ])
+  .where('id_hubcloud in @workIds')
+  .parameter ('workIds', workIds)
+  .getDisplays()
+  .query();
+
+var elementIds = [348, 349, 354, 350, 353, 351, 356];
+
+var result = await from('catalog.монолит_конструкция')
+  .select([
+    'id as монолит_конструкция',
+    'title as монолит_конструкция_display'
+  ])
+  .where('проект = @project AND id_hubcloud in @elementIds')
+  .parameter('project', $h.проект_заказ, 11)
+  .parameter('elementIds', elementIds)
+  .query();
+
+result = result
+    .leftJoin(tabWorks, () => true);
+
+setIsWaiting(false);
+$t.table_4.clear();
+$t.table_4.load(result);
+setIsModified(true);

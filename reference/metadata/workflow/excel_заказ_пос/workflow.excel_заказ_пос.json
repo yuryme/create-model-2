@@ -1,0 +1,122 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "d954fbc4-8cbd-3e2a-cd2b-25857eb6ec0b",
+  "Name": "excel_заказ_пос",
+  "Title": "02.008 Загрузка Excel 48. Заказ поставщику",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 23,
+  "Steps": [
+    {
+      "Expression": "workflow.excel_заказ_пос.step.find_file.bjs",
+      "Uid": "6a8754a3-f78a-ae65-0b2a-334c36331437",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "4836fddc-b3c9-6d92-4ff0-144b55cb3f35",
+      "PreviousStepUid": "6a8754a3-f78a-ae65-0b2a-334c36331437",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 5,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "f8622618-d4f2-2c24-6aab-f9ee1ceea6ac",
+          "SourceFieldName": "Номенклатура из РД",
+          "DestinationFieldName": "items",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "b7eb8bf4-f90b-3a6d-75c0-4485d204d1c2",
+          "SourceFieldName": "№ стр. в счете",
+          "DestinationFieldName": "номенклатура_поставщика",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "1f1a3760-ec5a-c391-f21e-f61caa552d7a",
+          "SourceFieldName": "Ед.изм.",
+          "DestinationFieldName": "measure",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "a3ee4bcc-1eb2-71a6-789a-6122ed444c2d",
+          "SourceFieldName": "Кол-во",
+          "DestinationFieldName": "колво_поставка",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "bfcaa592-f9da-0c5e-6332-b2b3a6334007",
+          "SourceFieldName": "Цена",
+          "DestinationFieldName": "цена",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "ec61aa6d-c259-cbee-ac2f-d439b59b78f1",
+          "SourceFieldName": "Лист РД",
+          "DestinationFieldName": "лист_рд",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "69bdb4b3-1858-a2de-e3ad-87d8d8f34435",
+          "SourceFieldName": "Поз. в РД",
+          "DestinationFieldName": "поз_в_рд",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "3680ae6d-2079-0d72-a365-f6c5b5cfb580",
+          "SourceFieldName": "Кол-во (заявка)",
+          "DestinationFieldName": "остаток_по_заявке",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "ed3e3480-ad57-1648-b1b5-b46c6d53f077",
+          "SourceFieldName": "№ стр.",
+          "DestinationFieldName": "стр_excel",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "1eb3e49d-962d-22c8-1e2f-eab8b9a81b54",
+          "SourceFieldName": "Заявка (№)",
+          "DestinationFieldName": "заявка_display",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "4abab0ed-e13c-145c-e273-18f9b749317f",
+      "PreviousStepUid": "4836fddc-b3c9-6d92-4ff0-144b55cb3f35",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.excel_заказ_пос.step.result.bjs",
+      "Uid": "9036c658-148b-e3bb-9877-ccb62180ea8a",
+      "PreviousStepUid": "4abab0ed-e13c-145c-e273-18f9b749317f",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Result",
+      "Name": "result",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

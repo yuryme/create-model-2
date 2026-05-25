@@ -1,0 +1,15 @@
+var code_km = $h.шифр_км;
+var project = $h.проект_заказ;
+var manufactory = $h.цех;
+var weight_null = $h.вес_всех_кг;
+
+var source = createTable([
+    {name: 'шифр_км', dataType: 'number'},
+    {name: 'проект_заказ', dataType: 'number'},
+    {name: 'цех', dataType: 'number'},
+    {name: 'вес_0', dataType: 'number'}
+]).addRow([code_km, project, manufactory, weight_null])
+  .addColumn({name: 'вес_всех_кг', dataType: 'number'})
+  .process(r=> r.вес_всех_кг = r.вес_0/1000);
+
+return source;

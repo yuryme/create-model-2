@@ -1,0 +1,167 @@
+{
+  "$schema": "../../system/schemas/dataViewSettings.schema.json",
+  "Uid": "07db6009-0881-42e9-8af0-ee97efae30d2",
+  "Name": "bar_chart_test",
+  "Title": "Гистограммы (тест)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 1,
+  "DataSources": [
+    {
+      "Uid": "f5f35503-0819-149a-32c5-7f59042a0fe7",
+      "Name": "sales",
+      "Expression": "data_view.bar_chart_test.data_source.sales.bjs",
+      "Memo": ""
+    }
+  ],
+  "Filters": [],
+  "Indicators": [
+    {
+      "LegendPosition": 1,
+      "Orientation": 0,
+      "Stacked": false,
+      "XAxis": {
+        "Uid": "89fd7031-c213-873f-01ad-63ff70eaccb3",
+        "Title": "Месяц",
+        "ScaleType": 0,
+        "TimeUnit": ""
+      },
+      "YAxis": {
+        "Uid": "fc436834-0c74-298c-4742-f78f406ebf62",
+        "Title": "Продажи, тыс. руб.",
+        "ScaleType": 1,
+        "TimeUnit": ""
+      },
+      "LabelsColumnName": "month",
+      "DataSets": [
+        {
+          "Uid": "13ac764f-3818-61ed-8d60-42c305ebfd1c",
+          "Title": "Материалы",
+          "ColumnName": "amount_m",
+          "ColorHex": "1798cf"
+        },
+        {
+          "Uid": "c7dc89b6-ad5e-1a7e-c150-d6482e1f5999",
+          "Title": "Товары",
+          "ColumnName": "amount_t",
+          "ColorHex": "45c213"
+        }
+      ],
+      "BackgroundColors": [],
+      "Uid": "d6775b19-5361-453d-5aeb-2431b66c02b4",
+      "KindUid": "19ab8886-cd18-4c06-aff0-5b010d4b891a",
+      "KindName": "pv_bar_chart",
+      "DataSourceUid": "f5f35503-0819-149a-32c5-7f59042a0fe7",
+      "Title": "Гистограмма вертикальная",
+      "Name": "bar_verticat",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 6,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "LegendPosition": 1,
+      "Orientation": 0,
+      "Stacked": true,
+      "XAxis": {
+        "Uid": "89fd7031-c213-873f-01ad-63ff70eaccb3",
+        "Title": "Месяц",
+        "ScaleType": 0,
+        "TimeUnit": ""
+      },
+      "YAxis": {
+        "Uid": "fc436834-0c74-298c-4742-f78f406ebf62",
+        "Title": "Продажи, тыс. руб.",
+        "ScaleType": 1,
+        "TimeUnit": ""
+      },
+      "LabelsColumnName": "month",
+      "DataSets": [
+        {
+          "Uid": "13ac764f-3818-61ed-8d60-42c305ebfd1c",
+          "Title": "Материалы",
+          "ColumnName": "amount_m",
+          "ColorHex": "1798cf"
+        },
+        {
+          "Uid": "c7dc89b6-ad5e-1a7e-c150-d6482e1f5999",
+          "Title": "Товары",
+          "ColumnName": "amount_t",
+          "ColorHex": "45c213"
+        }
+      ],
+      "BackgroundColors": [],
+      "Uid": "ec9629d6-8db0-6d4b-beb3-04de95268a5a",
+      "KindUid": "19ab8886-cd18-4c06-aff0-5b010d4b891a",
+      "KindName": "pv_bar_chart",
+      "DataSourceUid": "f5f35503-0819-149a-32c5-7f59042a0fe7",
+      "Title": "Гистограмма вертикальная. Накопление",
+      "Name": "bar_integral",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 6,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "LegendPosition": 1,
+      "Orientation": 1,
+      "Stacked": false,
+      "XAxis": {
+        "Uid": "89fd7031-c213-873f-01ad-63ff70eaccb3",
+        "Title": "Продажи, тыс. руб.",
+        "ScaleType": 1,
+        "TimeUnit": ""
+      },
+      "YAxis": {
+        "Uid": "fc436834-0c74-298c-4742-f78f406ebf62",
+        "Title": "Месяц",
+        "ScaleType": 0,
+        "TimeUnit": ""
+      },
+      "LabelsColumnName": "month",
+      "DataSets": [
+        {
+          "Uid": "13ac764f-3818-61ed-8d60-42c305ebfd1c",
+          "Title": "Материалы",
+          "ColumnName": "amount_m",
+          "ColorHex": "1798cf"
+        },
+        {
+          "Uid": "c7dc89b6-ad5e-1a7e-c150-d6482e1f5999",
+          "Title": "Товары",
+          "ColumnName": "amount_t",
+          "ColorHex": "45c213"
+        }
+      ],
+      "BackgroundColors": [],
+      "Uid": "ecff7b3d-1d84-be42-6021-2e4d870b2b66",
+      "KindUid": "19ab8886-cd18-4c06-aff0-5b010d4b891a",
+      "KindName": "pv_bar_chart",
+      "DataSourceUid": "f5f35503-0819-149a-32c5-7f59042a0fe7",
+      "Title": "Гистограмма горизонтальная",
+      "Name": "bar_verticat",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 6,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    }
+  ]
+}

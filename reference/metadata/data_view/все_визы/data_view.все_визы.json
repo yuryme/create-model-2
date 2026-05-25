@@ -1,0 +1,107 @@
+{
+  "$schema": "../../system/schemas/dataViewSettings.schema.json",
+  "Uid": "5df2254a-2fab-4787-9e03-f55229124605",
+  "Name": "все_визы",
+  "Title": "Все визы",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 14,
+  "DataSources": [
+    {
+      "Uid": "4325d315-c85a-7f18-8da1-11691731852b",
+      "Name": "rows",
+      "Expression": "data_view.все_визы.data_source.rows.bjs",
+      "Memo": ""
+    }
+  ],
+  "Filters": [
+    {
+      "Uid": "5e6918c7-8f48-4a45-193c-e674b62ada5c",
+      "Name": "person",
+      "DataPath": "",
+      "Title": "Физлицо",
+      "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+      "NumberDigits": 2,
+      "DefaultComparisonKind": 0,
+      "RenderPlace": 0,
+      "ControlKindUid": "36a8d160-e7f6-41d3-9408-9c49a644720b",
+      "JoinOperator": 0,
+      "Required": false,
+      "AvailableComparisonKinds": []
+    }
+  ],
+  "Indicators": [
+    {
+      "ShowRowTotals": true,
+      "ShowColumnTotals": true,
+      "FrozenColumnsColumn": 0,
+      "GroupDefaultExpanding": 1,
+      "AvailableFields": [
+        {
+          "Uid": "9aaf42ee-914f-cf2a-4a4a-b631a1b60858",
+          "Title": "Вид строки",
+          "Name": "вид_строки",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": ""
+        },
+        {
+          "Uid": "fbb825a5-dd77-d744-32c9-21891f91351e",
+          "Title": "Проект договора",
+          "Name": "проект_договора_display",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": ""
+        },
+        {
+          "Uid": "60440a9f-d2a3-3f07-82f4-ce2b2dd45144",
+          "Title": "Физлицо",
+          "Name": "person_display",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": ""
+        },
+        {
+          "Uid": "f2fefc9d-9af5-d754-bf67-08704a87fba2",
+          "Title": "Количество",
+          "Name": "quantity",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 2,
+          "Format": ""
+        }
+      ],
+      "Rows": [
+        "fbb825a5-dd77-d744-32c9-21891f91351e",
+        "9aaf42ee-914f-cf2a-4a4a-b631a1b60858",
+        "60440a9f-d2a3-3f07-82f4-ce2b2dd45144"
+      ],
+      "Columns": [],
+      "Values": [
+        {
+          "FieldUid": "f2fefc9d-9af5-d754-bf67-08704a87fba2",
+          "AggregateFunction": 0
+        }
+      ],
+      "Uid": "7c8523b4-2972-c81e-c303-fee4401f7a3a",
+      "KindUid": "65dd8c74-5337-4e35-bfab-24100f94b2b5",
+      "KindName": "bs_pivot",
+      "DataSourceUid": "4325d315-c85a-7f18-8da1-11691731852b",
+      "Title": "",
+      "Name": "сводная_таблица_визы",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 12,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    }
+  ]
+}

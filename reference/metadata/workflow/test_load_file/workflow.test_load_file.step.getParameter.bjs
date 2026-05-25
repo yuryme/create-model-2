@@ -1,0 +1,7 @@
+var operationHeader = await from("operation.заявка_мтс_2").getDisplays()
+  .select(['number', 'date', 'площадка as проект_заказ', 'шифр_рд'])
+  .where("number = @number")
+  .parameter("number", _parameters.number, 11)
+  .query();
+
+return operationHeader;

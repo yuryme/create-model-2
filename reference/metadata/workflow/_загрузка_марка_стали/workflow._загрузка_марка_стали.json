@@ -1,0 +1,138 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "fa9b04fa-3ced-2d38-3402-4195aeef36f3",
+  "Name": "_загрузка_марка_стали",
+  "Title": "0.041 Загрузка Марка стали",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 12,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"ZjM3MTM1YTUtMTlmMC00YTQ5LThiZTctZmNlNmFlMWJkMDUxfGU2MGY1ODM1LTE1ZTQtNDg1Zi05ZThiLTdlN2EyODgyY2ZlOHw3ZTUyYWVjNC1hMDc1LTRmMjktYjNmOC1hNGE2NjE5NWE3YmV8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "b81b890f-ec7e-af97-1c0a-cf97a8d8d632",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_марка_стали.step.data.bjs",
+      "Uid": "5494664e-c08b-d026-5923-888b4e5218bf",
+      "PreviousStepUid": "b81b890f-ec7e-af97-1c0a-cf97a8d8d632",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "b93469bb-804a-45bb-ab08-637805cb6093",
+      "SaveRegime": 1,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "61ab1350-fe99-95fa-a10d-ec1018765caf",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "e47127ca-7ac9-a395-bc73-7d3735b75b85",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "6ae79ec4-a748-5afe-5d69-c21a3d7a7a43",
+          "SourceFieldName": "title",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "f88a457a-13e2-4dac-02e7-b3cb3ae37cb7",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "fa3d3557-d2f0-c4f7-cd59-7dff55dd34fe",
+          "SourceFieldName": "name",
+          "DestinationFieldName": "name",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c22aa7d4-78f1-6e7f-be34-964e0a823b3e",
+          "SourceFieldName": "code",
+          "DestinationFieldName": "code",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "0ff7f152-76f3-2756-a2cf-e61e3f846d1e",
+          "SourceFieldName": "марка_сводная",
+          "DestinationFieldName": "марка_сводная",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "30d3194a-053c-60de-0f10-e532e4d7a275",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id_hubcloud",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "a6eb72d7-ba48-3b19-999b-baf0556a80b5",
+      "PreviousStepUid": "5494664e-c08b-d026-5923-888b4e5218bf",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

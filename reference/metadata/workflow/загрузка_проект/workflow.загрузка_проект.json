@@ -1,0 +1,174 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "38b21242-be8c-8e0b-6ea6-697c6745c3e8",
+  "Name": "загрузка_проект",
+  "Title": "0.004 Загрузка Проект/Заказ",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 13,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{\n\"token\": \"MjcxNGRlMjQtZGUzOC00YmMyLTkzNzMtODI4ZTVmNjE1YTJmfDdlMjkxN2QwLTk0NmItNDIzNy04MzM3LTc0ZGNjMDIwNDA0YnwxNGE2ZTkxZS01ZmVlLTRhYzQtOTVjYy0zMWYzNWRlODUzMjd8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "7d9364e0-701c-0866-ec59-fa5f555231e1",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загрузка_проект.step.data.bjs",
+      "Uid": "0ea44598-c038-d76a-48c7-90d3cccc5de6",
+      "PreviousStepUid": "7d9364e0-701c-0866-ec59-fa5f555231e1",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "a9c75bdf-d854-4f05-9a6a-1db90d2ae59b",
+      "SaveRegime": 0,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "b3077cd5-9412-7212-c98e-d93d96041d93",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "ea3cc3e1-aac4-4136-e721-b9e1dd7f5e79",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "fedc0f0a-1849-ff74-5c78-6ef3e4b5ec25",
+          "SourceFieldName": "title",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "20b1c335-41d4-f291-12cd-42836a429fc9",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "41a32a6c-4293-c53e-cb36-24955cc66063",
+          "SourceFieldName": "префикс",
+          "DestinationFieldName": "префикс",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "5c3074f5-cbb9-9ccf-9568-bc564fe8de71",
+          "SourceFieldName": "город",
+          "DestinationFieldName": "город",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "0c951bf0-9652-40bc-937c-c92a2d95242d",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "92a87bae-ffa6-4ad4-dd40-46010f44b361",
+          "SourceFieldName": "прораб_м15",
+          "DestinationFieldName": "прораб_м15",
+          "DefaultValue": "",
+          "SearchBy": "id_hubcloud",
+          "DataTypeUid": "c47d3835-48d8-427f-be89-e84c082575ef",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "41e22faf-46ad-b13d-af05-4544481a86fc",
+          "SourceFieldName": "должность_м15",
+          "DestinationFieldName": "должность_м15",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4a2223c8-171f-376b-eb72-4348a78dae91",
+          "SourceFieldName": "номер_приказа",
+          "DestinationFieldName": "номер_приказа",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "0a2c6289-be8e-ba29-f221-7e446e676ce2",
+          "SourceFieldName": "адрес",
+          "DestinationFieldName": "адрес",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "2288c919-d6fd-649a-2c06-108f89a600d1",
+          "SourceFieldName": "memo",
+          "DestinationFieldName": "memo",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "7b5e3bbd-06a9-29a0-24fa-1bb9f70e2a97",
+          "SourceFieldName": "id",
+          "DestinationFieldName": "id_проект_заказ",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "bd90dba2-623b-78fe-9b60-a76a4d2bf142",
+      "PreviousStepUid": "0ea44598-c038-d76a-48c7-90d3cccc5de6",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

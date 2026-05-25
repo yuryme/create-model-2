@@ -1,0 +1,60 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "9a954e8c-4add-a25c-e794-ab6d35f4cf61",
+  "Name": "снять_уволен",
+  "Title": "99.004 Снять отметку УВОЛЕН",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 4,
+  "Steps": [
+    {
+      "Expression": "workflow.снять_уволен.step.data.bjs",
+      "Uid": "834c3f59-7299-5933-d5a3-4640236bdf3b",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "eaa37ae7-f841-4617-b74b-01137c1d8d85",
+      "SaveRegime": 2,
+      "SearchBy": "number",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": true,
+      "HeaderMapping": [
+        {
+          "Uid": "700ff89c-2213-8599-2b63-57d5a3d63d55",
+          "SourceFieldName": "",
+          "DestinationFieldName": "уволен",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d1c1bced-5626-1870-dedd-41e60ee086a2",
+          "SourceFieldName": "",
+          "DestinationFieldName": "дата_уволен",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "aab78652-bc85-67e1-96e8-41b4460c1eab",
+      "PreviousStepUid": "834c3f59-7299-5933-d5a3-4640236bdf3b",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Update operation",
+      "Name": "update_operation",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

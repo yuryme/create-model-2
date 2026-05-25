@@ -1,0 +1,78 @@
+var kmList = Array.from(
+  new Set(
+    (_data.данные_операции.rows ?? [])
+      .map(r => r.шифр_км)
+      .filter(v => v != null)
+  )
+);
+
+var tableProfile = await from('catalog.профиль')
+  .select(['id as id_профиль', 'title as профиль_title'])
+  .query();
+
+var tableSteel = await from('catalog.марка_стали')
+  .select(['id as id_марка_стали', 'title as марка_стали_title'])
+  .query();
+
+var tableMarki = await from('catalog.марки')
+  .select([
+    'id as id_марка',
+    'title as марка_title',
+    'колво',
+    'вес_одной_кг',
+    'вес_всех_кг',
+    'шифр_км',
+    'наименование_марки as наименование_загрузка'
+  ])
+  .where('актуальность = 1')
+  .getDisplays()
+  .query();
+
+tableMarki = tableMarki.filter(r => kmList.includes(r.шифр_км));
+
+var profileWeight = _data.меппинг
+  .leftJoin(
+    tableSteel,
+    (pr, jn) => pr.марка_стали === jn.марка_стали_title
+  )
+  .leftJoin(
+    tableProfile,
+    (pr, jn) => pr.профиль_загрузка === jn.профиль_title
+  );
+
+var weightKM = tableMarki.groupBy(
+  ['шифр_км', 'шифр_км_display'],
+  [{ name: 'вес_всех_кг', alias: 'вес_всего_км', aggregate: 'sum' }]
+);
+
+var readyTable = tableMarki
+  .leftJoin(weightKM, (pr, jn) => pr.шифр_км === jn.шифр_км)
+  .addColumn('доля', 'number')
+  .process(r => {
+    r.доля =
+      parseNumber(r.вес_всех_кг) /
+      parseNumber(r.вес_всего_км);
+  })
+  .leftJoin(profileWeight, () => true)
+  .addColumn('искомый_вес', 'number')
+  .process(r => {
+    r.искомый_вес =
+      parseNumber(r.вес_кг_загрузка) * parseNumber(r.доля);
+  });
+
+var result = readyTable
+  .select([
+    'марка_title as позиция_марки',
+    'id_марка as марки_спр',
+    'марка_стали',
+    'наименование_загрузка',
+    'id_марка_стали as марка_стали_справочник',
+    'профиль_загрузка as профиль_строка',
+    'профиль_загрузка as профиль',
+    'id_профиль as профиль_спр',
+    'искомый_вес as вес_всех_кг',
+    'колво_загрузка as количество'
+  ])
+  .filter(r => parseNumber(r.количество) > 0);
+
+return result;

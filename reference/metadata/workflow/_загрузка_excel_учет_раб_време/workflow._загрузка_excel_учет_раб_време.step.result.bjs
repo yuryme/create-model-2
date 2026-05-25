@@ -1,0 +1,45 @@
+function safeParseNumber(value) {
+  if (value == null) return 0;        // null / undefined → 0
+
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  if (typeof value === "string") {
+    const s = value.trim().replace(',', '.');  // запятая → точка
+    const n = Number(s);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  return 0; // остальные типы
+}
+
+// 1. Отфильтровать меппинг: фамилия_ио не пустая
+let tableMapping = _data.mapping.filter(row => isNotEmpty(row["сотрудник_title"]));
+
+// 2. Получить штатное расписание с нужными полями и заголовками
+const tableStaff = await from("records.штатное_расписание")
+  //.where("проект_заказ = @proj")
+ // .parameter("proj", _parameters.проект_заказ, 11)
+  .select(["сотрудники", "должность"])
+  .getDisplays()
+  .query();
+
+// 3. Результат: меппинг + данные из штатного
+const resultTable = tableMapping.leftJoin(
+  tableStaff,
+  (m, s) => (m["сотрудник_title"] === s["сотрудники_display"])
+         )
+.filter(row=> row.сотрудники >0)
+.addColumn({ name: "итого", dataType: "number" })
+  .process(row => {
+    let total = 0;
+
+    for (let day = 1; day <= 31; day++) {
+      const col = `д_${day < 10 ? "0" + day : day}`;
+      total += safeParseNumber(row[col]);
+    }
+    row["итого"] = total;
+  });
+
+return resultTable;

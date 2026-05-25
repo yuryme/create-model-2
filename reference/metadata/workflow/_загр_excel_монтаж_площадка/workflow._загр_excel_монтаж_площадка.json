@@ -1,0 +1,91 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "7a80c356-53d9-29c5-3c02-be6f05f947d1",
+  "Name": "_загр_excel_монтаж_площадка",
+  "Title": "02.027 Загрузка Excel. Производство. 18. Загрузка в Монтаж-площадка (тн)",
+  "Memo": "Используется в Операции 08-1. монтаж-площадка МК для загрузки из Экселя смонтированных Марок",
+  "IsActive": true,
+  "Version": 26,
+  "Steps": [
+    {
+      "Expression": "workflow._загр_excel_монтаж_площадка.step.operation_data.bjs",
+      "Uid": "9d3f4452-dec3-d8c0-acc6-8ecc573cd64a",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Operation data",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загр_excel_монтаж_площадка.step.find_file.bjs",
+      "Uid": "b8c36564-c6b1-30c2-1486-65a9f796a8ed",
+      "PreviousStepUid": "9d3f4452-dec3-d8c0-acc6-8ecc573cd64a",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "57ad7962-7d7e-7df6-e516-8c2feb90acf8",
+      "PreviousStepUid": "b8c36564-c6b1-30c2-1486-65a9f796a8ed",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "0d25dc19-7e6f-96ed-2553-d144011e0c00",
+          "SourceFieldName": "Марка",
+          "DestinationFieldName": "марка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "bf8e71bd-5323-8c57-5bed-69abc16622fd",
+          "SourceFieldName": "Кол-во, шт",
+          "DestinationFieldName": "колво_шт_монтаж",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "72c73b8d-3306-60bf-2e61-3acf2805803c",
+          "SourceFieldName": "Дата",
+          "DestinationFieldName": "дата",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12"
+        }
+      ],
+      "Uid": "600fb2f1-105b-ce99-c72b-4c405dd126b7",
+      "PreviousStepUid": "b8c36564-c6b1-30c2-1486-65a9f796a8ed",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загр_excel_монтаж_площадка.step.запрос_данных.bjs",
+      "Uid": "33f3c42c-09ac-60fb-9c31-acec4e3cce02",
+      "PreviousStepUid": "600fb2f1-105b-ce99-c72b-4c405dd126b7",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

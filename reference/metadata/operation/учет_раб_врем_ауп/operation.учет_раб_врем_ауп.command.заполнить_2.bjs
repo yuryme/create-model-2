@@ -1,0 +1,25 @@
+let staffTable = await from("records.штатное_расписание")
+  .where("проект_заказ = @proj")
+  .parameter("proj", $h.проект_заказ)
+  .select([
+    "сотрудники",
+    "должность",
+    "department as подразделение",
+    "тип_начисления_зп as тип_зп",
+    "уволен"
+  ])
+  .getDisplays()
+  .query();
+
+// 2. Дневные колонки д_01…д_15, все по умолчанию 0
+for (let day = 1; day <= 15; day++) {
+  const colName = "д_" + day.toString().padStart(2, "0");
+staffTable.addColumn({ name: colName, dataType: "number", defaultValue: 0 });
+}
+
+// 3. Фильтр по уволенным и удаление служебной колонки
+staffTable = staffTable
+ .filter(row => !row["уволен"])
+ .deleteColumn('уволен');
+
+openPickUp(staffTable, 'table_2');

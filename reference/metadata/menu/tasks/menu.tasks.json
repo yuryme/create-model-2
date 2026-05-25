@@ -1,0 +1,24 @@
+{
+  "$schema": "../../system/schemas/menuSettings.schema.json",
+  "Uid": "1c65b18a-d999-6806-c00c-b4aeb4b2b6a2",
+  "Name": "tasks",
+  "Title": "Задачи",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 1,
+  "Items": [
+    {
+      "Uid": "6e3d5168-250e-0f81-562e-c8aa96920244",
+      "Kind": 1,
+      "Title": "Задачи",
+      "IconClass": "pi pi-check",
+      "Url": "/app#/data-objects/operation/task",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": "",
+      "Items": [],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}

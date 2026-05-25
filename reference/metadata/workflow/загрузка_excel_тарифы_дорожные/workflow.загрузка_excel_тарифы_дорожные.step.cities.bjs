@@ -1,0 +1,4 @@
+var cities = await from("catalog.город")
+  .select(['id as город', 'title as город_display'])
+  .orderBy('title').query();
+return cities;

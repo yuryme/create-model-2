@@ -1,0 +1,8 @@
+var tablePersons = await from('catalog.person')
+  .select(['id', 'id_hubcloud', 'user_name']).query();
+
+tablePersons = tablePersons.leftJoin(_data.mapping, 
+                                     (pr, jr) => pr.id_hubcloud == jr.id)
+  .filter(row => isNotEmpty(row.user_name));
+
+return tablePersons;

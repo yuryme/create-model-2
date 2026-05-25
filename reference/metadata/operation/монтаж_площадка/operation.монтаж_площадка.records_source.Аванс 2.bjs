@@ -1,0 +1,34 @@
+const days = [];
+for (let i = 1; i <= 31; i++) {
+  days.push(`д_${String(i).padStart(2, '0')}`);
+}
+
+var tableResult = $t.время.unpivot('time_str', days, 'day_number', 'day_name')
+  .filter(row => isNotEmpty(row.time_str))
+  .addColumn({name: 'time', dataType: 'number'})
+  .addColumn({name: 'smena', dataType: 'number'})
+  .addColumn({name: 'time_advance', dataType: 'number'})
+  .addColumn({name: 'time_part_2', dataType: 'number'})
+  .addColumn({name: 'ktu_advance', dataType: 'number'})
+  .addColumn({name: 'ktu_part_2', dataType: 'number'})
+  .addColumn({name: 'smena_advance', dataType: 'number'})
+  .addColumn({name: 'smena_part_2', dataType: 'number'})
+  .process(row => {
+    row.time = parseNumber(row.time_str);
+    row.smena = row.time > 0 ? 1: 0;
+    row.time_advance = row.day_number <= 15 ? row.time : 0; 
+    row.time_part_2 = row.day_number > 15 ? row.time : 0; 
+    row.ktu_advance = row.кту * row.time_advance;
+    row.ktu_part_2 = row.кту * row.time_part_2;
+    row.smena_advance = row.day_number <= 15 ? row.smena : 0;
+    row.smena_part_2 = row.day_number > 15 ? row.smena : 0;
+  }).groupBy(['сотрудник', 'кту'], 
+             ['time_advance', 'time_part_2', 'ktu_advance', 'ktu_part_2', 'smena_advance', 'smena_part_2'])
+  .addColumn({name: 'advance', dataType: 'number'})
+  .addColumn({name: 'part_2', dataType: 'number'})
+  .process(row=>{
+    row.advance = 1; 
+    row.part_2 = 2;
+  });
+
+return tableResult;

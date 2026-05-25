@@ -1,0 +1,31 @@
+// Задаем колонки один раз
+var columns = [
+  {name: 'id', dataType: 'number'},
+  {name: 'operationid'},
+  {name: 'rownumber'},
+  {name: 'цех_id'},
+  {name: 'колво'},
+  {name: 'вес_одной_кг'},
+  {name: 'вес_всех_кг'},
+  {name: 'комментарий'},
+  {name: 'number'}
+];
+
+// Создаем таблицу
+var table = createTable(columns);
+
+// Функция для маппинга строки
+function mapRow(row, columns) {
+  let mapped = {};
+  columns.forEach(c => {
+    mapped[c.name] = row[c.name];
+  });
+  return mapped;
+}
+
+// Загружаем данные в таблицу
+_data.request.data.table_1.forEach(row => {
+  table.addRow(mapRow(row, columns));
+});
+
+return table;

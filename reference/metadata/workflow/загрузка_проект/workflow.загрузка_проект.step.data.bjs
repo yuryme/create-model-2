@@ -1,0 +1,38 @@
+var table = createTable([
+  {name: 'id', dataType: 'number'},
+  {name: 'uid'},
+  {name: 'name'},
+  {name: 'code'},
+  {name: 'title'},
+  {name: 'memo'},
+  {name: 'префикс'},
+  {name: 'город', dataType: 'number'},
+  {name: 'прораб_м15'},
+  {name: 'должность_м15'},
+  {name: 'номер_приказа'},
+  {name: 'адрес'},
+  {name: 'presentation'},
+  {name: 'город_uid'},
+  {name: 'прораб_uid'}
+]);
+
+_data.request.data.forEach(row => {
+  table.addRow({
+    id: row.id,
+    uid: row.uid,
+    name: row.name,
+    code: row.code,
+    title: row.title,
+    memo: row.memo,
+    префикс: row.префикс,
+    город: row.город,
+    прораб_м15: row.прораб_м15,
+    должность_м15: row.должность_м15,
+    номер_приказа: row.номер_приказа,
+    адрес: row.адрес,
+    город_uid: row.город_uid,
+    прораб_uid: row.прораб_uid
+  });
+});
+
+return table;

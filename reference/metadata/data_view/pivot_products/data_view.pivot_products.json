@@ -1,0 +1,116 @@
+{
+  "$schema": "../../system/schemas/dataViewSettings.schema.json",
+  "Uid": "9f89be7f-59f8-4f9d-9afb-c0ad65f841a8",
+  "Name": "pivot_products",
+  "Title": "Сводная таблица товары (Тест)",
+  "Memo": "",
+  "IsActive": false,
+  "Version": 1,
+  "DataSources": [
+    {
+      "Uid": "bedf3425-4659-d108-6763-e0519043afa1",
+      "Name": "rows",
+      "Expression": "data_view.pivot_products.data_source.rows.bjs",
+      "Memo": ""
+    }
+  ],
+  "Filters": [],
+  "Indicators": [
+    {
+      "ShowRowTotals": true,
+      "ShowColumnTotals": true,
+      "FrozenColumnsColumn": 2,
+      "GroupDefaultExpanding": 2,
+      "AvailableFields": [
+        {
+          "Uid": "543cc4da-a715-db77-9246-2dbb91398bc7",
+          "Title": "Ном. группа",
+          "Name": "product_group",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": ""
+        },
+        {
+          "Uid": "ce98e3e6-3669-331b-efd8-5fbbea9fa9f6",
+          "Title": "Товар",
+          "Name": "product",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": ""
+        },
+        {
+          "Uid": "730de698-687a-85c9-2f3e-563f99d82ed0",
+          "Title": "Единица",
+          "Name": "measure_unit",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": ""
+        },
+        {
+          "Uid": "fa6467e9-aea3-f11a-8195-d9b5efeab3ec",
+          "Title": "Количество",
+          "Name": "quantity",
+          "Kind": 1,
+          "Width": "",
+          "HorizontalAlignment": 2,
+          "Format": "#,##0.000"
+        },
+        {
+          "Uid": "ed3d718e-9316-ea24-e34a-4ffac8283c17",
+          "Title": "Сумма",
+          "Name": "amount",
+          "Kind": 1,
+          "Width": "",
+          "HorizontalAlignment": 2,
+          "Format": "#,##0.00"
+        },
+        {
+          "Uid": "dd426cb4-2032-1c69-f303-b09cd9e12a8e",
+          "Title": "Склад",
+          "Name": "store",
+          "Kind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": ""
+        }
+      ],
+      "Rows": [
+        "543cc4da-a715-db77-9246-2dbb91398bc7",
+        "ce98e3e6-3669-331b-efd8-5fbbea9fa9f6"
+      ],
+      "Columns": [
+        "dd426cb4-2032-1c69-f303-b09cd9e12a8e",
+        "730de698-687a-85c9-2f3e-563f99d82ed0"
+      ],
+      "Values": [
+        {
+          "FieldUid": "fa6467e9-aea3-f11a-8195-d9b5efeab3ec",
+          "AggregateFunction": 0
+        },
+        {
+          "FieldUid": "ed3d718e-9316-ea24-e34a-4ffac8283c17",
+          "AggregateFunction": 0
+        }
+      ],
+      "Uid": "1a4345b7-ffba-b388-8558-ce1cf3c4ad33",
+      "KindUid": "65dd8c74-5337-4e35-bfab-24100f94b2b5",
+      "KindName": "bs_pivot",
+      "DataSourceUid": "bedf3425-4659-d108-6763-e0519043afa1",
+      "Title": "Товары",
+      "Name": "pivot",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 12,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    }
+  ]
+}

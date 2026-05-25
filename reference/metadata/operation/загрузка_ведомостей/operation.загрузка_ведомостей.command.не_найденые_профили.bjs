@@ -1,0 +1,28 @@
+/*марки_и_детали_ост |  template (43) | registrator ($h.id) 
+| Select (профиль_строка, профиль )  
+| Having (профиль is Null OR профиль = 0) | AddColumn (счетчик, number, 1 ) 
+| GroupBy (профиль_строка, счетчик )*/
+
+setIsWaiting(true);
+var objUid = 'd9e1173b-6b37-45ec-ac8c-67a12380e1eb';
+var result = await from('records.марки_и_детали_ост')
+ .select(['профиль_строка', 'профиль'])
+ .where('regr_марки_и_детали_ост.meta_object = @template AND regr_марки_и_детали_ост.object_uid = @reg')
+ .parameter('template', objUid, 9) // Guid
+ .parameter('reg', $h.number, 11)
+ .getDisplays()
+ .query();
+
+result = result
+  .filter(r => r.профиль == null || r.профиль === 0)
+  .addColumn('счетчик', 'number')
+  .process(r => { r.счетчик = 1; })
+  .groupBy(
+    ['профиль_строка', 'счетчик'],
+    [] // агрегатов нет
+  );
+
+setIsWaiting(false);
+$t.table_2.clear();
+$t.table_2.load(result);
+setIsModified(true);

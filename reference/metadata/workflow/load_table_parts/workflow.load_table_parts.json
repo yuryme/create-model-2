@@ -1,0 +1,141 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "23bf4898-5261-d2db-0d69-93165ffe1021",
+  "Name": "load_table_parts",
+  "Title": "99.007 Load table parts ( DEMO )",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 6,
+  "Steps": [
+    {
+      "Expression": "workflow.load_table_parts.step.header_data.bjs",
+      "Uid": "d173a7d9-9d59-dc20-2888-6e40f1d7051f",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Header data",
+      "Name": "header_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.load_table_parts.step.table_data.bjs",
+      "Uid": "04e4cfd4-3487-25ab-dfd3-8a7eabae5d42",
+      "PreviousStepUid": "d173a7d9-9d59-dc20-2888-6e40f1d7051f",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Table data",
+      "Name": "table_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "82ed45e1-d842-49f4-9e22-0f345836acf2",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "header_data",
+      "Condition": "",
+      "CreateRecords": true,
+      "HeaderMapping": [
+        {
+          "Uid": "c5ee0281-84c1-1f97-0e2e-96f3f03b6960",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "1c369b7f-861f-ad03-15cb-3e9f0db01c6f",
+          "SourceFieldName": "",
+          "DestinationFieldName": "create_records",
+          "DefaultValue": "true",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "73b9e7c5-0c26-dbbc-92ab-93e84e155919",
+          "SourceFieldName": "город",
+          "DestinationFieldName": "город",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "0c951bf0-9652-40bc-937c-c92a2d95242d",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4437c0b6-220a-3bc7-e5c0-86f9e23a7b86",
+          "SourceFieldName": "действует_с",
+          "DestinationFieldName": "действует_с",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "33dfcf38-0b66-554a-d2ab-0e69e1200950",
+          "SourceFieldName": "актуальные",
+          "DestinationFieldName": "актуальные",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "6b24724e-91d8-ca73-c4ed-d8fb6f192d6d",
+          "SourceFieldName": "комментарий",
+          "DestinationFieldName": "комментарий",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [
+        {
+          "TableUid": "dc29dbd1-2a91-c867-3e20-4b9354d33c29",
+          "SourcePath": "_data.table_data.filter(x=>x.operation_id == item.id)",
+          "Mapping": [
+            {
+              "Uid": "51a0eebe-7c05-aaf2-d562-e544dd93fd1e",
+              "SourceFieldName": "город",
+              "DestinationFieldName": "город",
+              "DefaultValue": "",
+              "SearchBy": "id",
+              "DataTypeUid": "0c951bf0-9652-40bc-937c-c92a2d95242d",
+              "CreateIfNotExist": false
+            },
+            {
+              "Uid": "01b4dcd3-1e25-a47e-ac25-804169ae4f1e",
+              "SourceFieldName": "тариф",
+              "DestinationFieldName": "тариф",
+              "DefaultValue": "",
+              "SearchBy": "",
+              "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+              "CreateIfNotExist": false
+            },
+            {
+              "Uid": "83907dc7-4a3e-5368-95e5-205fa21227fe",
+              "SourceFieldName": "расстояние",
+              "DestinationFieldName": "расстояние",
+              "DefaultValue": "",
+              "SearchBy": "",
+              "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+              "CreateIfNotExist": false
+            }
+          ]
+        }
+      ],
+      "Uid": "2ffe5ff4-8828-e3ea-15fa-d03f4491c749",
+      "PreviousStepUid": "04e4cfd4-3487-25ab-dfd3-8a7eabae5d42",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+setIsWaiting(true);
+var source = await runWorkflow('загрузка_excel_монтаж_площад', 
+                               'result_1_15', 
+                               [{name: 'number', 
+                                 dataType: 'integer', 
+                                 value: $h.number}], 30);
+setIsWaiting(false);
+$t.время.clear();
+$t.время.load(source);
+recalculate();
+setIsModified(true);

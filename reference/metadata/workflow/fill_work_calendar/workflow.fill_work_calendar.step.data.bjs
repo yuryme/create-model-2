@@ -1,0 +1,71 @@
+var dateStart = new Date('2026-01-01T00:00:00');
+var dateFinish = new Date('2026-12-31T23:59:59');
+
+// Производственный календарь РФ 2026 (постановление Правительства № 1466)
+// Нерабочие дни: новогодние 1–11 янв, 21–23 фев, 7–9 мар, 1–3 мая, 9–11 мая, 12–14 июн, 4 нояб, 31 дек; сб/вс
+var holidayRanges = [
+  [1, 11],      // 1–11 января
+  [21, 23],     // 21–23 февраля
+  [7, 9],       // 7–9 марта
+  [1, 3],       // 1–3 мая
+  [9, 11],      // 9–11 мая
+  [12, 14],     // 12–14 июня
+  [4, 4],       // 4 ноября
+  [31, 31]      // 31 декабря
+];
+var holidayMonths = [1, 2, 3, 5, 5, 6, 11, 12]; // месяц для каждого диапазона (1-based)
+
+// Сокращённые предпраздничные дни (ст. 95 ТК РФ)
+var preHolidayDates = [
+  [2026, 4, 30],   // 30 апреля
+  [2026, 5, 8],    // 8 мая
+  [2026, 6, 11],   // 11 июня
+  [2026, 11, 3]    // 3 ноября
+];
+
+function dateToKey(y, m, d) {
+  return y * 10000 + m * 100 + d;
+}
+
+var holidaySet = {};
+for (var r = 0; r < holidayRanges.length; r++) {
+  var month = holidayMonths[r];
+  var from = holidayRanges[r][0], to = holidayRanges[r][1];
+  for (var d = from; d <= to; d++) {
+    holidaySet[dateToKey(2026, month, d)] = true;
+  }
+}
+// Субботы (6) и воскресенья (0) — выходные
+for (var i = 0; i < 366; i++) {
+  var dt = new Date(2026, 0, 1);
+  dt.setDate(dt.getDate() + i);
+  if (dt.getFullYear() !== 2026) continue;
+  if (dt.getDay() === 0 || dt.getDay() === 6) {
+    holidaySet[dateToKey(dt.getFullYear(), dt.getMonth() + 1, dt.getDate())] = true;
+  }
+}
+
+var preHolidaySet = {};
+for (var p = 0; p < preHolidayDates.length; p++) {
+  var t = preHolidayDates[p];
+  preHolidaySet[dateToKey(t[0], t[1], t[2])] = true;
+}
+
+var tableResult = createTable([{ name: 'period' }, { name: 'day_kind' }]);
+
+var curr = new Date(dateStart.getTime());
+while (curr <= dateFinish) {
+  var y = curr.getFullYear(), m = curr.getMonth() + 1, day = curr.getDate();
+  var key = dateToKey(y, m, day);
+  var kind = 'work';
+  if (holidaySet[key]) {
+    kind = 'holiday';
+  } else if (preHolidaySet[key]) {
+    kind = 'pre_holiday';
+  }
+  var periodDate = new Date(y, curr.getMonth(), day);
+  tableResult.addRow([periodDate.toLocalISO(), kind]);
+  curr.setDate(curr.getDate() + 1);
+}
+
+return tableResult;

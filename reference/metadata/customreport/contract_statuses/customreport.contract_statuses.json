@@ -1,0 +1,28 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "2635604e-6c34-40ac-9763-2d972e31ffa8",
+  "MetaObjectKindUid": "662dc02d-210e-49f3-8bee-8006a3d7b258",
+  "Title": "Статусы договоров",
+  "Name": "contract_statuses",
+  "Memo": "",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": false,
+  "Header": {
+    "Uid": "8c7005d9-6a68-4947-8b38-e305aa3f6ff9",
+    "Title": null,
+    "Name": null,
+    "Memo": null,
+    "AutoClearMethod": 0,
+    "Columns": [],
+    "Indexes": []
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

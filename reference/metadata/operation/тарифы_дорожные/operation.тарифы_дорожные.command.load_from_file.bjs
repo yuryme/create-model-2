@@ -1,0 +1,9 @@
+setIsWaiting(true);
+var source = await runWorkflow('загрузка_excel_тарифы_дорожные', 
+                               'result', 
+                               [{name: 'id', 
+                                 dataType: 'integer', 
+                                 value: $h.number}]);
+setIsWaiting(false);
+$t.table_1.load(source);
+setIsModified(true);

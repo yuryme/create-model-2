@@ -1,0 +1,103 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "103210c2-a364-78af-c7d7-8154029606d1",
+  "Name": "обновление_из_файла2",
+  "Title": "02.031 Загрузка Excel. Производство.02-2. Обновление \"МАРКИ\" (из файла) (!)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 46,
+  "Steps": [
+    {
+      "Expression": "workflow.обновление_из_файла2.step.operation_data.bjs",
+      "Uid": "9a3b94bc-0baa-62ac-4ced-2beac5845f02",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "1. Данные операции",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.обновление_из_файла2.step.find_file.bjs",
+      "Uid": "0ca1c843-2001-114b-07c0-44709d4419c1",
+      "PreviousStepUid": "9a3b94bc-0baa-62ac-4ced-2beac5845f02",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "2. Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "5e4c01ab-9392-2ee7-4787-e42ae35e20f7",
+      "PreviousStepUid": "0ca1c843-2001-114b-07c0-44709d4419c1",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "3. Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "A_Список марок",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "3a2c6236-fbce-24e6-926a-6bfa8f1daea9",
+          "SourceFieldName": "Позиция марки",
+          "DestinationFieldName": "марка_new",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "e6d98c7d-9ef1-e0f7-adba-25ee05a9ee09",
+          "SourceFieldName": "Наименование марки",
+          "DestinationFieldName": "наименование_марки_new",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "2803a516-bbb6-4199-9866-32b93bef47f7",
+          "SourceFieldName": "Количество",
+          "DestinationFieldName": "колво_new",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "d58d962e-daf0-1ad4-ebe7-4fc968b58830",
+          "SourceFieldName": "Вес одной, кг",
+          "DestinationFieldName": "вес_одной_кг_new",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "f96bdf07-6264-71f1-f0f7-cbc9c6f1d491",
+          "SourceFieldName": "Вес всех, кг",
+          "DestinationFieldName": "вес_всех_кг_new",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        }
+      ],
+      "Uid": "6cdd8554-5eb4-cc97-1a86-ca51e86bea46",
+      "PreviousStepUid": "5e4c01ab-9392-2ee7-4787-e42ae35e20f7",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "4. Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.обновление_из_файла2.step.запрос_данных.bjs",
+      "Uid": "d1e2e285-a882-4d77-71b1-acf3f20a2d85",
+      "PreviousStepUid": "6cdd8554-5eb4-cc97-1a86-ca51e86bea46",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "5. - Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

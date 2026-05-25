@@ -1,0 +1,74 @@
+/*catalog.марки | SELECT (id as марки, наименование_марки, проект_заказ, вес_всех_кг, колво as колво_чертежи_шт);
+catalog.шифр_км | SELECT (id, очередь ) | GetTitle ();
+акты_смр | проект_заказ ($h.проект_заказ) | GroupBy (марки, проект_заказ, шифр_км, колво as колво_шт, вес_тн as колво_тн ) | GetTitle () | LeftJoinAuto ($result_1, марки = result_1.марки ) | LeftJoinAuto ($result_2, шифр_км = result_2.id ) | Compute ( колво_чертежи_тн, вес_всех_кг / 1000) | DeleteColumn ( вес_всех_кг, id)*/
+
+setIsWaiting(true);
+var recActs = await from('records.акты_смр')
+  .select(['марки', 'шифр_км', 'колво', 'вес_тн'])
+  .where('regr_акты_смр.проект_заказ = @project')
+  .parameter('project', $h.проект_заказ)
+  .getDisplays()
+  .query();
+
+var uniqueMarks = Array.from(
+  new Set(
+    (recActs.rows ?? [])
+      .map(r => r.марки)
+      .filter(v => v != null)
+  )
+);
+
+console.log(Array.isArray(uniqueMarks));
+console.log(uniqueMarks);
+
+var uniqueCodeKm = Array.from(
+  new Set(
+    (recActs.rows ?? [])
+      .map(r => r.шифр_км)
+      .filter(v => v != null)
+  )
+);
+console.log(Array.isArray(uniqueCodeKm));
+console.log(uniqueCodeKm);
+
+var result1 = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'наименование_марки',
+    'проект_заказ',
+    'вес_всех_кг',
+    'колво as колво_чертежи_шт'
+  ])
+  .where('id in @uniqueMarks')
+  .parameter('uniqueMarks', uniqueMarks)
+  .query();
+
+var result2 = await from('catalog.шифр_км')
+  .select(['id', 'очередь'])
+  .where('cat_шифр_км.id in @uniqueCodeKm')
+  .parameter('uniqueCodeKm', uniqueCodeKm)
+  .query();
+
+
+
+var result = recActs
+  .groupBy(
+    ['марки', 'марки_display', 'шифр_км', 'шифр_км_display'],
+    [
+      { name: 'колво', alias: 'колво_шт', aggregate: 'sum' },
+      { name: 'вес_тн', alias: 'колво_тн', aggregate: 'sum' }
+    ]
+  )
+  .leftJoin(result1, (pr, jn) => pr.марки === jn.марки)
+  .leftJoin(result2, (pr, jn) => pr.шифр_км === jn.id)
+  .addColumn('колво_чертежи_тн', 'number')
+  .process(r => {
+    r.колво_чертежи_тн = r.вес_всех_кг / 1000
+  })
+  .deleteColumns(['вес_всех_кг', 'id']); 
+
+setIsWaiting(false);
+$t.table_1.load(result);
+setIsModified(true);
+
+

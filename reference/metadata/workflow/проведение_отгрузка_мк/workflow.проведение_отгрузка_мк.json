@@ -1,0 +1,51 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "53ae915d-2bf5-00d1-d7c4-f15621785baa",
+  "Name": "проведение_отгрузка_мк",
+  "Title": "01.007.02 Проведение 01.07 Отгрузка МК",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 3,
+  "Steps": [
+    {
+      "Expression": "workflow.проведение_отгрузка_мк.step.data.bjs",
+      "Uid": "a644a60b-dc94-1e60-ed8e-e87b3050baf5",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "4d797083-d364-40c5-acf3-3b8051200676",
+      "SaveRegime": 2,
+      "SearchBy": "number",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": true,
+      "HeaderMapping": [
+        {
+          "Uid": "9b9df1a5-909d-1c38-186e-b3f8c3f341d7",
+          "SourceFieldName": "",
+          "DestinationFieldName": "create_records",
+          "DefaultValue": "true",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "9eca99f1-fa1c-7238-1dfd-123b92213e9e",
+      "PreviousStepUid": "a644a60b-dc94-1e60-ed8e-e87b3050baf5",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Create records",
+      "Name": "create_records",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

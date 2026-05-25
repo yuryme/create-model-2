@@ -1,0 +1,23 @@
+var today = (new Date()).toLocalISO();
+var tableData = createTable(['author number',
+                             'responsible number',
+                             'status',
+                             'topic', 
+                             'description',
+                             'проект_договора',
+                             'deadline', 
+                             'date', 
+                             'hours_plan', 
+                             'base_task'])
+  .addRow([_parameters.author,
+           _parameters.responsible,
+           _parameters.status,
+           _parameters.topic, 
+           _parameters.description,
+           _parameters.contract_draft,
+           _parameters.deadline, 
+           today, 
+           _parameters.hours_plan, 
+           _parameters.base_task]);
+
+return tableData;

@@ -1,0 +1,44 @@
+setIsWaiting(true);
+
+var code_rd = $h.шифр_рд;
+var system_in_rd = $h.система_в_рд;
+var meta_object = "b45b76be-0114-4b28-8824-59ecbff48d86";
+
+var tableSaldo = await from('records.мтс_остатки_от_заяв2')
+  .select([
+    'шифр_рд',
+    'система_в_рд',
+    'справочник_расценок as номенклатура',
+    'едизм',
+    'колво',
+    'лист_рд',
+    'позиция_в_рд as поз_в_рд'
+  ])
+  .where ('meta_object = @uid')
+  .parameter('uid', meta_object, 9) // выбираем операцию Спецификация РД (С)
+  .where('шифр_рд = @code_rd')
+  .where('система_в_рд = @система_в_рд')
+  .parameter('code_rd', code_rd, 11)
+  .parameter('система_в_рд', system_in_rd, 11)
+  .getDisplays()
+  .query();
+
+var tableSaldo = tableSaldo
+  .groupBy(
+    ['шифр_рд', 'система_в_рд', 'система_в_рд_display','номенклатура', 'номенклатура_display', 'едизм', 'едизм_display', 'лист_рд', 'поз_в_рд'],
+    ['колво']
+  )
+ .addColumn({ name: 'остаток_по_заявке', dataType: 'number' })
+ .process(row => row.остаток_по_заявке = row.колво)
+
+  .filter(row => (row.остаток_по_заявке ?? 0) > 0)
+  .addColumn({ name: 'колво_поставка', dataType: 'number' })
+  .process(row =>  row.колво_поставка = (row.остаток_по_заявке ?? 0))
+  .addColumn({ name: 'сч', dataType: 'number' })
+  .process(row => { row.сч = 1; })
+  .deleteColumn('колво');
+
+setIsWaiting(false);
+$t.table_1.clear();
+$t.table_1.load(tableSaldo);
+setIsModified(true);

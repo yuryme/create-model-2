@@ -1,0 +1,116 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "449b21bc-40d3-6303-55af-3acc72f54471",
+  "Name": "set_task_status",
+  "Title": "03.001.03 Установить статус задачи",
+  "Memo": "Установка статуса задачи и сохранение статуса в истории",
+  "IsActive": true,
+  "Version": 9,
+  "Steps": [
+    {
+      "Expression": "workflow.set_task_status.step.data.bjs",
+      "Uid": "dab1c2f9-bdb5-6ada-ff66-4bfbddd80967",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "a30177b3-bf29-4e3d-9215-9a1a5e2fcfdb",
+      "SaveRegime": 2,
+      "SearchBy": "number",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "d7dd48db-764d-1b7e-ae9c-ed7689d9c663",
+          "SourceFieldName": "status",
+          "DestinationFieldName": "status",
+          "DefaultValue": "",
+          "SearchBy": "name",
+          "DataTypeUid": "049e5e0f-eb73-4a21-ae91-91505d1ee048",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "020245c0-f1d3-f4c9-2bb0-c10834cbddbe",
+          "SourceFieldName": "hours_fact",
+          "DestinationFieldName": "hours_fact",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "0aff0d61-f0ff-8875-0d6e-e2a98fccf819",
+      "PreviousStepUid": "dab1c2f9-bdb5-6ada-ff66-4bfbddd80967",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Set status",
+      "Name": "set_status",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "cdde022e-2cf8-48ed-b889-d32e46df45f1",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "ac78342c-83ff-4d16-f182-55837a52b9e8",
+          "SourceFieldName": "period",
+          "DestinationFieldName": "period",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "20ee462e-ac8a-ae4b-a643-abec4a6eb7cb",
+          "SourceFieldName": "number",
+          "DestinationFieldName": "task",
+          "DefaultValue": "",
+          "SearchBy": "number",
+          "DataTypeUid": "a30177b3-bf29-4e3d-9215-9a1a5e2fcfdb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "e858a393-5103-1bbd-beb8-56d1acb104cb",
+          "SourceFieldName": "status",
+          "DestinationFieldName": "status",
+          "DefaultValue": "",
+          "SearchBy": "name",
+          "DataTypeUid": "049e5e0f-eb73-4a21-ae91-91505d1ee048",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "b81ee851-7ef8-5b2d-f13a-0327c639f4c6",
+          "SourceFieldName": "person",
+          "DestinationFieldName": "person",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "14e45609-9e4d-3079-6f87-54e6f903aebb",
+      "PreviousStepUid": "0aff0d61-f0ff-8875-0d6e-e2a98fccf819",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Save status history",
+      "Name": "save_status_history",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

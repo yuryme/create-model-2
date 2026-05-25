@@ -1,0 +1,61 @@
+setIsWaiting(true);
+
+var result1 = await from('operation.отгрузка.таблица')
+  .where('number = @id')
+  .parameter('id', $h.number)
+  .query();
+
+var markiList = Array.from(
+  new Set(
+    (result1.rows ?? [])
+      .map(r => r.марки)
+      .filter(v => v != null)
+  )
+);
+
+var certTable = await from('catalog.сертификаты')
+  .select(['id as сертификат', 'поставщик', 'шифр_км', 'профиль', 'марка_стали'])
+  .getDisplays()
+  .query();
+
+var saldoTable = await from('records.марки_и_детали_ост')
+  .getDisplays()
+  .query();
+
+saldoTable = saldoTable
+  .filter(r => markiList.includes(r.марки))
+  .groupBy(
+    ['марки', 'марка_стали', 'профиль', 'шифр_км'],
+    []
+  );
+
+var baseTable = result1
+  .groupBy(['марки', 'проект'], [])
+  .leftJoin(
+    saldoTable,
+    (pr, jn) =>
+      pr.марки === jn.марки &&
+      pr.проект === jn.шифр_км
+  )
+  .groupBy(
+    [
+      'марка_стали',
+      'профиль',
+      'шифр_км',
+      'марка_стали_display',
+      'профиль_display',
+      'шифр_км_display'
+    ],
+    []
+  )
+  .leftJoin(
+    certTable,
+    (pr, jn) =>
+      pr.марка_стали === jn.марка_стали &&
+      pr.профиль === jn.профиль &&
+      pr.шифр_км === jn.шифр_км
+  );
+
+setIsWaiting(false);
+$t.table_2.load(baseTable);
+setIsModified(true);

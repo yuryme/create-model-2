@@ -1,0 +1,183 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "8c8c5ab2-3dba-4673-9451-9704402d7593",
+  "MetaObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+  "Title": "Статус договора",
+  "Name": "статус_договора",
+  "Memo": "",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "{{code}}.{{title}}",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "fd8c98a6-61e9-8119-3725-b0297620e05a",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "8b3415c0-a749-6353-71e7-6a60333903bc",
+        "Kind": 0,
+        "StandardColumnUid": "3cceebad-7d5a-4943-a102-6267e22227a8",
+        "Title": "Имя",
+        "Name": "name",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 20,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "97523a3f-4d1a-58f2-e537-212bd8b07caf",
+        "Kind": 0,
+        "StandardColumnUid": "1e0063d0-288d-494a-8761-1185300d571d",
+        "Title": "Удалено",
+        "Name": "is_deleted",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "53b35d87-21f1-54d5-fe01-e6289f3f6963",
+        "Kind": 0,
+        "StandardColumnUid": "e647fb57-470e-4547-9a94-2be0f3d0985e",
+        "Title": "Код",
+        "Name": "code",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 3,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": true,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "b5b3d16b-2037-5f82-5cdf-a94fc7b695b0",
+        "Kind": 0,
+        "StandardColumnUid": "91a26ae4-5723-4109-8322-7e4e59129239",
+        "Title": "Заголовок",
+        "Name": "title",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "ea97c504-9f87-c3c9-c358-a4c5219808a3",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Цвет (PrimeVue)",
+        "Name": "severity",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "b99bb6a6-1cad-4e46-adfb-3d109836aedd",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": [
+      {
+        "Uid": "d0d5cc0e-6023-0c69-4574-79019ff878b2",
+        "Columns": [
+          {
+            "ColumnUid": "97523a3f-4d1a-58f2-e537-212bd8b07caf",
+            "Direction": 0
+          }
+        ]
+      },
+      {
+        "Uid": "9394ee49-0d58-6c14-1fe8-dbd5dd92928a",
+        "Columns": [
+          {
+            "ColumnUid": "53b35d87-21f1-54d5-fe01-e6289f3f6963",
+            "Direction": 0
+          }
+        ]
+      }
+    ]
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

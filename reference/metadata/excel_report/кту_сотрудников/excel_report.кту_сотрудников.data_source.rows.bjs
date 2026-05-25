@@ -1,0 +1,9 @@
+var tableResult = await from('records.кту_сотрудников')
+  .select(['period', 'проект_заказ as project', 'сотрудники as person', 'месяц as month', 'часы as hours'])
+  .getDisplays()
+  .orderBy('period desc')
+  .withFilters(_filters)
+  .top(100)
+  .query();
+
+return tableResult;

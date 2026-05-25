@@ -1,0 +1,8 @@
+openDialog({kind: 'operation'
+           , name: 'task'
+           , formName: 'tasks_tree'
+           , title: 'Дерево задач'
+           , width: '60rem'
+           , parameters: {
+             taskNumber: $h.number
+           }});

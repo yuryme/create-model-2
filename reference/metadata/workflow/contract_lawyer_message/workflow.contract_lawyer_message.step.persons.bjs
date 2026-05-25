@@ -1,0 +1,12 @@
+var info = await from('register.programm_roles_assign')
+  .where('role_in_programm = @lawyer').parameter('lawyer', 'lawyer', 16).query();
+
+const personsArray = info.toArray('person');
+const persons = await from('catalog.person')
+  .select(['id as person', 'полное_имя as full_name', 'user_name as email'])
+  .where('id in @persons')
+  .parameter('persons', personsArray).query();
+
+info = info.innerJoin(persons, (pr, jr) => jr.person == pr.person);
+
+return info;

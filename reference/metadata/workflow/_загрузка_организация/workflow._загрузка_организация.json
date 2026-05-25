@@ -1,0 +1,210 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "785a7ab6-cdc0-c860-dc2a-e6814cb2d768",
+  "Name": "_загрузка_организация",
+  "Title": "0.015 Загрузка Организация",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 4,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{ \"token\":\n\"N2Q0ZjgyNTQtZjc3Ni00NTA4LTlhYzUtOWRlMDBhNjAyNmMwfDI5MDkyODcxLTE2YzgtNDI2NS1iZGFhLTI4Mzg3NDY1YWI2MHw3MTJhNDExYS0wZGM2LTQyMWMtODRmMi01MGQ3NmIzYWZmNGZ8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "084433a2-ed80-0ad8-7544-e4f5a7795632",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_организация.step.data.bjs",
+      "Uid": "30599b77-0022-e984-06b7-87740956db9c",
+      "PreviousStepUid": "084433a2-ed80-0ad8-7544-e4f5a7795632",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "01ef2eff-8bd1-498a-9aeb-52aa9598fc35",
+      "SaveRegime": 1,
+      "SearchBy": "uid",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "aa939a02-92e1-0f1d-d1f5-431e11982014",
+          "SourceFieldName": "uid",
+          "DestinationFieldName": "uid",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "6fa9c45b-f514-4fea-a480-8e940636a1df",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "3cc4315a-8d5a-04ca-63d6-ac128734caca",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "7a8eef9d-6cec-69da-a423-00697f367922",
+          "SourceFieldName": "title",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "74e79b55-bb4e-f6bb-6192-87e927692f28",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "0d293fac-83e6-7bde-38d7-2c5d4658eaff",
+          "SourceFieldName": "name",
+          "DestinationFieldName": "name",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d28de429-3c76-7b2e-a6d2-fddbe8c0aa12",
+          "SourceFieldName": "memo",
+          "DestinationFieldName": "memo",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "6bdc8564-77fe-df38-2768-68b3ab1e12f4",
+          "SourceFieldName": "titletoprint",
+          "DestinationFieldName": "titletoprint",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c03eb7ba-7315-3d5c-ac49-58c517e98db7",
+          "SourceFieldName": "inn",
+          "DestinationFieldName": "inn",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d703a5eb-1961-2305-4092-5bfdc5eea61f",
+          "SourceFieldName": "kpp",
+          "DestinationFieldName": "kpp",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "8194b82a-aa6c-8d9c-f35f-98349860db9f",
+          "SourceFieldName": "okato",
+          "DestinationFieldName": "okato",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "6ab60346-8ab0-bac2-e076-d439fe8c9135",
+          "SourceFieldName": "phone",
+          "DestinationFieldName": "phone",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "086b46ee-0449-7d53-7b34-23664df3f348",
+          "SourceFieldName": "email",
+          "DestinationFieldName": "email",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "8a6b1c26-ccaf-35b5-93a1-bf53e63cc0af",
+          "SourceFieldName": "legaladdress",
+          "DestinationFieldName": "legaladdress",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "30848d46-ebdb-ccd1-e32a-32d98a8f905b",
+          "SourceFieldName": "address",
+          "DestinationFieldName": "address",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4f29591d-d352-ca32-31d3-0fe07d4d1930",
+          "SourceFieldName": "id1",
+          "DestinationFieldName": "id1",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "57be0056-a1df-9db8-e3ae-970fb22a1015",
+          "SourceFieldName": "id2",
+          "DestinationFieldName": "id2",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "1269da9b-6060-3135-6663-454df5bf0773",
+      "PreviousStepUid": "30599b77-0022-e984-06b7-87740956db9c",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

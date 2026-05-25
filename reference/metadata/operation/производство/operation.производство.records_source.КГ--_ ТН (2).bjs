@@ -1,0 +1,9 @@
+var result = $t.table_1;
+if (result.rows.length > 0) {
+  result = result
+    .select(['шифр_км', 'марка', 'осталось_произвести_кг'])
+    .addColumn({ name: 'осталось_произвести_тн', dataType: 'number'})
+    .process(r=> r.осталось_произвести_тн = r.осталось_произвести_кг/1000);
+  }
+
+return result;

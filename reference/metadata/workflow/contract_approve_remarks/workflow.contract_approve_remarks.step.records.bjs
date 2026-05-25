@@ -1,0 +1,22 @@
+var records = await from('register.согласование_замечаний')
+  .where('проект_договора = @number and person = @person and на_согласовании = true and согласовано = false')
+  .parameter('number', _parameters.number)
+   .parameter('person', _parameters.person)
+  .query();
+
+// Определяем максимальный номер согласования.
+var  maxApproveNumber = records.max('согласование_номер') ?? 0;
+// Фильтруем список согласования и берем только максимальный номер.
+records.filter(row => row.согласование_номер == maxApproveNumber);
+
+var today = (new Date());
+today.setHours(today.getHours()+3);
+var today = today.toLocalISO();
+records.process(row=>{
+  row.согласовано =  true;
+  row.комментарий = _parameters.comment;
+  row.дата_согласования = today;
+  row.person_fact = _parameters.person_fact;
+});
+
+return records;

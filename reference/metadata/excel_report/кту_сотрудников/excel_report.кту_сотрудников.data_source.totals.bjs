@@ -1,0 +1,6 @@
+var hoursTotal = _data.rows.sum('hours');
+var result = {
+  hours: hoursTotal
+}
+
+return result;

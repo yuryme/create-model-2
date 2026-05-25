@@ -1,0 +1,17 @@
+var messages = await from('register.согласование_договоров')
+  .where('проект_договора = @number and на_согласовании = true and решение is null')
+  .parameter('number', _parameters.number)
+  .orderBy('порядок')
+  .getDisplays()
+  .query();
+
+var personsArray = messages.toArray('person');
+
+const persons = await from('catalog.person')
+  .select(['id as person', 'полное_имя as full_name', 'user_name as email'])
+  .where('id in @persons')
+  .parameter('persons', personsArray).query();
+
+messages = messages.innerJoin(persons, (pr, jr) => jr.person == pr.person);
+
+return messages;

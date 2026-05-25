@@ -1,0 +1,78 @@
+/* TempTable.дан_опер;
+TempTable.меппинг;
+
+CreateTable(проект_заказ integer) | UnionAll($result_1) | LIST(проект_заказ);
+Catalog.шифр_км | проект_заказ  ($result_3) | Select (id, title as шифр_км_title, проект_заказ, 
+цена_монтажа as цена );
+CreateTable | FullJoinAuto ($result_4, ) | GroupBy (id) | List ( id);
+Catalog.марки | актуальность (1) | шифр_км ($result_5) | Select (id as марки, title, 
+наименование_марки as наименование, шифр_км as проект, уникальное_поле, колво as колво_в_кмд, 
+вес_одной_кг as вес_одной_шт_кг, вес_всех_кг) | GetTitle ();
+CreateTable | FullJoinAuto ($result_2, ) | LeftJoinAuto ( $result_4, 1=1) 
+| Concatenate (уникальное_поле, шифр_км_title,_,марка) 
+| LeftJoinAuto ( $result_6, уникальное_поле = result_6.уникальное_поле ) 
+| Having ( title is not Null )  | Compute ( сумма, цена * колво_шт * вес_одной_шт_кг / 1000) 
+| Compute ( колво_т_в_ид,  колво_шт * вес_одной_шт_кг / 1000)*/
+
+var oper = _data.operation_data;
+var mapping = _data.mapping;
+
+var project = oper.rows[0].проект_заказ;
+var codeKm = oper.rows[0].шифр_км;
+
+var kmTable = await from('catalog.шифр_км')
+  .select(['id as проект', 'title as проект_display', 'проект_заказ', 'цена_монтажа as цена'])
+  .where('проект_заказ = @prj')
+  .parameter('prj', project, 11 )
+  .query();
+
+var kmIds = Array.from(
+  new Set((kmTable.rows ?? []).map(r => r.проект).filter(v => v != null))
+);
+
+var marki = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'title as марки_display',
+    'наименование_марки as наименование',
+    'шифр_км',
+    'уникальное_поле',
+    'колво as колво_в_кмд',
+    'вес_одной_кг as вес_одной_шт_кг',
+    'вес_всех_кг'
+  ])
+  .where('актуальность = 1')
+  .where('cat_марки.проект_заказ = @prj AND cat_марки.шифр_км in @kmIds_')
+  .parameter('kmIds_', kmIds, 11)
+  .parameter('prj', project, 11)  
+  //.getDisplays()
+  .query();
+
+var result = mapping
+ .leftJoin(kmTable, () => true)
+ .addColumn('уникальное_поле', 'string')
+ .process(r => {
+    r.уникальное_поле =
+      String(r.проект_display ?? '') +
+      '_' +
+      String(r.марка ?? '');
+  })
+ .leftJoin(marki, (pr, jn) => pr.уникальное_поле === jn.уникальное_поле)
+
+  .filter(r => r.марки != 0)
+ .addColumn('сумма', 'number')
+ .addColumn('колво_т_в_ид', 'number')
+ .process(r => {
+    r.колво_т_в_ид =
+      parseNumber(r.колво_шт) *
+      parseNumber(r.вес_одной_шт_кг) /
+      1000;
+
+    r.сумма =
+      parseNumber(r.цена) *
+      parseNumber(r.колво_шт) *
+      parseNumber(r.вес_одной_шт_кг) /
+      1000;
+  });
+
+return result;

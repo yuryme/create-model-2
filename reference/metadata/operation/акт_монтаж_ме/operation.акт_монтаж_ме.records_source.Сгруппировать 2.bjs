@@ -1,0 +1,7 @@
+var result = $t.table_1
+  if (result.rows.length > 0 ) {
+  result = result.groupBy([], ['сумма_руб']);
+  return result;  
+  }
+var EmptyDataTable = createTable( [{name: 'product'}] );
+return EmptyDataTable;

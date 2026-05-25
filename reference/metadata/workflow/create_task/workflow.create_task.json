@@ -1,0 +1,226 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "a82e44ef-61c9-8977-b9e1-30dff1e127d0",
+  "Name": "create_task",
+  "Title": "03.001.04 Создать задачу",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 18,
+  "Steps": [
+    {
+      "Expression": "workflow.create_task.step.data.bjs",
+      "Uid": "f78a426a-7d9d-d8b3-4869-6f36e7ea4432",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "MetaObjectUid": "a30177b3-bf29-4e3d-9215-9a1a5e2fcfdb",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "8dd0aeea-3195-b23d-a918-2da013f1223b",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_deleted",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "bb754181-218e-7d72-cc37-aa7621f9e019",
+          "SourceFieldName": "date",
+          "DestinationFieldName": "date",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "df95a4e6-33c9-8aa8-607f-3a7489d0b36f",
+          "SourceFieldName": "",
+          "DestinationFieldName": "is_files",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "f5a91425-ba0d-cc4a-de7b-4243d3d66a8d",
+          "SourceFieldName": "",
+          "DestinationFieldName": "create_records",
+          "DefaultValue": "false",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "48b29af0-c4ab-7112-73ce-85c08254d405",
+          "SourceFieldName": "author",
+          "DestinationFieldName": "author",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "79f84a53-81e1-d9cc-71d2-70ef87e145c1",
+          "SourceFieldName": "responsible",
+          "DestinationFieldName": "responsible",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c32131a0-06e0-47da-a05f-bbd51b4b5390",
+          "SourceFieldName": "topic",
+          "DestinationFieldName": "topic",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "8648ee50-f71d-5eb9-8198-5a51c6afc545",
+          "SourceFieldName": "status",
+          "DestinationFieldName": "status",
+          "DefaultValue": "",
+          "SearchBy": "name",
+          "DataTypeUid": "049e5e0f-eb73-4a21-ae91-91505d1ee048",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "7c0f4b87-e698-c2b0-d195-c21268087c89",
+          "SourceFieldName": "description",
+          "DestinationFieldName": "description",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "2c734ecd-f831-1b44-a029-ba7a8a4d1d60",
+          "SourceFieldName": "deadline",
+          "DestinationFieldName": "deadline",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c972f453-ff2f-239c-2e0f-9192197d6412",
+          "SourceFieldName": "hours_plan",
+          "DestinationFieldName": "hours_plan",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "16cc9eed-ebc9-6052-5f62-9747d4bf1682",
+          "SourceFieldName": "base_task",
+          "DestinationFieldName": "base_task",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "8dec9bba-5809-d691-8b2b-bfaba3da238a",
+          "SourceFieldName": "проект_договора",
+          "DestinationFieldName": "проект_договора",
+          "DefaultValue": "",
+          "SearchBy": "number",
+          "DataTypeUid": "eded8edc-8d6b-4e2f-a068-52d401d1caaa",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "357a7c71-0137-5c82-16ea-77f7e80f0b86",
+      "PreviousStepUid": "f78a426a-7d9d-d8b3-4869-6f36e7ea4432",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Operation create",
+      "Name": "operation_create",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.create_task.step.history_record.bjs",
+      "Uid": "a7937faf-8287-019b-cbca-005ef6fdc9a4",
+      "PreviousStepUid": "357a7c71-0137-5c82-16ea-77f7e80f0b86",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "History record",
+      "Name": "history_record",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "cdde022e-2cf8-48ed-b889-d32e46df45f1",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "history_record",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "db20f853-c3cf-e87f-5088-b14479352c63",
+          "SourceFieldName": "period",
+          "DestinationFieldName": "period",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "dca66063-dac6-e57b-8f6f-bed06fca8550",
+          "SourceFieldName": "task",
+          "DestinationFieldName": "task",
+          "DefaultValue": "",
+          "SearchBy": "number",
+          "DataTypeUid": "a30177b3-bf29-4e3d-9215-9a1a5e2fcfdb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "46329e61-2940-7fd1-be7d-b288cdddbf07",
+          "SourceFieldName": "status",
+          "DestinationFieldName": "status",
+          "DefaultValue": "",
+          "SearchBy": "name",
+          "DataTypeUid": "049e5e0f-eb73-4a21-ae91-91505d1ee048",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "1cf3d9a2-16b6-8c74-0b1c-45c9db53688a",
+          "SourceFieldName": "person",
+          "DestinationFieldName": "person",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "fc2a95d8-06e1-04c9-01e3-6b28678201c3",
+      "PreviousStepUid": "a7937faf-8287-019b-cbca-005ef6fdc9a4",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Save history",
+      "Name": "save_history",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

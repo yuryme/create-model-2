@@ -1,0 +1,85 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "00bbe474-6a92-b55a-9bfe-3039d505ec0f",
+  "Name": "_загрузка_excel_в_отгрузка_мк",
+  "Title": "02.026 Загрузка Excel. Производство. 07. Загрузка в отгрузка МК",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 45,
+  "Steps": [
+    {
+      "Expression": "workflow._загрузка_excel_в_отгрузка_мк.step.operation_data.bjs",
+      "Uid": "ca00524c-8321-624e-049a-c6b510fbaf91",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Operation data",
+      "Name": "operation_data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_в_отгрузка_мк.step.find_file.bjs",
+      "Uid": "a6ead14f-cc9c-44ef-38bf-0e1c3efb3622",
+      "PreviousStepUid": "ca00524c-8321-624e-049a-c6b510fbaf91",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "192930c2-4da7-a0da-8395-02a626f17dd8",
+      "PreviousStepUid": "a6ead14f-cc9c-44ef-38bf-0e1c3efb3622",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "1e28960d-4cd5-c42e-d434-4789800502e3",
+          "SourceFieldName": "Марка",
+          "DestinationFieldName": "марка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "6d338937-ace6-f9f0-f5a2-3f2ed2b76caf",
+          "SourceFieldName": "Кол-во, шт",
+          "DestinationFieldName": "колво_шт",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        }
+      ],
+      "Uid": "040dda5c-8264-b92a-93c5-8707d647ee68",
+      "PreviousStepUid": "192930c2-4da7-a0da-8395-02a626f17dd8",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_в_отгрузка_мк.step.запрос_данных.bjs",
+      "Uid": "a43f92ec-1f51-d02d-3dfd-a894b9e28731",
+      "PreviousStepUid": "040dda5c-8264-b92a-93c5-8707d647ee68",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Запрос данных",
+      "Name": "запрос_данных",
+      "Memo": "Без колонки Монтаж. Она пустая, надо, чтобы при присоединении ее основная таблица не падала",
+      "IsActive": true
+    }
+  ]
+}

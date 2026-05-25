@@ -1,0 +1,8 @@
+var operationData = await from("operation.производство")
+  .select(['number', 'date',  'проект_заказ', 'цех'])
+  .where("opr_производство.number = @number")
+  .parameter("number", _parameters.number, 11)
+  .getDisplays()
+  .query();
+
+return operationData;

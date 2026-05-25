@@ -1,0 +1,140 @@
+{
+  "$schema": "../../system/schemas/dataViewSettings.schema.json",
+  "Uid": "003e0793-32e8-426d-892e-545b980573c1",
+  "Name": "pie_chart",
+  "Title": "Диаграммы (тест)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 1,
+  "DataSources": [
+    {
+      "Uid": "2bf8647a-8398-193a-dadb-e8d70a2db30f",
+      "Name": "income_expenses",
+      "Expression": "data_view.pie_chart.data_source.income_expenses.bjs",
+      "Memo": ""
+    }
+  ],
+  "Filters": [],
+  "Indicators": [
+    {
+      "LegendPosition": 1,
+      "Cutout": 0,
+      "LabelsColumnName": "department",
+      "DataSets": [
+        {
+          "Uid": "85020887-631b-4617-5c6c-35a019c6a14c",
+          "Title": "Доходы",
+          "ColumnName": "income",
+          "ColorHex": ""
+        }
+      ],
+      "BackgroundColors": [],
+      "Uid": "6279283b-2085-6664-2614-235cbc3bbb54",
+      "KindUid": "b3d7e1a2-5c4f-4a8b-9d6e-1f2a3b4c5d6e",
+      "KindName": "pv_pie_chart",
+      "DataSourceUid": "2bf8647a-8398-193a-dadb-e8d70a2db30f",
+      "Title": "Доходы",
+      "Name": "income",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "LegendPosition": 1,
+      "Cutout": 0,
+      "LabelsColumnName": "department",
+      "DataSets": [
+        {
+          "Uid": "85020887-631b-4617-5c6c-35a019c6a14c",
+          "Title": "Расходы",
+          "ColumnName": "expense",
+          "ColorHex": ""
+        }
+      ],
+      "BackgroundColors": [],
+      "Uid": "c309104a-f47e-b22f-9160-a9fc0479b887",
+      "KindUid": "b3d7e1a2-5c4f-4a8b-9d6e-1f2a3b4c5d6e",
+      "KindName": "pv_pie_chart",
+      "DataSourceUid": "2bf8647a-8398-193a-dadb-e8d70a2db30f",
+      "Title": "Расходы",
+      "Name": "expense",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "LegendPosition": 1,
+      "Cutout": 50,
+      "LabelsColumnName": "department",
+      "DataSets": [
+        {
+          "Uid": "616d0096-b98b-5801-b9ae-d1df5561eb4f",
+          "Title": "Доходы",
+          "ColumnName": "income",
+          "ColorHex": ""
+        }
+      ],
+      "BackgroundColors": [],
+      "Uid": "c9cacf56-e8b0-cbdd-f9a2-b4cb499b1e07",
+      "KindUid": "c4e8f2b3-6d5a-4b9c-ae7f-2a3b4c5d6e7f",
+      "KindName": "pv_donut_chart",
+      "DataSourceUid": "2bf8647a-8398-193a-dadb-e8d70a2db30f",
+      "Title": "Доходы. Кольцевая",
+      "Name": "income_donut",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    },
+    {
+      "LegendPosition": 1,
+      "Cutout": 50,
+      "LabelsColumnName": "department",
+      "DataSets": [
+        {
+          "Uid": "616d0096-b98b-5801-b9ae-d1df5561eb4f",
+          "Title": "Расходы",
+          "ColumnName": "expense",
+          "ColorHex": ""
+        }
+      ],
+      "BackgroundColors": [],
+      "Uid": "0252289c-f160-29b8-2ebf-ef210dd5ad7b",
+      "KindUid": "c4e8f2b3-6d5a-4b9c-ae7f-2a3b4c5d6e7f",
+      "KindName": "pv_donut_chart",
+      "DataSourceUid": "2bf8647a-8398-193a-dadb-e8d70a2db30f",
+      "Title": "Расходы. Кольцевая",
+      "Name": "expense_donut",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 3,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    }
+  ]
+}

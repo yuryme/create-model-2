@@ -1,0 +1,29 @@
+var table = createTable([
+  {name: 'period'},
+  {name: 'document', dataType: 'number'},
+  {name: 'person', dataType: 'number'},
+  {name: 'status'}
+]);
+
+var haveToAddRecord = true;
+
+if (_data.history.rows.length){
+  var firstRow = _data.history.rows[0];
+  if (firstRow.status == _parameters.статус){
+    haveToAddRecord = false;
+  }
+}
+
+
+if (haveToAddRecord) {
+  var today = (new Date());
+  today.setHours(today.getHours()+3);
+  var today = today.toLocalISO();
+
+  table.addRow([today, 
+              _parameters.number, 
+              _parameters.текущее_физлицо, 
+              _parameters.статус]);
+}
+
+return table;

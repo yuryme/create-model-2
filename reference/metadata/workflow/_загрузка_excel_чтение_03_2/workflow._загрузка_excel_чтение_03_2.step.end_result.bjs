@@ -1,0 +1,80 @@
+var vt = _data.mapping;
+
+/* справочники */
+
+var steelTitles = Array.from(
+  new Set((vt.rows ?? []).map(r => r.марка_стали).filter(v => v != null))
+);
+
+var cSteel = await from('catalog.марка_стали')
+  .select(['id', 'title'])
+  .where('isdeleted = 0')
+  .query();
+
+cSteel = cSteel.filter(r => steelTitles.includes(r.title));
+
+var profileTitles = Array.from(
+  new Set((vt.rows ?? []).map(r => r.профиль).filter(v => v != null))
+);
+
+var cProfile = await from('catalog.профиль')
+  .select(['id', 'title'])
+  .where('isdeleted = 0')
+  .query();
+
+cProfile = cProfile.filter(r => profileTitles.includes(r.title));
+
+var markaTitles = Array.from(
+  new Set((vt.rows ?? []).map(r => r.позиция_марки).filter(v => v != null))
+);
+
+var cMarki = await from('catalog.марки')
+  .select(['id', 'title_эталон'])
+  .where('isdeleted = 0')
+  .where('шифр_км = @km')
+  .parameter('km', _parameters.шифр_км_проекткм)
+  .query();
+
+cMarki = cMarki.filter(r => markaTitles.includes(r.title_эталон));
+
+/* подготовка колонок, создаваемых Compute / Concatenate */
+
+vt = vt
+  .addColumn('профиль', 'string')
+  .addColumn('вес_всех_кг', 'number');
+
+/* стенка и полка по логике HubCloud */
+
+var vtExpanded = vt.process(r => {
+  if (r.профиль_стенка) {
+    r.профиль = r.профиль_стенка;
+    r.вес_всех_кг = parseNumber(r.количество_стенка);
+  } else if (r.профиль_полки) {
+    r.профиль = r.профиль_полки;
+    r.вес_всех_кг = parseNumber(r.количество_полки);
+  }
+});
+
+/* join со справочниками */
+
+var result = vtExpanded
+  .addColumn('марка_стали_справочник', 'integer')
+  .addColumn('профиль_спр', 'integer')
+  .addColumn('марки_спр', 'integer')
+  .leftJoin(cSteel, (pr, jn) => pr.марка_стали === jn.title)
+  .process(r => {
+    r.марка_стали_справочник = r.id;
+  })
+  .leftJoin(cProfile, (pr, jn) => pr.профиль === jn.title)
+  .process(r => {
+    r.профиль_спр = r.id;
+  })
+  .leftJoin(cMarki, (pr, jn) => pr.позиция_марки === jn.title_эталон)
+  .process(r => {
+    r.марки_спр = r.id;
+  })
+  .filter(r => r.профиль != null && r.профиль !== '')
+  .filter(r => r.профиль_строка != null && r.профиль_строка !== '')
+  .filter(r => parseNumber(r.вес_всех_кг) > 0);
+
+return result;

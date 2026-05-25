@@ -1,0 +1,28 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "17ca86c3-a646-4bc8-92b4-255d2a63bdc1",
+  "MetaObjectKindUid": "647ce14a-bd04-42e2-be69-da13cfaaa9a3",
+  "Title": "Все задачи",
+  "Name": "all_tasks",
+  "Memo": "",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "dbc9ae42-19d3-40d6-a49b-14c786dc2c48",
+    "Title": null,
+    "Name": null,
+    "Memo": null,
+    "AutoClearMethod": 0,
+    "Columns": [],
+    "Indexes": []
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

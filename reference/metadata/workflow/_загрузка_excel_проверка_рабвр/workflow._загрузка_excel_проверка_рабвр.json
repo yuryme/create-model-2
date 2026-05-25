@@ -1,0 +1,57 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "851cefa3-a21b-6ed9-0726-8f13a8dcb367",
+  "Name": "_загрузка_excel_проверка_рабвр",
+  "Title": "02.006 Загрузка Excel. Проверка раб.врем.(ЦЕХ) (II)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 3,
+  "Steps": [
+    {
+      "Expression": "workflow._загрузка_excel_проверка_рабвр.step.find_file.bjs",
+      "Uid": "1667c231-c5ba-af77-b1a8-204e5e7adc8e",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "6c7b80ba-317e-b64b-1661-a9fdb0e40069",
+      "PreviousStepUid": "1667c231-c5ba-af77-b1a8-204e5e7adc8e",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read File",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "ведомость",
+      "StartRow": 7,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "ac4d8734-9854-af50-9beb-0f7b9b6c17f0",
+          "SourceFieldName": "",
+          "DestinationFieldName": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "b8cd3fe0-53ef-359a-a635-d1dd87e4e7b6",
+      "PreviousStepUid": "6c7b80ba-317e-b64b-1661-a9fdb0e40069",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

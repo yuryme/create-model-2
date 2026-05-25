@@ -1,0 +1,102 @@
+var tab1 = _data.operation_data;
+var tab2 = _data.mapping;
+
+var project = tab1.rows[0].проект_заказ;
+
+var kmTable = await from('catalog.шифр_км')
+  .select(['id', 'title as шифр_км_display', 'проект_заказ'])
+  .where('cat_шифр_км.проект_заказ = @prj')
+  .parameter('prj', project, 11)
+  .getDisplays()
+  .query();
+
+var kmList = Array.from(
+  new Set(
+    (kmTable.rows ?? [])
+      .map(r => r.id)
+      .filter(v => v != null)
+  )
+);
+
+var marki = await from('catalog.марки')
+  .select([
+    'id as марка',
+    'title as марка_display',
+    'наименование_марки',
+    'шифр_км',
+    'уникальное_поле',
+    'колво as колво_чертежи',
+    'вес_одной_кг',
+    'вес_всех_кг'
+  ])
+ .where('cat_марки.актуальность = 1 AND cat_марки.шифр_км in @kmList')
+ .parameter('kmList', kmList)
+ .getDisplays()
+ .query();
+
+var workshop = tab1.rows[0].цех;
+var meta_object = 'a00d0c1d-cf89-4346-a23e-5fa38a095214';
+var tab3 = await from('records.выпуск_цеха')
+  .select(['марки', 'колво'])
+  .where('meta_object = @mobj AND цеха = @workshop')
+  .parameter('mobj', meta_object, 9)
+  .parameter('workshop', workshop, 11)
+  .query();
+
+// если query вернул null — подменяем на пустую таблицу нужной структуры
+tab3 = tab3 ?? createTable('марки, колво number');
+
+if ((tab3.rows ?? []).length > 0) {
+  tab3 = tab3
+    .groupBy(
+      ['марки'],
+      [{ name: 'колво', alias: 'колво_ранее', aggregate: 'sum' }]
+    )
+    .process(r => {
+      r.колво_ранее = r.колво_ранее * -1;
+    });
+} else {
+  // если строк нет — создаём колонку колво_ранее (чтобы join всегда дал поле)
+  tab3 = tab3.addColumn('колво_ранее number');
+}
+  
+var result = tab2
+ .leftJoin(kmTable, () => true)
+ .addColumn('уникальное_поле', 'string')
+ .process(r => {
+    r.уникальное_поле = `${r.шифр_км_display}_${r.марки}`;
+  })
+
+  .leftJoin(marki, (pr, jn) => pr.уникальное_поле === jn.уникальное_поле)
+  .filter(r => isNotEmpty(r.марка_display))
+  .leftJoin(tab3, (pr, jn) => pr.марка === jn.марки)
+
+ .addColumn('осталось_произвести', 'number')
+  .addColumn('осталось_покрасить', 'number')
+  .process(r => {
+    r.осталось_произвести = r.колво_шт - r.колво_ранее;
+    r.осталось_покрасить = r.колво_шт - r.колво_ранее;
+  })
+  .addColumn('осталось_произвести_кг', 'number')
+  .addColumn('осталось_покрасить_кг', 'number')
+  .process(r => {
+    r.осталось_произвести_кг = r.осталось_произвести * r.вес_одной_кг;
+    r.осталось_покрасить_кг = r.осталось_покрасить * r.вес_одной_кг;
+  })
+  .addColumn('счетчик', 'number')
+  .process(r => {
+    r.счетчик = r.колво_ранее + r.осталось_произвести;
+  })
+  .addColumn('проверка', 'boolean')
+  .addColumn('ранее2', 'number')
+  .process(r => {
+    r.проверка =
+      r.счетчик > r.колво_чертежи ? false : true;
+      r.ранее2 = r.колво_ранее;
+  })
+  .filter(r => r.осталось_произвести > 0)
+  .orderBy((a, b) =>
+    String(a.уникальное_поле).localeCompare(String(b.уникальное_поле))
+  );
+
+return result;

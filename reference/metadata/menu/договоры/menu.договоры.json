@@ -1,0 +1,83 @@
+{
+  "$schema": "../../system/schemas/menuSettings.schema.json",
+  "Uid": "d58abce5-c488-268e-c9fa-68fb03e69906",
+  "Name": "договоры",
+  "Title": "Договоры",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 1,
+  "Items": [
+    {
+      "Uid": "f8f8031b-c7b4-f7c2-3fab-6c65867fd1bf",
+      "Kind": 3,
+      "Title": "Договоры",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": "",
+      "Items": [
+        {
+          "Uid": "a6cced6b-21df-f570-8243-e811d5bab16d",
+          "Items": [
+            {
+              "Uid": "c91c366a-efa5-0c80-f8eb-74ee59a9b249",
+              "Title": "Операции",
+              "IsVisible": true,
+              "Items": [
+                {
+                  "Uid": "bae50cbf-0739-d88a-8353-edd8e142b0a8",
+                  "Kind": 1,
+                  "Title": "Проект договора",
+                  "IconClass": "",
+                  "Url": "/app#/data-objects/operation/проект_договора",
+                  "IsVisible": true
+                }
+              ]
+            },
+            {
+              "Uid": "dda94251-ff9b-b478-34fb-97ff6981f767",
+              "Title": "Отчеты",
+              "IsVisible": true,
+              "Items": [
+                {
+                  "Uid": "0507fd1c-2da3-1396-d435-48bb54b2260e",
+                  "Kind": 1,
+                  "Title": "Статусы договоров",
+                  "IconClass": "",
+                  "Url": "/app#/view-objects/customreport/contract_statuses",
+                  "IsVisible": true
+                },
+                {
+                  "Uid": "e7d20854-793b-141a-1b8b-3be2e8ae7095",
+                  "Kind": 1,
+                  "Title": "Статусы договоров ( компакт )",
+                  "IconClass": "",
+                  "Url": "/app#/view-objects/customreport/contract_statuses_c",
+                  "IsVisible": true
+                }
+              ]
+            },
+            {
+              "Uid": "a871d957-1ac8-5312-ff50-89b50bfc3d46",
+              "Title": "Настройки",
+              "IsVisible": true,
+              "Items": [
+                {
+                  "Uid": "1ba67e41-7031-5215-5667-977da6f1f456",
+                  "Kind": 1,
+                  "Title": "Порядок визирования",
+                  "IconClass": "",
+                  "Url": "/app#/data-objects/register/порядок_визирования_договоров",
+                  "IsVisible": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}

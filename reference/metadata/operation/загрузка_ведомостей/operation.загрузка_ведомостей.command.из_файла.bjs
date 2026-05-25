@@ -1,0 +1,14 @@
+setIsWaiting(true);
+console.log($h.number);
+console.log($h.проектзаказ);
+console.log($h.шифр_км_проекткм);
+var source = await runWorkflow('загр_excel_чтени_из_файла_03_1', 'end_result', 
+                   [{name: 'number', dataType: 'integer', value: $h.number},
+                    {name: 'проект_заказ', dataType: 'integer', value: $h.проектзаказ},
+                   {name: 'шифр_км', dataType: 'integer', value: $h.шифр_км_проекткм}],1000);
+
+
+setIsWaiting(false);
+$t.table_2.clear();
+$t.table_2.load(source.rows);
+setIsModified(true);

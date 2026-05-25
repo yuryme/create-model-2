@@ -1,0 +1,11 @@
+setIsWaiting(true);
+
+var result = await runWorkflow('contract_visa_manual', 
+                               'create_approval_records', 
+                               [                              
+                                {name: 'number', dataType: 'integer', value: $h.number},
+                                {name: 'person', dataType: 'integer', value: $h.visa_manual},
+                                {name: 'order', dataType: 'integer', value: $h.visa_manual_order},    
+                               ]);
+refresh('list');
+setIsWaiting(false);

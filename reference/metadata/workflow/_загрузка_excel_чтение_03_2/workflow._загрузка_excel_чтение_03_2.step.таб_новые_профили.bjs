@@ -1,0 +1,5 @@
+var result = _data.убираем_нулевые_строки
+  .filter(r => r.профиль_спр == null)
+  .groupBy(['профиль', 'профиль_спр'], []);
+
+return result;

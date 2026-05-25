@@ -1,0 +1,40 @@
+var tableSaldo = await from('records.монтаж')
+  .select(['марки', 'Sum(колво) as колво_осталось_шт', 'Sum(колво_тн) as колво_осталось_тн'])
+  .groupBy(['марки'])
+  .where('шифр_км = @km')
+  .parameter('km', $h.шифр_км, 11)
+  .query();
+
+var markList = tableSaldo.toArray('марки');
+
+var operationDate = $h.date;
+var result = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'title as марки_display',
+    'наименование_марки',
+    'шифр_км',
+    'проект_заказ',
+    'вес_всех_кг',
+    'колво as колво_чертежи_шт',
+    'вес_одной_кг'
+  ])
+  .where('cat_марки.проект_заказ = @project AND cat_марки.шифр_км = @km AND cat_марки.id in @markList')
+  .parameter('project', $h.проект_заказ, 11)
+  .parameter('km', $h.шифр_км, 11)
+  .parameter('markList', markList)
+  .getDisplays()
+  .query();
+
+result = result
+  .addColumn('колво_чертежи_тн', 'number')
+  .process(r => {
+    r.колво_чертежи_тн = r.вес_всех_кг / 1000
+  })
+.addColumn('дата', 'datetime')
+  .process(r => {
+    r.дата = operationDate
+  })
+.leftJoin(tableSaldo, (pr, jn) => pr.марки === jn.марки);
+
+openPickUp(result, 'table_1');

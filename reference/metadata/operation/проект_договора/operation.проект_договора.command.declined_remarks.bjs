@@ -1,0 +1,48 @@
+setIsWaiting(true);
+var result = await runWorkflow('contract_declined_remarks', 
+                               'set_next_approve', 
+                               [                              
+                                {name: 'number', dataType: 'integer', value: $h.number},
+                                {name: 'person', dataType: 'integer', value: $h.текущее_физлицо}, 
+                                {name: 'person_fact', dataType: 'integer', value: $h.current_person_const},    
+                                {name: 'comment', dataType: 'string', value: $h.approve_comment} 
+                               ]);
+refresh('list_remarks');
+recalculate();
+setIsModified(false);
+
+// Change status if all users set visas.
+var records = await from('register.согласование_договоров')
+  .where('проект_договора = @number')
+  .parameter('number', $h.number, 11).query();
+
+var recordsComments = await from('register.согласование_замечаний')
+  .where('проект_договора = @number')
+  .parameter('number', $h.number, 11).query();
+
+var countApproved = records.clone().filter(row=>row.решение == 1).count();
+var countApprovedWithComments = records.clone().filter(row=>row.решение == 2).count();
+var countCommentsApproved = recordsComments.clone().filter(row=>row.согласовано == true).count();
+var commentsApproved = recordsComments.rows.length == countCommentsApproved;
+var approved = false;
+if (recordsComments.rows.length == 0){
+  approved = countApproved == records.rows.length;
+}
+else{
+  approved = commentsApproved && (countApproved+countApprovedWithComments) == records.rows.length;
+}
+
+if (approved){
+  $h.статус = 'у_директора';
+  recalculate();
+  save();
+
+  var resultSend = await runWorkflow('contract_lawyer_message', 
+                               'messages', 
+                               [ {name: 'number', dataType: 'integer', value: $h.number},]);
+}
+
+$h.approve_comment = '';
+setIsModified(false);
+
+setIsWaiting(false);

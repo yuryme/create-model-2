@@ -1,0 +1,213 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "63138640-b2bd-0ac9-3fd4-db4aa4944a78",
+  "Name": "загр_excel_чтени_из_файла_03_1",
+  "Title": "02.022 Загрузка Excel. Производство. 03-1. Чтение из файла (д/ведомости)",
+  "Memo": "Используется в Операции Excel-загрузка Сводная ведомость марок и деталей",
+  "IsActive": true,
+  "Version": 79,
+  "Steps": [
+    {
+      "Expression": "workflow.загр_excel_чтени_из_файла_03_1.step.find_file.bjs",
+      "Uid": "d2a70897-df70-2687-6eb5-4c21b559e4e1",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "7bc10738-2e7c-3578-8a9e-bde3e3115fa2",
+      "PreviousStepUid": "d2a70897-df70-2687-6eb5-4c21b559e4e1",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "E_Сводная ведомость марок и дет",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "d153d35d-b749-2a09-36b9-76282033ddc9",
+          "SourceFieldName": "Марка (загрузка)",
+          "DestinationFieldName": "позиция_марки",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "f7a7b836-6d17-d5b7-f3b3-2debf697ed9e",
+          "SourceFieldName": "Марка стали",
+          "DestinationFieldName": "марка_стали",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "ecdeb328-f632-b8c7-6929-92dc7aa46a50",
+          "SourceFieldName": "Кол-во (загрузка)",
+          "DestinationFieldName": "количество",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "09bbb169-2c0f-0c27-4142-59c9341de0f1",
+          "SourceFieldName": "Профиль",
+          "DestinationFieldName": "профиль_строка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "74f0f1db-b69c-a523-978d-2de10a54b8d0",
+          "SourceFieldName": "Вес, кг (загрузка)",
+          "DestinationFieldName": "вес_всех_кг",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "8721daa5-f288-4767-439e-b13d79b7f202",
+          "SourceFieldName": "Профиль (загрузка)",
+          "DestinationFieldName": "профиль",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "331c1f90-e33e-c142-9a5e-6d8ec4668e5c",
+          "SourceFieldName": "Длинна (загрузка), м",
+          "DestinationFieldName": "длинна_м",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "d756d00b-f663-1f5b-7fd9-f4c82e61e5cc",
+          "SourceFieldName": "Наименование (загрузка)",
+          "DestinationFieldName": "наименование_загрузка",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "d1007750-8052-2346-e23d-9e0a7920e836",
+          "SourceFieldName": "ГОСТ Профиля",
+          "DestinationFieldName": "гост",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "b0a666a7-7e73-9310-a831-5379a540818b",
+          "SourceFieldName": "Позиция детали",
+          "DestinationFieldName": "позиция_детали",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "c39ecd40-6f19-d7e9-3bf8-90bc663f1cdf",
+      "PreviousStepUid": "7bc10738-2e7c-3578-8a9e-bde3e3115fa2",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загр_excel_чтени_из_файла_03_1.step.delete_null_rows.bjs",
+      "Uid": "3420b587-f3a3-7c7d-dfe8-6ef6803704b7",
+      "PreviousStepUid": "c39ecd40-6f19-d7e9-3bf8-90bc663f1cdf",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "4. убираем нулевые строки",
+      "Name": "delete_null_rows",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загр_excel_чтени_из_файла_03_1.step.таб_нов_марки_стали.bjs",
+      "Uid": "3d755bca-32d6-e4ac-329d-4013db05900c",
+      "PreviousStepUid": "3420b587-f3a3-7c7d-dfe8-6ef6803704b7",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "4.1 Таб Новый Марки Стали",
+      "Name": "таб_нов_марки_стали",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загр_excel_чтени_из_файла_03_1.step.таб_новые_профили.bjs",
+      "Uid": "648f0b96-bc3f-232c-4c72-8daca50d2049",
+      "PreviousStepUid": "3d755bca-32d6-e4ac-329d-4013db05900c",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "4.2 - Таб Новые профили",
+      "Name": "таб_новые_профили",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "b93469bb-804a-45bb-ab08-637805cb6093",
+      "SaveRegime": 1,
+      "SearchBy": "title",
+      "SourcePath": "таб_нов_марки_стали",
+      "Condition": "isNotEmpty(марка_стали)  && isEmpty(марка_стали_справочник)",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "ad1e1ef3-1f38-d3ee-09e6-2cfc6c73d91c",
+          "SourceFieldName": "марка_стали",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "615d1130-7e97-92a2-7380-2a7fa9c57e21",
+      "PreviousStepUid": "648f0b96-bc3f-232c-4c72-8daca50d2049",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "5. - Создаем марки стали",
+      "Name": "нов_марки_сали",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "MetaObjectUid": "e48f726f-26bb-42da-919e-1eb1cd3d2860",
+      "SaveRegime": 1,
+      "SearchBy": "title",
+      "SourcePath": "таб_новые_профили",
+      "Condition": "isNotEmpty(профиль)  && isEmpty(профиль_спр)",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "58d7fd8b-424f-c189-3a2c-9309d5575d99",
+          "SourceFieldName": "профиль",
+          "DestinationFieldName": "title",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "fba5168d-f7cb-887d-f16b-d07f753a5f27",
+      "PreviousStepUid": "615d1130-7e97-92a2-7380-2a7fa9c57e21",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "6. - Создаем профиль",
+      "Name": "созд_проф",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.загр_excel_чтени_из_файла_03_1.step.end_result.bjs",
+      "Uid": "e82745da-aa1f-e7e3-14a8-120151376ec1",
+      "PreviousStepUid": "615d1130-7e97-92a2-7380-2a7fa9c57e21",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "7. END Result",
+      "Name": "end_result",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

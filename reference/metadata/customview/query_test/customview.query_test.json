@@ -1,0 +1,28 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "4d0665bd-d462-4a69-981c-e133d11ee732",
+  "MetaObjectKindUid": "647ce14a-bd04-42e2-be69-da13cfaaa9a3",
+  "Title": "Тест запроса",
+  "Name": "query_test",
+  "Memo": "",
+  "EditMethod": 0,
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": false,
+  "Header": {
+    "Uid": "157c6b03-ff81-4ea8-a78e-7c58c4a97965",
+    "Title": null,
+    "Name": null,
+    "Memo": null,
+    "AutoClearMethod": 0,
+    "Columns": [],
+    "Indexes": []
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

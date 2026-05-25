@@ -1,0 +1,9 @@
+setIsWaiting(true);
+var source = await runWorkflow('обновление_из_файла2', 'запрос_данных', 
+                   [{name: 'number',dataType: 'integer', value: $h.number}],300);
+
+
+setIsWaiting(false);
+$t.список_марки.clear();
+$t.список_марки.load(source);
+setIsModified(true);

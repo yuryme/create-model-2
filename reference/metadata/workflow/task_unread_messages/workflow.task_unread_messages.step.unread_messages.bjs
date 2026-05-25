@@ -1,0 +1,2 @@
+(await from('register.task_message').where('has_read = false').getDisplays().query())
+  .addColumn('counter number').process(row=>row.counter = 1)

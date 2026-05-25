@@ -1,0 +1,27 @@
+var code_rd = $h.шифр_рд;
+var meta_object = "b45b76be-0114-4b28-8824-59ecbff48d86";
+
+var tableSaldo = await from('records.мтс_остатки_от_заяв2')
+  .select([
+    'шифр_рд',
+    'система_в_рд',
+    'справочник_расценок as номенклатура',
+    'едизм',
+    'колво as остаток_по_заявке',
+    'лист_рд',
+    'позиция_в_рд as поз_в_рд'
+  ])
+  .where ('meta_object = @uid')
+  .parameter('uid', meta_object, 9) // выбираем операцию Спецификация РД (С)
+ // .where("regr_мтс_остатки_от_заяв2.шифр_рд = @code_rd")
+ // .parameter('code_rd', code_rd, 11)
+  .getDisplays()
+  .query();
+
+var tableSaldo = tableSaldo
+  .addColumn({ name: 'колво_поставка', dataType: 'number' })
+  .process(row =>  row.колво_поставка = (row.остаток_по_заявке ?? 0))
+  .addColumn({ name: 'сч', dataType: 'number' })
+  .process(row => row.сч = 1);
+ 
+openPickUp(tableSaldo, 'table_1');

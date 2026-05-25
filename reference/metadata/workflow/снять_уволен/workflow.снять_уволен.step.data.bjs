@@ -1,0 +1,16 @@
+function toDate(v) {
+  return new Date(v);
+}
+
+const periodStart = toDate('2025-10-01T00:00:00');
+
+var tableOper = await from("operation.штатное_расписание")
+  .select(['number', 'date', 'дата_уволен', 'уволен'])
+  .where('уволен = @flag')
+  .parameter('flag', true, 3)
+  .query();
+
+tableOper.process(r => (r.дата_уволен = toDate(r.дата_уволен)))
+  .filter(r => !periodStart || r.дата_уволен >= periodStart);
+
+return tableOper;

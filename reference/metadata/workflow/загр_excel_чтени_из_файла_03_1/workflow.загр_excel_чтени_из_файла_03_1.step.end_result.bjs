@@ -1,0 +1,171 @@
+/*var mapping = _data.mapping;
+
+var steelTitles = Array.from(
+  new Set(
+    (mapping.rows ?? [])
+      .map(r => r.марка_стали)
+      .filter(v => v != null)
+  )
+);
+
+var steelCatalog = await from('catalog.марка_стали')
+  .select(['id', 'title as марка_стали_display'])
+  .where('title in @steelTitles')
+  .parameter('steelTitles', steelTitles)
+  .query();
+
+var profileTitles = Array.from(
+  new Set(
+    (mapping.rows ?? [])
+      .map(r => r.профиль)
+      .filter(v => v != null)
+  )
+);
+
+var profileCatalog = await from('catalog.профиль')
+  .select(['id', 'title as профиль_display'])
+  .where('title in @profileTitles')
+  .parameter('profileTitles', profileTitles)
+  .query();
+
+var markaTitles = Array.from(
+  new Set(
+    (mapping.rows ?? [])
+      .map(r => r.позиция_марки)
+      .filter(v => v != null)
+  )
+);
+
+var markiCatalog = await from('catalog.марки')
+  .select(['id', 'title_эталон as марки_display'])
+  .where('шифр_км = @km AND title_эталон in @markaTitles')
+  .parameter('markaTitles', markaTitles)
+  .parameter('km', _parameters.шифр_км)
+  .query();
+
+var result = mapping
+  .leftJoin(
+    steelCatalog,
+    (pr, jn) => pr.марка_стали === jn.марка_стали_display
+  )
+  .process(r => {
+    r.марка_стали_справочник = r.id;
+  })
+  .leftJoin(
+    profileCatalog,
+    (pr, jn) => pr.профиль === jn.профиль_display
+  )
+  .process(r => {
+    r.профиль_спр = r.id;
+  })
+  .leftJoin(
+    markiCatalog,
+    (pr, jn) => pr.позиция_марки === jn.марки_display
+  )
+  .process(r => {
+    r.марки_спр = r.id;
+    r.марки_спр_is_true = isNotEmpty(r.марки_спр);
+  })
+  .filter(r => r.марки_спр_is_true === true);
+
+return result;*/
+
+// END RESULT (финальный)
+
+// 1) Источник
+var src = _data.delete_null_rows ?? createTable('');
+
+// 2) Фильтр: удаляем служебные/пустые строки
+src = src.filter(r => {
+  var steel = String(r.марка_стали ?? '').replace(/\u00A0/g, ' ').trim();
+  var qty = r.количество ?? 0;
+
+  var steelEmptyOrZero = (steel === '' || steel === '0');
+  if (steelEmptyOrZero && qty === 0) return false;
+
+  return true;
+});
+
+// 3) Выходная таблица строго под загрузку в table_1
+var out = createTable(
+  'позиция_марки string,' +
+  'марка_стали string,' +
+  'количество number,' +
+  'профиль_строка string,' +
+  'вес_всех_кг number,' +
+  'профиль string,' +
+  'длинна_м number,' +
+  'наименование_загрузка string,' +
+  'гост string,' +
+  'позиция_детали string,' +
+
+  'марки_спр number,' +
+  'марка_стали_справочник number,' +
+  'профиль_спр number,' +
+
+  'марки_спр_display string,' +
+  'марка_стали_справочник_display string,' +
+  'профиль_спр_display string'
+);
+
+// 4) Перекладка строк + правильное соответствие id полей
+for (var r of (src.rows ?? [])) {
+  // a) значения из Excel/таблицы
+  var позиция_марки = String(r.позиция_марки ?? '').trim();
+  var марка_стали = String(r.марка_стали ?? '').replace(/\u00A0/g, ' ').trim();
+  var количество = (r.количество ?? 0);
+  var профиль_строка = String(r.профиль_строка ?? '').trim();
+  var вес_всех_кг = (r.вес_всех_кг ?? 0);
+  var профиль = String(r.профиль ?? '').trim();
+  var длинна_м = (r.длинна_м ?? 0);
+  var наименование_загрузка = String(r.наименование_загрузка ?? '').trim();
+  var гост = String(r.гост ?? '').trim();
+  var позиция_детали = String(r.позиция_детали ?? '').trim();
+
+  // b) ссылки: БЕРЁМ ИЗ *_id (после join), fallback на старые имена, null -> 0
+  var марки_спр = (r.марки_id ?? r.марки_спр ?? 0) ?? 0;
+  var марка_стали_справочник = (r.марка_стали_id ?? r.марка_стали_справочник ?? 0) ?? 0;
+  var профиль_спр = (r.профиль_id ?? r.профиль_спр ?? 0) ?? 0;
+
+  // гарантируем не-null
+  if (марки_спр == null) марки_спр = 0;
+  if (марка_стали_справочник == null) марка_стали_справочник = 0;
+  if (профиль_спр == null) профиль_спр = 0;
+
+  // c) display: если id=0 -> "", иначе берём из *_display (после join)
+  var марки_спр_display =
+    (марки_спр === 0) ? '' :
+    String(r.марки_display ?? r.марки_спр_display ?? '').trim();
+
+  var марка_стали_справочник_display =
+    (марка_стали_справочник === 0) ? '' :
+    String(r.марка_стали_display ?? r.марка_стали_справочник_display ?? марка_стали ?? '').replace(/\u00A0/g, ' ').trim();
+
+  var профиль_спр_display =
+    (профиль_спр === 0) ? '' :
+    String(r.профиль_display ?? r.профиль_спр_display ?? профиль ?? '').trim();
+
+  // d) строка результата
+  out.addRow({
+    позиция_марки: позиция_марки,
+    марка_стали: марка_стали,
+    количество: количество,
+    профиль_строка: профиль_строка,
+    вес_всех_кг: вес_всех_кг,
+    профиль: профиль,
+    длинна_м: длинна_м,
+    наименование_загрузка: наименование_загрузка,
+    гост: гост,
+    позиция_детали: позиция_детали,
+
+    марки_спр: марки_спр,
+    марка_стали_справочник: марка_стали_справочник,
+    профиль_спр: профиль_спр,
+
+    марки_спр_display: марки_спр_display,
+    марка_стали_справочник_display: марка_стали_справочник_display,
+    профиль_спр_display: профиль_спр_display
+  });
+}
+
+return out;

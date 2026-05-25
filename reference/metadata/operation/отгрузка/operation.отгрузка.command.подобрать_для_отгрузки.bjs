@@ -1,0 +1,32 @@
+var saldo = await from('records.остат_отгрузки_марок')
+  .select(['цеха', 'шифр_км as проект', 'марки', 'колво_шт'])
+  .where('regr_остат_отгрузки_марок.цеха = @ceh AND regr_остат_отгрузки_марок.проект_заказ = @project')
+  .parameter('ceh', $h.цех, 11)
+  .parameter('project', $h.проектзаказ, 11)
+  .getDisplays()
+  .query();
+var markList =saldo.toArray('марки');
+
+var result1 = await from('catalog.марки')
+  .select([
+    'id',
+    'наименование_марки as наименование',
+    'вес_одной_кг as вес_одной_шт_кг'
+  ])
+   .where('id in @markList')
+   .parameter('markList', markList )
+  .query();
+saldo = saldo
+  .groupBy(
+     ['цеха', 'цеха_display','проект', 'проект_display','марки', 'марки_display'],
+    ['колво_шт'])
+  .leftJoin(result1, (pr, jn) => pr.марки === jn.id)
+  .addColumn('общий_вес', 'number')
+  .process(r => {
+    r.общий_вес =
+      r.вес_одной_шт_кг *
+      r.колво_шт;
+  })
+  .deleteColumn('id');
+  
+openPickUp(saldo, 'таблица');

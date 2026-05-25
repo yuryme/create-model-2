@@ -1,0 +1,25 @@
+{
+  "Uid": "662dc02d-210e-49f3-8bee-8006a3d7b258",
+  "Title": "Произвольный отчет",
+  "Name": "customreport",
+  "Prefix": "ctr",
+  "StoreData": false,
+  "IsReference": false,
+  "AllowAttachedFiles": false,
+  "IsFilesColumnUid": null,
+  "IsDeletedColumnUid": null,
+  "CanCreateRecords": false,
+  "UseDetailsTables": false,
+  "UseForms": true,
+  "UsePrintForms": false,
+  "IsStandard": false,
+  "Memo": "",
+  "IconClass": "pi pi-chart-bar",
+  "OrderByExpression": "",
+  "DisplayExpression": "",
+  "RecordsSettings": null,
+  "StandardColumns": [],
+  "AvailableRights": [
+    "245f3c21-a190-498b-a515-caa9bfa5ca8e"
+  ]
+}

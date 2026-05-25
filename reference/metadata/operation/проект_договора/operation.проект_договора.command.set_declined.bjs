@@ -1,0 +1,19 @@
+setIsWaiting(true);
+var result = await runWorkflow('contract_set_approve', 
+                               'set_approve', 
+                               [                              
+                                {name: 'number', dataType: 'integer', value: $h.number},
+                                {name: 'person', dataType: 'integer', value: $h.текущее_физлицо},
+                                {name: 'person_fact', dataType: 'integer', value: $h.current_person_const},    
+                                {name: 'decision', dataType: 'integer', value: 3}, 
+                                {name: 'comment', dataType: 'string', value: $h.approve_comment} 
+                               ]);
+refresh('list');
+
+$h.approve_comment = '';
+setIsModified(false);
+$h.статус = 'прекращен';
+setIsModified(true);
+save();
+
+setIsWaiting(false);

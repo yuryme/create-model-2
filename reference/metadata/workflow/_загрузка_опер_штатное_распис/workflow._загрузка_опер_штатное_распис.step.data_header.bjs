@@ -1,0 +1,60 @@
+// Задаем колонки один раз
+var columns = [
+  {name: 'id', dataType: 'number'},
+  {name: 'uid'},
+  {name: 'baseuid'},
+  {name: 'templateid'},
+  {name: 'number'},
+  {name: 'date'},
+  {name: 'version'},
+  {name: 'isdeleted'},
+  {name: 'isfiles'},
+  {name: 'islocked'},
+  {name: 'isrecords'},
+  {name: 'createregisterrecords'},
+  {name: 'changed'},
+  {name: 'userchangedid'},
+  {name: 'сотрудники'},
+  {name: 'полное_имя'},
+  {name: 'должность'},
+  {name: 'подразделение'},
+  {name: 'проект_заказ'},
+  {name: 'комментарий'},
+  {name: 'счетчик'},
+  {name: 'тип_начисления_зп'},
+  {name: 'оклад'},
+  {name: 'статья'},
+  {name: 'ставка_час'},
+  {name: 'ставка_смена'},
+  {name: 'уволен'},
+  {name: 'регион'},
+  {name: 'город'},
+  {name: 'дорожные_ставка'},
+  {name: 'редактировать'},
+  {name: 'организация'},
+  {name: 'дата_уволен'},
+  {name: 'премия'},
+  {name: 'тип_занятости'},
+  {name: 'подрядчик'},
+  {name: 'графики_вахт'},
+  {name: 'упр_подразделение'}
+];
+
+// Создаем таблицу
+var table = createTable(columns);
+
+// Функция для маппинга строки
+function mapRow(row, columns) {
+  let mapped = {};
+  columns.forEach(c => {
+    mapped[c.name] = row[c.name];
+  });
+  return mapped;
+}
+
+// Загружаем данные в таблицу
+_data.request.data.header.forEach(row => {
+  table.addRow(mapRow(row, columns));
+});
+
+return table;

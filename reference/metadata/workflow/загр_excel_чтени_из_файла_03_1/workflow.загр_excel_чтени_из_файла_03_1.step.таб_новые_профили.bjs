@@ -1,0 +1,21 @@
+/* TempTable.убираем_нулевые_строки;
+
+CreateTable(профиль   string, профиль_спр integer)
+| UnionAll($result_1)
+| Having(профиль_спр is null)
+| GroupBY(профиль,профиль_спр)*/
+
+var src = _data.delete_null_rows;
+
+var result = src
+  .filter(r =>
+    isNotEmpty(r.профиль) &&
+    ((r.профиль_id ?? 0) === 0)     // нет найденного id профиля
+  )
+  .groupBy(['профиль'], [])
+  .addColumn('профиль_спр number')
+  .process(r => {
+    r.профиль_спр = null;
+  });
+
+return result;

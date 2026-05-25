@@ -1,0 +1,46 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "b95154b8-018d-9e2e-8d81-a8c15a54aeb4",
+  "Name": "_test_mapping",
+  "Title": "99.001 Test mapping",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 4,
+  "Steps": [
+    {
+      "Url": "https://test.hubcloud.pro/api/v1/workflowtrigger/start",
+      "BodyKind": 1,
+      "BodyEncoding": 1,
+      "Body": "{\"token\":\n\"ZjhhOWZlZmQtYjU2Ny00NmNiLWFkNzUtMDEyNzFmOTJiNzRkfGRkMjEzY2RlLTgzZTUtNGVmMi1hMTE0LTRjZDViZTI3Yzg4ZnxhN2Y2ZjViNC1lYzQ1LTRhNWQtOThiMy05NjA4YmZlYzNlNzN8YXRlY2hzX3dvcmtfMDEyfDE=\"\n}",
+      "Method": 1,
+      "Timeout": 100,
+      "LogResponse": false,
+      "AutoParse": true,
+      "BypassSslCertificate": false,
+      "ReturnResponseInfo": false,
+      "AllowSetCookieFromHeaders": false,
+      "Headers": [],
+      "Parameters": [],
+      "FormData": [],
+      "Uid": "cd4d37a3-4369-0928-b78e-ea1a411c217b",
+      "PreviousStepUid": "",
+      "KindUid": "bb368829-007d-4b8e-87ce-1dadee75c7c3",
+      "KindName": "http_connector",
+      "Title": "Request",
+      "Name": "request",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._test_mapping.step.data.bjs",
+      "Uid": "41b629a8-823e-873f-3837-72e69b367d51",
+      "PreviousStepUid": "cd4d37a3-4369-0928-b78e-ea1a411c217b",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+var result_5 = await from("catalog.справочник_расценок")
+  .select(['id as номенклатура', 'title as номенклатура_title', 'проект',
+          'код_изделия', 'завод', 'описание_для_составных_нр as описание',
+           'тип_марка_и_пр as тип'])
+  .where("проект = @проект")
+  .parameter("проект", _data.getParameter.rows[0].проект_заказ, 11)
+  .getDisplays()
+  .query();
+
+var result_6 = await from("catalog.ед_изм_2")
+  .select(['id as едизм', 'title as едизм_title'])
+  .query();
+
+var result_7 = await from("catalog.система_в_рд")
+  .select(['id as система_в_рд', 'title as система_в_рд_title', 'шифр_рд '])
+  .where("проект = @проект")
+  .parameter("проект", _data.getParameter.rows[0].проект_заказ, 11)
+  .where("шифр_рд  = @шифр_рд ")
+  .parameter("шифр_рд ", _data.getParameter.rows[0].шифр_рд , 11)
+  .getDisplays()
+  .query();
+
+return result_7;

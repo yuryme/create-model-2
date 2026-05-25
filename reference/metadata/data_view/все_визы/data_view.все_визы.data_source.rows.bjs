@@ -1,0 +1,45 @@
+// Создаем пустую таблицу.
+var tableResult = createTable(['вид_строки', 
+                               'проект_договора number', 
+                               'проект_договора_display', 
+                               'person number', 
+                               'person_display', 
+                               'quantity number']);
+
+// Получаем визы согласования договоров.
+var tableVisas = await from('register.согласование_договоров')
+  .getDisplays()
+  .orderBy('проект_договора')
+  .withFilters(_filters)
+  .query();
+
+// Добавляем визы согласования договоров в результирующую таблицу.
+// Устанавливаем вид строки и счетчик виз.
+tableVisas.process(row=>{
+  tableResult.addRow(['Первичное согласование', 
+                      row.проект_договора, 
+                      row.проект_договора_display, 
+                      row.person, 
+                      row.person_display, 
+                      1]);
+});
+
+// Получаем визы согласования замечаний.
+var tableComments = await from('register.согласование_замечаний')
+  .getDisplays()
+  .orderBy('проект_договора')
+  .withFilters(_filters)
+  .query();
+
+// Добавляем визы согласования замечаний в результирующую таблицу.
+// Устанавливаем вид строки и счетчик виз.
+tableComments.process(row=>{
+  tableResult.addRow(['Согласование замечаний', 
+                      row.проект_договора, 
+                      row.проект_договора_display, 
+                      row.person, 
+                      row.person_display, 
+                      1]);
+});
+
+return tableResult;

@@ -1,0 +1,5 @@
+var fileData = await from("operation.загрузка_ведомостей.attached_files")
+  .select(['uid', 'filename'])
+  .where("objectuid = @id")
+  .parameter("id", _parameters.number, 11)
+  .query();

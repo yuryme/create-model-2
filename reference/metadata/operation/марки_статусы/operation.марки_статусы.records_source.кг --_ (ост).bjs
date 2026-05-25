@@ -1,0 +1,25 @@
+//var mаnufacture_table = await from("catalog.цеха")
+//  .select(['id', 'id_hubcloud'])
+//  .where("id_hubcloud = 9")
+//  .query();
+//var mаnufacture = mаnufacture_table.rows[0].id;
+
+var mаnufacture = 9; // НЕ ВЫБРАН
+
+var code_km = $h.шифр_км;
+var project = $h.проект_заказ;
+var saldo_kg = $h.остаток_кг;
+var saldo_pcs = $h.остаток_шт;
+
+var source = createTable([
+    {name: 'шифр_км', dataType: 'number'},
+    {name: 'проект_заказ', dataType: 'number'},
+    {name: 'цех_id', dataType: 'number'},
+    {name: 'вес_0', dataType: 'number'},
+    {name: 'колво_отбор', dataType: 'number'}
+]).addRow([code_km, project, mаnufacture, saldo_kg, saldo_pcs])
+  .addColumn({name: 'остаток_тн', dataType: 'number'})
+  .filter(row=> row.колво_отбор > 0)
+  .process(r=> r.остаток_тн = r.вес_0/1000);
+
+return source;

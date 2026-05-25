@@ -1,0 +1,14 @@
+var tableMessages = await from('register.task_message')
+  .select(['id', 'task', 'person_to', 'has_read'])
+  .where('task = @task and person_to = @person and has_read = @falseFlag')
+  .parameter('task', _parameters.task)
+  .parameter('person', _parameters.person)
+  .parameter('falseFlag', false)
+  .query();
+
+var now = (new Date()).toLocalISO();
+tableMessages
+  .addColumn('has_read_date')
+  .process(row=>row.has_read_date = now);
+
+return tableMessages;

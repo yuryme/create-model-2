@@ -1,0 +1,35 @@
+var table = createTable([
+  {name: 'id', dataType: 'number'},
+  {name: 'uid'},
+  {name: 'name'},
+  {name: 'code'},
+  {name: 'title'},
+  {name: 'memo'},
+  {name: 'isdeleted'},
+  {name: 'isfiles'},
+  {name: 'externalcode'},
+  {name: 'externaluid'},
+  {name: 'должность_группа'},
+  {name: 'presentation'},
+  {name: 'должность_группа_uid'}
+]);
+
+_data.request.data.forEach(row => {
+  table.addRow({
+    id: row.id,
+    uid: row.uid,
+    name: row.name,
+    code: row.code,
+    title: row.title,
+    memo: row.memo,
+    isdeleted: row.isdeleted,
+    isfiles: row.isfiles,
+    externalcode: row.externalcode,
+    externaluid: row.externaluid,
+    должность_группа: row.должность_группа,
+    presentation: row.presentation,
+    должность_группа_uid: row.должность_группа_uid
+  });
+});
+
+return table;

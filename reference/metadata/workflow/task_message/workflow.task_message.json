@@ -1,0 +1,87 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "00470394-d70e-3cf1-5a60-6aeb99848a4f",
+  "Name": "task_message",
+  "Title": "03.001.01 Сообщение задачи",
+  "Memo": "Создание сообщения из операции задача",
+  "IsActive": true,
+  "Version": 9,
+  "Steps": [
+    {
+      "Expression": "workflow.task_message.step.data.bjs",
+      "Uid": "9e64e19d-39cd-d805-3b34-7a72409284a2",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "511f1188-9646-4865-9aef-71b30d48659f",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "f1ca36fe-1874-b631-ba72-b4d912d3dd23",
+          "SourceFieldName": "person_from",
+          "DestinationFieldName": "person_from",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "8d226592-9d7f-6969-7a5f-d23a752e7942",
+          "SourceFieldName": "person_to",
+          "DestinationFieldName": "person_to",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "ed6ce454-f1cf-6ffa-e41b-f76bac0ddb2b",
+          "SourceFieldName": "task",
+          "DestinationFieldName": "task",
+          "DefaultValue": "",
+          "SearchBy": "number",
+          "DataTypeUid": "a30177b3-bf29-4e3d-9215-9a1a5e2fcfdb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "617ed713-905f-27a6-8766-7f04d02d0cf8",
+          "SourceFieldName": "message",
+          "DestinationFieldName": "message",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "39026302-6806-9a75-44a1-af2b59fce7ad",
+          "SourceFieldName": "task_author",
+          "DestinationFieldName": "task_author",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "7d8a3926-dac8-98f1-aeda-756cc643eaeb",
+      "PreviousStepUid": "9e64e19d-39cd-d805-3b34-7a72409284a2",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

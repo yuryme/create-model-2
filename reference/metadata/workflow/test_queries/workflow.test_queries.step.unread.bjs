@@ -1,0 +1,3 @@
+var table = await from('register.task_message').where('has_read = false').query();
+
+return table.toArray('task');

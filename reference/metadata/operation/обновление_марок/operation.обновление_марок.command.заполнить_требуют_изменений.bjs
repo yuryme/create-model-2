@@ -1,0 +1,21 @@
+/*Operation.обновление_марок.список_марки | operationid ($h.id) | SELECT () | GETTITLE ()
+| Compute (удалить_ф, удалить ) | OrderBy (rownumber)
+
+| Compute (обновить_ф, обновить )  | Compute (создать_ф, создать) | Compute (фильтр, удалить_ф + обновить_ф + создать_ф) | Having (фильтр > 0)*/
+
+setIsWaiting(true);
+
+var result = await from('operation.обновление_марок.список_марки')
+  .where('object_uid = @id')
+  .parameter('id', $h.number, 11)
+  .getDisplays()
+  .query();
+
+result = result
+  .filter(r => (r.удалить || r.обновить || r.создать))
+  .orderBy((a, b) => a.rownumber - b.rownumber);
+
+setIsWaiting(false);
+$t.список_марки.clear();
+$t.список_марки.load(result);
+setIsModified(true);

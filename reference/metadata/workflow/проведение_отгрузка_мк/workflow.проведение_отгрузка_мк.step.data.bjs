@@ -1,0 +1,4 @@
+await from("operation.отгрузка")
+  .select(['number', 'date', 'create_records'])
+  .where('create_records = false')
+  .query();

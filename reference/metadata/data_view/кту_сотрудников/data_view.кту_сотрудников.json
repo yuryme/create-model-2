@@ -1,0 +1,94 @@
+{
+  "$schema": "../../system/schemas/dataViewSettings.schema.json",
+  "Uid": "552d89fa-391e-4f27-85c9-b63d1dc5fbe3",
+  "Name": "кту_сотрудников",
+  "Title": "КТУ Сотрудников (Тест)",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 2,
+  "DataSources": [
+    {
+      "Uid": "87ab6124-a1c4-5b7f-8b5c-c384bd935b5c",
+      "Name": "rows",
+      "Expression": "data_view.кту_сотрудников.data_source.rows.bjs",
+      "Memo": ""
+    }
+  ],
+  "Filters": [],
+  "Indicators": [
+    {
+      "Size": 1,
+      "UseVirtualization": false,
+      "Columns": [
+        {
+          "Uid": "75c1fdb6-4ec5-8efc-4a94-b1696900dd4c",
+          "Title": "Период",
+          "Name": "period",
+          "ColumnKind": 2,
+          "Width": "130px",
+          "HorizontalAlignment": 0,
+          "Format": "dd.MM.yyyy",
+          "IconClass": "",
+          "Frozen": false,
+          "ShowTotals": false,
+          "AggregateFunction": 0
+        },
+        {
+          "Uid": "0cf97171-d1a6-f5df-381c-8f95b806fe4c",
+          "Title": "Сотрудник компании",
+          "Name": "person_display",
+          "ColumnKind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": "",
+          "IconClass": "",
+          "Frozen": false,
+          "ShowTotals": false,
+          "AggregateFunction": 0
+        },
+        {
+          "Uid": "f0f08c22-4f28-f65a-28d2-87e0d3c996b0",
+          "Title": "Проект",
+          "Name": "project_display",
+          "ColumnKind": 0,
+          "Width": "",
+          "HorizontalAlignment": 0,
+          "Format": "",
+          "IconClass": "",
+          "Frozen": false,
+          "ShowTotals": false,
+          "AggregateFunction": 0
+        },
+        {
+          "Uid": "81d8f83f-8a92-b8bd-135a-c0a268093778",
+          "Title": "Часы",
+          "Name": "hours",
+          "ColumnKind": 1,
+          "Width": "120px",
+          "HorizontalAlignment": 2,
+          "Format": "#,##0.00",
+          "IconClass": "",
+          "Frozen": false,
+          "ShowTotals": true,
+          "AggregateFunction": 0
+        }
+      ],
+      "Uid": "33492a76-6864-b8d3-1fdb-f886c9822880",
+      "KindUid": "bd4b0526-449e-4351-85d1-b18a6aafa1b8",
+      "KindName": "pv_data_table",
+      "DataSourceUid": "87ab6124-a1c4-5b7f-8b5c-c384bd935b5c",
+      "Title": "",
+      "Name": "table",
+      "Memo": null,
+      "Order": 0,
+      "Height": "",
+      "RenderSettings": {
+        "OffsetHint": 0,
+        "WidthHint": 12,
+        "Offset": 0,
+        "Width": 0
+      },
+      "IsActive": true
+    }
+  ]
+}

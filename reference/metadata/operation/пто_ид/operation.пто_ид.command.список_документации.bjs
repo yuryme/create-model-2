@@ -1,0 +1,14 @@
+/* Catalog.список_для_ид | вариант_пто (1) 
+| Select ( id as список_для_ид, группа_документов, ответственный)*/
+
+var result = await from('catalog.список_для_ид')
+  .select([
+    'id as список_для_ид',
+    'группа_документов',
+    'ответственный'
+  ])
+  .where('вариант_пто = @v')
+  .parameter('v', false, 3) //Boolean
+  .query();
+
+return result;

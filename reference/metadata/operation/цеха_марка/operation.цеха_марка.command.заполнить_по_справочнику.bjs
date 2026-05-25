@@ -1,0 +1,33 @@
+/*catalog.марки | проект_заказ($h.проект_заказ) 
+| Select (id as марки, title as марки_title, наименование_марки, 
+колво, вес_одной_кг, вес_всех_кг, шифр_км, актуальность )
+| Having (актуальность = 1 OR актуальность is Null ) | GetTitle ()  
+| AddColumn (счетчик, number, 1 )  | OrderBy ( марки )*/
+
+var result = await from('catalog.марки')
+  .select([
+    'id as марки',
+    'title as марки_display',
+    'наименование_марки',
+    'колво',
+    'вес_одной_кг',
+    'вес_всех_кг',
+    'шифр_км',
+    'актуальность'
+  ])
+  .where('cat_марки.проект_заказ = @project')
+  .parameter('project', $h.проект_заказ, 11)
+  .getDisplays()
+  .query();
+
+result = result
+  .filter(r => r.актуальность === 1 || r.актуальность == null)
+  .addColumn('счетчик', 'number')
+  .process(r => {
+    r.счетчик = 1;
+  })
+  .orderBy((a, b) => a.марки - b.марки);
+
+openPickUp(result, 'table_1');
+
+

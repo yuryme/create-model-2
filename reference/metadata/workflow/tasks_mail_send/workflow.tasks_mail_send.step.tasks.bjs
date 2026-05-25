@@ -1,0 +1,41 @@
+function formatDateTimeLocal(date) {
+  const d = new Date(date);
+
+  const pad = (n) => String(n).padStart(2, '0');
+
+  return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ` +
+         `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+}
+
+var persons = await from('catalog.person')
+  .select(['id as person', 'title as person_display', 'user_name'])
+  .query();
+
+var tasks = await from('operation.task')
+  .select(['number', 'date', 'topic', 'description', 'responsible'])
+  .where("is_deleted = false and status = 'отправлена'").query();
+
+tasks = tasks.filter(x=>x.responsible == 1); // Для отладки. Только Деев С.Н.
+
+tasks = tasks.leftJoin(persons, (pr, jr) => pr.responsible == jr.person );
+
+var tableResult = tasks.groupBy(['person', 'person_display', 'user_name'], ['number'])
+  .deleteColumn('number').addColumn('messages');
+
+tableResult.process(row=>{
+  
+    row.messages = 'Здравствуйте!\nУ Вас есть непринятые к исполнению задачи:\n\n';
+    tasks.rows.forEach(taskRow => {
+      if (taskRow.responsible == row.person){
+        var message = `Задача #${taskRow.number} от ${formatDateTimeLocal(new Date(taskRow.date))}\n`+
+        `Тема: ${taskRow.topic}\n`+
+        `Текст задачи: ${taskRow.description}\n\n`;
+        row.messages += message;
+      }
+    });
+
+   row.messages += "Ваши задачи в BaSYS доступны по ссылке: https://elevatorsc.thebasys.com/app#/data-objects/operation/task"
+  
+});
+
+return tableResult;

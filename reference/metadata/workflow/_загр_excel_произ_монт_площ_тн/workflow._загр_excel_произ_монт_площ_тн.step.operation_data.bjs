@@ -1,0 +1,46 @@
+var result1 = await from('operation.монтаж_мк_нов')
+  .select(['number', 'проект_заказ'])
+  .where('number = @inumber')
+  .parameter('number', _parameters.number, 11)
+  .getDisplays()
+  .query();
+
+var projectList = Array.from(
+  new Set(
+    (result1.rows ?? [])
+      .map(r => r.проект_заказ)
+      .filter(v => v != null)
+  )
+);
+
+var result3 = await from('catalog.марки')
+  .select(['id as id_марки', 'title_эталон as марка', 'проект_заказ'])
+  .where('проект_заказ = @project')
+  .parameter('project', _parameters.проект_заказ, 11)
+  .query();
+
+result3 = result3.filter(r =>
+  projectList.includes(r.проект_заказ)
+);
+
+var result = await from('operation.монтаж_мк_нов.table_1')
+  .select(['дата', 'row_number', 'object_uid', 'марки', 'колво_шт_монтаж'])
+  .where('object_uid = @id')
+  .parameter('id', _parameters.number, 11)
+  .getDisplays()
+  .query();
+
+result = result
+  .leftJoin(result3, (pr, jn) => pr.марки === jn.id_марки)
+  .leftJoin(result1, (pr, jn) => pr.object_uid === jn.number)
+  .deleteColumns([
+    'operationid',
+    'марки',
+    'id_марки',
+    'id',
+    'проект_заказ_title',
+    'марки_title'
+  ])
+  .orderBy((a, b) => a.row_number - b.row_number);
+
+return result;

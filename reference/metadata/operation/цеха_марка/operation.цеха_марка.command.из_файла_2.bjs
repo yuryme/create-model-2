@@ -1,0 +1,5 @@
+var source = await runWorkflow('в_назнач_цех_exls_2', 'запрос_данных', 
+                   [{name: 'number',dataType: 'integer', value: $h.number}],300);
+
+openPickUp(source, 'table_2');
+

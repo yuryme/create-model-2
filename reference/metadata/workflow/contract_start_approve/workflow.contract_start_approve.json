@@ -1,0 +1,163 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "b415c307-fa99-a47c-acde-a173418c2f99",
+  "Name": "contract_start_approve",
+  "Title": "03.003.01 Проект договора: старт согласования",
+  "Memo": "Заполнение записей регистра \"Согласование договоров\" для указанной операции \"Проект договора\".",
+  "IsActive": true,
+  "Version": 47,
+  "Steps": [
+    {
+      "Expression": "workflow.contract_start_approve.step.approve_settings.bjs",
+      "Uid": "8d9baeb0-56e8-ffbf-d0db-c6f509330565",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Approve settings",
+      "Name": "approve_settings",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.contract_start_approve.step.approve_records.bjs",
+      "Uid": "532c48f4-5e07-6ec2-66fe-c076ac46696c",
+      "PreviousStepUid": "8d9baeb0-56e8-ffbf-d0db-c6f509330565",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Approve records",
+      "Name": "approve_records",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "1e4bbe2e-d11d-496f-b44a-ef311272800b",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "approve_records",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "fdfe13a0-939c-c476-cbcc-032f39ac572d",
+          "SourceFieldName": "порядок",
+          "DestinationFieldName": "порядок",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d45765ca-b20a-90e5-1c64-256117c4e4bf",
+          "SourceFieldName": "проект_договора",
+          "DestinationFieldName": "проект_договора",
+          "DefaultValue": "",
+          "SearchBy": "number",
+          "DataTypeUid": "eded8edc-8d6b-4e2f-a068-52d401d1caaa",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "8788d561-df6e-93ba-3976-102e69544f1f",
+          "SourceFieldName": "person",
+          "DestinationFieldName": "person",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "30fa0620-3db1-43e2-a700-b6295739bbb6",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "1e355fbf-7426-f506-8903-7f17619748aa",
+          "SourceFieldName": "на_согласовании",
+          "DestinationFieldName": "на_согласовании",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "b9892d0d-1738-009a-46b8-ece0308866fb",
+          "SourceFieldName": "дата_отправки_на_согласование",
+          "DestinationFieldName": "дата_отправки_на_согласование",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "afd3c49e-bed0-f6b0-b645-479189d97bc1",
+          "SourceFieldName": "approve_role",
+          "DestinationFieldName": "approve_role",
+          "DefaultValue": "",
+          "SearchBy": "name",
+          "DataTypeUid": "618959b9-c006-44e0-b3d2-ce63599aaf03",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "abf073ad-874a-2944-777c-37de0d8a7267",
+      "PreviousStepUid": "532c48f4-5e07-6ec2-66fe-c076ac46696c",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Create approval records",
+      "Name": "create_approval_records",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.contract_start_approve.step.messages.bjs",
+      "Uid": "589d11fb-0695-965f-face-f2de715af4dd",
+      "PreviousStepUid": "abf073ad-874a-2944-777c-37de0d8a7267",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Messages",
+      "Name": "messages",
+      "Memo": "Получаем визы, доступные для установки и присоединяем email и полное имя из справочника Физлиц. ",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "messages",
+      "ItemName": "item",
+      "Uid": "853dfa7f-afa1-53e0-0554-1d0c6726c8aa",
+      "PreviousStepUid": "589d11fb-0695-965f-face-f2de715af4dd",
+      "KindUid": "07e698af-d11b-454b-a7f4-577a0439e92c",
+      "KindName": "iterator",
+      "Title": "Iterator",
+      "Name": "iterator",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Host": "smtp.mail.ru",
+      "User": "task@elevatorsc.ru",
+      "Password": "FRPNpDR7TxOI3uxLo61p",
+      "Port": "25",
+      "TimeoutSeconds": 30,
+      "EnableSsl": true,
+      "From": "task@elevatorsc.ru",
+      "To": "mikhazyu@gmail.com",
+      "CC": "deev@elevatorsc.ru",
+      "BCC": "",
+      "Subject": "Согласование {{item.проект_договора_display}}",
+      "Body": "Здравствуйте, {{item.full_name}}! \n\nВ процессе согласования договора \"{{item.проект_договора_display}}\" Вам доступна установки визы \"{{item.approve_role_display}}\".\n\nДоговор доступен по ссылке:\nhttps://elevatorsc.thebasys.com/app#/data-objects/edit/operation/проект_договора/{{item.проект_договора}}",
+      "IsBodyHtml": false,
+      "Uid": "faa75ac8-a523-cdc6-fb21-bbb77770a242",
+      "PreviousStepUid": "853dfa7f-afa1-53e0-0554-1d0c6726c8aa",
+      "KindUid": "df48f1ed-2bcf-4b1d-b45c-1305b55ce1f6",
+      "KindName": "smtp_send",
+      "Title": "Mail send",
+      "Name": "mail_send",
+      "Memo": "e.zolotareva@elevatorsc.ru",
+      "IsActive": true
+    },
+    {
+      "Uid": "a01f5eb3-9d79-a6d5-5eac-12639a21477c",
+      "PreviousStepUid": "faa75ac8-a523-cdc6-fb21-bbb77770a242",
+      "KindUid": "ac090927-e291-4421-b9aa-351b8fa51770",
+      "KindName": "iterator_stop",
+      "Title": "Iterator stop",
+      "Name": "iterator_stop",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

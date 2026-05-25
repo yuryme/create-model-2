@@ -1,0 +1,78 @@
+/* catalog.марки | SELECT (id, наименование_марки, проект_заказ, шифр_км, 
+колво as колво_чертежи, вес_всех_кг, вес_одной_кг) | GetTitle ();
+
+
+выпуск_цеха | цеха ($h.цех ) | GroupBy (цеха as цех, марки as марка, 
+колво as осталось_произвести ) | GetTitle ();
+покраска_цеха | цеха ($h.цех ) | GroupBy (цеха as цех, марки as марка, 
+колво as осталось_покрасить ) | GetTitle ()
+
+ | FullJoinAuto ($result_2, марка = result_2.марка) | LeftJoinAuto 
+ ($result_1, марка = result_1.id ) | Compute (осталось_покрасить_кг, 
+ вес_одной_кг * осталось_покрасить )  | Compute (осталось_произвести_кг,
+ вес_одной_кг * осталось_произвести )  | Having (осталось_покрасить>0 AND 
+ осталось_произвести>0 )*/
+
+var result_3 = await from('records.покраска_цеха')
+  .select(['марки'])
+  .where('цеха = @ceh')
+  .parameter('ceh', $h.цех)
+  .query();
+
+var marksList = result_3.toArray('марки'); // 1. Получили список всех марок в регистре покраска_цеха
+
+var result_1 = await from('catalog.марки')
+  .select([
+    'id',
+    'наименование_марки',
+    'проект_заказ',
+    'шифр_км',
+    'колво as колво_чертежи',
+    'вес_всех_кг',
+    'вес_одной_кг'
+  ])
+  .where ('cat_марки.id in @марки')
+  .parameter('марки', marksList)
+  .getDisplays()
+  .query(); // 2. выбрали из справочника марки, соответствующие списку по п.1
+
+var result_2 = await from('records.выпуск_цеха')
+  .select([ 'марки as марка',
+            'колво',
+            'цеха as цех'
+            ])
+  .where('цеха = @ceh')
+  .parameter('ceh', $h.цех)
+  .query();
+
+result_2 = result_2.groupBy(
+  ['марка', 'цех'],
+  [{ name: 'колво', alias: 'осталось_произвести', aggregate: 'sum' }]); // 3. Сформировали цех марка осталось_произвести
+
+var result_3 = await from('records.покраска_цеха')
+  .select(['марки as марка', 'шифр_км', 'цеха as цех', 'колво'])
+  .where('regr_покраска_цеха.цеха = @ceh')
+  .parameter('ceh', $h.цех)
+  .getDisplays()
+  .query();
+
+result_3 = result_3.groupBy(
+  ['цех', 'цех_display', 'марка',  'марка_display', 'шифр_км', 'шифр_км_display'],
+  [{ name: 'колво', alias: 'осталось_покрасить', aggregate: 'sum' }]);
+
+var result = result_3
+  .fullJoin(result_2, (pr, jn) => pr.марка === jn.марка)
+  .leftJoin(result_1, (pr, jn) => pr.марка === jn.id)
+  .addColumn('осталось_покрасить_кг', 'number')
+  .addColumn('осталось_произвести_кг', 'number')
+ 
+  .process(r => {
+    r.осталось_покрасить_кг = r.вес_одной_кг * r.осталось_покрасить;
+    r.осталось_произвести_кг = r.вес_одной_кг * r.осталось_произвести;
+  })
+  .filter(r =>
+    r.осталось_покрасить > 0 &&
+    r.осталось_произвести > 0
+  );
+
+openPickUp(result, 'table_1');

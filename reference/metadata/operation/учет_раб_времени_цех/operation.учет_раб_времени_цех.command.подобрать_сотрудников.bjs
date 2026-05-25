@@ -1,0 +1,6 @@
+var source = await from('catalog.сотрудники')
+.select(['id as сотрудники', 'title as сотрудники_display' ])
+.orderBy('сотрудники_display') 
+.query();
+
+openPickUp(source, 'table_2');

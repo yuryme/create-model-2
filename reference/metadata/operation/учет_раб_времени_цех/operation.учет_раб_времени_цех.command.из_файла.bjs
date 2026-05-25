@@ -1,0 +1,10 @@
+setIsWaiting(true);
+var source = await runWorkflow('_загр_excel_учет_раб_вр_цех', 
+                               'result', 
+                               [{name: 'number', 
+                                 dataType: 'integer', 
+                                 value: $h.number}], 
+                               300);
+$t.table_2.clear();
+$t.table_2.load(source);
+setIsWaiting(true);

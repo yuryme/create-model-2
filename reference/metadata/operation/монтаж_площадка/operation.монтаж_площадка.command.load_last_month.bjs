@@ -1,0 +1,30 @@
+//var dateStart = (new Date()).addMonths(-1).beginMonth();
+var dateStart = $h.date.addMonths(-1).beginMonth();
+console.log('operation date:', $h.date);
+var dateFinish = dateStart.endMonth();
+
+setIsWaiting(true);
+var tableEmpl = await from("operation.штатное_расписание")
+  .select(['сотрудники as сотрудник', 'ставка_час as ставка'])
+  .where('ставка_час > 0').query();
+
+var tableResult = await from('records.кту_сотрудников')
+  .select(['сотрудники as сотрудник', 'кту'])
+  .where('проект_заказ = @project AND period >= @dateStart AND period <= @dateFinish')
+  .parameter('project', $h.проект_заказ)
+  .parameter('dateStart', dateStart)
+  .parameter('dateFinish', dateFinish)
+  .orderBy('сотрудник_display')
+  .getDisplays()
+  .query();
+
+tableResult = tableResult.addColumn({name: 'counter', dataType: 'number'})
+  .groupBy(['сотрудник', 'сотрудник_display', 'кту'])
+  .leftJoin(tableEmpl, (pr, jr) => pr.сотрудник == jr.сотрудник);
+
+
+setIsWaiting(false);
+$t.время.clear();
+$t.время.load(tableResult);
+recalculate();
+setIsModified(true);

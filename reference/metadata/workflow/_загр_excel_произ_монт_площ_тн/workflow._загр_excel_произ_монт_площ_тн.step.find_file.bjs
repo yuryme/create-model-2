@@ -1,0 +1,5 @@
+var fileData = await from("operation.монтаж_мк_нов.attached_files")
+  .select(['uid', 'filename'])
+  .where("number = @id")
+  .parameter("id", _parameters.number, 11)
+  .query();

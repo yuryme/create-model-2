@@ -1,0 +1,3 @@
+$h.статус = 'процесс_закончен';
+setIsModified(true);
+save();

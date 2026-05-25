@@ -1,0 +1,42 @@
+var records = await from('register.согласование_замечаний')
+  .where('проект_договора = @number and на_согласовании = false')
+  .parameter('number', _parameters.number)
+  .orderBy('порядок')
+  .getDisplays()
+  .query();
+
+// Определяем максимальный номер согласования.
+maxApproveNumber = records.max('согласование_номер') ?? 0;
+
+// Проверяем есть ли на текущем уровне отправленные, но еще не установленные визы.
+var recordsActive = await from('register.согласование_замечаний')
+  .where('проект_договора = @number and на_согласовании = true and согласовано <> true')
+  .parameter('number', _parameters.number)
+  .orderBy('порядок')
+  .query();
+
+// Фильтруем список согласования и берем только максимальный номер.
+recordsActive.filter(row => row.согласование_номер == maxApproveNumber);
+
+if (recordsActive.rows.length){
+  return [];
+}
+
+
+// Фильтруем список согласования и берем только максимальный номер.
+records.filter(row => row.согласование_номер == maxApproveNumber);
+
+var minOrder = records.clone().min('порядок');
+
+var today = (new Date());
+today.setHours(today.getHours()+3);
+var today = today.toLocalISO();
+
+records.process(row=>{
+  if (row.порядок == minOrder){
+     row.на_согласовании = true;
+     row.дата_отправки_на_согласование = today;
+  }
+}).filter(row=>row.на_согласовании == true);
+
+return records;

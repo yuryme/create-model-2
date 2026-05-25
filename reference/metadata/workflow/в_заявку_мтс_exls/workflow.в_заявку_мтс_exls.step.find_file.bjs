@@ -1,0 +1,7 @@
+var fileData = await from("operation.заявка_мтс_2.attached_files")
+  .select(['uid', 'filename'])
+  .where("objectuid = @id")
+  .parameter("id", _parameters.number, 11)
+  .query();
+
+return fileData;

@@ -1,0 +1,49 @@
+/* catalog.шифр_км | Select (id, цена_монтажа as цена);
+catalog.марки |  актуальность (1) | шифр_км ($h.шифр_км_подбор) 
+| Select (шифр_км as проект, id as марки, наименование_марки, 
+title as марки_title, колво as колво_в_кмд, вес_одной_кг as вес_одной_шт_кг, 
+вес_всех_кг ) | GetTitle () |  Compute (колво_т_в_ид, вес_всех_кг / 1000) 
+| Compute (колво_шт, колво_в_кмд * 1) 
+| LeftJoinAUTO ( $result_1, проект = result_1.id) 
+| Compute ( сумма, цена * колво_т_в_ид )*/
+
+var kmPrice = await from('catalog.шифр_км')
+  .select(['id', 'цена_монтажа as цена'])
+  .query();
+
+var marki = await from('catalog.марки')
+  .select([
+    'шифр_км as проект',
+    'id as марки',
+    'наименование_марки',
+    'title as марки_display',
+    'колво as колво_в_кмд',
+    'вес_одной_кг as вес_одной_шт_кг',
+    'вес_всех_кг'
+  ])
+  .where('актуальность = 1')
+  .where('cat_марки.шифр_км = @km AND cat_марки.проект_заказ = @prjct')
+  .parameter('km', $h.шифр_км_подбор, 11)
+  .parameter('prjct', $h.проект_заказ, 11)
+  .getDisplays()
+  .query();
+
+var result = marki
+  .addColumn('колво_т_в_ид', 'number')
+  .addColumn('колво_шт', 'number')
+  .addColumn('сумма', 'number')
+  .process(r => {
+    r.колво_т_в_ид = r.вес_всех_кг / 1000;
+    r.колво_шт = r.колво_в_кмд;
+  })
+  .leftJoin(
+    kmPrice,
+    (pr, jn) => pr.проект === jn.id
+  )
+  .process(r => {
+    r.сумма = r.цена * r.колво_т_в_ид;
+  });
+
+openPickUp(result, 'table_1');
+
+

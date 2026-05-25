@@ -1,0 +1,7 @@
+var tasksArray = (await from('register.task_message').where('has_read = false').query()).toArray('task');
+var tasks = await from('operation.task').select(['number', 'date', 'topic', 'status'])
+  .where('number in @numbers')
+  .parameter('numbers', tasksArray)
+  .query();
+
+return tasks;

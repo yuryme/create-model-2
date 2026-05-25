@@ -1,0 +1,25 @@
+# Локальный клон официальной документации BaSYS (свой git-репозиторий)
+basys-docs/
+
+# Локальные настройки агентов (с пользовательскими путями)
+.claude/settings.local.json
+.opencode/settings.local.json
+
+# Редакторы и IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Операционные системы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Временные файлы
+*.tmp
+*.bak
+
+# Node
+node_modules/

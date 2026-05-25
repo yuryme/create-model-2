@@ -1,0 +1,113 @@
+setIsWaiting(true);
+
+const dateStart = $h.дата_нмес;
+const dateEnd = $h.дата_кмес;
+
+// 1) Штатное расписание на дату конца периода
+let tableStaff = await from("records.штатное_расписание")
+  .where('period <= @dateEnd')
+  .parameter('dateEnd', dateEnd )
+  .select([
+    "организация",
+    "должность",
+    "статья",
+    "тип_начисления_зп",
+    "сотрудники",
+    "ставка_час"
+  ])
+  .getDisplays()
+  .query();
+
+
+// 2) Почасовые ставки (общие)
+const tableRatesCommon = await from("records.почасовые_ставки")
+  .select(["должность", "ставка as ставка_час_общ"])
+  .getDisplays()
+  .query();
+
+// 3) КТУ сотрудников
+let tableKtu = await from("records.кту_сотрудников")
+  .where('period <= @dateEnd AND period >= @dateStart')
+  .parameter('dateStart', dateStart )
+  .parameter('dateEnd', dateEnd )
+  .select([
+    "аванс_вторая_часть",
+    "проект_заказ",
+    "сотрудники",
+    "кту",
+    "часы",
+    "часы_с_кту"
+  ])
+  .getDisplays()
+  .query();
+
+tableKtu = tableKtu.groupBy(
+  ["проект_заказ", "проект_заказ_display", "сотрудники", "сотрудники_display"],
+  ["кту", "часы", "часы_с_кту"]);
+
+tableKtu
+  .addColumn({ name: "часы_0", dataType: "number" })
+  .addColumn({ name: "кту_2", dataType: "number" })
+  .addColumn({ name: "пояснение", dataType: "string" })
+  .process(row => {
+    const hours = row["часы"] || 0;
+    const ktu = row["кту"] || 0;
+    const projectTitle = row["проект_заказ_display"] || "";
+
+    row["часы_0"] = Math.round(hours);
+    row["кту_2"] = ktu / 2;
+    row["пояснение"] = `${projectTitle}-${row["часы_0"]} часов,  КТУ=  ${row["кту_2"]}`;
+  });
+
+const tableKtuExplain = tableKtu.groupBy(
+  ["сотрудники", "сотрудники_display"],
+  [{ name: "пояснение", alias: "пояснение", aggregate: "concat" }]
+);
+
+// 4) Ведомость рабочих часов: считаем часы и начисление
+let result = await from("records.ведомость_раб_врем")
+  .where('period <= @dateEnd AND period >= @dateStart')
+  .parameter('dateStart', dateStart )
+  .parameter('dateEnd', dateEnd )
+  .select([
+    "аванс_вторая_часть",
+    "сотрудники",
+    "раб_час"    
+  ])
+  .getDisplays()
+  .query();
+
+result = result
+  .groupBy(
+    ["сотрудники", "сотрудники_display"],
+    [{ name: 'раб_час', alias: 'колво_рабчас', aggregate: 'sum' }])
+  .leftJoin(tableStaff, (w, s) => w["сотрудники"] === s["сотрудники"])
+  .filter(row => row["тип_начисления_зп"] === 1)
+  .leftJoin(tableRatesCommon, (w, r) => w["должность"] === r["должность"])
+  .leftJoin(tableKtuExplain, (w, k) => w["сотрудники"] === k["сотрудники"])
+  .addColumn({ name: "сумма_за_часы_лич", dataType: "number" })
+  .addColumn({ name: "сумма_за_часы_общ", dataType: "number" })
+  .addColumn({ name: "сумма_начисления", dataType: "number" })
+  .process(row => {
+    const hours = row["колво_рабчас"] || 0;
+    const ratePersonal = row["ставка_час"];
+    const rateCommon = row["ставка_час_общ"];
+
+    const sumPersonal = ratePersonal != null ? ratePersonal * hours : 0;
+    const sumCommon = rateCommon != null ? rateCommon * hours : 0;
+
+    row["сумма_за_часы_лич"] = sumPersonal;
+    row["сумма_за_часы_общ"] = sumCommon;
+    row["сумма_начисления"] = sumPersonal === 0 ? sumCommon : sumPersonal;
+  })
+  .filter(row => {
+    const org = $h.организация;
+    return org === null || org === 0 || row["организация"] === org;
+  })
+  .filter(row => (row["сумма_начисления"] || 0) > 0)
+  .orderBy((a,b) => a.сотрудники_display.localeCompare(b.сотрудники_display));
+
+setIsWaiting(false);
+$t.table_2.clear();
+$t.table_2.load(result);
+setIsModified(true)

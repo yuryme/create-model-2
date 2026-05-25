@@ -1,0 +1,251 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "ff802924-4d81-565b-266e-1d034733f49d",
+  "Name": "_штатное_расп_сохранить_истор",
+  "Title": "03.002 Штатное расписание. Сохранить историю",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 58,
+  "Steps": [
+    {
+      "Expression": "workflow._штатное_расп_сохранить_истор.step.data.bjs",
+      "Uid": "f9bfc892-9b8f-b066-d4be-278de33d1a61",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._штатное_расп_сохранить_истор.step.comparison.bjs",
+      "Uid": "61d7c335-03e1-4b81-cee0-9ea88795407d",
+      "PreviousStepUid": "f9bfc892-9b8f-b066-d4be-278de33d1a61",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Comparison",
+      "Name": "comparison",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "df6ef873-198d-41a5-a16e-34d09ec9eb10",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "data",
+      "Condition": "comparison == 0",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "7a29e9ff-c60e-c6d4-a43a-71ee037c7af3",
+          "SourceFieldName": "number",
+          "DestinationFieldName": "number",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4e20eff2-f520-25d6-f3ec-ef31e09c17c4",
+          "SourceFieldName": "date",
+          "DestinationFieldName": "date",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d699a102-5ed7-65b7-31fc-d34e350f433f",
+          "SourceFieldName": "сотрудники",
+          "DestinationFieldName": "сотрудники",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "c47d3835-48d8-427f-be89-e84c082575ef",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "35de4ae9-41f5-b9f9-0340-77dd1a576902",
+          "SourceFieldName": "должность",
+          "DestinationFieldName": "должность",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "a5f880b1-c755-4939-8197-22f8e3ef15ef",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "9e3e41b9-0f66-1cd0-0af3-d3683af0cce8",
+          "SourceFieldName": "организация",
+          "DestinationFieldName": "организация",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "01ef2eff-8bd1-498a-9aeb-52aa9598fc35",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "25e64818-d360-35c2-03b8-75e79f11f486",
+          "SourceFieldName": "проект_заказ",
+          "DestinationFieldName": "проект_заказ",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "a9c75bdf-d854-4f05-9a6a-1db90d2ae59b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "543f0e9b-5f77-5bf7-6a62-fcdba4a551f7",
+          "SourceFieldName": "тип_начисления_зп",
+          "DestinationFieldName": "тип_начисления_зп",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "c0a27f77-5134-4f08-b55b-5588212e717e",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "a903f69c-5f2f-83b1-198d-b88453ee105e",
+          "SourceFieldName": "регион",
+          "DestinationFieldName": "регион",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "eb087ab5-d22b-4323-b0b0-d79b4acdd800",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "9101c045-d1a8-5557-aab7-af37721df7fc",
+          "SourceFieldName": "город",
+          "DestinationFieldName": "город",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "0c951bf0-9652-40bc-937c-c92a2d95242d",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d940b687-ca09-7583-abe7-95a7c102e383",
+          "SourceFieldName": "графики_вахт",
+          "DestinationFieldName": "графики_вахт",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "85b5eecd-1ccd-43e4-a68d-ccc90d1688af",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c40e2c28-9d8e-4766-3921-b393210cfd41",
+          "SourceFieldName": "упр_подразделение",
+          "DestinationFieldName": "упр_подразделение",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "1a241d9a-b540-4245-9705-de0fc86031db",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c71749df-bb7b-be28-8f7d-6d0a67c881b8",
+          "SourceFieldName": "статья",
+          "DestinationFieldName": "статья",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "9bba926e-a266-4093-80d7-263794f33c32",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "620996fb-64ef-a20e-5481-c8a155715e0f",
+          "SourceFieldName": "подразделение",
+          "DestinationFieldName": "подразделение",
+          "DefaultValue": "",
+          "SearchBy": "id",
+          "DataTypeUid": "3bed6ed7-b413-4556-a9c1-793938fb7f89",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "e9c809bf-1a81-a6e2-02f0-45a45d27936d",
+          "SourceFieldName": "оклад",
+          "DestinationFieldName": "оклад",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "b95b2edf-af1d-7e73-6b33-bbc2381a777f",
+          "SourceFieldName": "ставка_час",
+          "DestinationFieldName": "ставка_час",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "98df131c-df9c-1ef4-7e4c-3653cf88bde9",
+          "SourceFieldName": "ставка_смена",
+          "DestinationFieldName": "ставка_смена",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "f758ffad-c011-65e8-fb8c-03eaba208ff1",
+          "SourceFieldName": "дорожные_ставка",
+          "DestinationFieldName": "дорожные_ставка",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "0d0a993a-800b-e439-8b2a-2dfbc4388791",
+          "SourceFieldName": "премия",
+          "DestinationFieldName": "премия",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "a2c1353d-d8a4-4cdb-203a-c5f329fc322b",
+          "SourceFieldName": "счетчик",
+          "DestinationFieldName": "счетчик",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "c104921d-2113-20af-ad0f-9e779d7569f5",
+          "SourceFieldName": "комментарий",
+          "DestinationFieldName": "комментарий",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "d574fd1a-85a9-2a06-251e-51e34a8474da",
+          "SourceFieldName": "подрядчик",
+          "DestinationFieldName": "подрядчик",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "4dbab1ba-9c6c-d483-0a36-373d9e0ba3e4",
+          "SourceFieldName": "уволен",
+          "DestinationFieldName": "уволен",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "deae583b-9d54-2e14-ce1f-c2326d691652",
+      "PreviousStepUid": "f9bfc892-9b8f-b066-d4be-278de33d1a61",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

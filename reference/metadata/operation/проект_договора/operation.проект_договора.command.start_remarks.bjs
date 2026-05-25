@@ -1,0 +1,37 @@
+setIsWaiting(true);
+
+var tableFiles = await from('operation.проект_договора.attached_files')
+  .where('objectuid = @number')
+  .parameter('number', $h.number)
+  .query();
+
+var missing = [];
+
+var remarksFileCount = tableFiles
+  .clone()
+  .filter(row => row.memo?.toLowerCase() === 'общий файл замечаний')
+  .count();
+
+if (!remarksFileCount) {
+  missing.push('Общий файл замечаний');
+}
+
+if (missing.length) {
+  setIsWaiting(false);
+
+  var message = 'Необходимо прикрепить: ' + missing.join(', ');
+  alert(message);
+
+  return;
+}
+
+var resultRemarks = await runWorkflow('contract_start_remarks', 
+                               'create_approve_records', 
+                               [                              
+                                {name: 'number', dataType: 'integer', value: $h.number},
+                                {name: 'initiator', dataType: 'integer', value: $h.инициатор}  
+                               ]);
+$h.has_comments_approve = true;
+refresh('list_remarks');
+
+setIsWaiting(false);

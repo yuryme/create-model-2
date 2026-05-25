@@ -1,0 +1,110 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "46c63677-f253-0230-5808-d816cc303900",
+  "Name": "_загрузка_excel_заявка_площадк",
+  "Title": "02.009 Загрузка Excel. Заявка площадки",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 30,
+  "Steps": [
+    {
+      "Expression": "workflow._загрузка_excel_заявка_площадк.step.find_file.bjs",
+      "Uid": "94ee24c5-cbd9-9723-b486-c48f58923551",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "0dc90dd4-5941-ad4c-a578-d4b7aa2f2265",
+      "PreviousStepUid": "94ee24c5-cbd9-9723-b486-c48f58923551",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 5,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "66aa5d0c-497f-4253-e643-6a567ee468bd",
+          "SourceFieldName": "Лист РД",
+          "DestinationFieldName": "лист_рд",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "6e3233ed-074b-e121-f315-0a70bafe2840",
+          "SourceFieldName": "Система в РД",
+          "DestinationFieldName": "сист_в_рд",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "e220dabb-a2c9-0ff6-4062-6d3e77545abd",
+          "SourceFieldName": "Номенклатура из РД",
+          "DestinationFieldName": "номенклатура_рд",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "957e3775-e297-9bff-7d39-3cc38216c7fc",
+          "SourceFieldName": "Ед.изм.",
+          "DestinationFieldName": "ед_изм",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        },
+        {
+          "Uid": "15205f3d-b195-df2e-a60d-4e550c2cf78b",
+          "SourceFieldName": "Кол-во (заявка)",
+          "DestinationFieldName": "колво_поставка",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "15b1ce95-e790-7736-fded-4aea093341d8",
+          "SourceFieldName": "Кол-во",
+          "DestinationFieldName": "колво",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "f7ed0d6c-2193-8aff-9f73-52846da3e951",
+          "SourceFieldName": "№ стр.",
+          "DestinationFieldName": "стр_excel",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        },
+        {
+          "Uid": "4d6d72fd-3782-0b05-7862-25db67b0517a",
+          "SourceFieldName": "Поз. в РД",
+          "DestinationFieldName": "поз_в_рд",
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb"
+        }
+      ],
+      "Uid": "a861cd87-9998-1683-ec25-4d5b3ba7787e",
+      "PreviousStepUid": "94ee24c5-cbd9-9723-b486-c48f58923551",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow._загрузка_excel_заявка_площадк.step.result.bjs",
+      "Uid": "8be852b7-07ce-8f05-1e84-f14c4d2ac04d",
+      "PreviousStepUid": "a861cd87-9998-1683-ec25-4d5b3ba7787e",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Result",
+      "Name": "result",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

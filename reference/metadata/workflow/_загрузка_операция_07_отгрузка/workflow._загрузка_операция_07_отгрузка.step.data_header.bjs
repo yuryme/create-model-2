@@ -1,0 +1,68 @@
+// Задаем колонки один раз
+var columns = [
+  {name: 'id', dataType: 'number'},
+  {name: 'uid'},
+  {name: 'baseuid'},
+  {name: 'templateid'},
+  {name: 'number'},
+  {name: 'date'},
+  {name: 'version'},
+  {name: 'isdeleted'},
+  {name: 'isfiles'},
+  {name: 'islocked'},
+  {name: 'isrecords'},
+  {name: 'createregisterrecords'},
+  {name: 'changed'},
+  {name: 'userchangedid'},
+  {name: 'производитель'},
+  {name: 'перевозчик'},
+  {name: 'паспорт'},
+  {name: 'телефон'},
+  {name: 'ву'},
+  {name: 'авто'},
+  {name: 'цена_рейса'},
+  {name: 'водитель'},
+  {name: 'комментарий'},
+  {name: 'проектзаказ'},
+  {name: 'договор'},
+  {name: 'покупатель'},
+  {name: 'цех'},
+  {name: 'акт_номер'},
+  {name: 'договор_номер'},
+  {name: 'общий_вес'},
+  {name: 'дата_начала'},
+  {name: 'дата_конца'},
+  {name: 'цена_мк'},
+  {name: 'итого_руб'},
+  {name: 'номер_накладной'},
+  {name: 'дата_накладной'},
+  {name: 'цена_закупка'},
+  {name: 'итого_закупка'},
+  {name: 'operation_id'},
+  {name: 'uid_1c'},
+  {name: 'перемещение'},
+  {name: 'дата_узк'},
+  {name: 'создатель'},
+  {name: 'создатель_id'},
+  {name: 'фиксация_бух'},
+  {name: 'без_договора'}
+];
+
+// Создаем таблицу
+var table = createTable(columns);
+
+// Функция для маппинга строки
+function mapRow(row, columns) {
+  let mapped = {};
+  columns.forEach(c => {
+    mapped[c.name] = row[c.name];
+  });
+  return mapped;
+}
+
+// Загружаем данные в таблицу
+_data.request.data.header.forEach(row => {
+  table.addRow(mapRow(row, columns));
+});
+
+return table;

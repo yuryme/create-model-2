@@ -1,0 +1,60 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "717c212c-bcf0-d476-184d-73e5e61256a8",
+  "Name": "fill_work_calendar",
+  "Title": "04.003. Заполнить производственный календарь",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 9,
+  "Steps": [
+    {
+      "Expression": "workflow.fill_work_calendar.step.data.bjs",
+      "Uid": "7a034615-d020-662f-46e2-e2643167a572",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Data",
+      "Name": "data",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "5ebf5635-4dfe-4606-9a24-1b71a2f52653",
+      "SaveRegime": 1,
+      "SearchBy": "",
+      "SourcePath": "data",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "dea671bf-e74a-671f-f604-68743242b10a",
+          "SourceFieldName": "period",
+          "DestinationFieldName": "period",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "330e1b24-d9ef-fa97-2587-20a167d23023",
+          "SourceFieldName": "day_kind",
+          "DestinationFieldName": "day_kind",
+          "DefaultValue": "",
+          "SearchBy": "name",
+          "DataTypeUid": "c8cc693d-d5ef-440c-9c44-74beb1b8e431",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "2e3cb342-100f-4630-4e84-6a631c9b3166",
+      "PreviousStepUid": "7a034615-d020-662f-46e2-e2643167a572",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Load",
+      "Name": "load",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

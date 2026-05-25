@@ -1,0 +1,44 @@
+isWaiting(true);
+
+var dateStart = $h.дата_нмес;
+var dateEnd = $h.дата_кмес;
+
+//1. ШТАТНОЕ РАСПИСАНИЕ
+var tableStaff = await from("records.штатное_расписание")
+  .where('period <= @dateEnd')
+  .parameter('dateEnd', dateEnd )
+  .select(["организация","должность","статья","тип_начисления_зп","сотрудники","оклад as ставка_оклад"])
+  .getDisplays().query();
+
+
+// 2. ВЕДОМОСТЬ РАБОЧЕГО ВРЕМЕНИ
+var tableWorkTime =  await from("records.ведомость_раб_врем")
+  .where('аванс_вторая_часть = 1 AND period <= @dateEnd AND period >= @dateStart')
+  .parameter('dateStart', dateStart )
+  .parameter('dateEnd', dateEnd )
+  .select(['сотрудники', 'рабочие_дни as рабочие_дни'])
+  .getDisplays().query();
+
+var tableWorkRaw = tableWorkTime
+  .groupBy(["сотрудники","сотрудники_display"],	["рабочие_дни"])
+  .leftJoin(tableStaff, (pr,jn) => pr.сотрудники == jn.сотрудники)
+  .filter(row => row.тип_начисления_зп == 3)
+  .addColumn('сумма_расчет number').addColumn('сумма_начисления number')
+  .addColumn('коэфт number')
+
+  .process (row => {
+    const workDays = row['рабочие_дни'] || 0;
+    const normDays = $h.число_рабдн_6_дн;
+    const k = normDays ? workDays / normDays : 0;
+    
+    row["сумма_расчет"] = row["ставка_оклад"] * k;
+    row["сумма_начисления"] = row["сумма_расчет"];
+    row["коэфт"] = k; })
+
+  .filter(row => {const hOrg = $h.организация; if (hOrg == null || hOrg === 0) return true; return row["организация"] === hOrg;})
+  .filter(row => row["сумма_начисления"] >0)
+  .orderBy((a,b) => a.сотрудники_display.localeCompare(b.сотрудники_display)); 
+isWaiting(false);
+$t.table_7.clear();
+$t.table_7.load(tableWorkRaw);
+isModified(true);

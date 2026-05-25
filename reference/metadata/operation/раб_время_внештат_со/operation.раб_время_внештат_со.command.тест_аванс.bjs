@@ -1,0 +1,5 @@
+var t = await from('catalog.сотрудники_за_штатом')
+  .select(['id as сотрудники ', 'title as сотрудники_display', 'уволен'])
+  .query();
+
+openPickUp(t, 'table_2');

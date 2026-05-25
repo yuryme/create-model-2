@@ -1,0 +1,89 @@
+{
+  "$schema": "../../system/schemas/menuSettings.schema.json",
+  "Uid": "40e2287a-1262-43ba-9d4c-25d05315bf1a",
+  "Name": "main",
+  "Title": "Main menu",
+  "Memo": "",
+  "IsActive": true,
+  "Version": 1,
+  "Items": [
+    {
+      "Uid": "2f62766b-8630-454a-918b-e8af02b0c569",
+      "Kind": 3,
+      "Title": "Справочник",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 30,
+      "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "Items": [],
+      "MetaObjectKindUidParsed": "032d8377-500f-4631-b435-1f7f69046674"
+    },
+    {
+      "Uid": "dace93a1-5550-4bf7-8af9-828c6d813257",
+      "Kind": 3,
+      "Title": "Перечисление",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
+      "Items": [],
+      "MetaObjectKindUidParsed": "5449a8ad-9359-41b2-8ff2-3f415eb4da76"
+    },
+    {
+      "Uid": "d00fcc49-5eeb-4e0f-97b8-6369d097c8b4",
+      "Kind": 3,
+      "Title": "Регистр",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 15,
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "Items": [],
+      "MetaObjectKindUidParsed": "f3ecb444-8e72-4387-83f1-66c712de1c32"
+    },
+    {
+      "Uid": "043f73fb-20e3-4f3d-8b47-8e578745e8b1",
+      "Kind": 3,
+      "Title": "Регистр записей",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 15,
+      "MetaObjectKindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+      "Items": [],
+      "MetaObjectKindUidParsed": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3"
+    },
+    {
+      "Uid": "756c8804-61a6-4ccb-a935-69cfceb12044",
+      "Kind": 3,
+      "Title": "Операция",
+      "IconClass": "",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 15,
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "Items": [],
+      "MetaObjectKindUidParsed": "14a60875-e241-4e99-b32d-d45b2726d18b"
+    },
+    {
+      "Uid": "79f0e06c-d91e-508a-6580-f458b99624e9",
+      "Kind": 1,
+      "Title": "Все задачи",
+      "IconClass": "pi pi-list",
+      "Url": "/app#/view-objects/customview/all_tasks",
+      "IsVisible": true,
+      "AutoFill": false,
+      "ItemsPerColumn": 10,
+      "MetaObjectKindUid": "",
+      "Items": [],
+      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}

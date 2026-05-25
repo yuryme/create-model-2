@@ -1,0 +1,5 @@
+var messages = _data.persons
+  .leftJoin(_data.document, (pr, jr) => true)
+  .filter(row=> row.status == 'у_директора' && row.email);
+
+return messages;

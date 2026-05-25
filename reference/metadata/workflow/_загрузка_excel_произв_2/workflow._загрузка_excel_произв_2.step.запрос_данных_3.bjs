@@ -1,0 +1,78 @@
+var result1 = _data.operation_data_3;
+var result2 = _data.mapping;
+
+var kmStrings = (result2.rows ?? [])
+  .map(r => r.км_строка_из_google)
+  .filter(v => v != null);
+
+kmStrings = Array.from(new Set(kmStrings));
+
+var kmIds = Array.from(
+  new Set(
+    (result1.rows ?? [])
+      .map(r => r.id_шифр_км)
+      .filter(v => v != null)
+  )
+);
+
+var result5 = await from('catalog.марки')
+  .select([
+    'id as id_марки',
+    'проект_заказ',
+    'колво as колво_чертежи',
+    'вес_одной_кг',
+    'вес_всех_кг',
+    'уникальное_поле'
+  ])
+  .where('актуальность = 1 AND шифр_км in @kmIds')
+  .parameter('kmIds', kmIds)
+  .query();
+
+var result6 = result2
+  .filter(r => parseNumber(r.изготовленошт) > 0)
+  .leftJoin(
+    result1, (pr, jn) => pr.км_строка_из_google === jn.id_шифр_км_display
+  )
+  .process(r => {
+    r.уникальное_поле = r.id_шифр_км_display + '_' + r.марка_title_из_google;
+  });
+
+var result = await from('records.выпуск_цеха')
+  .select([['шифр_км', 'марки', 'колво']])
+  .where('актуальность = 1 AND шифр_км in @kmIds')
+  .parameter('kmIds', kmIds)
+  .query();
+
+result = result
+  .filter(r => kmIds.includes(r.шифр_км))
+  .groupBy(
+    ['шифр_км', 'марки'],
+    [{ name: 'колво', alias: 'колво_ост_журн_выпуск', aggregate: 'sum' }]
+  )
+  .leftJoin(result5, (pr, jn) => pr.марки === jn.id_марки)
+  .leftJoin(result6, (pr, jn) => pr.уникальное_поле === jn.уникальное_поле)
+  .filter(r => r.марка_title_из_google != null)
+  .addColumn('флаг_ост_min', 'number')
+  .addColumn('флаг_произ_min', 'number')
+  .process(r => {
+    r.флаг_ост_min =
+      parseNumber(r.колво_ост_журн_выпуск) <= parseNumber(r.изготовленошт) ? 1 : 0;
+    r.флаг_произ_min =
+      parseNumber(r.изготовленошт) < parseNumber(r.колво_ост_журн_выпуск) ? 1 : 0;
+  })
+  .addColumn('осталось_произвести', 'number')
+  .addColumn('осталось_покрасить', 'number')
+  .addColumn('осталось_произвести_кг', 'number')
+  .addColumn('осталось_покрасить_кг', 'number')
+  .process(r => {
+    r.осталось_произвести =
+      parseNumber(r.изготовленошт) * r.флаг_ост_min +
+      parseNumber(r.колво_ост_журн_выпуск) * r.флаг_произ_min;
+    r.осталось_покрасить = r.осталось_произвести;
+    r.осталось_произвести_кг =
+      r.осталось_произвести * parseNumber(r.вес_одной_кг);
+    r.осталось_покрасить_кг =
+      r.осталось_покрасить * parseNumber(r.вес_одной_кг);
+  });
+
+return result;

@@ -1,0 +1,60 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "947dc434-9979-ed53-9785-69046e0bafd6",
+  "Name": "task_mark_messages",
+  "Title": "03.001.02 Отметить прочитанные сообщения",
+  "Memo": "Установки отметки прочитано в сообщениях",
+  "IsActive": true,
+  "Version": 8,
+  "Steps": [
+    {
+      "Expression": "workflow.task_mark_messages.step.messages.bjs",
+      "Uid": "73bb8d84-4aa5-3841-b186-7cc3a7d0bde6",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Messages",
+      "Name": "messages",
+      "Memo": "",
+      "IsActive": true
+    },
+    {
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "MetaObjectUid": "511f1188-9646-4865-9aef-71b30d48659f",
+      "SaveRegime": 2,
+      "SearchBy": "id",
+      "SourcePath": "messages",
+      "Condition": "",
+      "CreateRecords": false,
+      "HeaderMapping": [
+        {
+          "Uid": "a7ca9b7b-eb7b-4c42-8b35-f58699bc0299",
+          "SourceFieldName": "",
+          "DestinationFieldName": "has_read",
+          "DefaultValue": "true",
+          "SearchBy": "",
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "CreateIfNotExist": false
+        },
+        {
+          "Uid": "13959527-88c9-66db-1476-1e7624ea0b1f",
+          "SourceFieldName": "has_read_date",
+          "DestinationFieldName": "has_read_date",
+          "DefaultValue": "",
+          "SearchBy": "",
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "CreateIfNotExist": false
+        }
+      ],
+      "TableMapping": [],
+      "Uid": "2f1a88ca-a324-6876-cf22-ec8b56c0946b",
+      "PreviousStepUid": "73bb8d84-4aa5-3841-b186-7cc3a7d0bde6",
+      "KindUid": "a7edd0be-6f12-4fac-b88a-4f83acc7dacb",
+      "KindName": "data_object_loader",
+      "Title": "Set flag",
+      "Name": "set_flag",
+      "Memo": "",
+      "IsActive": true
+    }
+  ]
+}

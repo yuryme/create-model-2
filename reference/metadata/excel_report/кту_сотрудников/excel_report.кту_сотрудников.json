@@ -1,0 +1,53 @@
+{
+  "$schema": "../../system/schemas/excelReportSettings.schema.json",
+  "Uid": "552658f0-5d96-40b7-be08-c50a0d65af4c",
+  "Name": "кту_сотрудников",
+  "Title": "КТУ Сотрудников",
+  "Memo": "",
+  "IsActive": false,
+  "Version": 8,
+  "DataSources": [
+    {
+      "Uid": "3f5eb097-ca63-2414-4a5f-5ee0dc4e342e",
+      "Name": "rows",
+      "Expression": "excel_report.кту_сотрудников.data_source.rows.bjs",
+      "Memo": null
+    },
+    {
+      "Uid": "6179d17a-74ca-6a78-60c7-8d37eeb5a49f",
+      "Name": "totals",
+      "Expression": "excel_report.кту_сотрудников.data_source.totals.bjs",
+      "Memo": null
+    }
+  ],
+  "Filters": [
+    {
+      "Uid": "2ebb273e-8b10-5250-2210-1a2d90509e30",
+      "Name": "period",
+      "DataPath": "",
+      "Title": "Период",
+      "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+      "NumberDigits": 0,
+      "DefaultComparisonKind": 6,
+      "RenderPlace": 1,
+      "ControlKindUid": "97cb84b8-b357-4e14-8036-28ebc3be59b8",
+      "JoinOperator": 0,
+      "Required": true,
+      "AvailableComparisonKinds": []
+    },
+    {
+      "Uid": "17058759-8d89-c7a5-e6a5-c3fe40ae31d9",
+      "Name": "сотрудники",
+      "DataPath": "",
+      "Title": "Сотрудник",
+      "DataTypeUid": "c47d3835-48d8-427f-be89-e84c082575ef",
+      "NumberDigits": 0,
+      "DefaultComparisonKind": 0,
+      "RenderPlace": 0,
+      "ControlKindUid": "36a8d160-e7f6-41d3-9408-9c49a644720b",
+      "JoinOperator": 0,
+      "Required": false,
+      "AvailableComparisonKinds": []
+    }
+  ]
+}

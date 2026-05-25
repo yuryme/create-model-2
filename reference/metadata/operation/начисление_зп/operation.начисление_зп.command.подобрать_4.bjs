@@ -1,0 +1,39 @@
+const opDate = new Date($h.date);
+var dateStart = opDate.beginMonth();
+var dateEnd = opDate.endMonth();
+
+//1. ШТАТНОЕ РАСПИСАНИЕ
+var tableStaff = await from("records.штатное_расписание")
+  .select(["period","организация","должность","статья","тип_начисления_зп","сотрудники","оклад as ставка_оклад"])
+  .getDisplays().query();
+tableStaff.process(row=> row.period = new Date(row.period))
+          .filter(row=> row.period <= dateEnd);
+
+// 2. ВЕДОМОСТЬ РАБОЧЕГО ВРЕМЕНИ
+var tableWorkTime =  await from("records.ведомость_раб_врем")
+  .select(['period','сотрудники', 'раб_час as колво_рабчас']).getDisplays().query();
+
+var tableWorkRaw = tableWorkTime.process(row=> row.period = new Date(row.period))
+  .filter(row => row.period >= dateStart && row.period <= dateEnd)
+  .groupBy(["сотрудники","сотрудники_display"],	["колво_рабчас"])
+  .leftJoin(tableStaff, (pr,jn) => pr.сотрудники == jn.сотрудники)
+  .filter(row => row.тип_начисления_зп == 7)
+  .addColumn('сумма_расчет number').addColumn('сумма_начисления number')
+  .addColumn('коэфт number')
+
+  .process(r => {
+    const hours = r["ставка_оклад"] || 0;
+    const rate =  r["колво_рабчас"] || 0;
+    const norm = $h.число_рабдн_6_дн;
+    const k = norm ? hours / norm : 0;
+    const sum = rate * k;
+    r["коэфт"] = k;
+    r["сумма_расчет"] = sum;
+    r["сумма_начисления"] = r["сумма_расчет"];
+    })
+  .filter(row => {const hOrg = $h.организация; if (hOrg == null || hOrg === 0) return true; return row["организация"] === hOrg;})
+  .filter(row => row["сумма_начисления"] > 0 )
+  .orderBy((a,b) => a.сотрудники_display.localeCompare(b.сотрудники_display));
+
+  
+openPickUp(tableWorkRaw, 'table_4');

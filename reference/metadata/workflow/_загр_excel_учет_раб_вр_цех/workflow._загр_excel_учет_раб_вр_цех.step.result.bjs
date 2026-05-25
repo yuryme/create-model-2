@@ -1,0 +1,42 @@
+function safeParseNumber(value) {
+  if (value == null) return 0;        // null / undefined → 0
+
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  if (typeof value === "string") {
+    const s = value.trim().replace(',', '.');  // запятая → точка
+    const n = Number(s);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  return 0; // остальные типы
+}
+
+// 1. Отфильтровать меппинг: фамилия_ио не пустая
+let tableMapping = _data.mapping.filter(row => isNotEmpty(row["сотрудники_title"]));
+
+// 2. Получить штатное расписание (Справочник сотрудники) с нужными полями и заголовками
+const tableStaff = await from("catalog.сотрудники")
+  .select(['id as сотрудники', 'title as сотрудники_display'])
+  .query();
+
+// 3. Результат: меппинг + данные из штатного (справочника Сотрудники)
+const resultTable = tableMapping.leftJoin(
+  tableStaff,
+  (m, s) => m["сотрудники_title"] === s["сотрудники_display"])
+
+  .addColumn({ name: "итого", dataType: "number" })
+  .process(row => {
+    let total = 0;
+
+    for (let day = 1; day <= 31; day++) {
+      const col = `д_${day < 10 ? "0" + day : day}`;
+      const a = row[col];
+      total += safeParseNumber(a);
+    }
+    row["итого"] = total;
+  });
+
+return resultTable;

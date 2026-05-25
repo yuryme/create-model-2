@@ -1,0 +1,9 @@
+var tableData = createTable(
+  ['operation_id number', 'город number', 'тариф number', 'расстояние number']
+).addRow([1, 52, 1000, 200])
+ .addRow([1, 49, 4000, 1000])
+ .addRow([2, 52, 500, 250])
+ .addRow([2, 49, 4500, 1200])
+ .addRow([2, 61, 5000, 1500]);
+
+return tableData;

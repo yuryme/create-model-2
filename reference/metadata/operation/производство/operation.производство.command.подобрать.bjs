@@ -1,0 +1,27 @@
+var result_begin = await from("records.з_начать_производств")
+  .select(['марки', 'Count(*)'])
+  .groupBy('марки')
+  .query();
+result_begin = result_begin.toArray('марки'); // 1. Получили список всех марок в регистре з_начать_производств
+
+var tableMarki = await from("catalog.марки")
+  .select(['id', 'проект_заказ', 'колво', 'вес_всех_кг', 'вес_одной_кг'])
+  .where ('cat_марки.id in @марки')
+  .parameter('марки', result_begin)
+  .getDisplays()
+  .query(); // 2. выбрали из справочника марки, соответствующие списку по п.1
+
+var result = await from("records.з_начать_производств")
+  .select(['шифр_км', 'марки as марка', 'цеха', 'счетчик'])
+  .getDisplays()
+  .query();
+
+result = result
+   .groupBy(
+    ['шифр_км', 'шифр_км_display','марка', 'марка_display','цеха', 'цеха_display', 'счетчик'],
+    [])
+  .addColumn({ name: 'подбор', dataType: 'boolean'})
+  .process(r => { r.подбор = true; })
+  .leftJoin(tableMarki, (pr, jn) => pr.марка === jn.id); //3. Присоединили к сгруппированным маркам из з_начать_производств п.2
+
+openPickUp(result, 'table_1');

@@ -1,0 +1,10 @@
+setIsWaiting(true);
+console.log('workflow start', new Date());
+var source = await runWorkflow('_загрузка_excel_произв_1', 'запрос_данных', 
+                   [{name: 'number', dataType: 'integer', value: $h.number}],100);
+console.log('workflow end', new Date());
+
+setIsWaiting(false);
+$t.table_1.clear();
+$t.table_1.load(source);
+setIsModified(true);

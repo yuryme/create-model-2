@@ -1,0 +1,100 @@
+// ===============================
+// 1. Получаем записи
+// ===============================
+
+var existingRecords = await from('register.согласование_замечаний')
+  .where('проект_договора = @number')
+  .parameter('number', _parameters.number)
+  .query();
+
+
+// ===============================
+// 2. Определяем максимальный номер согласования и выбираем записи для копирования.
+// ===============================
+var  maxApproveNumber = existingRecords.max('согласование_номер') ?? 0;
+
+var  recordsToFill = existingRecords
+    .clone()
+    .filter(row => row.согласование_номер == maxApproveNumber);
+
+// новый номер
+var approveNumber = maxApproveNumber + 1;
+
+
+// ===============================
+// 3. Таблица
+// ===============================
+
+var records = createTable([
+  'проект_договора number',
+  'approve_role',
+  'person number',
+  'порядок number', 
+  'на_согласовании boolean', 
+  'дата_отправки_на_согласование',
+  'дата_согласования',
+  'комментарий',
+  'согласовано boolean',
+  'person_fact number',
+  'согласование_номер number'
+]);
+
+
+// ===============================
+// 4. Заполнение
+// ===============================
+
+recordsToFill.process(row => {
+
+  records.addRow([
+    _parameters.number,
+    row.approve_role,
+    row.person,
+    row["порядок"],
+    false,
+    null,
+    null,
+    null,
+    false,
+    null,
+    approveNumber
+  ]);
+
+});
+
+
+// ===============================
+// 5. Дата
+// ===============================
+
+var today = new Date();
+today.setHours(today.getHours() + 3);
+today = today.toLocalISO();
+
+
+// ===============================
+// 6. Первый согласующий
+// ===============================
+
+var minOrder = records.clone().min('порядок');
+
+records.process(row => {
+
+  if (row["порядок"] == minOrder) {
+    row.на_согласовании = true;
+    row.дата_отправки_на_согласование = today;
+  }
+
+});
+
+
+// ===============================
+//7. Проверка
+// ===============================
+
+if (records.count() == 0) {
+  throw 'Не сформированы записи для согласования';
+}
+
+
+return records;

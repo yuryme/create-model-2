@@ -1,0 +1,8 @@
+/*operation.монтаж_площадка.table_1 | OperationId( $h.ид_заполнения ) | Select()*/
+
+var result = await from('operation.монтаж_площадка.table_1')
+  .where('object_uid = @id')
+  .parameter('id', $h.ид_заполнения, 11)
+  .query();
+
+return result;

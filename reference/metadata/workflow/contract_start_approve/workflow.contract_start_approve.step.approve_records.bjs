@@ -1,0 +1,77 @@
+var records = createTable([
+  'проект_договора number',
+  'approve_role',
+  'person number',
+  'порядок number', 
+  'на_согласовании boolean', 
+  'дата_отправки_на_согласование']);
+
+function addApproveRecord(record) {
+  if (record == null) return;
+  records.addRow([
+    _parameters.number,
+    record.approve_role,
+    record.person,
+    record.fill_order,
+    false,
+    ''
+  ]);
+}
+
+// Инициатор
+addApproveRecord({
+  approve_role: 'инициатор',
+  person: _parameters.initiator,
+  fill_order: 1
+});
+
+// Руководитель
+var managerRecord = _data.approve_settings.rows.find(
+  row => row.approve_role == 'рук_подразделения' && row.department == _parameters.department && row.department);  
+
+if (managerRecord) {
+  addApproveRecord(managerRecord);
+}
+
+// Ответственные по проекту.
+var projectRoles = ['проект_1', 'проект_2', 'проект_3'];
+_data.approve_settings.rows
+  .filter(row => projectRoles.indexOf(row.approve_role) !== -1 && row.project == _parameters.project)
+  .forEach(addApproveRecord); 
+
+// Заполнение по виду договора.
+var contractKindRoles = ['строительство', 'сдо'];
+_data.approve_settings.rows
+  .filter(row => contractKindRoles.indexOf(row.approve_role) !== -1 && row.contract_kind == _parameters.contract_kind)
+  .forEach(addApproveRecord); 
+
+
+// Обязательные визы.
+var requiredRoles = ['юр_отдел', 
+  'гл_бухгалтер', 
+  'снабжение', 
+  'исп_директор', 
+  'спец_договоры', 
+  'ген_директор'];
+  
+var requiredRecords = _data.approve_settings.rows.filter(function(row) {
+    return requiredRoles.indexOf(row.approve_role) !== -1;
+});
+
+requiredRecords.forEach(settingsRow => {
+  addApproveRecord(settingsRow);
+});
+
+var today = (new Date());
+today.setHours(today.getHours()+3);
+var today = today.toLocalISO();
+var minOrder = records.clone().min('порядок');
+records.process(row => {
+  if (row.порядок == minOrder){
+     row.на_согласовании = true;
+     row.дата_отправки_на_согласование = today;
+  }
+});
+
+
+return records;

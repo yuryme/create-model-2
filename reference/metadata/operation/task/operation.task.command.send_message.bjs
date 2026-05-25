@@ -1,0 +1,17 @@
+setIsWaiting(true);
+var personTo = $h.current_user == $h.responsible ? $h.author : $h.responsible;
+var result = await runWorkflow('task_message', 
+                               'load', 
+                               [{name: 'person_from', dataType: 'integer', value: $h.current_user},
+                                {name: 'person_to', dataType: 'integer', value: personTo},
+                                {name: 'author', dataType: 'integer', value: $h.author},
+                                {name: 'task', dataType: 'integer', value: $h.number},
+                                {name: 'message', dataType: 'string', value: $h.message}
+                               ]);
+
+setIsWaiting(false);
+
+$h.message = '';
+setIsModified(false);
+refresh('list');
+return result;

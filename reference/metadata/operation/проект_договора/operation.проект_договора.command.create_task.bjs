@@ -1,0 +1,15 @@
+   openDialog({kind: 'operation'
+           , name: 'task'
+           , formName: 'create_task'
+           , title: 'Новая задача'
+           , width: '40rem'
+           , parameters: {
+             author: $h.текущее_физлицо,
+             contract_draft: $h.number,
+             regime: 'new'
+           },
+           onClose: () => {
+            console.log('On task close');
+            refresh('list_tasks');
+          }    
+          });

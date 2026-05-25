@@ -1,0 +1,41 @@
+// Конвертация HubCloud -> BaSYS для пайпа из input.txt
+
+// Диапазон дневных колонок д_01..д_31
+const dayColumns = Array.from({ length: 31 }, (_, i) => `д_${String(i + 1).padStart(2, "0")}`);
+
+// Источник: $t.table_2 (сотрудники, кту, д_01..д_31)
+const table2 = $t.table_2;
+
+// Короткая таблица для последующего join (сотрудники, кту)
+const table2Short = createTable([
+  { name: "сотрудники" },
+  { name: "кту", dataType: "number" }
+]).load(table2.rows.map(r => [r["сотрудники"], r["кту"]]));
+
+// Основная обработка: разворот по дням, расчёт часов/смен и КТУ часов
+let result = table2
+  .clone()
+  .unpivot("time_str", dayColumns, "time_str_unpivot_number")
+  .parseNumber("time", "time_str")
+  .process(row => {
+    const time = row.time || 0;
+    const inFirstHalf = row.time_str_unpivot_number <= 15;
+    const inSecondHalf = !inFirstHalf;
+    const hasTime = time > 0;
+    const ktu = row["кту"] || 0;
+
+    row["часы_аванс"] = inFirstHalf ? time : 0;
+    row["часы_часть_2_я"] = inSecondHalf ? time : 0;
+    row["смены_аванс"] = inFirstHalf && hasTime ? 1 : 0;
+    row["смены_часть_2_я"] = inSecondHalf && hasTime ? 1 : 0;
+    row["кту_часы_аванс"] = row["часы_аванс"] * ktu;
+    row["кту_часы_часть_2_я"] = row["часы_часть_2_я"] * ktu;
+  })
+  .groupBy(
+    ["сотрудники"],
+    ["часы_аванс", "часы_часть_2_я", "смены_аванс", "смены_часть_2_я", "кту_часы_аванс", "кту_часы_часть_2_я"]
+  )
+  .leftJoin(table2Short, (l, r) => l["сотрудники"] === r["сотрудники"]);
+
+// Итог
+return result;
