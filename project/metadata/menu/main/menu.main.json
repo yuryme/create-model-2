@@ -5,93 +5,111 @@
   "Title": "Основное",
   "Memo": "",
   "IsActive": true,
-  "Version": 8,
+  "Version": 12,
   "Items": [
     {
       "Uid": "4725e703-7ecc-10c4-658f-f4820cb5278e",
       "Kind": 3,
       "Title": "Справочники",
-      "IconClass": "",
+      "IconClass": "pi pi-book",
       "Url": "",
       "IsVisible": true,
       "AutoFill": true,
-      "ItemsPerColumn": 10,
+      "ItemsPerColumn": 20,
       "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
-      "Items": [
-        {
-          "Uid": "31b6e889-b984-4606-7e78-08c241a71f3d",
-          "Items": [
-            {
-              "Uid": "4e131143-9c8a-e8db-3882-d7b556d2039a",
-              "Title": "Подгруппа 1",
-              "IsVisible": true,
-              "Items": [
-                {
-                  "Uid": "e9cfcd8a-25e6-af2f-8710-b465a810b884",
-                  "Kind": 1,
-                  "Title": "Элемент 1",
-                  "IconClass": "",
-                  "Url": "",
-                  "IsVisible": true
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "Items": [],
       "MetaObjectKindUidParsed": "032d8377-500f-4631-b435-1f7f69046674"
     },
     {
-      "Uid": "e8f770ea-d608-464d-9408-ca0207c93da1",
-      "Kind": 1,
-      "Title": "Книги",
-      "IconClass": "pi pi-book",
-      "Url": "/app#/data-objects/catalog/book",
-      "IsVisible": true,
-      "AutoFill": false,
-      "ItemsPerColumn": 10,
-      "MetaObjectKindUid": null,
-      "Items": [],
-      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "Uid": "2232bc5d-189e-482d-ab27-7fa0329cec8d",
-      "Kind": 1,
-      "Title": "Авторы",
-      "IconClass": "pi pi-user",
-      "Url": "/app#/data-objects/catalog/author",
-      "IsVisible": true,
-      "AutoFill": false,
-      "ItemsPerColumn": 10,
-      "MetaObjectKindUid": null,
-      "Items": [],
-      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "Uid": "7a61cc73-e86f-4a3d-aea4-d454d00d0e71",
-      "Kind": 1,
-      "Title": "Жанры",
+      "Uid": "510f86fc-e972-487a-9406-5b80827ec9ac",
+      "Kind": 3,
+      "Title": "Перечисления",
       "IconClass": "pi pi-tag",
-      "Url": "/app#/data-objects/enum/genre",
+      "Url": "",
       "IsVisible": true,
-      "AutoFill": false,
-      "ItemsPerColumn": 10,
-      "MetaObjectKindUid": null,
+      "AutoFill": true,
+      "ItemsPerColumn": 20,
+      "MetaObjectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
       "Items": [],
-      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+      "MetaObjectKindUidParsed": "5449a8ad-9359-41b2-8ff2-3f415eb4da76"
     },
     {
-      "Uid": "31177386-ed25-4f58-b317-1cb248140059",
-      "Kind": 1,
-      "Title": "Выдачи",
-      "IconClass": "pi pi-send",
-      "Url": "/app#/data-objects/operation/loan",
+      "Uid": "f685aa5c-b82f-475c-89fe-c182b878370a",
+      "Kind": 3,
+      "Title": "Операции",
+      "IconClass": "pi pi-file",
+      "Url": "",
       "IsVisible": true,
-      "AutoFill": false,
-      "ItemsPerColumn": 10,
-      "MetaObjectKindUid": null,
+      "AutoFill": true,
+      "ItemsPerColumn": 20,
+      "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
       "Items": [],
-      "MetaObjectKindUidParsed": "00000000-0000-0000-0000-000000000000"
+      "MetaObjectKindUidParsed": "14a60875-e241-4e99-b32d-d45b2726d18b"
+    },
+    {
+      "Uid": "887c1752-e0e1-4ce2-91ce-2c5f4c197144",
+      "Kind": 3,
+      "Title": "Регистры движений",
+      "IconClass": "pi pi-table",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 20,
+      "MetaObjectKindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+      "Items": [],
+      "MetaObjectKindUidParsed": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3"
+    },
+    {
+      "Uid": "b52a4827-83be-4465-83d1-619c6d9708bf",
+      "Kind": 3,
+      "Title": "Регистры сведений",
+      "IconClass": "pi pi-database",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 20,
+      "MetaObjectKindUid": "f3ecb444-8e72-4387-83f1-66c712de1c32",
+      "Items": [],
+      "MetaObjectKindUidParsed": "f3ecb444-8e72-4387-83f1-66c712de1c32"
+    },
+    {
+      "Uid": "8ac050d9-fc3d-4c70-ac84-ff43cb97c967",
+      "Kind": 3,
+      "Title": "Панели данных",
+      "IconClass": "pi pi-chart-bar",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 20,
+      "MetaObjectKindUid": "715abcb0-da8a-4442-b9c6-2b6b1c51a5fb",
+      "Items": [],
+      "MetaObjectKindUidParsed": "715abcb0-da8a-4442-b9c6-2b6b1c51a5fb"
+    },
+    {
+      "Uid": "9e10cf90-7c32-4ad5-8834-d3a77e53cb2e",
+      "Kind": 3,
+      "Title": "Отчёты Excel",
+      "IconClass": "pi pi-file-excel",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 20,
+      "MetaObjectKindUid": "61db4320-2255-4b62-8d1e-30b72168ded0",
+      "Items": [],
+      "MetaObjectKindUidParsed": "61db4320-2255-4b62-8d1e-30b72168ded0"
+    },
+    {
+      "Uid": "3e491cfd-2b33-4993-bc2f-c608680e365e",
+      "Kind": 3,
+      "Title": "Процессы",
+      "IconClass": "pi pi-cog",
+      "Url": "",
+      "IsVisible": true,
+      "AutoFill": true,
+      "ItemsPerColumn": 20,
+      "MetaObjectKindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
+      "Items": [],
+      "MetaObjectKindUidParsed": "8734f14e-13d0-4f74-a960-f21f74853cda"
     }
   ]
 }

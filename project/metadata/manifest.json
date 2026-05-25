@@ -1,6 +1,6 @@
 {
   "FormatVersion": "1.7",
-  "ExportedAtUtc": "2026-05-16T23:09:03.9699532Z",
+  "ExportedAtUtc": "2026-05-25T00:00:00.0000000Z",
   "HashAlgorithm": "SHA-256",
   "Producer": {
     "Application": "BaSys.Constructor",
@@ -11,18 +11,18 @@
   },
   "Counts": {
     "Kinds": 9,
-    "DataTypes": 14,
-    "MetaObjects": 5,
+    "DataTypes": 10,
+    "MetaObjects": 1,
     "DataViews": 0,
-    "Workflows": 1,
+    "Workflows": 0,
     "Menus": 1,
     "ExcelReports": 0,
     "ExcelReportTemplates": 0,
     "DataSourceScripts": 0,
     "RecordsSourceScripts": 0,
-    "CommandScripts": 2,
-    "WorkflowStepScripts": 1,
-    "Files": 25
+    "CommandScripts": 0,
+    "WorkflowStepScripts": 0,
+    "Files": 17
   },
   "Files": [
     {
@@ -187,30 +187,8 @@
       "KindName": null,
       "Name": null,
       "Version": null,
-      "SizeBytes": 3451,
-      "Sha256": "395f6bbafc886dd254ba0511f40a537c0ef5ced0b3458070a641aa7daaecc4b4"
-    },
-    {
-      "Path": "catalog/author/catalog.author.json",
-      "Category": "metaObject",
-      "Uid": "2ef2827b-6bac-45af-ace1-b2d98e480131",
-      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
-      "KindName": "catalog",
-      "Name": "author",
-      "Version": 1,
-      "SizeBytes": 4415,
-      "Sha256": "f8d3d208eb9034d85ad467efa1dc980afb8838462bd8b7bc468ca722109de32f"
-    },
-    {
-      "Path": "catalog/book/catalog.book.json",
-      "Category": "metaObject",
-      "Uid": "d892e0a7-64d7-4d84-9ec7-27f1285b99cf",
-      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
-      "KindName": "catalog",
-      "Name": "book",
-      "Version": 1,
-      "SizeBytes": 9794,
-      "Sha256": "1cfbc4526807b929441c65930a1950266cac3c492eba988f088de1315c475d72"
+      "SizeBytes": 2391,
+      "Sha256": "a9e8ad435f16683d933bd2ba82426e65fdc00b9825e61e50673d72b1b5e68eb2"
     },
     {
       "Path": "catalog/product_group/catalog.product_group.json",
@@ -224,81 +202,15 @@
       "Sha256": "deca3f19d9f8563da40df8718399b2d850e4a8eab149b645149aaaa97f24efa3"
     },
     {
-      "Path": "enum/genre/enum.genre.json",
-      "Category": "metaObject",
-      "Uid": "323cd28e-c79c-4708-8e1a-949b8a3620a0",
-      "KindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
-      "KindName": "enum",
-      "Name": "genre",
-      "Version": 1,
-      "SizeBytes": 4411,
-      "Sha256": "3c1cd7d0722d9fa5cb3134b2d171c4268595a7467596dc445a4300d93701f42f"
-    },
-    {
-      "Path": "operation/loan/operation.loan.command.recalc_due_date.bjs",
-      "Category": "commandScript",
-      "Uid": "35fd62b4-e54a-4552-8189-a648bec221a3",
-      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
-      "KindName": "operation",
-      "Name": "recalc_due_date",
-      "Version": 2,
-      "SizeBytes": 382,
-      "Sha256": "56a559440aab6ca484a95a670f10d4728473be1f8d173cdfacd6301c69d5e694"
-    },
-    {
-      "Path": "operation/loan/operation.loan.command.refresh_overdue_books.bjs",
-      "Category": "commandScript",
-      "Uid": "35fd62b4-e54a-4552-8189-a648bec221a3",
-      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
-      "KindName": "operation",
-      "Name": "refresh_overdue_books",
-      "Version": 2,
-      "SizeBytes": 1048,
-      "Sha256": "8a6280e947e6aad3e7f36b54badef8095f1b048cef59bbbde967da0c988640ce"
-    },
-    {
-      "Path": "operation/loan/operation.loan.json",
-      "Category": "metaObject",
-      "Uid": "35fd62b4-e54a-4552-8189-a648bec221a3",
-      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
-      "KindName": "operation",
-      "Name": "loan",
-      "Version": 2,
-      "SizeBytes": 20096,
-      "Sha256": "7157b08d11e5d38f948a5249d2c9138d2eead761c04d1f5b6232160366d80dcf"
-    },
-    {
-      "Path": "workflow/overdue_loans/workflow.overdue_loans.step.data.bjs",
-      "Category": "workflowStepScript",
-      "Uid": "b34eea83-1228-4150-8b5a-64186f9d1b9c",
-      "KindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
-      "KindName": "workflow",
-      "Name": "data",
-      "Version": 3,
-      "SizeBytes": 3816,
-      "Sha256": "e13a51e34a16ec5d227fe1fb636af722b0791953d615455c4bd0930d3889d4da"
-    },
-    {
-      "Path": "workflow/overdue_loans/workflow.overdue_loans.json",
-      "Category": "workflow",
-      "Uid": "b34eea83-1228-4150-8b5a-64186f9d1b9c",
-      "KindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
-      "KindName": "workflow",
-      "Name": "overdue_loans",
-      "Version": 3,
-      "SizeBytes": 1382,
-      "Sha256": "8a0dab5bad31ad593d621e4e2cfee054b52a2db23e68c5c164ec8eed883a7038"
-    },
-    {
       "Path": "menu/main/menu.main.json",
       "Category": "menu",
       "Uid": "199fd023-fc52-a928-ed69-833f243a8ca8",
       "KindUid": "4fb2cc15-2579-4d01-aedb-f097430756f7",
       "KindName": "menu",
       "Name": "main",
-      "Version": 8,
-      "SizeBytes": 2817,
-      "Sha256": "a41ea4b566acd6e7ac516e3e16b4b6d764ce84e088d30453a1390dfb69c20016"
+      "Version": 12,
+      "SizeBytes": 3528,
+      "Sha256": "400863f2a0ec29c491bd75d0fc277f27ac34afdb96038ada8eb70c79157252a8"
     }
   ]
 }

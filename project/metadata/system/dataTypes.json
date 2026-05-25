@@ -90,26 +90,6 @@
     "typeName": "System.Guid"
   },
   {
-    "uid": "2ef2827b-6bac-45af-ace1-b2d98e480131",
-    "kind": "catalog",
-    "name": "author",
-    "title": "Catalog.Авторы",
-    "isPrimitive": false,
-    "dbType": 11,
-    "objectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
-    "typeName": null
-  },
-  {
-    "uid": "d892e0a7-64d7-4d84-9ec7-27f1285b99cf",
-    "kind": "catalog",
-    "name": "book",
-    "title": "Catalog.Книги",
-    "isPrimitive": false,
-    "dbType": 11,
-    "objectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
-    "typeName": null
-  },
-  {
     "uid": "a67af422-d044-4e50-8e8b-6c60cbe5cfdf",
     "kind": "catalog",
     "name": "product_group",
@@ -117,26 +97,6 @@
     "isPrimitive": false,
     "dbType": 11,
     "objectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
-    "typeName": null
-  },
-  {
-    "uid": "323cd28e-c79c-4708-8e1a-949b8a3620a0",
-    "kind": "enum",
-    "name": "genre",
-    "title": "Enum.Жанры",
-    "isPrimitive": false,
-    "dbType": 16,
-    "objectKindUid": "5449a8ad-9359-41b2-8ff2-3f415eb4da76",
-    "typeName": null
-  },
-  {
-    "uid": "35fd62b4-e54a-4552-8189-a648bec221a3",
-    "kind": "operation",
-    "name": "loan",
-    "title": "Operation.Выдача",
-    "isPrimitive": false,
-    "dbType": 11,
-    "objectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
     "typeName": null
   }
 ]

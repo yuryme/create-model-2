@@ -37,4 +37,4 @@ Exception: `$schema` paths inside BaSYS metadata JSON files are relative to the 
 - Do not edit `reference/` unless explicitly asked.
 - Do not edit `basys-docs/` except explicit documentation update operations.
 - Before creating, editing, or deleting files, provide a concise action plan and wait for explicit PM approval.
-- Do not remove legacy `.claude/` files until the OpenCode replacement is verified and the PM approves cleanup.
+- Legacy Claude Code project files have been removed; use `.opencode/skills/` and `opencode.json` for project instructions.
