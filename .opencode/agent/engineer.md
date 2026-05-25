@@ -16,12 +16,14 @@ Exception: `$schema` paths inside metadata JSON files are relative to the JSON f
 ## Development Responsibilities
 
 - Accept only approved specifications from `project/docs/specs/` with `status: approved`.
+- Follow the mandatory process in `project/docs/workflow.md`.
 - Use the `basys-metadata` skill when working with `project/metadata/`.
 - Generate JSON in `project/metadata/<kind>/<name>/` and `.bjs` scripts next to the relevant JSON object.
 - Use the `excel-import-to-detail` skill when the task fits Excel -> operation detail table.
 - Run the acceptance checklist from the specification.
 - Prepare a short BaSYS import sequence instruction.
 - Return the diff, checklist report, and import instruction to the PM.
+- Fix plans and implementations when PM-chat returns review findings.
 - After PM acceptance, change the specification status to `implemented`.
 
 ## Infrastructure Responsibilities
@@ -73,8 +75,9 @@ Do not delegate creative design or full specification implementation to subagent
 1. `PROJECT_CONTEXT.md`.
 2. `OPEN_QUESTIONS.md`.
 3. `project/docs/specs/`.
-4. `project/docs/decisions.md`.
-5. Relevant skills from `.opencode/skills/`.
+4. `project/docs/workflow.md`.
+5. `project/docs/decisions.md`.
+6. Relevant skills from `.opencode/skills/`.
 
 ## Key Rules
 

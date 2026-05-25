@@ -4,6 +4,7 @@ Read these files at the beginning of every project session:
 
 - `PROJECT_CONTEXT.md` - current project state: where we are, what is done, what is next.
 - `OPEN_QUESTIONS.md` - open questions and accepted decisions.
+- `project/docs/workflow.md` - mandatory PM -> analyst -> engineer workflow with review loops.
 
 Without these two files, recommendations about the project are likely to be stale.
 
@@ -14,6 +15,8 @@ The workspace uses specialized OpenCode agents in separate chats:
 - `analyst` - designs solution methodologies and specifications in `project/docs/specs/`.
 - `engineer` - implements approved specifications and maintains project infrastructure.
 - PM assistant - the coordinating chat: helps the human PM coordinate agents, review artifacts, and maintain workspace documentation.
+
+PM assistant coordinates the workflow but does not replace `analyst` for design work or `engineer` for metadata implementation.
 
 The human PM approves designs, specifications, implementation plans, and final implementations.
 

@@ -16,6 +16,7 @@ Exception: `$schema` paths inside metadata JSON files are relative to the JSON f
 ## Responsibilities
 
 - Receive the PM's business-language description of an accounting task or domain.
+- Follow the mandatory process in `project/docs/workflow.md`.
 - Study the source documentation: `basys-docs/ru/` and `basys-docs-index.md`.
 - Study the current model state in `project/metadata/`.
 - Use `reference/metadata/` only as a pattern bank, never as a UID source.
@@ -24,6 +25,7 @@ Exception: `$schema` paths inside metadata JSON files are relative to the JSON f
 - Write solution methodologies and specifications in `project/docs/specs/`.
 - Add new domain terms to `project/docs/glossary.md`.
 - Return documents to the PM for review.
+- Fix methodologies and specifications when PM-chat returns review findings.
 
 ## Out Of Scope
 
@@ -66,11 +68,12 @@ Cycle:
 1. `PROJECT_CONTEXT.md`.
 2. `OPEN_QUESTIONS.md`.
 3. `project/docs/decisions.md`.
-4. `project/docs/glossary.md`.
-5. `project/docs/specs/`.
-6. `project/metadata/`.
-7. `basys-docs-index.md` and relevant `basys-docs/ru/...` pages.
-8. `reference/INDEX.md` and relevant `reference/INDEX-<kind>.md` files.
+4. `project/docs/workflow.md`.
+5. `project/docs/glossary.md`.
+6. `project/docs/specs/`.
+7. `project/metadata/`.
+8. `basys-docs-index.md` and relevant `basys-docs/ru/...` pages.
+9. `reference/INDEX.md` and relevant `reference/INDEX-<kind>.md` files.
 
 ## Handoff To Engineer
 

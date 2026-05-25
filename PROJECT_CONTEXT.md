@@ -31,6 +31,7 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 - User-level `opencode-docs` skill — справочник по актуальной документации OpenCode; использовать перед изменениями OpenCode-инфраструктуры.
 - `project/metadata/` — чистая стартовая BaSYS-модель: `system/`, `catalog/product_group`, `menu/main`.
 - `project/docs/` — ADR, словарь, шаблоны, будущие ТЗ, методики, планы и материалы интервью.
+- `project/docs/workflow.md` — обязательный процесс PM -> analyst -> engineer с review loops и возвратами к владельцу ошибки.
 - `basys-docs-index.md` — карта локальной документации BaSYS.
 - `reference/` — read-only корпус примеров из другой BaSYS-инсталляции; использовать только как банк паттернов, не как источник UID.
 - `inbox/` — зона входящих материалов.
@@ -53,6 +54,7 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 - UID видов, типов, стандартных колонок и схем брать только из `project/metadata/system/`.
 - Новые `Name` объектов и колонок — латиница `snake_case`, максимум 30 символов.
 - При любой реализации Инженер обязан дать инструкцию импорта в BaSYS.
+- PM-chat координирует workflow, но не подменяет analyst при проектировании и engineer при реализации.
 
 ## Что следующее
 
