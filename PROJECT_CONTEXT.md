@@ -26,7 +26,8 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 - `opencode.json` — проектная конфигурация OpenCode, подключает `AGENTS.md` и `.opencode/skills/`.
 - `AGENTS.md` — постоянная инструкция workspace для OpenCode.
 - `.opencode/agent/` — OpenCode agents: `analyst`, `engineer`.
-- `.opencode/skills/` — OpenCode skills: `basys-metadata`, `basys-docs`, `client-interview`, `excel-import-to-detail`.
+- `.opencode/skills/` — OpenCode skills. BaSYS metadata skills are generated from `BaSYS.CursorRules`; operational/project skills are maintained locally.
+- `basys-cursor-rules/` — локальный read-only clone `https://github.com/BaSysTeam/BaSYS.CursorRules`, branch `main`, source of truth для generated BaSYS skills.
 - User-level `opencode-docs` skill — справочник по актуальной документации OpenCode; использовать перед изменениями OpenCode-инфраструктуры.
 - `project/metadata/` — чистая стартовая BaSYS-модель: `system/`, `catalog/product_group`, `menu/main`.
 - `project/docs/` — ADR, словарь, шаблоны, будущие ТЗ, методики, планы и материалы интервью.
@@ -47,6 +48,8 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 - Перед созданием, редактированием или удалением файлов ассистент даёт краткий план и ждёт явного одобрения PM.
 - `reference/` не редактировать без явного запроса.
 - `basys-docs/` не редактировать, кроме явного обновления документации.
+- `basys-cursor-rules/` не редактировать; обновлять только через `git pull --ff-only`.
+- Generated BaSYS skills не редактировать вручную; синхронизировать только через `basys-cursor-rules-sync`.
 - UID видов, типов, стандартных колонок и схем брать только из `project/metadata/system/`.
 - Новые `Name` объектов и колонок — латиница `snake_case`, максимум 30 символов.
 - При любой реализации Инженер обязан дать инструкцию импорта в BaSYS.
