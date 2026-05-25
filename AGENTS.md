@@ -2,7 +2,7 @@
 
 Read these files at the beginning of every project session:
 
-- `Claude_Context.md` - current project state: where we are, what is done, what is next.
+- `PROJECT_CONTEXT.md` - current project state: where we are, what is done, what is next.
 - `OPEN_QUESTIONS.md` - open questions and accepted decisions.
 
 Without these two files, recommendations about the project are likely to be stale.
@@ -17,6 +17,10 @@ The workspace uses specialized OpenCode agents in separate chats:
 
 The human PM approves designs, specifications, implementation plans, and final implementations.
 
+## OpenCode Infrastructure
+
+Before changing `opencode.json`, `.opencode/agent/`, `.opencode/skills/`, plugins, MCP, providers, commands, or permission rules, use the user-level skill `opencode-docs` and verify exact config shapes against `https://opencode.ai/config.json`.
+
 ## Path Convention
 
 OpenCode is launched from the workspace root `create-model-2/`. Paths in project instructions are relative to this root.
@@ -30,7 +34,7 @@ Exception: `$schema` paths inside BaSYS metadata JSON files are relative to the 
 - `basys-docs-index.md` - local map of `basys-docs/ru/`.
 - `reference/` - read-only reference export from another BaSYS installation; use for patterns, not UID values.
 - `inbox/` - incoming materials for analysis.
-- `Claude_Context.md`, `OPEN_QUESTIONS.md` - workspace-level working documents.
+- `PROJECT_CONTEXT.md`, `OPEN_QUESTIONS.md` - workspace-level working documents.
 
 ## Safety Rules
 

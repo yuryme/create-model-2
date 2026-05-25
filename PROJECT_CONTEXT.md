@@ -1,4 +1,4 @@
-# Краткий контекст сессии
+# Контекст проекта
 
 > **Назначение.** Снимок текущего состояния workspace для быстрой пересборки картины в новой сессии или после компрессии контекста.
 > **Не дублировать:** обсуждения и очередь вопросов → `OPEN_QUESTIONS.md`; формальные архитектурные решения → `project/docs/decisions.md`.
@@ -27,6 +27,7 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 - `AGENTS.md` — постоянная инструкция workspace для OpenCode.
 - `.opencode/agent/` — OpenCode agents: `analyst`, `engineer`.
 - `.opencode/skills/` — OpenCode skills: `basys-metadata`, `basys-docs`, `client-interview`, `excel-import-to-detail`.
+- User-level `opencode-docs` skill — справочник по актуальной документации OpenCode; использовать перед изменениями OpenCode-инфраструктуры.
 - `project/metadata/` — чистая стартовая BaSYS-модель: `system/`, `catalog/product_group`, `menu/main`.
 - `project/docs/` — ADR, словарь, шаблоны, будущие ТЗ, методики, планы и материалы интервью.
 - `basys-docs-index.md` — карта локальной документации BaSYS.

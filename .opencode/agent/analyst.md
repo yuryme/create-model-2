@@ -63,7 +63,7 @@ Cycle:
 
 ## Session Start Checklist
 
-1. `Claude_Context.md`.
+1. `PROJECT_CONTEXT.md`.
 2. `OPEN_QUESTIONS.md`.
 3. `project/docs/decisions.md`.
 4. `project/docs/glossary.md`.

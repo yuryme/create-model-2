@@ -27,7 +27,7 @@ Exception: `$schema` paths inside metadata JSON files are relative to the JSON f
 ## Infrastructure Responsibilities
 
 - Maintain `.opencode/skills/`, `.opencode/agent/`, and `opencode.json` when explicitly tasked.
-- Maintain `OPEN_QUESTIONS.md`, `Claude_Context.md`, and `project/docs/decisions.md` for agreed work.
+- Maintain `OPEN_QUESTIONS.md`, `PROJECT_CONTEXT.md`, and `project/docs/decisions.md` for agreed work.
 - Update local BaSYS documentation and index through the `basys-docs` skill only on explicit request.
 - Debug permissions, paths, and BaSYS import issues.
 - Run helper scripts such as `build_reference_index.py` when needed.
@@ -70,7 +70,7 @@ Do not delegate creative design or full specification implementation to subagent
 
 ## Session Start Checklist
 
-1. `Claude_Context.md`.
+1. `PROJECT_CONTEXT.md`.
 2. `OPEN_QUESTIONS.md`.
 3. `project/docs/specs/`.
 4. `project/docs/decisions.md`.

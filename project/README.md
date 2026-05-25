@@ -24,7 +24,7 @@
 - `../basys-docs-index.md` — карта по `basys-docs/ru/`.
 - `../reference/` — экспорт действующей системы как референсный корпус (read-only).
 - `../AGENTS.md`, `../.opencode/agent/` и `../.opencode/skills/` — методические правила работы.
-- `../OPEN_QUESTIONS.md`, `../Claude_Context.md` — рабочие файлы для AI-ассистента.
+- `../OPEN_QUESTIONS.md`, `../PROJECT_CONTEXT.md` — рабочие файлы для AI-ассистента.
 
 ## Подробнее
 
