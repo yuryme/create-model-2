@@ -1,0 +1,299 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "e7881240-d73d-4a33-a1c7-7c0bad5cb4ee",
+  "MetaObjectKindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+  "Title": "Расчеты с контрагентами",
+  "Name": "settlement_records",
+  "Memo": "Движения задолженности с контрагентами.",
+  "EditMethod": 0,
+  "OrderByExpression": "period, id",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "204e0648-44e7-4456-904e-a763bb4fb00f",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "Таблица записей регистра.",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "c0cd147f-da1c-4b3b-879f-2cce5e15539a",
+        "Kind": 0,
+        "StandardColumnUid": "7f7eb95c-7b70-4e4f-a391-4080d0710589",
+        "Title": "Id",
+        "Name": "id",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "daa57cb0-32eb-4709-b61f-4ea023ae31c3",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "992579b8-459d-441a-9db5-54411e47fd54",
+        "Kind": 0,
+        "StandardColumnUid": "8893e1df-525e-4a3f-b421-988294b4a2a8",
+        "Title": "Period",
+        "Name": "period",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "d6321794-6207-4f28-aeaf-a49c5db3eab4",
+        "Kind": 0,
+        "StandardColumnUid": "dcb06a92-5d6f-46be-af10-88a4f91f47e6",
+        "Title": "Object kind",
+        "Name": "object_kind",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "689d1aac-66d8-478f-852e-0e3881b427bf",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3ca55866-c636-45a6-8c5c-d5c916533bd7",
+        "Kind": 0,
+        "StandardColumnUid": "7c2b8ad7-034d-495b-ba80-e300edc50146",
+        "Title": "Meta object",
+        "Name": "meta_object",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "a4d064c6-465f-42a5-bbc0-48f743148c36",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "0cb34b3e-2744-4bae-92f6-a160ee8d1703",
+        "Kind": 0,
+        "StandardColumnUid": "78c493f2-e58a-4ce6-8665-27af40000562",
+        "Title": "Object",
+        "Name": "object_uid",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "dad442df-3b85-4fd7-b0a4-ea05eb17bc03",
+        "Kind": 0,
+        "StandardColumnUid": "398c66ad-10ce-4c75-9a7b-f2ba9398972f",
+        "Title": "Row number",
+        "Name": "row",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "bc87662c-fc82-41e8-abb5-c14e20ed26f4",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Организация",
+        "Name": "company",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "d3f3586b-e048-4800-80f9-16c440b36dad",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3988319b-c771-43b9-9e4a-2b9dacd98267",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Контрагент",
+        "Name": "counterparty",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "dc8cea41-a836-4f54-bcc5-a43491f14391",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "dbc6d503-b724-4a72-9e1f-169934408080",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Договор",
+        "Name": "contract",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "2b18ebaf-a90f-43e3-ae28-3cfdb11e4a14",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "839dafc2-03d7-4550-b7ca-e5f221353ddb",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Сумма",
+        "Name": "amount",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": []
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

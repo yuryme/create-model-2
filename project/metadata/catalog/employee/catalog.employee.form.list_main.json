@@ -1,0 +1,596 @@
+{
+  "$schema": "../../system/schemas/constructorFormSettings.schema.json",
+  "Root": {
+    "Id": "bs-form-l01abc",
+    "DataUid": null,
+    "ComponentName": "bs-form",
+    "CssClass": "",
+    "Style": "",
+    "Properties": [],
+    "Items": [
+      {
+        "Id": "bs-row-l02def",
+        "DataUid": null,
+        "ComponentName": "bs-row",
+        "CssClass": "grid",
+        "Style": "",
+        "Properties": [],
+        "Items": [
+          {
+            "Id": "bs-col-l03ghi",
+            "DataUid": null,
+            "ComponentName": "bs-col",
+            "CssClass": "col",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-view-title-l04jkl",
+                "DataUid": null,
+                "ComponentName": "bs-view-title",
+                "CssClass": "",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "title",
+                    "Value": "Catalog.Сотрудник"
+                  },
+                  {
+                    "Name": ":isWaiting",
+                    "Value": "isWaiting"
+                  },
+                  {
+                    "Name": ":isModified",
+                    "Value": "isModified"
+                  }
+                ],
+                "Items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "bs-row-l05mno",
+        "DataUid": null,
+        "ComponentName": "bs-row",
+        "CssClass": "grid",
+        "Style": "",
+        "Properties": [],
+        "Items": [
+          {
+            "Id": "bs-col-l06pqr",
+            "DataUid": null,
+            "ComponentName": "bs-col",
+            "CssClass": "col",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "pv-button-group-l07stu",
+                "DataUid": null,
+                "ComponentName": "pv-button-group",
+                "CssClass": "",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "pv-button-l08vwx",
+                    "DataUid": null,
+                    "ComponentName": "pv-button",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Добавить"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-plus"
+                      },
+                      {
+                        "Name": "@Click",
+                        "Value": "standard.add"
+                      },
+                      {
+                        "Name": "severity",
+                        "Value": "primary"
+                      },
+                      {
+                        "Name": "size",
+                        "Value": "small"
+                      },
+                      {
+                        "Name": "outlined",
+                        "Value": "outlined"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-button-l09yz0",
+                    "DataUid": null,
+                    "ComponentName": "pv-button",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Редактировать"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-pencil"
+                      },
+                      {
+                        "Name": "@Click",
+                        "Value": "standard.edit"
+                      },
+                      {
+                        "Name": "severity",
+                        "Value": "primary"
+                      },
+                      {
+                        "Name": "size",
+                        "Value": "small"
+                      },
+                      {
+                        "Name": "outlined",
+                        "Value": "outlined"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-button-l10aBc",
+                    "DataUid": null,
+                    "ComponentName": "pv-button",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Удалить"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-times"
+                      },
+                      {
+                        "Name": "@Click",
+                        "Value": "standard.delete:list"
+                      },
+                      {
+                        "Name": "severity",
+                        "Value": "danger"
+                      },
+                      {
+                        "Name": "size",
+                        "Value": "small"
+                      },
+                      {
+                        "Name": "outlined",
+                        "Value": "outlined"
+                      }
+                    ],
+                    "Items": []
+                  }
+                ]
+              },
+              {
+                "Id": "pv-button-l11dEf",
+                "DataUid": null,
+                "ComponentName": "pv-button",
+                "CssClass": "ml-1",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "label",
+                    "Value": ""
+                  },
+                  {
+                    "Name": "icon",
+                    "Value": "pi pi-copy"
+                  },
+                  {
+                    "Name": "@Click",
+                    "Value": "standard.copy"
+                  },
+                  {
+                    "Name": "severity",
+                    "Value": "primary"
+                  },
+                  {
+                    "Name": "size",
+                    "Value": "small"
+                  },
+                  {
+                    "Name": "outlined",
+                    "Value": "outlined"
+                  }
+                ],
+                "Items": []
+              },
+              {
+                "Id": "pv-split-button-l12gHi",
+                "DataUid": null,
+                "ComponentName": "pv-split-button",
+                "CssClass": "ml-1",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "label",
+                    "Value": "Действия"
+                  },
+                  {
+                    "Name": "severity",
+                    "Value": "primary"
+                  },
+                  {
+                    "Name": "size",
+                    "Value": "small"
+                  },
+                  {
+                    "Name": "outlined",
+                    "Value": "outlined"
+                  }
+                ],
+                "Items": [
+                  {
+                    "Id": "pv-split-button-item-l13jKl",
+                    "DataUid": null,
+                    "ComponentName": "pv-split-button-item",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Обновить"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-refresh"
+                      },
+                      {
+                        "Name": "command",
+                        "Value": "standard.refresh:list"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-split-button-item-l14mNo",
+                    "DataUid": null,
+                    "ComponentName": "pv-split-button-item",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Очистить фильтры"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-filter-slash"
+                      },
+                      {
+                        "Name": "command",
+                        "Value": "standard.clear_filters:list"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-split-button-item-l15pQr",
+                    "DataUid": null,
+                    "ComponentName": "pv-split-button-item",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Excel"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-file-excel"
+                      },
+                      {
+                        "Name": "command",
+                        "Value": "standard.export_excel:list"
+                      }
+                    ],
+                    "Items": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "bs-row-l16sTu",
+        "DataUid": null,
+        "ComponentName": "bs-row",
+        "CssClass": "grid",
+        "Style": "",
+        "Properties": [],
+        "Items": [
+          {
+            "Id": "bs-col-l17vWx",
+            "DataUid": null,
+            "ComponentName": "bs-col",
+            "CssClass": "col",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "pv-divider-l18yZ0",
+                "DataUid": null,
+                "ComponentName": "pv-divider",
+                "CssClass": "",
+                "Style": "margin: 5px",
+                "Properties": [],
+                "Items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "bs-row-l19AbC",
+        "DataUid": null,
+        "ComponentName": "bs-row",
+        "CssClass": "grid",
+        "Style": "",
+        "Properties": [],
+        "Items": [
+          {
+            "Id": "bs-col-l20DeF",
+            "DataUid": null,
+            "ComponentName": "bs-col",
+            "CssClass": "col",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-table-view-l21GhI",
+                "DataUid": "a05d8e21-4f7b-49c3-8a16-2b9d6e0c5f38",
+                "ComponentName": "bs-table-view",
+                "CssClass": "",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "dataSource",
+                    "Value": "catalog.employee"
+                  },
+                  {
+                    "Name": "@RowSelect",
+                    "Value": "standard.row_select"
+                  },
+                  {
+                    "Name": "@RowDblClick",
+                    "Value": "standard.row_dbl_click"
+                  },
+                  {
+                    "Name": "name",
+                    "Value": "list"
+                  },
+                  {
+                    "Name": "height",
+                    "Value": "stretch"
+                  }
+                ],
+                "Items": [
+                  {
+                    "Id": "bs-table-view-column-l22JkL",
+                    "DataUid": "b78c2e51-9d4f-43a8-b16c-7e5a9c3f2d80",
+                    "ComponentName": "bs-table-view-column",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "title",
+                        "Value": "Title"
+                      },
+                      {
+                        "Name": "frozen",
+                        "Value": "true"
+                      },
+                      {
+                        "Name": "name",
+                        "Value": "title"
+                      },
+                      {
+                        "Name": "width",
+                        "Value": "auto"
+                      },
+                      {
+                        "Name": "sortable",
+                        "Value": "true"
+                      },
+                      {
+                        "Name": "filterKind",
+                        "Value": "string"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "bs-table-view-column-l23MnO",
+                    "DataUid": "d83b7e24-1c69-4a05-90fe-6b4c8d2a9f51",
+                    "ComponentName": "bs-table-view-column",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "title",
+                        "Value": "Должность"
+                      },
+                      {
+                        "Name": "name",
+                        "Value": "position_title"
+                      },
+                      {
+                        "Name": "width",
+                        "Value": "auto"
+                      },
+                      {
+                        "Name": "sortable",
+                        "Value": "true"
+                      },
+                      {
+                        "Name": "filterKind",
+                        "Value": "string"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "bs-table-view-column-l24PqR",
+                    "DataUid": "97e3c016-2b48-4d75-a0f9-8c5e1d4b3a92",
+                    "ComponentName": "bs-table-view-column",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "title",
+                        "Value": "Телефон"
+                      },
+                      {
+                        "Name": "name",
+                        "Value": "phone"
+                      },
+                      {
+                        "Name": "width",
+                        "Value": "auto"
+                      },
+                      {
+                        "Name": "sortable",
+                        "Value": "true"
+                      },
+                      {
+                        "Name": "filterKind",
+                        "Value": "string"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "bs-table-view-column-l25StU",
+                    "DataUid": "42cf6a18-9d50-4e83-b167-3a8b0e9c5f74",
+                    "ComponentName": "bs-table-view-column",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "title",
+                        "Value": "Email"
+                      },
+                      {
+                        "Name": "name",
+                        "Value": "email"
+                      },
+                      {
+                        "Name": "width",
+                        "Value": "auto"
+                      },
+                      {
+                        "Name": "sortable",
+                        "Value": "true"
+                      },
+                      {
+                        "Name": "filterKind",
+                        "Value": "string"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "bs-table-view-column-l26VwX",
+                    "DataUid": "1a05f8d3-4c97-42b6-8e09-7d2b5a1c6f48",
+                    "ComponentName": "bs-table-view-column",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "title",
+                        "Value": "Дата приёма"
+                      },
+                      {
+                        "Name": "name",
+                        "Value": "hire_date"
+                      },
+                      {
+                        "Name": "sortable",
+                        "Value": "true"
+                      },
+                      {
+                        "Name": "width",
+                        "Value": "120px"
+                      },
+                      {
+                        "Name": "format",
+                        "Value": "date"
+                      },
+                      {
+                        "Name": "filterKind",
+                        "Value": "date"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "bs-table-view-column-l27YzA",
+                    "DataUid": "73e4b219-8c50-4d6a-90fb-2a8e5c1d4b07",
+                    "ComponentName": "bs-table-view-column",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "title",
+                        "Value": "Дата увольнения"
+                      },
+                      {
+                        "Name": "name",
+                        "Value": "dismissal_date"
+                      },
+                      {
+                        "Name": "sortable",
+                        "Value": "true"
+                      },
+                      {
+                        "Name": "width",
+                        "Value": "120px"
+                      },
+                      {
+                        "Name": "format",
+                        "Value": "date"
+                      },
+                      {
+                        "Name": "filterKind",
+                        "Value": "date"
+                      }
+                    ],
+                    "Items": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "OnInitializedScript": "",
+  "Uid": "c8a1e6b3-2f47-4d59-b80a-5e2c1d8f9a64",
+  "MetaObjectUid": "b2e51d4a-7c98-4e1a-9f3d-1a7b5c2e8d40",
+  "FormKind": 1,
+  "Title": "Форма списка",
+  "Name": "list_main",
+  "Memo": "Форма списка Сотрудник",
+  "Version": 2,
+  "ChildComponents": [],
+  "Display": "Форма списка"
+}

@@ -1,0 +1,1838 @@
+{
+  "$schema": "../../system/schemas/constructorFormSettings.schema.json",
+  "Root": {
+    "Id": "bs-form-e01abc",
+    "DataUid": null,
+    "ComponentName": "bs-form",
+    "CssClass": "",
+    "Style": "",
+    "Properties": [],
+    "Items": [
+      {
+        "Id": "bs-row-e02def",
+        "DataUid": null,
+        "ComponentName": "bs-row",
+        "CssClass": "grid",
+        "Style": "",
+        "Properties": [],
+        "Items": [
+          {
+            "Id": "bs-col-e03ghi",
+            "DataUid": null,
+            "ComponentName": "bs-col",
+            "CssClass": "col",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-view-title-e04jkl",
+                "DataUid": null,
+                "ComponentName": "bs-view-title",
+                "CssClass": "",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "title",
+                    "Value": "Catalog.Сотрудник"
+                  },
+                  {
+                    "Name": ":isWaiting",
+                    "Value": "isWaiting"
+                  },
+                  {
+                    "Name": ":isModified",
+                    "Value": "isModified"
+                  }
+                ],
+                "Items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "bs-row-e05mno",
+        "DataUid": null,
+        "ComponentName": "bs-row",
+        "CssClass": "grid",
+        "Style": "",
+        "Properties": [],
+        "Items": [
+          {
+            "Id": "bs-col-e06pqr",
+            "DataUid": null,
+            "ComponentName": "bs-col",
+            "CssClass": "col",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "pv-button-group-e07stu",
+                "DataUid": null,
+                "ComponentName": "pv-button-group",
+                "CssClass": "",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "pv-button-e08vwx",
+                    "DataUid": null,
+                    "ComponentName": "pv-button",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Вернуться"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-arrow-left"
+                      },
+                      {
+                        "Name": "@Click",
+                        "Value": "standard.return"
+                      },
+                      {
+                        "Name": "severity",
+                        "Value": "primary"
+                      },
+                      {
+                        "Name": "size",
+                        "Value": "small"
+                      },
+                      {
+                        "Name": "outlined",
+                        "Value": "outlined"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-button-e09yz0",
+                    "DataUid": null,
+                    "ComponentName": "pv-button",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Сохранить&Закрыть"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-save"
+                      },
+                      {
+                        "Name": "@Click",
+                        "Value": "standard.save_close"
+                      },
+                      {
+                        "Name": "severity",
+                        "Value": "primary"
+                      },
+                      {
+                        "Name": "size",
+                        "Value": "small"
+                      },
+                      {
+                        "Name": "outlined",
+                        "Value": "outlined"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-button-e10aBc",
+                    "DataUid": null,
+                    "ComponentName": "pv-button",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Сохранить"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-save"
+                      },
+                      {
+                        "Name": "@Click",
+                        "Value": "standard.save"
+                      },
+                      {
+                        "Name": "severity",
+                        "Value": "primary"
+                      },
+                      {
+                        "Name": "size",
+                        "Value": "small"
+                      },
+                      {
+                        "Name": "outlined",
+                        "Value": "outlined"
+                      }
+                    ],
+                    "Items": []
+                  }
+                ]
+              },
+              {
+                "Id": "pv-button-e11dEf",
+                "DataUid": null,
+                "ComponentName": "pv-button",
+                "CssClass": "ml-1",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "label",
+                    "Value": ""
+                  },
+                  {
+                    "Name": "icon",
+                    "Value": "pi pi-file-import"
+                  },
+                  {
+                    "Name": "@Click",
+                    "Value": "standard.create_from"
+                  },
+                  {
+                    "Name": "severity",
+                    "Value": "primary"
+                  },
+                  {
+                    "Name": "size",
+                    "Value": "small"
+                  },
+                  {
+                    "Name": "outlined",
+                    "Value": "outlined"
+                  }
+                ],
+                "Items": []
+              },
+              {
+                "Id": "pv-button-e12gHi",
+                "DataUid": null,
+                "ComponentName": "pv-button",
+                "CssClass": "ml-1",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "label",
+                    "Value": ""
+                  },
+                  {
+                    "Name": "icon",
+                    "Value": "pi pi-paperclip"
+                  },
+                  {
+                    "Name": "@Click",
+                    "Value": "standard.open_files"
+                  },
+                  {
+                    "Name": "severity",
+                    "Value": "primary"
+                  },
+                  {
+                    "Name": "size",
+                    "Value": "small"
+                  },
+                  {
+                    "Name": "outlined",
+                    "Value": "outlined"
+                  }
+                ],
+                "Items": []
+              },
+              {
+                "Id": "pv-split-button-e13jKl",
+                "DataUid": null,
+                "ComponentName": "pv-split-button",
+                "CssClass": "ml-1",
+                "Style": "",
+                "Properties": [
+                  {
+                    "Name": "label",
+                    "Value": "Действия"
+                  },
+                  {
+                    "Name": "severity",
+                    "Value": "primary"
+                  },
+                  {
+                    "Name": "size",
+                    "Value": "small"
+                  },
+                  {
+                    "Name": "outlined",
+                    "Value": "outlined"
+                  }
+                ],
+                "Items": [
+                  {
+                    "Id": "pv-split-button-item-e14mNo",
+                    "DataUid": null,
+                    "ComponentName": "pv-split-button-item",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Лог вычислений"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-list"
+                      },
+                      {
+                        "Name": "command",
+                        "Value": "standard.open_log"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-split-button-item-e15pQr",
+                    "DataUid": null,
+                    "ComponentName": "pv-split-button-item",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Пересчитать"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-refresh"
+                      },
+                      {
+                        "Name": "command",
+                        "Value": "standard.recalculate"
+                      }
+                    ],
+                    "Items": []
+                  },
+                  {
+                    "Id": "pv-split-button-item-e16sTu",
+                    "DataUid": null,
+                    "ComponentName": "pv-split-button-item",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "label",
+                        "Value": "Excel"
+                      },
+                      {
+                        "Name": "icon",
+                        "Value": "pi pi-file-excel"
+                      },
+                      {
+                        "Name": "command",
+                        "Value": "standard.export_excel"
+                      }
+                    ],
+                    "Items": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "bs-row-e17vWx",
+        "DataUid": null,
+        "ComponentName": "bs-row",
+        "CssClass": "grid",
+        "Style": "",
+        "Properties": [],
+        "Items": [
+          {
+            "Id": "bs-col-e18yZ0",
+            "DataUid": null,
+            "ComponentName": "bs-col",
+            "CssClass": "col",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "pv-divider-e19AbC",
+                "DataUid": null,
+                "ComponentName": "pv-divider",
+                "CssClass": "",
+                "Style": "margin: 5px",
+                "Properties": [],
+                "Items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "bs-collapsible-group-e20DeF",
+        "DataUid": null,
+        "ComponentName": "bs-collapsible-group",
+        "CssClass": "",
+        "Style": "",
+        "Properties": [
+          {
+            "Name": "title",
+            "Value": "Основные"
+          },
+          {
+            "Name": "open",
+            "Value": "true"
+          },
+          {
+            "Name": "text-align",
+            "Value": "right"
+          }
+        ],
+        "Items": [
+          {
+            "Id": "bs-row-e21GhI",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e22JkL",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e23MnO",
+                    "DataUid": "f1a25c70-8d4e-4b39-a5c2-7e0b3d8f5a91",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Id"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-number-e24PqR",
+                        "DataUid": "f1a25c70-8d4e-4b39-a5c2-7e0b3d8f5a91",
+                        "ComponentName": "pv-input-number",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.id"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          },
+                          {
+                            "Name": ":minFractionDigits",
+                            "Value": "0"
+                          },
+                          {
+                            "Name": ":maxFractionDigits",
+                            "Value": "0"
+                          },
+                          {
+                            "Name": "disabled",
+                            "Value": ""
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e25StU",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e26VwX",
+                    "DataUid": "e36b9fa4-1c52-4d8e-90a7-4f5b2e8c0d76",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Is deleted"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-checkbox-e27YzA",
+                        "DataUid": "e36b9fa4-1c52-4d8e-90a7-4f5b2e8c0d76",
+                        "ComponentName": "pv-checkbox",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.is_deleted"
+                          },
+                          {
+                            "Name": "binary",
+                            "Value": "true"
+                          },
+                          {
+                            "Name": "disabled",
+                            "Value": ""
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e28BcD",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e29EfG",
+                    "DataUid": "b78c2e51-9d4f-43a8-b16c-7e5a9c3f2d80",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Title"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      },
+                      {
+                        "Name": "required",
+                        "Value": ""
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e30HiJ",
+                        "DataUid": "b78c2e51-9d4f-43a8-b16c-7e5a9c3f2d80",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.title"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          },
+                          {
+                            "Name": "disabled",
+                            "Value": ""
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "bs-row-e31KlM",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e32NoP",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e33QrS",
+                    "DataUid": "20a47c63-8f5d-49b1-a3e2-9c0d6b8f5a17",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Files"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-checkbox-e34TuV",
+                        "DataUid": "20a47c63-8f5d-49b1-a3e2-9c0d6b8f5a17",
+                        "ComponentName": "pv-checkbox",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.is_files"
+                          },
+                          {
+                            "Name": "binary",
+                            "Value": "true"
+                          },
+                          {
+                            "Name": "disabled",
+                            "Value": ""
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e35WxY",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e36ZaB",
+                    "DataUid": "7c19b3e8-5a64-42d9-90fb-1e4c8d7a3f56",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Фамилия"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      },
+                      {
+                        "Name": "required",
+                        "Value": ""
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e37CdE",
+                        "DataUid": "7c19b3e8-5a64-42d9-90fb-1e4c8d7a3f56",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.last_name"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e38FgH",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e39IjK",
+                    "DataUid": "9d2e58b1-4a73-46c8-b0f5-2c8e1d4b9a07",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Имя"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      },
+                      {
+                        "Name": "required",
+                        "Value": ""
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e40LmN",
+                        "DataUid": "9d2e58b1-4a73-46c8-b0f5-2c8e1d4b9a07",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.first_name"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "bs-row-e41OpQ",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e42RsT",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e43UvW",
+                    "DataUid": "4f81a6c9-3d50-4e72-b9a8-6c0b2e8d5a93",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Отчество"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e44XyZ",
+                        "DataUid": "4f81a6c9-3d50-4e72-b9a8-6c0b2e8d5a93",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.middle_name"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e45AbC",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e46DeF",
+                    "DataUid": "16c5d0a7-9e42-48b3-90f1-3a8b4c2e7d65",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Дата рождения"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-calendar-e47GhI",
+                        "DataUid": "16c5d0a7-9e42-48b3-90f1-3a8b4c2e7d65",
+                        "ComponentName": "pv-calendar",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.birth_date"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          },
+                          {
+                            "Name": "showIcon",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "showButtonBar",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "iconDisplay",
+                            "Value": "input"
+                          },
+                          {
+                            "Name": ":showTime",
+                            "Value": "false"
+                          },
+                          {
+                            "Name": "dateFormat",
+                            "Value": "dd.mm.yy"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e48JkL",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e49MnO",
+                    "DataUid": "8e3a7c41-2b95-4f60-a8d3-1c5e9b4f6a82",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Пол"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e50PqR",
+                        "DataUid": "8e3a7c41-2b95-4f60-a8d3-1c5e9b4f6a82",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.gender"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "bs-row-e51StU",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e52VwX",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e53YzA",
+                    "DataUid": "5b94c7e2-1d68-4a35-90af-3e7c0b8d2f56",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "ИНН"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e54BcD",
+                        "DataUid": "5b94c7e2-1d68-4a35-90af-3e7c0b8d2f56",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.inn"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e55EfG",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e56HiJ",
+                    "DataUid": "a7e2b850-9c34-4d61-b0f8-5e9c1a3b6d72",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "СНИЛС"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e57KlM",
+                        "DataUid": "a7e2b850-9c34-4d61-b0f8-5e9c1a3b6d72",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.snils"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e58NoP",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e59QrS",
+                    "DataUid": "3f1d6b85-2a47-4e90-83c6-7b0e9d4a2c58",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Серия паспорта"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e60TuV",
+                        "DataUid": "3f1d6b85-2a47-4e90-83c6-7b0e9d4a2c58",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.passport_series"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "bs-row-e61WxY",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e62ZaB",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e63CdE",
+                    "DataUid": "c89e2a47-6b53-4f01-9d8c-2e4a5b8c1f93",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Номер паспорта"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e64FgH",
+                        "DataUid": "c89e2a47-6b53-4f01-9d8c-2e4a5b8c1f93",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.passport_number"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e65IjK",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e66LmN",
+                    "DataUid": "0d4a9c63-5e87-42b8-a371-6f0b8e2c5d49",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Кем выдан"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e67OpQ",
+                        "DataUid": "0d4a9c63-5e87-42b8-a371-6f0b8e2c5d49",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.passport_issued_by"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e68RsT",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e69UvW",
+                    "DataUid": "f2b58c10-4a96-4d73-8e0f-9c5b1a8d3e74",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Дата выдачи"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-calendar-e70XyZ",
+                        "DataUid": "f2b58c10-4a96-4d73-8e0f-9c5b1a8d3e74",
+                        "ComponentName": "pv-calendar",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.passport_issue_date"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          },
+                          {
+                            "Name": "showIcon",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "showButtonBar",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "iconDisplay",
+                            "Value": "input"
+                          },
+                          {
+                            "Name": ":showTime",
+                            "Value": "false"
+                          },
+                          {
+                            "Name": "dateFormat",
+                            "Value": "dd.mm.yy"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "bs-row-e71AbC",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e72DeF",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e73GhI",
+                    "DataUid": "65e8a1d4-7c39-4b02-90af-1d5e8b7c4f02",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Код подразделения"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e74JkL",
+                        "DataUid": "65e8a1d4-7c39-4b02-90af-1d5e8b7c4f02",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.passport_dept_code"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e75MnO",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e76PqR",
+                    "DataUid": "29bc4a76-8f53-41e0-9d28-7a3b5e9c0f81",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Адрес регистрации"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e77StU",
+                        "DataUid": "29bc4a76-8f53-41e0-9d28-7a3b5e9c0f81",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.registration_address"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e78VwX",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e79YzA",
+                    "DataUid": "be1d9c47-3a85-426f-90b1-4e0c8f2a5d63",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Адрес фактический"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e80BcD",
+                        "DataUid": "be1d9c47-3a85-426f-90b1-4e0c8f2a5d63",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.actual_address"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "bs-row-e81EfG",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e82HiJ",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e83KlM",
+                    "DataUid": "97e3c016-2b48-4d75-a0f9-8c5e1d4b3a92",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Телефон"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e84NoP",
+                        "DataUid": "97e3c016-2b48-4d75-a0f9-8c5e1d4b3a92",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.phone"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e85QrS",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e86TuV",
+                    "DataUid": "42cf6a18-9d50-4e83-b167-3a8b0e9c5f74",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Email"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e87WxY",
+                        "DataUid": "42cf6a18-9d50-4e83-b167-3a8b0e9c5f74",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.email"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e88ZaB",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e89CdE",
+                    "DataUid": "d83b7e24-1c69-4a05-90fe-6b4c8d2a9f51",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Должность"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-text-e90FgH",
+                        "DataUid": "d83b7e24-1c69-4a05-90fe-6b4c8d2a9f51",
+                        "ComponentName": "pv-input-text",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.position_title"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "bs-row-e91IjK",
+            "DataUid": null,
+            "ComponentName": "bs-row",
+            "CssClass": "grid",
+            "Style": "",
+            "Properties": [],
+            "Items": [
+              {
+                "Id": "bs-col-e92LmN",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e93OpQ",
+                    "DataUid": "1a05f8d3-4c97-42b6-8e09-7d2b5a1c6f48",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Дата приёма"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-calendar-e94RsT",
+                        "DataUid": "1a05f8d3-4c97-42b6-8e09-7d2b5a1c6f48",
+                        "ComponentName": "pv-calendar",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.hire_date"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          },
+                          {
+                            "Name": "showIcon",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "showButtonBar",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "iconDisplay",
+                            "Value": "input"
+                          },
+                          {
+                            "Name": ":showTime",
+                            "Value": "false"
+                          },
+                          {
+                            "Name": "dateFormat",
+                            "Value": "dd.mm.yy"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e95UvW",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e96XyZ",
+                    "DataUid": "73e4b219-8c50-4d6a-90fb-2a8e5c1d4b07",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Дата увольнения"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-calendar-e97AbC",
+                        "DataUid": "73e4b219-8c50-4d6a-90fb-2a8e5c1d4b07",
+                        "ComponentName": "pv-calendar",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.dismissal_date"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          },
+                          {
+                            "Name": "showIcon",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "showButtonBar",
+                            "Value": ""
+                          },
+                          {
+                            "Name": "iconDisplay",
+                            "Value": "input"
+                          },
+                          {
+                            "Name": ":showTime",
+                            "Value": "false"
+                          },
+                          {
+                            "Name": "dateFormat",
+                            "Value": "dd.mm.yy"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Id": "bs-col-e98DeF",
+                "DataUid": null,
+                "ComponentName": "bs-col",
+                "CssClass": "col",
+                "Style": "",
+                "Properties": [],
+                "Items": [
+                  {
+                    "Id": "bs-form-field-e99GhI",
+                    "DataUid": "ec9758a0-3b14-4e62-9d8a-5c7e0b1f2a93",
+                    "ComponentName": "bs-form-field",
+                    "CssClass": "",
+                    "Style": "",
+                    "Properties": [
+                      {
+                        "Name": "text",
+                        "Value": "Тариф / оклад"
+                      },
+                      {
+                        "Name": "labelCols",
+                        "Value": "4"
+                      },
+                      {
+                        "Name": "labelAlign",
+                        "Value": "left"
+                      }
+                    ],
+                    "Items": [
+                      {
+                        "Id": "pv-input-number-eA0JkL",
+                        "DataUid": "ec9758a0-3b14-4e62-9d8a-5c7e0b1f2a93",
+                        "ComponentName": "pv-input-number",
+                        "CssClass": "",
+                        "Style": "",
+                        "Properties": [
+                          {
+                            "Name": "vModel",
+                            "Value": "$h.tariff_amount"
+                          },
+                          {
+                            "Name": "size",
+                            "Value": "small"
+                          },
+                          {
+                            "Name": ":minFractionDigits",
+                            "Value": "2"
+                          },
+                          {
+                            "Name": ":maxFractionDigits",
+                            "Value": "2"
+                          }
+                        ],
+                        "Items": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "OnInitializedScript": "",
+  "Uid": "d4f73a98-6b2c-4e51-a3df-9c0e8b5a72f1",
+  "MetaObjectUid": "b2e51d4a-7c98-4e1a-9f3d-1a7b5c2e8d40",
+  "FormKind": 1,
+  "Title": "Форма редактирования",
+  "Name": "edit_main",
+  "Memo": "Форма редактирования Сотрудник",
+  "Version": 2,
+  "ChildComponents": [],
+  "Display": "Форма редактирования"
+}

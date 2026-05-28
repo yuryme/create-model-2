@@ -1,10 +1,10 @@
 {
   "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
-  "Uid": "01845830-edf9-42a1-be7b-0f32b1a07f2f",
+  "Uid": "f120ee42-75d0-49d7-a5f0-99bd561315ad",
   "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
-  "Title": "Группа номенклатуры",
-  "Name": "product_group",
-  "Memo": "Классификация номенклатуры для базового учета.",
+  "Title": "Единица измерения",
+  "Name": "unit",
+  "Memo": "Единица измерения количества номенклатуры.",
   "EditMethod": 0,
   "OrderByExpression": "title",
   "DisplayExpression": "title",
@@ -13,14 +13,14 @@
   "ShowMainImage": false,
   "IsActive": true,
   "Header": {
-    "Uid": "23a24a06-be55-463f-89fb-0e8dc4dcd057",
+    "Uid": "6e879b17-3ade-4ae7-a251-1051daefe79f",
     "Title": "header",
     "Name": "header",
     "Memo": "Основная таблица справочника.",
     "AutoClearMethod": 0,
     "Columns": [
       {
-        "Uid": "18856bd1-2165-495e-a511-fc41b2dcc8f0",
+        "Uid": "0f92d4b2-29c1-4fea-92b9-17831ab0ee34",
         "Kind": 0,
         "StandardColumnUid": "4a7c739c-6012-4e45-bfc0-b78a06db8aec",
         "Title": "Id",
@@ -47,7 +47,7 @@
         "Dependencies": []
       },
       {
-        "Uid": "57a8cb41-42fe-43d1-b89a-08d67470358a",
+        "Uid": "f1400c95-b604-4b90-9a15-2541d3a4984e",
         "Kind": 0,
         "StandardColumnUid": "dc3def1b-bffd-4dc8-b0d5-5d34a57fdcb2",
         "Title": "Is deleted",
@@ -74,7 +74,7 @@
         "Dependencies": []
       },
       {
-        "Uid": "eef89fa6-5b82-4c69-97a9-23f4b2ebd64a",
+        "Uid": "267c207a-ad95-4558-aadc-c8bae41b870d",
         "Kind": 0,
         "StandardColumnUid": "e163c0c4-de77-4e58-a468-f3527b573e4a",
         "Title": "Title",
@@ -101,7 +101,7 @@
         "Dependencies": []
       },
       {
-        "Uid": "713d2fe3-e3ca-4bb6-be6a-9b526441cf15",
+        "Uid": "27db189e-75dd-402d-893d-389ee816237e",
         "Kind": 0,
         "StandardColumnUid": "349f72d7-ac0f-40cd-b02d-a5b5f7dcd467",
         "Title": "Files",
@@ -117,6 +117,33 @@
           "PrimaryKey": false,
           "Required": false,
           "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "6f6cfb5c-d956-4e0a-89b1-964736c9b3a3",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Код",
+        "Name": "code",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 10,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": true,
           "DefaultValue": null
         },
         "RenderSettings": {

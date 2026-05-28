@@ -5,8 +5,9 @@ Read these files at the beginning of every project session:
 - `PROJECT_CONTEXT.md` - current project state: where we are, what is done, what is next.
 - `OPEN_QUESTIONS.md` - open questions and accepted decisions.
 - `project/docs/workflow.md` - mandatory PM -> analyst -> engineer workflow with review loops.
+- `project/docs/patterns/metadata-workflow.md` - reusable metadata workflow lessons and artifact-retention rules.
 
-Without these two files, recommendations about the project are likely to be stale.
+Without these files, recommendations about the project are likely to be stale.
 
 ## Agents
 
@@ -18,7 +19,7 @@ The workspace uses specialized OpenCode agents in separate chats:
 
 PM assistant coordinates the workflow but does not replace `analyst` for design work or `engineer` for metadata implementation.
 
-The human PM approves designs, specifications, implementation plans, and final implementations.
+The human PM approves business decisions, scope, and the functional result on a BaSYS stand. The PM is not expected to read or approve metadata JSON line-by-line; technical metadata checks are the responsibility of agents and tools.
 
 ## OpenCode Infrastructure
 
@@ -45,7 +46,9 @@ Exception: `$schema` paths inside BaSYS metadata JSON files are relative to the 
 
 ## Workspace Structure
 
-- `project/` - Git repository with project metadata, specifications, ADRs, and documentation.
+- `project/` - Git repository with project metadata, specifications, ADRs, reusable patterns, and documentation.
+- `project/metadata/` - working mirror of the current BaSYS stand. Sync it from the real stand before experiments; apply/import it to the stand after implementation. Do not treat experimental metadata as a separate promoted artifact unless the PM explicitly asks for an isolated branch/worktree.
+- `project/docs/patterns/` - reusable lessons and implementation patterns extracted from runs. Keep durable rules here instead of preserving full experiment transcripts.
 - `basys-docs/` - local clone of official BaSYS documentation, treated as read-only.
 - `basys-cursor-rules/` - local clone of BaSYS.CursorRules, treated as read-only source for generated BaSYS skills.
 - `basys-docs-index.md` - local map of `basys-docs/ru/`.
@@ -59,4 +62,5 @@ Exception: `$schema` paths inside BaSYS metadata JSON files are relative to the 
 - Do not edit `basys-docs/` except explicit documentation update operations.
 - Do not edit `basys-cursor-rules/`; update it only with `git pull --ff-only` during sync.
 - Before creating, editing, or deleting files, provide a concise action plan and wait for explicit PM approval.
+- Do not preserve full experiment outputs in active context by default; extract durable lessons into `project/docs/patterns/`, ADR, workflow, or skills.
 - Legacy Claude Code project files have been removed; use `.opencode/agent/`, `.opencode/skills/`, and `opencode.json` for project instructions.

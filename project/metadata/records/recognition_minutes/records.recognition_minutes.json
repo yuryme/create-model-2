@@ -1,0 +1,380 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "2613c30b-22eb-4ef2-b745-1097eb8a1294",
+  "MetaObjectKindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+  "Title": "Минуты распознавания",
+  "Name": "recognition_minutes",
+  "Memo": "Движения предоплаченных и израсходованных минут распознавания.",
+  "EditMethod": 0,
+  "OrderByExpression": "period, id",
+  "DisplayExpression": "",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "a4cdc54c-20bb-42ab-9ce4-9b43615cedbf",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "Таблица записей регистра минут.",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "e3effa97-77cf-498e-8566-671b31830b1a",
+        "Kind": 0,
+        "StandardColumnUid": "7f7eb95c-7b70-4e4f-a391-4080d0710589",
+        "Title": "Id",
+        "Name": "id",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "daa57cb0-32eb-4709-b61f-4ea023ae31c3",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "0e334391-2972-4976-80c5-2d4ec6d7401b",
+        "Kind": 0,
+        "StandardColumnUid": "8893e1df-525e-4a3f-b421-988294b4a2a8",
+        "Title": "Period",
+        "Name": "period",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "e129a226-6d8a-4113-ab52-d08251c0355f",
+        "Kind": 0,
+        "StandardColumnUid": "dcb06a92-5d6f-46be-af10-88a4f91f47e6",
+        "Title": "Object kind",
+        "Name": "object_kind",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "689d1aac-66d8-478f-852e-0e3881b427bf",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "dead8bac-431f-40b3-bb56-9442d1c63f03",
+        "Kind": 0,
+        "StandardColumnUid": "7c2b8ad7-034d-495b-ba80-e300edc50146",
+        "Title": "Meta object",
+        "Name": "meta_object",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "a4d064c6-465f-42a5-bbc0-48f743148c36",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a86d24af-5bd3-4169-ad9c-089e3eaa0c43",
+        "Kind": 0,
+        "StandardColumnUid": "78c493f2-e58a-4ce6-8665-27af40000562",
+        "Title": "Object",
+        "Name": "object_uid",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "dabebc1a-a6df-4f84-b201-34fbcd8dbfea",
+        "Kind": 0,
+        "StandardColumnUid": "398c66ad-10ce-4c75-9a7b-f2ba9398972f",
+        "Title": "Row number",
+        "Name": "row",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "7b5e7787-039b-4b31-9b70-076c68960944",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Организация",
+        "Name": "company",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "d3f3586b-e048-4800-80f9-16c440b36dad",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "04f9a382-8025-4947-9344-a99ca6d17d42",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Клиент",
+        "Name": "counterparty",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "dc8cea41-a836-4f54-bcc5-a43491f14391",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "3254e4b5-773d-4a76-8a6d-c6b444b25d8b",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Пакет минут",
+        "Name": "package_purchase",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "44e39c22-f180-4e14-820e-2c9aa4e61def",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Цена минуты",
+        "Name": "minute_price",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "41b27462-c3aa-4633-9e73-6b4f5c53ec39",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Минуты",
+        "Name": "minutes",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "645f1f25-2a8d-4479-87d3-be2e560f9631",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Сумма",
+        "Name": "amount",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "795d533b-7ca2-4c77-94cd-8157f63986a4",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Перерасход",
+        "Name": "is_overrun",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": "false"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": []
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

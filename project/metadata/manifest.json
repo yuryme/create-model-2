@@ -1,6 +1,6 @@
 {
-  "FormatVersion": "1.7",
-  "ExportedAtUtc": "2026-05-25T00:00:00.0000000Z",
+  "FormatVersion": "1.10",
+  "ExportedAtUtc": "2026-05-27T13:21:47.6960068Z",
   "HashAlgorithm": "SHA-256",
   "Producer": {
     "Application": "BaSys.Constructor",
@@ -11,18 +11,23 @@
   },
   "Counts": {
     "Kinds": 9,
-    "DataTypes": 10,
-    "MetaObjects": 1,
+    "DataTypes": 28,
+    "MetaObjects": 23,
     "DataViews": 0,
-    "Workflows": 0,
+    "Workflows": 1,
     "Menus": 1,
     "ExcelReports": 0,
     "ExcelReportTemplates": 0,
+    "PrintForms": 0,
+    "PrintFormTemplates": 0,
+    "Forms": 0,
+    "ConstructorForms": 2,
     "DataSourceScripts": 0,
     "RecordsSourceScripts": 0,
-    "CommandScripts": 0,
-    "WorkflowStepScripts": 0,
-    "Files": 17
+    "CommandScripts": 2,
+    "WorkflowStepScripts": 1,
+    "ConstructorFormScripts": 0,
+    "Files": 47
   },
   "Files": [
     {
@@ -68,6 +73,28 @@
       "Version": null,
       "SizeBytes": 3864,
       "Sha256": "d45c94c577de93e40bddbb342e804383b5fc95f51e4caea24f5603f0c76beac2"
+    },
+    {
+      "Path": "system/schemas/printFormSettings.schema.json",
+      "Category": "schema",
+      "Uid": null,
+      "KindUid": null,
+      "KindName": null,
+      "Name": "PrintFormSettings",
+      "Version": null,
+      "SizeBytes": 2137,
+      "Sha256": "945d450a694ab8e9683742ea905d85facc870ec64416bfd2b8d5dd63a5fd826b"
+    },
+    {
+      "Path": "system/schemas/constructorFormSettings.schema.json",
+      "Category": "schema",
+      "Uid": null,
+      "KindUid": null,
+      "KindName": null,
+      "Name": "MetaObjectConstructorFormSettings",
+      "Version": null,
+      "SizeBytes": 3581,
+      "Sha256": "8c8ad4ea9bb14ee57476387b5aff271ca51fe2211e4265ad70e2b1daefa4be9f"
     },
     {
       "Path": "system/schemas/workflowSettings.schema.json",
@@ -187,30 +214,338 @@
       "KindName": null,
       "Name": null,
       "Version": null,
-      "SizeBytes": 2391,
-      "Sha256": "a9e8ad435f16683d933bd2ba82426e65fdc00b9825e61e50673d72b1b5e68eb2"
+      "SizeBytes": 7480,
+      "Sha256": "1bd815a767597c0396af6b67db784c39e5331f17489f6ff307a99726f5a95246"
+    },
+    {
+      "Path": "catalog/bank/catalog.bank.json",
+      "Category": "metaObject",
+      "Uid": "cedddfb6-a307-46f1-835a-439e55f1c5ff",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "bank",
+      "Version": 2,
+      "SizeBytes": 11130,
+      "Sha256": "0e98afb612c7e22c06827e0aa6348eb7ea46be28db4c5b9878dc9df343a52a87"
     },
     {
       "Path": "catalog/product_group/catalog.product_group.json",
       "Category": "metaObject",
-      "Uid": "a67af422-d044-4e50-8e8b-6c60cbe5cfdf",
+      "Uid": "01845830-edf9-42a1-be7b-0f32b1a07f2f",
       "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
       "KindName": "catalog",
       "Name": "product_group",
-      "Version": 4,
-      "SizeBytes": 4337,
-      "Sha256": "deca3f19d9f8563da40df8718399b2d850e4a8eab149b645149aaaa97f24efa3"
+      "Version": 1,
+      "SizeBytes": 4043,
+      "Sha256": "197d692212baf3ead4a874d91e6fa4a0722f8d4c4902930a7e718e74a69227ad"
+    },
+    {
+      "Path": "catalog/contract/catalog.contract.json",
+      "Category": "metaObject",
+      "Uid": "2b18ebaf-a90f-43e3-ae28-3cfdb11e4a14",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "contract",
+      "Version": 1,
+      "SizeBytes": 7137,
+      "Sha256": "ab0b59879ceaef8e094d03b4dfb08335937659d53d924f28ad4ed91fa9969ce7"
+    },
+    {
+      "Path": "catalog/unit/catalog.unit.json",
+      "Category": "metaObject",
+      "Uid": "f120ee42-75d0-49d7-a5f0-99bd561315ad",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "unit",
+      "Version": 1,
+      "SizeBytes": 4776,
+      "Sha256": "7e1935bd9c32e929a5d8d744b9a1ad4382f183fa974656dd315fc6c2a94ec5be"
+    },
+    {
+      "Path": "catalog/counterparty/catalog.counterparty.json",
+      "Category": "metaObject",
+      "Uid": "dc8cea41-a836-4f54-bcc5-a43491f14391",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "counterparty",
+      "Version": 1,
+      "SizeBytes": 7098,
+      "Sha256": "9dde54bdc33b61a8ffbbde95b3375d979a073805207035ceeac3ddbb888608bc"
+    },
+    {
+      "Path": "catalog/product/catalog.product.json",
+      "Category": "metaObject",
+      "Uid": "d67e29b0-e54e-4248-a329-74ea5f595e1d",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "product",
+      "Version": 1,
+      "SizeBytes": 7097,
+      "Sha256": "4dde1ad64a90ff509c4aa4782d8f1476e3d95c6c0885961819995e4948fb35f6"
+    },
+    {
+      "Path": "catalog/company/catalog.company.json",
+      "Category": "metaObject",
+      "Uid": "d3f3586b-e048-4800-80f9-16c440b36dad",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "company",
+      "Version": 1,
+      "SizeBytes": 7092,
+      "Sha256": "aac1fa0e9fd72738e24c41a1b8d3003a31883fc5d5e6e0e5a6f4d2037487a5ab"
+    },
+    {
+      "Path": "catalog/bank_account/catalog.bank_account.json",
+      "Category": "metaObject",
+      "Uid": "d64a8ba8-0f22-47df-a813-10b21fbe419a",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "bank_account",
+      "Version": 1,
+      "SizeBytes": 7899,
+      "Sha256": "8f3dc2ac788deb3db177ced6d60841dbfc5bce8ab69a9851d93dcc5e25739b6c"
+    },
+    {
+      "Path": "catalog/warehouse/catalog.warehouse.json",
+      "Category": "metaObject",
+      "Uid": "e6e8b26f-12fb-4806-abc5-64a86211143a",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "warehouse",
+      "Version": 1,
+      "SizeBytes": 4723,
+      "Sha256": "37cb6dc1b5a8c8d97eb4f9250f3dbcb6974b05a8a62fc16fa9a96498358035d2"
+    },
+    {
+      "Path": "catalog/employee/catalog.employee.json",
+      "Category": "metaObject",
+      "Uid": "b2e51d4a-7c98-4e1a-9f3d-1a7b5c2e8d40",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "employee",
+      "Version": 5,
+      "SizeBytes": 20982,
+      "Sha256": "9bbb833bc4c8c2986fd835f65c1c8c5aabe3d13e2e07b60d7f71db174e479b09"
+    },
+    {
+      "Path": "catalog/employee/catalog.employee.form.edit_main.json",
+      "Category": "constructorForm",
+      "Uid": "d4f73a98-6b2c-4e51-a3df-9c0e8b5a72f1",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "edit_main",
+      "Version": 2,
+      "SizeBytes": 62568,
+      "Sha256": "cb2986cd2bfce0e894290ad81033483ba7223c0beb401f5481379b14f86503fd"
+    },
+    {
+      "Path": "catalog/employee/catalog.employee.form.list_main.json",
+      "Category": "constructorForm",
+      "Uid": "c8a1e6b3-2f47-4d59-b80a-5e2c1d8f9a64",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "list_main",
+      "Version": 2,
+      "SizeBytes": 19152,
+      "Sha256": "801160671115fc48c6f66d205fb0a22d57f6a320859b0340b03b7a572db92ca8"
+    },
+    {
+      "Path": "catalog/cash_flow_item/catalog.cash_flow_item.json",
+      "Category": "metaObject",
+      "Uid": "65bbbfb1-984f-4609-8f10-38dbc3fbee43",
+      "KindUid": "032d8377-500f-4631-b435-1f7f69046674",
+      "KindName": "catalog",
+      "Name": "cash_flow_item",
+      "Version": 1,
+      "SizeBytes": 4802,
+      "Sha256": "ddf002b4fa54ea6d6a922e97afb0c10137478f6c7edea753332f1f2d14f5625e"
+    },
+    {
+      "Path": "operation/recognition_package/operation.recognition_package.json",
+      "Category": "metaObject",
+      "Uid": "154046e0-d27d-43a3-9b10-0cb40c5ea753",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "recognition_package",
+      "Version": 1,
+      "SizeBytes": 11813,
+      "Sha256": "10178c96e098e20e0d96cba8a49247dbac08f2a7c78f7995c873a663918eb231"
+    },
+    {
+      "Path": "operation/money_receipt/operation.money_receipt.json",
+      "Category": "metaObject",
+      "Uid": "e15b9ece-59d9-4653-b553-c5214aef6dad",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "money_receipt",
+      "Version": 5,
+      "SizeBytes": 11649,
+      "Sha256": "5a404498a788029e9f13d823f051176478d1583d9664db1b28f16ce267fff9e2"
+    },
+    {
+      "Path": "operation/goods_receipt/operation.goods_receipt.json",
+      "Category": "metaObject",
+      "Uid": "e776bdc7-1583-4985-939a-85b6f27d85a2",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "goods_receipt",
+      "Version": 1,
+      "SizeBytes": 15354,
+      "Sha256": "5442a3b5015fd2930971f68581fe3c656855e5f437b262bd82816f2d01beff0b"
+    },
+    {
+      "Path": "operation/service_receipt/operation.service_receipt.json",
+      "Category": "metaObject",
+      "Uid": "1c7179c1-fd8c-4990-9058-4f38f5117470",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "service_receipt",
+      "Version": 1,
+      "SizeBytes": 13361,
+      "Sha256": "953c96c7374904fc75984986b120f52fdf3921d36b725b963c304842ffed864d"
+    },
+    {
+      "Path": "operation/recognition_usage/operation.recognition_usage.command.load_from_file.bjs",
+      "Category": "commandScript",
+      "Uid": "6f92a376-a0ce-4529-b3d2-6f99f4da3270",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "load_from_file",
+      "Version": 1,
+      "SizeBytes": 289,
+      "Sha256": "a8dc9e642a45c560dff439c07bd61221f280524e9cabde122efee11f288fae4e"
+    },
+    {
+      "Path": "operation/recognition_usage/operation.recognition_usage.command.calculate_fifo.bjs",
+      "Category": "commandScript",
+      "Uid": "6f92a376-a0ce-4529-b3d2-6f99f4da3270",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "calculate_fifo",
+      "Version": 1,
+      "SizeBytes": 2669,
+      "Sha256": "376889712f0a8f0ebdd6809154c8c11ae8ec073c4cc9d768793099395119cb19"
+    },
+    {
+      "Path": "operation/recognition_usage/operation.recognition_usage.json",
+      "Category": "metaObject",
+      "Uid": "6f92a376-a0ce-4529-b3d2-6f99f4da3270",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "recognition_usage",
+      "Version": 1,
+      "SizeBytes": 17397,
+      "Sha256": "b1d5359b745f1f9860dfc0f5fb30329c0b1c0b9a1e83a0fb19f54e34b0ed9a94"
+    },
+    {
+      "Path": "operation/goods_sale/operation.goods_sale.json",
+      "Category": "metaObject",
+      "Uid": "4a0e493c-290a-4f50-9b0d-de218ede424e",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "goods_sale",
+      "Version": 1,
+      "SizeBytes": 15334,
+      "Sha256": "152453938ae5d0de96dc075f67fa7f7f0fe74934204c54add2200415dfef0bda"
+    },
+    {
+      "Path": "operation/service_sale/operation.service_sale.json",
+      "Category": "metaObject",
+      "Uid": "f71d5dd4-2138-47af-b602-46ea04ab28e9",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "service_sale",
+      "Version": 1,
+      "SizeBytes": 13349,
+      "Sha256": "3cfa71294f560e30616f93ea7c094b309877b0722328db7bb4d0adfb4c83cfbc"
+    },
+    {
+      "Path": "operation/money_payment/operation.money_payment.json",
+      "Category": "metaObject",
+      "Uid": "c6c44fbf-2c8e-4f24-b1f3-f514e5fb1501",
+      "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+      "KindName": "operation",
+      "Name": "money_payment",
+      "Version": 1,
+      "SizeBytes": 11639,
+      "Sha256": "5c3378769b648a35bb6a299eec8c1e69f9b6e58472ed1302f59d17af8a5a7256"
+    },
+    {
+      "Path": "records/money_records/records.money_records.json",
+      "Category": "metaObject",
+      "Uid": "03835d54-3331-4222-be8f-7ea231c67e4c",
+      "KindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+      "KindName": "records",
+      "Name": "money_records",
+      "Version": 1,
+      "SizeBytes": 8684,
+      "Sha256": "509c695440aabf5053eb98911ff4d9031aaef51ce975553b8a300a969301558e"
+    },
+    {
+      "Path": "records/recognition_minutes/records.recognition_minutes.json",
+      "Category": "metaObject",
+      "Uid": "2613c30b-22eb-4ef2-b745-1097eb8a1294",
+      "KindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+      "KindName": "records",
+      "Name": "recognition_minutes",
+      "Version": 1,
+      "SizeBytes": 11068,
+      "Sha256": "031d48babda38eb040eecea38b64e05bfa187d804960e19c2255f6a6fb4b341c"
+    },
+    {
+      "Path": "records/settlement_records/records.settlement_records.json",
+      "Category": "metaObject",
+      "Uid": "e7881240-d73d-4a33-a1c7-7c0bad5cb4ee",
+      "KindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+      "KindName": "records",
+      "Name": "settlement_records",
+      "Version": 1,
+      "SizeBytes": 8695,
+      "Sha256": "49e6441dbd92eec1ac7af82452ad85b3de02bed5851fde8af956d30d54bd6aa4"
+    },
+    {
+      "Path": "records/stock_records/records.stock_records.json",
+      "Category": "metaObject",
+      "Uid": "f209bc8a-5e1e-4513-b81d-81877ec016f8",
+      "KindUid": "3eabc5d2-9cf5-4a74-95c8-ff2c2015ded3",
+      "KindName": "records",
+      "Name": "stock_records",
+      "Version": 1,
+      "SizeBytes": 9423,
+      "Sha256": "bea95de4abc3f82bb7fa31da0cfa959ffaa82c6174ba449d061035b3ca1276e8"
+    },
+    {
+      "Path": "workflow/load_rec_usage_excel/workflow.load_rec_usage_excel.step.find_file.bjs",
+      "Category": "workflowStepScript",
+      "Uid": "dadbae5c-630f-4be1-a9b4-8eb4d21bb916",
+      "KindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
+      "KindName": "workflow",
+      "Name": "find_file",
+      "Version": 2,
+      "SizeBytes": 200,
+      "Sha256": "bd5538e7f0d48d360aa5eb9c58a98a648486a5f566b8f5b970aeb58b5a31c6a5"
+    },
+    {
+      "Path": "workflow/load_rec_usage_excel/workflow.load_rec_usage_excel.json",
+      "Category": "workflow",
+      "Uid": "dadbae5c-630f-4be1-a9b4-8eb4d21bb916",
+      "KindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
+      "KindName": "workflow",
+      "Name": "load_rec_usage_excel",
+      "Version": 2,
+      "SizeBytes": 2303,
+      "Sha256": "90c5c5f412e3075c02e0089057c0d1418fa622a13359a0a4d9539dbcadb99dd6"
     },
     {
       "Path": "menu/main/menu.main.json",
       "Category": "menu",
-      "Uid": "199fd023-fc52-a928-ed69-833f243a8ca8",
+      "Uid": "ef6846d5-0d08-48e9-ae1f-84dda276788a",
       "KindUid": "4fb2cc15-2579-4d01-aedb-f097430756f7",
       "KindName": "menu",
       "Name": "main",
-      "Version": 12,
-      "SizeBytes": 3528,
-      "Sha256": "400863f2a0ec29c491bd75d0fc277f27ac34afdb96038ada8eb70c79157252a8"
+      "Version": 2,
+      "SizeBytes": 1488,
+      "Sha256": "7c4cd80a341d1427e54dde416c7892ee0053525c73753d017a055daa4a637c0b"
     }
   ]
 }

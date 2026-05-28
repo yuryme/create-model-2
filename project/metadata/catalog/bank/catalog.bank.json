@@ -1,0 +1,390 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "cedddfb6-a307-46f1-835a-439e55f1c5ff",
+  "MetaObjectKindUid": "032d8377-500f-4631-b435-1f7f69046674",
+  "Title": "Банк",
+  "Name": "bank",
+  "Memo": "Банк для платежных реквизитов.",
+  "EditMethod": 0,
+  "OrderByExpression": "title",
+  "DisplayExpression": "title",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "2f6b2508-086f-4c07-bf27-383acaf7c815",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "Основная таблица справочника.",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "9e7598ca-6b6b-4fb6-bd09-badcdb7acf41",
+        "Kind": 0,
+        "StandardColumnUid": "4a7c739c-6012-4e45-bfc0-b78a06db8aec",
+        "Title": "Id",
+        "Name": "id",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "40e70947-eef5-4ff2-8b59-ca244c505169",
+        "Kind": 0,
+        "StandardColumnUid": "dc3def1b-bffd-4dc8-b0d5-5d34a57fdcb2",
+        "Title": "Is deleted",
+        "Name": "is_deleted",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "117c37ac-458f-41f2-8c81-4b55589c21ed",
+        "Kind": 0,
+        "StandardColumnUid": "e163c0c4-de77-4e58-a468-f3527b573e4a",
+        "Title": "Title",
+        "Name": "title",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "979709d9-cda8-439e-80af-2b04d399a372",
+        "Kind": 0,
+        "StandardColumnUid": "349f72d7-ac0f-40cd-b02d-a5b5f7dcd467",
+        "Title": "Files",
+        "Name": "is_files",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "cc2b38d5-4830-4c9d-b2f4-055d2adaebf9",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "БИК",
+        "Name": "bic",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 9,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": true,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "dd6f09be-6f5b-475f-9222-4458da532628",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Корреспондентский счёт",
+        "Name": "correspondent_account",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 20,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "f8628b4a-e720-42cc-90f4-572a695a9278",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "SWIFT/BIC",
+        "Name": "swift_code",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 11,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "41928983-71b3-4404-b2f5-ba558eb10693",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "ИНН",
+        "Name": "inn",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 12,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "d69fb992-0fdf-46cb-8bbe-06a6831dabcf",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "КПП",
+        "Name": "kpp",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 9,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "0aea1c72-5cbe-49d2-9838-2c93ca54ac85",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Регистрационный номер ЦБ",
+        "Name": "registration_number",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 20,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "fa588eb4-3a48-4a09-9640-34ef7781491a",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Адрес",
+        "Name": "address",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 300,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "b5ca921e-4673-47cc-94c3-32af05a92d4d",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Телефон",
+        "Name": "phone",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 50,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "199b9830-fe36-45e0-a7c3-9c27ff2ce19d",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Сайт",
+        "Name": "website",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "0234c067-7868-46b2-ba8e-e22fae5255cb",
+          "StringLength": 100,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": [
+      {
+        "Uid": "b68923d3-6dbc-4eff-8dd8-467b492f5d7b",
+        "Columns": [
+          {
+            "ColumnUid": "cc2b38d5-4830-4c9d-b2f4-055d2adaebf9",
+            "Direction": 1
+          }
+        ]
+      }
+    ]
+  },
+  "DetailTables": [],
+  "Commands": [],
+  "RecordsSources": [],
+  "RecordsSettings": []
+}

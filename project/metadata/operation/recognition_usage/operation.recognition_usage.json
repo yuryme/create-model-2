@@ -1,0 +1,563 @@
+{
+  "$schema": "../../system/schemas/metaObjectStorableSettings.schema.json",
+  "Uid": "6f92a376-a0ce-4529-b3d2-6f99f4da3270",
+  "MetaObjectKindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
+  "Title": "Расход минут распознавания",
+  "Name": "recognition_usage",
+  "Memo": "Ежемесячный расход минут распознавания с FIFO-списанием пакетов.",
+  "EditMethod": 0,
+  "OrderByExpression": "number desc, date desc",
+  "DisplayExpression": "Расход минут #{{number}} от {{date}}",
+  "ListFormUid": null,
+  "ItemFormUid": null,
+  "ShowMainImage": false,
+  "IsActive": true,
+  "Header": {
+    "Uid": "1b5d941a-b375-49a4-807a-1494d4ada6e8",
+    "Title": "header",
+    "Name": "header",
+    "Memo": "Шапка операции расхода минут.",
+    "AutoClearMethod": 0,
+    "Columns": [
+      {
+        "Uid": "121ab99b-a0ad-4ddb-b792-bf44cc31a5c6",
+        "Kind": 0,
+        "StandardColumnUid": "a39e7b83-e94d-4646-b620-04434fef2f4c",
+        "Title": "Number",
+        "Name": "number",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": true,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "30129690-4cf9-46e5-872d-ab154d7a8de3",
+        "Kind": 0,
+        "StandardColumnUid": "95d36e42-5d4d-4c26-adc1-1319e860b45e",
+        "Title": "Is deleted",
+        "Name": "is_deleted",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": false,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "ae54611d-eb14-4bf1-a644-69adfc50d381",
+        "Kind": 0,
+        "StandardColumnUid": "f244de36-53c9-4e93-a5a2-94abbed91e02",
+        "Title": "Date",
+        "Name": "date",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": "now"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "4be6c5c3-6719-42b4-81ae-2714076f9579",
+        "Kind": 0,
+        "StandardColumnUid": "9cac33f4-6758-4aab-be4a-b00790bdf452",
+        "Title": "Files",
+        "Name": "is_files",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "a953e7ad-e754-46ad-b5ff-e6e55d90831f",
+        "Kind": 0,
+        "StandardColumnUid": "fee422db-18dc-442a-a8dd-01df76c20a98",
+        "Title": "Create records",
+        "Name": "create_records",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": true,
+        "DataSettings": {
+          "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": false,
+          "Unique": false,
+          "DefaultValue": "true"
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "f9913cb7-d641-4f83-bf8d-430e7e55a224",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Организация",
+        "Name": "company",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "d3f3586b-e048-4800-80f9-16c440b36dad",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "25de146c-ea91-4fa1-99be-df1c739b9e9e",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Начало периода",
+        "Name": "period_start",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      },
+      {
+        "Uid": "46f277e8-f0f1-4476-9d16-de765c0d1edc",
+        "Kind": 0,
+        "StandardColumnUid": null,
+        "Title": "Конец периода",
+        "Name": "period_end",
+        "Formula": "",
+        "ItemsSource": "",
+        "AutoClearMethod": 0,
+        "IsStandard": false,
+        "DataSettings": {
+          "DataTypeUid": "9001eafb-efb1-442f-b288-723bb8002b12",
+          "StringLength": 0,
+          "NumberDigits": 2,
+          "PrimaryKey": false,
+          "Required": true,
+          "Unique": false,
+          "DefaultValue": null
+        },
+        "RenderSettings": {
+          "ControlKindUid": "",
+          "ShowInItem": true,
+          "ShowInList": true,
+          "ListColumnWidth": ""
+        },
+        "Dependencies": []
+      }
+    ],
+    "Indexes": []
+  },
+  "DetailTables": [
+    {
+      "Uid": "8fbe0659-cef4-48cf-b88a-8e68b4ca0225",
+      "Title": "Расход из Excel",
+      "Name": "items",
+      "Memo": "Фактические минуты по клиентам за период.",
+      "AutoClearMethod": 0,
+      "Columns": [
+        {
+          "Uid": "2ae52f62-6e34-4053-b7df-5a5ba4b7fe89",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Клиент",
+          "Name": "counterparty",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "dc8cea41-a836-4f54-bcc5-a43491f14391",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "105c713b-a395-4b51-a0f3-e940e83f89da",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Минуты",
+          "Name": "minutes",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        }
+      ],
+      "Indexes": []
+    },
+    {
+      "Uid": "d95601b2-160d-49b2-8205-47a700362430",
+      "Title": "Списание по пакетам",
+      "Name": "write_offs",
+      "Memo": "Результат FIFO-раскладки расхода по пакетам и перерасходу.",
+      "AutoClearMethod": 0,
+      "Columns": [
+        {
+          "Uid": "53cf07f3-da00-4d66-9ae9-6466ce91677e",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Клиент",
+          "Name": "counterparty",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "dc8cea41-a836-4f54-bcc5-a43491f14391",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "fa237657-e290-4102-995d-2f6b968cd896",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Пакет минут",
+          "Name": "package_purchase",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "154046e0-d27d-43a3-9b10-0cb40c5ea753",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "4faf2572-b6b1-4b3a-9b1e-e1d00b103553",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Цена минуты",
+          "Name": "minute_price",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": [
+            {
+              "Kind": 1,
+              "FieldUid": "0ce8133a-74c8-4728-9bb6-c020251bb10a",
+              "TableUid": "d95601b2-160d-49b2-8205-47a700362430"
+            }
+          ]
+        },
+        {
+          "Uid": "14a5bae2-ff3f-4440-866d-faa80615961c",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Минуты",
+          "Name": "minutes",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": [
+            {
+              "Kind": 1,
+              "FieldUid": "0ce8133a-74c8-4728-9bb6-c020251bb10a",
+              "TableUid": "d95601b2-160d-49b2-8205-47a700362430"
+            }
+          ]
+        },
+        {
+          "Uid": "0ce8133a-74c8-4728-9bb6-c020251bb10a",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Сумма",
+          "Name": "amount",
+          "Formula": "$r.minutes * $r.minute_price",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": true,
+            "Unique": false,
+            "DefaultValue": null
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        },
+        {
+          "Uid": "9a83f5a9-2a7c-4310-8196-fb4675be273c",
+          "Kind": 0,
+          "StandardColumnUid": null,
+          "Title": "Перерасход",
+          "Name": "is_overrun",
+          "Formula": "",
+          "ItemsSource": "",
+          "AutoClearMethod": 0,
+          "IsStandard": false,
+          "DataSettings": {
+            "DataTypeUid": "4bff64cf-eb01-4933-9f3d-b902336751f4",
+            "StringLength": 0,
+            "NumberDigits": 2,
+            "PrimaryKey": false,
+            "Required": false,
+            "Unique": false,
+            "DefaultValue": "false"
+          },
+          "RenderSettings": {
+            "ControlKindUid": "",
+            "ShowInItem": true,
+            "ShowInList": true,
+            "ListColumnWidth": ""
+          },
+          "Dependencies": []
+        }
+      ],
+      "Indexes": []
+    }
+  ],
+  "Commands": [
+    {
+      "Uid": "c5248d6a-ac9c-487c-bfeb-a7cdb1033400",
+      "TableUid": "8fbe0659-cef4-48cf-b88a-8e68b4ca0225",
+      "Kind": 0,
+      "Title": "Загрузить из Excel",
+      "Name": "load_from_file",
+      "Expression": "operation.recognition_usage.command.load_from_file.bjs",
+      "Memo": "Загружает фактические минуты из прикрепленного Excel-файла.",
+      "IsActive": true,
+      "Parameters": []
+    },
+    {
+      "Uid": "4549fae6-5b52-4636-9324-3fecfc34114a",
+      "TableUid": "1b5d941a-b375-49a4-807a-1494d4ada6e8",
+      "Kind": 0,
+      "Title": "Рассчитать FIFO",
+      "Name": "calculate_fifo",
+      "Expression": "operation.recognition_usage.command.calculate_fifo.bjs",
+      "Memo": "Рассчитывает списание минут с пакетов по FIFO.",
+      "IsActive": true,
+      "Parameters": []
+    }
+  ],
+  "RecordsSources": [],
+  "RecordsSettings": [
+    {
+      "DestinationMetaObjectUid": "2613c30b-22eb-4ef2-b745-1097eb8a1294",
+      "Rows": [
+        {
+          "Uid": "2f5d63b9-89d0-47cc-a28f-3fcbbd57ea4d",
+          "SourceUid": "d95601b2-160d-49b2-8205-47a700362430",
+          "Direction": 1,
+          "Condition": "",
+          "Columns": [
+            {
+              "DestinationColumnUid": "0e334391-2972-4976-80c5-2d4ec6d7401b",
+              "Expression": "$h.date"
+            },
+            {
+              "DestinationColumnUid": "7b5e7787-039b-4b31-9b70-076c68960944",
+              "Expression": "$h.company"
+            },
+            {
+              "DestinationColumnUid": "04f9a382-8025-4947-9344-a99ca6d17d42",
+              "Expression": "$r.counterparty"
+            },
+            {
+              "DestinationColumnUid": "3254e4b5-773d-4a76-8a6d-c6b444b25d8b",
+              "Expression": "$r.package_purchase"
+            },
+            {
+              "DestinationColumnUid": "44e39c22-f180-4e14-820e-2c9aa4e61def",
+              "Expression": "$r.minute_price"
+            },
+            {
+              "DestinationColumnUid": "41b27462-c3aa-4633-9e73-6b4f5c53ec39",
+              "Expression": "$r.minutes"
+            },
+            {
+              "DestinationColumnUid": "645f1f25-2a8d-4479-87d3-be2e560f9631",
+              "Expression": "$r.amount"
+            },
+            {
+              "DestinationColumnUid": "795d533b-7ca2-4c77-94cd-8157f63986a4",
+              "Expression": "$r.is_overrun"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

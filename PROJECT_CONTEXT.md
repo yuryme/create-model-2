@@ -4,7 +4,7 @@
 > **Не дублировать:** обсуждения и очередь вопросов → `OPEN_QUESTIONS.md`; формальные архитектурные решения → `project/docs/decisions.md`.
 > **Поддерживает AI-ассистент** — обновляет в конце смысловой главы работы.
 
-**Последнее обновление:** 2026-05-25 — Аналитик и Инженер переведены из role-skills в OpenCode agents; workspace очищен от legacy Claude Code infrastructure и старых тестовых результатов.
+**Последнее обновление:** 2026-05-27 — Архитектура workflow перестроена: `project/metadata/` закреплён как рабочее зеркало стенда BaSYS, а результаты экспериментов должны сворачиваться в правила/patterns вместо накопления временных файлов.
 
 ---
 
@@ -14,23 +14,27 @@
 
 Workspace работает в OpenCode из корня `create-model-2/`. Все пути в инструкциях относительны этому корню. Исключение: `$schema` внутри JSON-метаданных относителен самому JSON-файлу.
 
+`project/metadata/` — рабочее зеркало фактического стенда BaSYS. Перед существенными задачами оно должно синхронизироваться со стендом; после реализации изменения импортируются и проверяются на стенде. PM принимает функциональный результат в BaSYS, а не читает JSON-файлы.
+
 ## Агенты
 
 - **analyst**: OpenCode agent для проектирования методик и ТЗ в `project/docs/specs/`; не правит `project/metadata/`.
 - **engineer**: OpenCode agent для реализации approved-ТЗ, планов реализации, изменений `project/metadata/` и инструкций импорта.
 - **Ассистент PM**: текущий координационный чат; ведёт контекст, ревьюит артефакты, помогает PM принимать этапы.
-- **PM**: пользователь; утверждает методики, ТЗ, планы и реализации.
+- **PM**: пользователь; принимает бизнес-решения, scope и результат на стенде BaSYS.
 
 ## Что построено
 
 - `opencode.json` — проектная конфигурация OpenCode, подключает `AGENTS.md` и `.opencode/skills/`.
 - `AGENTS.md` — постоянная инструкция workspace для OpenCode.
 - `.opencode/agent/` — OpenCode agents: `analyst`, `engineer`.
+- `.opencode/commands/` — команды для quick metadata, single-agent autopilot и multi-agent autopilot.
 - `.opencode/skills/` — OpenCode skills. BaSYS metadata skills are generated from `BaSYS.CursorRules`; operational/project skills are maintained locally.
 - `basys-cursor-rules/` — локальный read-only clone `https://github.com/BaSysTeam/BaSYS.CursorRules`, branch `main`, source of truth для generated BaSYS skills.
 - User-level `opencode-docs` skill — справочник по актуальной документации OpenCode; использовать перед изменениями OpenCode-инфраструктуры.
-- `project/metadata/` — чистая стартовая BaSYS-модель: `system/`, `catalog/product_group`, `menu/main`.
-- `project/docs/` — ADR, словарь, шаблоны, будущие ТЗ, методики, планы и материалы интервью.
+- `project/metadata/` — рабочее зеркало текущего стенда BaSYS; не использовать как архив альтернативных экспериментов.
+- `project/docs/` — ADR, словарь, шаблоны, будущие ТЗ, методики, планы, patterns и материалы интервью.
+- `project/docs/patterns/metadata-workflow.md` — короткие переиспользуемые правила из прогонов.
 - `project/docs/workflow.md` — обязательный процесс PM -> analyst -> engineer с review loops и возвратами к владельцу ошибки.
 - `basys-docs-index.md` — карта локальной документации BaSYS.
 - `reference/` — read-only корпус примеров из другой BaSYS-инсталляции; использовать только как банк паттернов, не как источник UID.
@@ -38,11 +42,7 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 
 ## Git
 
-- Новый репозиторий инициализирован в корне `create-model-2/`.
-- Remote: `https://github.com/yuryme/create-model-2.git`.
-- Ветка: `main`, initial commit `e65e9f6` уже запушен.
 - Старый репозиторий `create-model-1` не используется и не должен изменяться в рамках этого workspace.
-- `basys-docs/` исключён из репозитория.
 
 ## Важные правила
 
@@ -54,11 +54,12 @@ Workspace работает в OpenCode из корня `create-model-2/`. Все
 - UID видов, типов, стандартных колонок и схем брать только из `project/metadata/system/`.
 - Новые `Name` объектов и колонок — латиница `snake_case`, максимум 30 символов.
 - При любой реализации Инженер обязан дать инструкцию импорта в BaSYS.
+- Экспериментальные review/audit/report/plan файлы не должны оставаться в активном контексте без пользы; устойчивые уроки переносить в `project/docs/patterns/`, ADR, workflow или skills.
 - PM-chat координирует workflow, но не подменяет analyst при проектировании и engineer при реализации.
 
 ## Что следующее
 
-1. Проверить diff после очистки.
-2. По одобрению PM сделать commit и push cleanup-изменений.
-3. После перезапуска OpenCode проверить agents `analyst` и `engineer`.
+1. Проверить diff после перестройки workflow и OpenCode commands.
+2. Решить, какие текущие экспериментальные артефакты `base-model-*` / `smoke-employee-*` оставить, удалить или архивировать вне активного контекста.
+3. После перезапуска OpenCode проверить новые команды `/quick-metadata` и `/metadata-autopilot`.
 4. Определить боевую предметную область проекта.

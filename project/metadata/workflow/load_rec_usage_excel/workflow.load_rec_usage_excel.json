@@ -1,0 +1,63 @@
+{
+  "$schema": "../../system/schemas/workflowSettings.schema.json",
+  "Uid": "dadbae5c-630f-4be1-a9b4-8eb4d21bb916",
+  "Name": "load_rec_usage_excel",
+  "Title": "Загрузка расхода минут из Excel",
+  "Memo": "Загрузка фактических минут распознавания из прикрепленного Excel-файла.",
+  "IsActive": true,
+  "Version": 2,
+  "Steps": [
+    {
+      "Expression": "workflow.load_rec_usage_excel.step.find_file.bjs",
+      "Uid": "d1fa779f-8ac0-4242-b43c-fc67f8939fb1",
+      "PreviousStepUid": "",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Find file",
+      "Name": "find_file",
+      "Memo": "Поиск прикрепленного Excel-файла операции.",
+      "IsActive": true
+    },
+    {
+      "Regime": 1,
+      "OutputFormat": 0,
+      "AttachedFileUidExpression": "_data.find_file.rows[0].uid",
+      "Uid": "459bc3e5-9100-4673-9a70-803c596c320c",
+      "PreviousStepUid": "d1fa779f-8ac0-4242-b43c-fc67f8939fb1",
+      "KindUid": "800c9045-1c1c-46d0-a15f-968a43220d1a",
+      "KindName": "read_file",
+      "Title": "Read file",
+      "Name": "read_file",
+      "Memo": "Чтение прикрепленного файла.",
+      "IsActive": true
+    },
+    {
+      "SourcePath": "read_file",
+      "SheetName": "Лист1",
+      "StartRow": 1,
+      "EndRow": 0,
+      "Mapping": [
+        {
+          "Uid": "2fbe63c6-e08e-476d-bcf5-b35916471113",
+          "SourceFieldName": "Клиент",
+          "DestinationFieldName": "counterparty",
+          "DataTypeUid": "dc8cea41-a836-4f54-bcc5-a43491f14391"
+        },
+        {
+          "Uid": "afdd06ea-d9df-404f-8804-25174ce8f9d0",
+          "SourceFieldName": "Минуты",
+          "DestinationFieldName": "minutes",
+          "DataTypeUid": "a05516ac-baae-4f66-9b67-6703998a6a1b"
+        }
+      ],
+      "Uid": "070591ca-bc4f-4280-8919-4c960efa563f",
+      "PreviousStepUid": "459bc3e5-9100-4673-9a70-803c596c320c",
+      "KindUid": "762db492-58b2-4e7e-86ca-0b80b0e3aaae",
+      "KindName": "excel_mapping",
+      "Title": "Mapping",
+      "Name": "mapping",
+      "Memo": "Маппинг колонок Excel в строки расхода.",
+      "IsActive": true
+    }
+  ]
+}
