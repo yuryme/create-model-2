@@ -1,0 +1,28 @@
+var counterparties = await from('catalog.counterparty')
+  .select(['id', 'title'])
+  .query();
+
+var counterpartiesById = {};
+for (var i = 0; i < counterparties.rows.length; i++) {
+  var counterparty = counterparties.rows[i];
+  counterpartiesById[String(counterparty.id)] = counterparty;
+}
+
+var result = createTable([
+  'counterparty number',
+  'counterparty_display string',
+  'minutes number'
+]);
+
+for (var j = 0; j < _data.mapping.rows.length; j++) {
+  var source = _data.mapping.rows[j];
+  var found = counterpartiesById[String(source.counterparty_id)];
+
+  result.rows.push({
+    counterparty: found ? found.id : null,
+    counterparty_display: found ? found.title : null,
+    minutes: source.minutes
+  });
+}
+
+return result;

@@ -2,11 +2,22 @@ setIsWaiting(true);
 
 var currentObject = $h.number || 0;
 var records = await from('records.recognition_minutes')
-  .where('company = @company AND object_uid <> @object_uid')
+  .where('company = @company AND NOT (meta_object = @meta_object AND object_uid = @object_uid)')
   .parameter('company', $h.company, 11)
+  .parameter('meta_object', '6f92a376-a0ce-4529-b3d2-6f99f4da3270', 9)
   .parameter('object_uid', currentObject, 11)
   .select(['period', 'object_uid', 'counterparty', 'package_purchase', 'minute_price', 'minutes', 'amount', 'is_overrun'])
   .query();
+
+var packages = await from('operation.recognition_package')
+  .select(['number', 'date'])
+  .query();
+
+var packageDisplayByNumber = {};
+for (var p = 0; p < packages.rows.length; p++) {
+  var packageItem = packages.rows[p];
+  packageDisplayByNumber[String(packageItem.number)] = 'Пакет #' + packageItem.number + ' от ' + packageItem.date;
+}
 
 var packagesByClient = {};
 
@@ -47,7 +58,9 @@ Object.keys(packagesByClient).forEach(clientKey => {
 
 var result = createTable([
   { name: 'counterparty' },
+  { name: 'counterparty_display' },
   { name: 'package_purchase' },
+  { name: 'package_purchase_display' },
   { name: 'minute_price' },
   { name: 'minutes' },
   { name: 'amount' },
@@ -57,6 +70,7 @@ var result = createTable([
 for (var j = 0; j < $t.items.rows.length; j++) {
   var usage = $t.items.rows[j];
   var counterparty = usage.counterparty;
+  var counterpartyDisplay = usage.counterparty_display;
   var remaining = usage.minutes || 0;
   var clientPackages = packagesByClient[String(counterparty)] || [];
 
@@ -69,7 +83,9 @@ for (var j = 0; j < $t.items.rows.length; j++) {
 
     result.rows.push({
       counterparty: counterparty,
+      counterparty_display: counterpartyDisplay,
       package_purchase: pack.package_purchase,
+      package_purchase_display: packageDisplayByNumber[String(pack.package_purchase)] || null,
       minute_price: pack.minute_price,
       minutes: take,
       amount: take * pack.minute_price,
@@ -83,7 +99,9 @@ for (var j = 0; j < $t.items.rows.length; j++) {
   if (remaining > 0) {
     result.rows.push({
       counterparty: counterparty,
+      counterparty_display: counterpartyDisplay,
       package_purchase: null,
+      package_purchase_display: null,
       minute_price: 2,
       minutes: remaining,
       amount: remaining * 2,

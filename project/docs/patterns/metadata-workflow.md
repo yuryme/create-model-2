@@ -31,6 +31,10 @@
 - Если `menu/main` использует `AutoFill = true` для kind, новый объект обычно не нужно добавлять в меню вручную.
 - Формы списка/редактирования не создавать по умолчанию. Если в задаче прямо не сказано создать формы, назначить формы или настроить UX, оставлять `ListFormUid`/`ItemFormUid = null` и использовать автоформы BaSYS. Для первой версии или чернового ядра формы не создавать. Если агент считает, что формы нужны, он сначала отдельно спрашивает PM.
 - Исключение по формам: если пользователь явно просит форму списка, форму редактирования, кнопку, UX, layout, скрытие/группировку полей или удобный рабочий сценарий пользователя, тогда формы создаются через соответствующие skills.
+- В workflow шаг `excel_mapping` должен использовать только primitive `DataTypeUid` (`String`, `Int`, `Long`, `Boolean`, `Decimal`, `DateTime`, `Guid`). Reference-типы (`catalog.*`, `operation.*`) в `excel_mapping` не использовать; читать Excel в промежуточные primitive-поля и преобразовывать в reference в отдельном JS/result step.
+- При загрузке строк в табличную часть операции через `$t.<table>.load(source)` для каждого reference-поля передавать пару `field` + `field_display`. Например: `counterparty` и `counterparty_display`, `package_purchase` и `package_purchase_display`.
+- Каждая табличная часть операции должна начинаться со стандартных колонок `id`, `object_uid`, `row_number` в этом порядке. Шаблон из референсов: `id` = `Long`, `PrimaryKey = true`; `object_uid` = `Int`, `Required = true`; `row_number` = `Int`, `Required = true`; у всех `IsStandard = true`, `StandardColumnUid = null`.
+- При расчётах по регистрам не исключать текущий документ только по `object_uid`: номера разных metaobject могут совпадать. Фильтровать по паре `meta_object + object_uid`, например `NOT (meta_object = @meta_object AND object_uid = @object_uid)`.
 - Для простого catalog не запускать multi-agent; достаточно quick metadata + self-check.
 - Для средних задач с известными паттернами предпочтителен single-agent autopilot: один контекст, внутреннее ревью, без persisted review/audit файлов.
 - Multi-agent использовать только там, где независимый reviewer/auditor окупает стоимость.

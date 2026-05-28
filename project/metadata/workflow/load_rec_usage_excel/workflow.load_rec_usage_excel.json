@@ -5,7 +5,7 @@
   "Title": "Загрузка расхода минут из Excel",
   "Memo": "Загрузка фактических минут распознавания из прикрепленного Excel-файла.",
   "IsActive": true,
-  "Version": 2,
+  "Version": 3,
   "Steps": [
     {
       "Expression": "workflow.load_rec_usage_excel.step.find_file.bjs",
@@ -40,8 +40,8 @@
         {
           "Uid": "2fbe63c6-e08e-476d-bcf5-b35916471113",
           "SourceFieldName": "Клиент",
-          "DestinationFieldName": "counterparty",
-          "DataTypeUid": "dc8cea41-a836-4f54-bcc5-a43491f14391"
+          "DestinationFieldName": "counterparty_id",
+          "DataTypeUid": "b327f82a-ea96-416f-9836-785db28eccac"
         },
         {
           "Uid": "afdd06ea-d9df-404f-8804-25174ce8f9d0",
@@ -57,6 +57,17 @@
       "Title": "Mapping",
       "Name": "mapping",
       "Memo": "Маппинг колонок Excel в строки расхода.",
+      "IsActive": true
+    },
+    {
+      "Expression": "workflow.load_rec_usage_excel.step.result.bjs",
+      "Uid": "9453f0f3-81c2-4cc9-b59e-fc4f276262cb",
+      "PreviousStepUid": "070591ca-bc4f-4280-8919-4c960efa563f",
+      "KindUid": "dff616ce-0f40-4e44-a82b-14aa5ee2e4d6",
+      "KindName": "java_script",
+      "Title": "Result",
+      "Name": "result",
+      "Memo": "Подготовка строк расхода с контрагентом и отображаемым наименованием.",
       "IsActive": true
     }
   ]

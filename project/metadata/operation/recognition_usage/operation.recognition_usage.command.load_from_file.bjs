@@ -1,6 +1,6 @@
 setIsWaiting(true);
 var source = await runWorkflow('load_rec_usage_excel',
-                               'mapping',
+                               'result',
                                [{ name: 'id', dataType: 'integer', value: $h.number }]);
 setIsWaiting(false);
 $t.items.clear();

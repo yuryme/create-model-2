@@ -1,6 +1,6 @@
 {
   "FormatVersion": "1.10",
-  "ExportedAtUtc": "2026-05-27T13:21:47.6960068Z",
+  "ExportedAtUtc": "2026-05-28T11:19:10.8157038Z",
   "HashAlgorithm": "SHA-256",
   "Producer": {
     "Application": "BaSys.Constructor",
@@ -25,9 +25,9 @@
     "DataSourceScripts": 0,
     "RecordsSourceScripts": 0,
     "CommandScripts": 2,
-    "WorkflowStepScripts": 1,
+    "WorkflowStepScripts": 2,
     "ConstructorFormScripts": 0,
-    "Files": 47
+    "Files": 48
   },
   "Files": [
     {
@@ -411,9 +411,9 @@
       "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
       "KindName": "operation",
       "Name": "load_from_file",
-      "Version": 1,
-      "SizeBytes": 289,
-      "Sha256": "a8dc9e642a45c560dff439c07bd61221f280524e9cabde122efee11f288fae4e"
+      "Version": 3,
+      "SizeBytes": 288,
+      "Sha256": "e2144c09f9c062fa6da54f234c40e2a7f209d33288a12df59b02cb224e0a4aaf"
     },
     {
       "Path": "operation/recognition_usage/operation.recognition_usage.command.calculate_fifo.bjs",
@@ -422,7 +422,7 @@
       "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
       "KindName": "operation",
       "Name": "calculate_fifo",
-      "Version": 1,
+      "Version": 3,
       "SizeBytes": 2669,
       "Sha256": "376889712f0a8f0ebdd6809154c8c11ae8ec073c4cc9d768793099395119cb19"
     },
@@ -433,9 +433,9 @@
       "KindUid": "14a60875-e241-4e99-b32d-d45b2726d18b",
       "KindName": "operation",
       "Name": "recognition_usage",
-      "Version": 1,
-      "SizeBytes": 17397,
-      "Sha256": "b1d5359b745f1f9860dfc0f5fb30329c0b1c0b9a1e83a0fb19f54e34b0ed9a94"
+      "Version": 3,
+      "SizeBytes": 22273,
+      "Sha256": "4736965ae03619fb18b9fe16c7a0e303936b780abd3dba8f47566b7f7f3260b5"
     },
     {
       "Path": "operation/goods_sale/operation.goods_sale.json",
@@ -521,9 +521,20 @@
       "KindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
       "KindName": "workflow",
       "Name": "find_file",
-      "Version": 2,
+      "Version": 3,
       "SizeBytes": 200,
       "Sha256": "bd5538e7f0d48d360aa5eb9c58a98a648486a5f566b8f5b970aeb58b5a31c6a5"
+    },
+    {
+      "Path": "workflow/load_rec_usage_excel/workflow.load_rec_usage_excel.step.result.bjs",
+      "Category": "workflowStepScript",
+      "Uid": "dadbae5c-630f-4be1-a9b4-8eb4d21bb916",
+      "KindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
+      "KindName": "workflow",
+      "Name": "result",
+      "Version": 3,
+      "SizeBytes": 728,
+      "Sha256": "6d234c8430af5af35a64a3bfd143cd94f0f277076396aba1f13592feff6da85a"
     },
     {
       "Path": "workflow/load_rec_usage_excel/workflow.load_rec_usage_excel.json",
@@ -532,9 +543,9 @@
       "KindUid": "8734f14e-13d0-4f74-a960-f21f74853cda",
       "KindName": "workflow",
       "Name": "load_rec_usage_excel",
-      "Version": 2,
-      "SizeBytes": 2303,
-      "Sha256": "90c5c5f412e3075c02e0089057c0d1418fa622a13359a0a4d9539dbcadb99dd6"
+      "Version": 3,
+      "SizeBytes": 2816,
+      "Sha256": "6206dacbbc81ea59fecf975391caeef7365f98c610911fe65f91b38012c20f5d"
     },
     {
       "Path": "menu/main/menu.main.json",
